@@ -1,0 +1,1527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Wide Brazil — Partnership Proposal — Victoria Puente Innovación México</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Source+Serif+4:wght@300;400;600&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --navy:    #0D1B2E;
+    --teal:    #00C8C8;
+    --teal2:   #00A8A8;
+    --green:   #3DD68C;
+    --white:   #FFFFFF;
+    --offwhite:#F7F9FC;
+    --lgray:   #E8EDF3;
+    --text:    #1A2535;
+    --gray:    #6B7A8F;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Source Serif 4', serif;
+    background: #CDD5DE;
+    color: var(--text);
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* ── PAGE ── */
+  .page {
+    width: 210mm;
+    height: 297mm;
+    overflow: hidden;
+    background: #fff;
+    margin: 10mm auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    page-break-after: always;
+  }
+
+  /* ── COVER ── */
+  .page.cover {
+    background: var(--navy);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .hex-group { position: absolute; top: 0; right: 0; pointer-events: none; }
+  .hex {
+    position: absolute;
+    clip-path: polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);
+  }
+
+  .cover-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 22mm 18mm 0;
+    position: relative; z-index: 2;
+  }
+
+  .cover-badge {
+    background: var(--teal);
+    padding: 6px 14px;
+    border-radius: 2px;
+  }
+  .cover-badge-text {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 7.5pt;
+    color: var(--navy);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+
+  .cover-content {
+    padding: 0 18mm;
+    position: relative; z-index: 2;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 8mm;
+  }
+
+  .cover-eyebrow {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 8pt;
+    font-weight: 600;
+    color: var(--teal);
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .cover-divider {
+    width: 44px;
+    height: 3px;
+    background: var(--teal);
+    margin-bottom: 14px;
+  }
+
+  .cover-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 26pt;
+    color: var(--white);
+    line-height: 1.18;
+    margin-bottom: 12px;
+  }
+  .cover-title span { color: var(--teal); }
+
+  .cover-subtitle {
+    font-family: 'Source Serif 4', serif;
+    font-weight: 300;
+    font-size: 11pt;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.55;
+    max-width: 140mm;
+    margin-bottom: 16px;
+  }
+
+  .cover-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+  .cover-tag {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 7pt;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    background: rgba(0,200,200,0.15);
+    color: var(--teal);
+    border: 1px solid rgba(0,200,200,0.3);
+    border-radius: 2px;
+  }
+  .cover-tag.outline {
+    background: transparent;
+    color: rgba(255,255,255,0.45);
+    border: 1px solid rgba(255,255,255,0.2);
+  }
+
+  .cover-meta {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    width: 60%;
+    margin: 0 18mm 10mm;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 3px;
+    overflow: hidden;
+    position: relative; z-index: 2;
+  }
+  .cover-meta-item {
+    padding: 10px 14px;
+    border-right: 1px solid rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.04);
+  }
+  .cover-meta-item:last-child { border-right: none; }
+  .cover-meta-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 6.5pt;
+    font-weight: 600;
+    color: var(--teal);
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    margin-bottom: 3px;
+  }
+  .cover-meta-value {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 8.5pt;
+    font-weight: 700;
+    color: var(--white);
+  }
+
+  .cover-image-area {
+    position: relative; z-index: 2;
+    height: 38mm;
+    overflow: hidden;
+    margin: 0;
+  }
+  .brazil-photo {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(13,27,46,0.95) 0%, rgba(13,27,46,0.4) 40%, rgba(0,80,80,0.3) 100%);
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+  }
+  .skyline {
+    width: 100%;
+    height: 28mm;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 120'%3E%3Crect x='0' y='60' width='800' height='60' fill='rgba(0,200,200,0.06)'/%3E%3Crect x='20' y='40' width='30' height='80' fill='rgba(0,200,200,0.12)'/%3E%3Crect x='55' y='30' width='20' height='90' fill='rgba(0,200,200,0.09)'/%3E%3Crect x='80' y='50' width='35' height='70' fill='rgba(0,200,200,0.08)'/%3E%3Crect x='120' y='20' width='15' height='100' fill='rgba(0,200,200,0.14)'/%3E%3Crect x='140' y='35' width='28' height='85' fill='rgba(0,200,200,0.1)'/%3E%3Crect x='175' y='45' width='40' height='75' fill='rgba(0,200,200,0.07)'/%3E%3Crect x='220' y='15' width='18' height='105' fill='rgba(0,200,200,0.16)'/%3E%3Crect x='245' y='30' width='25' height='90' fill='rgba(0,200,200,0.11)'/%3E%3Crect x='280' y='40' width='35' height='80' fill='rgba(0,200,200,0.08)'/%3E%3Crect x='325' y='25' width='20' height='95' fill='rgba(0,200,200,0.13)'/%3E%3Crect x='355' y='10' width='15' height='110' fill='rgba(0,200,200,0.18)'/%3E%3Crect x='380' y='35' width='30' height='85' fill='rgba(0,200,200,0.1)'/%3E%3Crect x='420' y='28' width='22' height='92' fill='rgba(0,200,200,0.12)'/%3E%3Crect x='450' y='42' width='38' height='78' fill='rgba(0,200,200,0.07)'/%3E%3Crect x='500' y='18' width='16' height='102' fill='rgba(0,200,200,0.15)'/%3E%3Crect x='525' y='32' width='26' height='88' fill='rgba(0,200,200,0.1)'/%3E%3Crect x='560' y='45' width='33' height='75' fill='rgba(0,200,200,0.08)'/%3E%3Crect x='605' y='22' width='19' height='98' fill='rgba(0,200,200,0.14)'/%3E%3Crect x='635' y='38' width='28' height='82' fill='rgba(0,200,200,0.09)'/%3E%3Crect x='670' y='48' width='42' height='72' fill='rgba(0,200,200,0.07)'/%3E%3Crect x='720' y='16' width='17' height='104' fill='rgba(0,200,200,0.16)'/%3E%3Crect x='748' y='30' width='24' height='90' fill='rgba(0,200,200,0.11)'/%3E%3C/svg%3E") no-repeat bottom center / cover;
+  }
+
+  .cover-footer {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 18mm;
+    border-top: 1px solid rgba(0,200,200,0.2);
+    background: rgba(0,0,0,0.2);
+    z-index: 3;
+  }
+  .cover-footer-url {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 7pt;
+    font-weight: 700;
+    color: var(--teal);
+    letter-spacing: 1px;
+  }
+  .cover-footer-edition {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 6.5pt;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 0.5px;
+  }
+
+  /* ── INNER PAGES ── */
+  .inner-page {
+    display: flex;
+    flex-direction: column;
+    height: 297mm;
+    overflow: hidden;
+  }
+
+  .page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 16mm;
+    border-bottom: 2px solid var(--teal);
+    background: var(--white);
+    flex-shrink: 0;
+  }
+  .page-header-left {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 7.5pt;
+    color: var(--navy);
+    letter-spacing: 0.5px;
+  }
+  .page-header-left span { font-weight: 400; color: var(--gray); }
+  .page-header-right {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 7pt;
+    color: var(--gray);
+  }
+
+  .page-body {
+    flex: 1;
+    overflow: hidden;
+    padding: 9mm 16mm 6mm;
+  }
+
+  .page-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 16mm;
+    border-top: 1.5px solid var(--teal);
+    background: var(--navy);
+    flex-shrink: 0;
+  }
+  .pf-brand {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 7pt;
+    color: var(--teal);
+    letter-spacing: 0.5px;
+  }
+  .pf-brand span { font-weight: 400; color: rgba(255,255,255,0.45); }
+  .pf-disclaimer {
+    font-family: 'Source Serif 4', serif;
+    font-size: 6.5pt;
+    color: rgba(255,255,255,0.4);
+    font-style: italic;
+  }
+  .pf-page {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 7pt;
+    font-weight: 700;
+    color: rgba(255,255,255,0.5);
+  }
+
+  /* ── SECTION HEADERS ── */
+  .section-header-block {
+    background: var(--teal);
+    padding: 12px 16px;
+    margin-bottom: 14px;
+    border-radius: 3px;
+  }
+  .section-header-block .section-num {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 7pt;
+    font-weight: 700;
+    color: rgba(255,255,255,0.75);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+  }
+  .section-header-block .section-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 14pt;
+    color: var(--navy);
+    line-height: 1.15;
+  }
+  .section-header-block .section-subtitle {
+    font-family: 'Source Serif 4', serif;
+    font-size: 8.5pt;
+    color: rgba(13,27,46,0.7);
+    margin-top: 3px;
+  }
+
+  .navy-section-header {
+    background: var(--navy);
+    padding: 12px 16px;
+    margin-bottom: 14px;
+    border-radius: 3px;
+  }
+  .navy-section-header .section-num {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 7pt;
+    font-weight: 700;
+    color: var(--teal);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+  }
+  .navy-section-header .section-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 14pt;
+    color: var(--white);
+    line-height: 1.15;
+  }
+  .navy-section-header .section-subtitle {
+    font-family: 'Source Serif 4', serif;
+    font-size: 8.5pt;
+    color: rgba(255,255,255,0.6);
+    margin-top: 3px;
+  }
+
+  /* ── BODY TEXT ── */
+  .prose {
+    font-family: 'Source Serif 4', serif;
+    font-size: 9pt;
+    line-height: 1.65;
+    color: var(--text);
+    margin-bottom: 10px;
+  }
+
+  /* ── HIGHLIGHT / CALLOUT BOX ── */
+  .callout {
+    background: var(--offwhite);
+    border-left: 3px solid var(--teal);
+    padding: 10px 14px;
+    border-radius: 2px;
+    margin: 10px 0;
+  }
+  .callout p {
+    font-family: 'Source Serif 4', serif;
+    font-size: 8.5pt;
+    color: var(--text);
+    line-height: 1.55;
+  }
+  .callout strong {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 8pt;
+  }
+
+  /* ── TWO COLUMN LAYOUT ── */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 10px 0; }
+  .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 9px; margin: 10px 0; }
+
+  /* ── CONTEXT CARDS ── */
+  .context-card {
+    background: var(--offwhite);
+    border: 1px solid var(--lgray);
+    border-radius: 3px;
+    padding: 11px 13px;
+  }
+  .context-card-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 6.5pt;
+    font-weight: 700;
+    color: var(--teal2);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .context-card-value {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9pt;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 3px;
+  }
+  .context-card-sub {
+    font-family: 'Source Serif 4', serif;
+    font-size: 8pt;
+    color: var(--gray);
+    line-height: 1.45;
+  }
+
+  /* ── SCOPE ── */
+  .scope-block { margin-bottom: 10px; }
+  .scope-area {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 7.5pt;
+    font-weight: 800;
+    color: var(--teal2);
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    border-bottom: 1.5px solid var(--lgray);
+    padding-bottom: 4px;
+    margin-bottom: 7px;
+  }
+  .scope-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 5px;
+  }
+  .scope-item-check {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 9pt;
+    color: var(--teal);
+    margin-top: 1px;
+    flex-shrink: 0;
+  }
+  .scope-item-text {
+    font-family: 'Source Serif 4', serif;
+    font-size: 8.5pt;
+    color: var(--text);
+    line-height: 1.5;
+  }
+
+  /* ── BENEFIT CARDS ── */
+  .benefits-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; }
+  .benefit-card {
+    background: var(--offwhite);
+    border: 1px solid var(--lgray);
+    border-radius: 3px;
+    padding: 10px 12px;
+  }
+  .benefit-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 5px;
+    gap: 6px;
+  }
+  .benefit-name {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 8pt;
+    color: var(--navy);
+    line-height: 1.3;
+  }
+  .benefit-tag {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 6pt;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    padding: 2px 6px;
+    border-radius: 2px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .benefit-tag.mandatory { background: rgba(0,200,200,0.12); color: var(--teal2); }
+  .benefit-tag.optional  { background: rgba(61,214,140,0.12); color: #1a7a4a; }
+  .benefit-body {
+    font-family: 'Source Serif 4', serif;
+    font-size: 7.5pt;
+    color: var(--gray);
+    line-height: 1.5;
+  }
+
+  /* ── SIMULATION ── */
+  .sim-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 4px; }
+  .sim-wrap-single { margin-top: 6px; }
+
+  .sim-block {
+    border: 1.5px solid var(--lgray);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .sim-block-header {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 8pt;
+    padding: 8px 12px;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+  }
+  .sim-block-header.navy-bg { background: var(--navy); color: var(--teal); }
+  .sim-block-header.teal-bg { background: var(--teal); color: var(--navy); }
+  .sim-block-header.green-bg { background: var(--green); color: var(--navy); }
+
+  .sim-row-dual {
+    display: flex;
+    align-items: center;
+    padding: 4px 10px;
+    border-bottom: 1px solid var(--lgray);
+    gap: 4px;
+  }
+  .sim-row-dual:last-of-type { border-bottom: none; }
+  .sim-row-header { background: var(--offwhite); }
+  .sim-col-head {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 6.5pt;
+    font-weight: 700;
+    color: var(--gray);
+    letter-spacing: 0.8px;
+    width: 62px;
+    text-align: right;
+  }
+  .sim-label {
+    font-family: 'Source Serif 4', serif;
+    font-size: 7.5pt;
+    color: var(--text);
+  }
+  .sim-label.indent { padding-left: 10px; color: var(--gray); }
+  .sim-value {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 7.5pt;
+    font-weight: 600;
+    color: var(--text);
+    width: 62px;
+    text-align: right;
+  }
+  .sim-value.teal { color: var(--teal2); font-weight: 800; }
+  .sim-value.negative { color: #c0392b; }
+
+  .sim-total-row-dual {
+    display: flex;
+    align-items: center;
+    padding: 6px 10px;
+    background: var(--navy);
+    gap: 4px;
+  }
+  .sim-total-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 7.5pt;
+    font-weight: 700;
+    color: rgba(255,255,255,0.8);
+  }
+  .sim-total-value {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 8pt;
+    font-weight: 900;
+    color: var(--teal);
+    width: 62px;
+    text-align: right;
+  }
+  .sim-note {
+    font-family: 'Source Serif 4', serif;
+    font-size: 7pt;
+    color: var(--gray);
+    font-style: italic;
+    padding: 5px 10px;
+    background: var(--offwhite);
+    border-top: 1px solid var(--lgray);
+  }
+  .sim-section-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 6.5pt;
+    font-weight: 700;
+    color: var(--teal2);
+    letter-spacing: 1.3px;
+    text-transform: uppercase;
+    padding: 5px 10px 3px;
+    background: var(--offwhite);
+    border-bottom: 1px solid var(--lgray);
+  }
+
+  /* ── PRICING TABLE ── */
+  .pricing-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0;
+    border: 1.5px solid var(--lgray);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .pricing-table thead tr {
+    background: var(--navy);
+  }
+  .pricing-table thead th {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 7pt;
+    font-weight: 700;
+    color: var(--teal);
+    padding: 8px 12px;
+    text-align: left;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .pricing-table tbody tr { border-bottom: 1px solid var(--lgray); }
+  .pricing-table tbody tr:last-child { border-bottom: none; }
+  .pricing-table tbody tr:nth-child(odd) { background: var(--offwhite); }
+  .pricing-table tbody td {
+    font-family: 'Source Serif 4', serif;
+    font-size: 8.5pt;
+    color: var(--text);
+    padding: 9px 12px;
+    vertical-align: top;
+  }
+  .pt-item {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 8pt;
+    color: var(--navy);
+    display: block;
+  }
+  .pt-note {
+    font-family: 'Source Serif 4', serif;
+    font-size: 7.5pt;
+    color: var(--gray);
+    font-style: italic;
+  }
+  .pt-desc { font-size: 8pt; color: var(--gray); }
+  .pt-value {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 9pt;
+    color: var(--navy);
+    text-align: right;
+    white-space: nowrap;
+  }
+  .pricing-table tr.pt-total {
+    background: var(--navy) !important;
+  }
+  .pricing-table tr.pt-total td {
+    color: var(--white);
+  }
+  .pricing-table tr.pt-total .pt-item {
+    color: var(--white);
+    font-size: 9pt;
+  }
+  .pricing-table tr.pt-total .pt-value {
+    color: var(--teal);
+    font-size: 10.5pt;
+  }
+
+  /* ── INVOICE SUMMARY ── */
+  .invoice-summary { border:1.5px solid var(--lgray); border-radius:4px; overflow:hidden; margin:14px 0; }
+  .invoice-summary-row { display:flex; justify-content:space-between; align-items:baseline; padding:9px 16px; border-bottom:1px solid var(--lgray); }
+  .invoice-summary-row:last-of-type { border-bottom:none; }
+  .invoice-summary-row.total { background:var(--navy); }
+  .invoice-summary-row.total .inv-label { color:rgba(255,255,255,.85); font-weight:700; }
+  .invoice-summary-row.total .inv-value { color:var(--teal); font-size:12pt; font-weight:900; }
+  .inv-label { font-family:'Montserrat',sans-serif; font-weight:600; font-size:8.5pt; color:var(--text); }
+  .inv-value { font-family:'Montserrat',sans-serif; font-weight:800; font-size:9.5pt; color:var(--navy); }
+  .inv-asterisk { font-family:'Source Serif 4',serif; font-size:7pt; color:var(--gray); font-style:italic; padding:6px 16px 8px; background:var(--offwhite); }
+
+  /* ── NEXT STEPS ── */
+  .step-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+  .step-num {
+    flex-shrink: 0;
+    width: 28px; height: 28px;
+    background: var(--navy);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .step-num span {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 9pt;
+    color: var(--teal);
+  }
+  .step-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 8.5pt;
+    color: var(--navy);
+    margin-bottom: 2px;
+  }
+  .step-desc {
+    font-family: 'Source Serif 4', serif;
+    font-size: 8.5pt;
+    color: var(--gray);
+    line-height: 1.5;
+  }
+
+  /* ── CONTACT BOX ── */
+  .contact-box {
+    display: flex;
+    gap: 0;
+    border: 1.5px solid var(--lgray);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-top: 14px;
+  }
+  .contact-box-left {
+    background: var(--navy);
+    padding: 14px 16px;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .contact-box-left h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 12pt;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+  .contact-box-left p {
+    font-family: 'Source Serif 4', serif;
+    font-size: 8pt;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.45;
+  }
+  .contact-box-right {
+    background: var(--offwhite);
+    padding: 14px 16px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+  }
+  .contact-detail {
+    font-family: 'Source Serif 4', serif;
+    font-size: 8.5pt;
+    color: var(--text);
+    display: flex;
+    gap: 8px;
+  }
+  .contact-detail span {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 7pt;
+    font-weight: 700;
+    color: var(--teal2);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    width: 52px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* ── CONTINUATION ── */
+  .continuation-label { font-family:'Montserrat',sans-serif; font-weight:700; font-size:8pt; color:var(--teal2); letter-spacing:1px; text-transform:uppercase; border-bottom:1.5px solid var(--lgray); padding-bottom:8px; margin-bottom:18px; }
+
+  /* ── PARTNERSHIP BADGE ── */
+  .partner-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(0,200,200,0.08);
+    border: 1px solid rgba(0,200,200,0.25);
+    padding: 5px 10px;
+    border-radius: 2px;
+    margin-bottom: 10px;
+  }
+  .partner-badge-icon { font-size: 10pt; }
+  .partner-badge-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 7.5pt;
+    font-weight: 700;
+    color: var(--teal2);
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+  }
+
+  /* ── RECRUITMENT TABLE ── */
+  .rec-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1.5px solid var(--lgray);
+    border-radius: 3px;
+    overflow: hidden;
+    margin: 10px 0;
+  }
+  .rec-table thead tr { background: var(--navy); }
+  .rec-table thead th {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 7pt;
+    font-weight: 700;
+    color: var(--teal);
+    padding: 7px 10px;
+    text-align: left;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .rec-table tbody tr { border-bottom: 1px solid var(--lgray); }
+  .rec-table tbody tr:nth-child(odd) { background: var(--offwhite); }
+  .rec-table tbody td {
+    font-family: 'Source Serif 4', serif;
+    font-size: 8pt;
+    color: var(--text);
+    padding: 8px 10px;
+    vertical-align: top;
+  }
+  .rec-table .rt-label {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 7.5pt;
+    color: var(--navy);
+  }
+  .rec-table .rt-note { font-size: 7.5pt; color: var(--gray); font-style: italic; }
+
+  /* ── PRINT ── */
+  @media print {
+    body { background: none; }
+    .page { margin: 0; box-shadow: none; }
+    @page { size: A4 portrait; margin: 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+     PAGE 1 — COVER
+══════════════════════════════════════════ -->
+<div class="page cover">
+  <div class="hex-group">
+    <div class="hex" style="width:280px;height:280px;background:rgba(0,200,200,0.04);top:-60px;right:-50px;"></div>
+    <div class="hex" style="width:170px;height:170px;background:rgba(0,200,200,0.06);top:70px;right:90px;"></div>
+    <div class="hex" style="width:95px;height:95px;background:rgba(0,200,200,0.1);top:185px;right:205px;"></div>
+    <div class="hex" style="width:70px;height:70px;background:rgba(61,214,140,0.08);top:25px;right:245px;"></div>
+  </div>
+
+  <div class="cover-top">
+    <div class="cover-logo">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+           viewBox="440 390 1060 320" style="height:50px;width:auto;display:block;">
+        <defs>
+          <linearGradient id="lg" x1="528.00962" y1="437.79086" x2="693.52564" y2="437.79086"
+            gradientTransform="translate(0 1081.58265) scale(1 -1)" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#101827"/><stop offset="1" stop-color="#0ec668"/>
+          </linearGradient>
+          <linearGradient id="lg1" x1="438.90681" y1="505.95149" x2="604.42283" y2="505.95149"
+            gradientTransform="translate(0 1081.58265) scale(1 -1)" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#101827"/><stop offset="1" stop-color="#0ec668"/>
+          </linearGradient>
+          <linearGradient id="lg2" x1="712.59445" y1="474.81047" x2="460.26471" y2="699.39719"
+            gradientTransform="translate(0 1081.58265) scale(1 -1)" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#0ec668"/><stop offset="1" stop-color="#12ace6"/>
+          </linearGradient>
+        </defs>
+        <polygon fill="#ffffff" points="1067.75549 401.49997 1023.07159 544.20905 982.00995 404.26547 947.97415 404.26547 906.91302 544.20905 862.2291 401.49997 825.9744 401.49997 889.94604 595.09726 923.0683 595.09726 964.99228 462.89842 1006.63654 595.09726 1040.03796 595.09726 1104.0097 401.49997 1067.75549 401.49997"/>
+        <path fill="#ffffff" d="M1149.14148,401.49997v193.59729h-32.08148v-193.59729h32.08148Z"/>
+        <path fill="#ffffff" d="M1233.70984,401.49997c59.46155,0,102.33014,43.14445,102.33014,96.79817s-42.86859,96.79912-102.33014,96.79912h-66.37671v-193.59729h66.37671ZM1199.41461,562.73893h34.29523c38.99573,0,66.37579-27.38007,66.37579-64.44079s-27.38007-64.43983-66.37579-64.43983h-34.29523v128.88062Z"/>
+        <path fill="#ffffff" d="M1461.63257,401.49997v32.35833h-78.31946v40.93167h45.29926v32.35833h-45.29926v55.59062h78.31946v32.35834h-110.40094v-193.59729h110.40094Z"/>
+        <path fill="#ffffff" d="M1006.4671,663.3115c0,9.59277-7.51465,15.18848-21.9043,15.18848h-27.81934v-55.95898h26.2207c13.42969,0,20.625,5.67578,20.625,14.5498,0,5.75586-2.87793,9.99219-7.19531,12.31055,5.99609,1.91895,10.07324,6.63574,10.07324,13.91016ZM967.13608,630.69529v15.42871h14.70895c7.19434,0,11.27148-2.55859,11.27148-7.6748,0-5.19531-4.07715-7.75391-11.27148-7.75391h-14.70898ZM995.99445,662.27244c0-5.59668-4.2373-8.07422-12.07129-8.07422h-16.78711v16.14746h16.78711c7.83398,0,12.07129-2.47754,12.07129-8.07324Z"/>
+        <path fill="#ffffff" d="M1075.78156,678.49997l-11.43164-16.3877c-.71875.08008-1.43848.08008-2.1582.08008h-12.62988v16.30762h-10.39258v-55.95898h23.02246c14.70898,0,23.82227,7.51465,23.82227,19.90527,0,8.47461-4.31641,14.70996-11.91113,17.66699l12.87109,18.38672h-11.19238ZM1061.71228,631.33494h-12.15039v22.30371h12.15039c9.11328,0,13.83008-4.15723,13.83008-11.19238,0-7.03418-4.7168-11.11133-13.83008-11.11133Z"/>
+        <path fill="#ffffff" d="M1155.48859,665.54978h-27.97949l-5.51562,12.9502h-10.71191l25.18066-55.95898h10.23242l25.26172,55.95898h-10.87207l-5.5957-12.9502ZM1152.05109,657.39548l-10.55176-24.46191-10.47266,24.46191h21.02441Z"/>
+        <path fill="#ffffff" d="M1244.14978,669.70603v8.79395h-47.72461v-6.95508l32.93555-40.20996h-32.37598v-8.79395h46.12598v6.95508l-32.93555,40.20996h33.97461Z"/>
+        <path fill="#ffffff" d="M1275.25323,622.54099h10.39258v55.95898h-10.39258v-55.95898Z"/>
+        <path fill="#ffffff" d="M1322.34113,622.54099h10.39258v47.16504h29.25781v8.79395h-39.65039v-55.95898Z"/>
+        <rect fill="url(#lg)" x="591.52898" y="609.08361" width="93.76549" height="69.41637"/>
+        <rect fill="url(#lg1)" x="502.42616" y="540.92298" width="93.76549" height="69.41637"/>
+        <path fill="url(#lg2)" d="M773.49542,470.72999l43.49487,69.26999-87.9592,138.5h-88.79871l133.26303-207.76999ZM684.48682,401.49997l-158.30856,246.82742,18.93906,30.17258h46.68304l157.73888-245.92795-19.50873-31.07205h-45.5437ZM548.11559,401.49997l-89.74816,138.8298,43.95461,70.00955,133.95263-208.83936h-88.15908Z"/>
+      </svg>
+    </div>
+    <div class="cover-badge"><div class="cover-badge-text">Commercial Proposal</div></div>
+  </div>
+
+  <div class="cover-content">
+    <div class="cover-eyebrow">Workforce Solutions · Brazil &amp; LATAM</div>
+    <div class="cover-divider"></div>
+    <div class="cover-title"><span>Partnership Proposal</span><br>EOR &amp; Recruitment Services</div>
+    <div class="cover-subtitle">A framework for Mariana and Victoria Puente Innovación México to bring compliant, full-service employment and recruitment in Brazil to their Chinese client base — starting with a pilot and building toward a long-term channel partnership.</div>
+    <div class="cover-tags">
+      <span class="cover-tag">Employer of Record</span>
+      <span class="cover-tag">Recruitment</span>
+      <span class="cover-tag">Partner Channel</span>
+      <span class="cover-tag outline">Confidential</span>
+    </div>
+  </div>
+
+  <div class="cover-meta">
+    <div class="cover-meta-item">
+      <div class="cover-meta-label">Prepared for</div>
+      <div class="cover-meta-value">Victoria Puente Innovación México</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="cover-meta-label">Contact</div>
+      <div class="cover-meta-value">Mariana</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="cover-meta-label">Date</div>
+      <div class="cover-meta-value">June 2026</div>
+    </div>
+  </div>
+
+  <div class="cover-image-area">
+    <div class="brazil-photo">
+      <div class="skyline"></div>
+    </div>
+  </div>
+
+  <div class="cover-footer">
+    <span class="cover-footer-url">widebrazil.com</span>
+    <span class="cover-footer-edition">Confidential · Prepared for Victoria Puente Innovación México · v1.0</span>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     PAGE 2 — CONTEXT & PARTNERSHIP STRUCTURE
+══════════════════════════════════════════ -->
+<div class="page inner-page">
+  <div class="page-header">
+    <div class="page-header-left">Wide Brazil <span>| Commercial Proposal</span></div>
+    <div class="page-header-right">Partnership Proposal — Victoria Puente Innovación México</div>
+  </div>
+
+  <div class="page-body">
+    <div class="section-header-block">
+      <div class="section-num">Section 01</div>
+      <div class="section-title">Context &amp; Partnership Model</div>
+      <div class="section-subtitle">Who you are, what your clients need, and how we work together</div>
+    </div>
+
+    <div class="partner-badge">
+      <span class="partner-badge-icon">🤝</span>
+      <span class="partner-badge-text">Partner Channel Proposal — Confidential Pricing</span>
+    </div>
+
+    <p class="prose">Victoria Puente Innovación México supports Chinese companies entering Latin American markets, starting with Mexico. As these clients grow, a number are now looking to expand into Brazil — for both manufacturing operations (likely in Minas Gerais) and commercial/trading activities (São Paulo). They need two things: someone to recruit local talent, and someone to legally employ it.</p>
+
+    <p class="prose">Wide Brazil has been doing exactly this for over 10 years — supporting international companies, including many from China, with recruitment, employment and compliance in Brazil. We are proposing a partnership structure where you introduce clients, and Wide Brazil operates the employment and recruitment layer directly, invoicing you at partner rates so you can manage the client relationship and apply your own margin.</p>
+
+    <div class="three-col" style="margin-top:10px;">
+      <div class="context-card">
+        <div class="context-card-label">Partner</div>
+        <div class="context-card-value">Victoria Puente Innovación MX</div>
+        <div class="context-card-sub">Mexico-based HR firm. Serves Chinese companies landing in LATAM. Strong presence in China via blog and business network.</div>
+      </div>
+      <div class="context-card">
+        <div class="context-card-label">Immediate Demand</div>
+        <div class="context-card-value">~38 employees in Brazil</div>
+        <div class="context-card-sub">Manufacturing client (MG) and commercial client (SP). Mix of white collar and blue collar roles. Recruitment + EOR.</div>
+      </div>
+      <div class="context-card">
+        <div class="context-card-label">Wide Brazil Role</div>
+        <div class="context-card-value">Employer of Record + Recruiter</div>
+        <div class="context-card-sub">We employ the workers, run payroll, manage compliance. You retain the client relationship. We are invisible to the end client if preferred.</div>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top:10px;">
+      <p><strong>How the model works:</strong> Wide Brazil invoices Victoria Puente at partner rates for both EOR services and recruitment fees. You manage billing with your clients at your own rate. We provide all service delivery, compliance, payroll and HR support in Brazil. There is no minimum commitment to start — a single pilot employee is enough to begin.</p>
+    </div>
+
+    <p class="prose" style="margin-top:8px;">Wide Brazil covers Brazil, Argentina, Uruguay and Chile with our own legal entities. Colombia is expected by end of 2026. For any LATAM country outside our current footprint, we can support through our global partner network.</p>
+  </div>
+
+  <div class="page-footer">
+    <div class="pf-brand">Wide Brazil <span>| EOR &amp; Recruitment</span></div>
+    <div class="pf-disclaimer">Confidential — prepared solely for Victoria Puente Innovación México.</div>
+    <div class="pf-page">Page 2</div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     PAGE 3 — SCOPE OF SERVICES
+══════════════════════════════════════════ -->
+<div class="page inner-page">
+  <div class="page-header">
+    <div class="page-header-left">Wide Brazil <span>| Commercial Proposal</span></div>
+    <div class="page-header-right">Partnership Proposal — Victoria Puente Innovación México</div>
+  </div>
+
+  <div class="page-body">
+    <div class="navy-section-header">
+      <div class="section-num">Section 02</div>
+      <div class="section-title">Scope of Services</div>
+      <div class="section-subtitle">What Wide Brazil delivers across EOR and Recruitment</div>
+    </div>
+
+    <div class="two-col">
+      <div>
+        <div class="scope-block">
+          <div class="scope-area">Employer of Record (EOR)</div>
+          <div class="scope-item">
+            <div class="scope-item-check">✓</div>
+            <div class="scope-item-text"><strong>CLT employment contracts</strong> — drafted in Portuguese, compliant with Brazilian labor law. Full legal employment through Wide Brazil's entity.</div>
+          </div>
+          <div class="scope-item">
+            <div class="scope-item-check">✓</div>
+            <div class="scope-item-text"><strong>Payroll processing</strong> — monthly salary calculation, social charges (FGTS, INSS, RAT, Sistema S), income tax withholding and payment.</div>
+          </div>
+          <div class="scope-item">
+            <div class="scope-item-check">✓</div>
+            <div class="scope-item-text"><strong>Benefits administration</strong> — meal allowance (VR/VA), life insurance, and any optional benefits as agreed per employee.</div>
+          </div>
+          <div class="scope-item">
+            <div class="scope-item-check">✓</div>
+            <div class="scope-item-text"><strong>eSocial &amp; government reporting</strong> — all statutory declarations and filings with Brazilian federal and state authorities.</div>
+          </div>
+          <div class="scope-item">
+            <div class="scope-item-check">✓</div>
+            <div class="scope-item-text"><strong>HR support</strong> — onboarding, documentation, employee queries, disciplinary guidance and offboarding procedures.</div>
+          </div>
+          <div class="scope-item">
+            <div class="scope-item-check">✓</div>
+            <div class="scope-item-text"><strong>Annual provisions management</strong> — 13th salary and vacation accrual distributed evenly across monthly invoices.</div>
+          </div>
+          <div class="scope-item">
+            <div class="scope-item-check">✓</div>
+            <div class="scope-item-text"><strong>Termination support</strong> — legal compliance with CLT termination procedures, severance calculations and FGTS release.</div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="scope-block">
+          <div class="scope-area">Recruitment — White Collar</div>
+          <div class="scope-item">
+            <div class="scope-item-check">✓</div>
+            <div class="scope-item-text"><strong>Position briefing</strong> — scope of role, compensation benchmarking and timeline definition with the hiring team.</div>
+          </div>
+          <div class="scope-item">
+            <div class="scope-item-check">✓</div>
+            <div class="scope-item-text"><strong>Active sourcing</strong> — headhunting, database search and LinkedIn sourcing across Brazil. English proficiency assessed where required.</div>
+          </div>
+          <div class="scope-item">
+            <div class="scope-item-check">✓</div>
+            <div class="scope-item-text"><strong>Shortlist delivery</strong> — 3 to 5 pre-screened and interviewed candidates presented within 3 to 4 weeks of kick-off.</div>
+          </div>
+          <div class="scope-item">
+            <div class="scope-item-check">✓</div>
+            <div class="scope-item-text"><strong>Interview coordination</strong> — scheduling, candidate briefing and debrief support throughout the selection process.</div>
+          </div>
+        </div>
+
+        <div class="scope-block" style="margin-top:10px;">
+          <div class="scope-area">Recruitment — Blue Collar</div>
+          <div class="scope-item">
+            <div class="scope-item-check">✓</div>
+            <div class="scope-item-text"><strong>Regional sourcing</strong> — for roles in Minas Gerais or other manufacturing regions, we engage specialist partners locally who source near the plant.</div>
+          </div>
+          <div class="scope-item">
+            <div class="scope-item-check">✓</div>
+            <div class="scope-item-text"><strong>Volume hiring coordination</strong> — for operator, technician and mechanic roles, pricing and timeline are defined per project based on volume and location.</div>
+          </div>
+          <div class="scope-item">
+            <div class="scope-item-check">✓</div>
+            <div class="scope-item-text"><strong>Custom quote required</strong> — blue collar fees are quoted once Wide Brazil reviews the position list. This proposal covers white collar standard fees.</div>
+          </div>
+        </div>
+
+        <div class="scope-block" style="margin-top:10px;">
+          <div class="scope-area">Immigration (Future Scope)</div>
+          <div class="scope-item">
+            <div class="scope-item-check">✓</div>
+            <div class="scope-item-text"><strong>Work visa support for expatriates</strong> — Chinese nationals requiring a work permit or VITEM V visa in Brazil. To be scoped separately when needed.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <div class="pf-brand">Wide Brazil <span>| EOR &amp; Recruitment</span></div>
+    <div class="pf-disclaimer">Confidential — prepared solely for Victoria Puente Innovación México.</div>
+    <div class="pf-page">Page 3</div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     PAGE 4 — BENEFITS
+══════════════════════════════════════════ -->
+<div class="page inner-page">
+  <div class="page-header">
+    <div class="page-header-left">Wide Brazil <span>| Commercial Proposal</span></div>
+    <div class="page-header-right">Partnership Proposal — Victoria Puente Innovación México</div>
+  </div>
+
+  <div class="page-body">
+    <div class="section-header-block">
+      <div class="section-num">Section 03</div>
+      <div class="section-title">Employee Benefits in Brazil</div>
+      <div class="section-subtitle">What every employee receives — mandatory by law, and optional enhancements</div>
+    </div>
+
+    <p class="prose">Brazilian labor law establishes a comprehensive set of mandatory benefits for all CLT employees. These are pass-through costs — Wide Brazil administers them and invoices the client at exact cost, with no markup.</p>
+
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <div class="benefit-card-top">
+          <div class="benefit-name">Meal Allowance (VR / VA)</div>
+          <span class="benefit-tag mandatory">Mandatory</span>
+        </div>
+        <div class="benefit-body">Daily food voucher, typically R$ 24.80 per working day (22 days/month = R$ 545.60). Paid via Sodexo, Alelo or equivalent card. Governed by collective bargaining agreements per sector.</div>
+      </div>
+
+      <div class="benefit-card">
+        <div class="benefit-card-top">
+          <div class="benefit-name">13th Salary</div>
+          <span class="benefit-tag mandatory">Mandatory</span>
+        </div>
+        <div class="benefit-body">One additional monthly salary paid annually, split into two installments (November and December). Provisioned monthly at 1/12 of gross salary to ensure predictable cash flow in monthly invoices.</div>
+      </div>
+
+      <div class="benefit-card">
+        <div class="benefit-card-top">
+          <div class="benefit-name">Paid Annual Leave</div>
+          <span class="benefit-tag mandatory">Mandatory</span>
+        </div>
+        <div class="benefit-body">30 calendar days of paid vacation per year, plus a constitutional bonus of 1/3 of monthly salary on top. Vacation bonus provision is accrued monthly at 1/3 ÷ 12 of gross salary.</div>
+      </div>
+
+      <div class="benefit-card">
+        <div class="benefit-card-top">
+          <div class="benefit-name">Life Insurance</div>
+          <span class="benefit-tag mandatory">Mandatory</span>
+        </div>
+        <div class="benefit-body">Group life insurance covering death and permanent disability. Standard policy approximately R$ 270/month. Required by law or by sector collective bargaining agreements in most industries.</div>
+      </div>
+
+      <div class="benefit-card">
+        <div class="benefit-card-top">
+          <div class="benefit-name">FGTS — Severance Fund</div>
+          <span class="benefit-tag mandatory">Mandatory</span>
+        </div>
+        <div class="benefit-body">Employer deposits 8% of gross salary monthly into a government-managed fund held in the employee's name. Accessible upon dismissal without cause, retirement or certain life events.</div>
+      </div>
+
+      <div class="benefit-card">
+        <div class="benefit-card-top">
+          <div class="benefit-name">Transportation Voucher (VT)</div>
+          <span class="benefit-tag mandatory">Mandatory</span>
+        </div>
+        <div class="benefit-body">Employer subsidises public transportation for the employee's commute. The employee contributes up to 6% of salary toward the cost; the employer covers the remainder. Included in benefits admin.</div>
+      </div>
+
+      <div class="benefit-card">
+        <div class="benefit-card-top">
+          <div class="benefit-name">Private Health Insurance</div>
+          <span class="benefit-tag optional">Optional</span>
+        </div>
+        <div class="benefit-body">Not mandatory by law, but frequently offered to attract white collar talent. Cost varies significantly by provider, age profile and coverage level. Wide Brazil can source and administer if required.</div>
+      </div>
+
+      <div class="benefit-card">
+        <div class="benefit-card-top">
+          <div class="benefit-name">Dental Insurance</div>
+          <span class="benefit-tag optional">Optional</span>
+        </div>
+        <div class="benefit-body">Common in professional and managerial roles. Can be bundled with health insurance. Available as an add-on and administered by Wide Brazil as a pass-through at cost.</div>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top:10px;">
+      <p><strong>Note for Chinese clients:</strong> Brazil's statutory benefit package is comprehensive by international standards. The effective employer cost for a CLT employee is typically 55–65% above the gross salary, once social charges and provisions are accounted for. This proposal includes a full cost simulation on the next page.</p>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <div class="pf-brand">Wide Brazil <span>| EOR &amp; Recruitment</span></div>
+    <div class="pf-disclaimer">Confidential — prepared solely for Victoria Puente Innovación México.</div>
+    <div class="pf-page">Page 4</div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     PAGE 5 — PAYROLL SIMULATION
+══════════════════════════════════════════ -->
+<div class="page inner-page">
+  <div class="page-header">
+    <div class="page-header-left">Wide Brazil <span>| Commercial Proposal</span></div>
+    <div class="page-header-right">Partnership Proposal — Victoria Puente Innovación México</div>
+  </div>
+
+  <div class="page-body">
+    <div class="navy-section-header">
+      <div class="section-num">Section 04</div>
+      <div class="section-title">Payroll Cost Simulation</div>
+      <div class="section-subtitle">Example employee at BRL 15,000 gross / month — no optional benefits — USD/BRL 5.0303 (Banco Central, June 2, 2026)</div>
+    </div>
+
+    <div class="sim-wrap">
+      <!-- LEFT: Total Employer Cost -->
+      <div class="sim-block">
+        <div class="sim-block-header navy-bg">Total Employer Cost</div>
+        <div class="sim-row-dual sim-row-header">
+          <span class="sim-label" style="flex:1"></span>
+          <span class="sim-col-head">BRL</span>
+          <span class="sim-col-head">USD</span>
+        </div>
+
+        <div class="sim-section-label">A — Gross Salary &amp; Social Charges</div>
+        <div class="sim-row-dual">
+          <span class="sim-label" style="flex:1">Gross Monthly Salary</span>
+          <span class="sim-value">15,000</span><span class="sim-value">2,981.93</span>
+        </div>
+        <div class="sim-row-dual">
+          <span class="sim-label indent" style="flex:1">FGTS — 8%</span>
+          <span class="sim-value">1,200.00</span><span class="sim-value">238.55</span>
+        </div>
+        <div class="sim-row-dual">
+          <span class="sim-label indent" style="flex:1">Employer INSS — 20%</span>
+          <span class="sim-value">3,000.00</span><span class="sim-value">596.39</span>
+        </div>
+        <div class="sim-row-dual">
+          <span class="sim-label indent" style="flex:1">RAT Work Accident — 3%</span>
+          <span class="sim-value">450.00</span><span class="sim-value">89.46</span>
+        </div>
+        <div class="sim-row-dual">
+          <span class="sim-label indent" style="flex:1">Sistema S — 5.8%</span>
+          <span class="sim-value">870.00</span><span class="sim-value">172.95</span>
+        </div>
+        <div class="sim-row-dual" style="background:rgba(0,200,200,0.06)">
+          <span class="sim-label" style="flex:1;font-weight:600;">Total Social Charges (36.8%)</span>
+          <span class="sim-value teal">5,520.00</span><span class="sim-value teal">1,097.35</span>
+        </div>
+
+        <div class="sim-section-label">B — Mandatory Benefits</div>
+        <div class="sim-row-dual">
+          <span class="sim-label indent" style="flex:1">Meal Allowance (R$24.80 × 22d)</span>
+          <span class="sim-value">545.60</span><span class="sim-value">108.46</span>
+        </div>
+        <div class="sim-row-dual">
+          <span class="sim-label indent" style="flex:1">Life Insurance</span>
+          <span class="sim-value">270.00</span><span class="sim-value">53.67</span>
+        </div>
+
+        <div class="sim-section-label">C — Annual Provisions</div>
+        <div class="sim-row-dual">
+          <span class="sim-label indent" style="flex:1">13th Salary provision (gross + charges ÷12)</span>
+          <span class="sim-value">1,710.00</span><span class="sim-value">339.94</span>
+        </div>
+        <div class="sim-row-dual">
+          <span class="sim-label indent" style="flex:1">Vacation bonus ⅓ + charges (÷12)</span>
+          <span class="sim-value">570.00</span><span class="sim-value">113.31</span>
+        </div>
+
+        <div class="sim-total-row-dual">
+          <span class="sim-total-label" style="flex:1">Total Monthly Employer Cost</span>
+          <span class="sim-total-value">R$ 23,616</span>
+          <span class="sim-total-value">$ 4,695</span>
+        </div>
+        <div class="sim-note">All statutory costs and benefits are pass-through. No markup applied.</div>
+      </div>
+
+      <!-- RIGHT COLUMN -->
+      <div>
+        <!-- Employee Net -->
+        <div class="sim-block" style="margin-bottom:10px;">
+          <div class="sim-block-header teal-bg">Employee Net Salary</div>
+          <div class="sim-row-dual">
+            <span class="sim-label" style="flex:1">Gross Salary</span>
+            <span class="sim-value">15,000.00</span><span class="sim-value">2,981.93</span>
+          </div>
+          <div class="sim-row-dual">
+            <span class="sim-label indent" style="flex:1">Employee INSS</span>
+            <span class="sim-value negative">(908.86)</span><span class="sim-value negative">(180.67)</span>
+          </div>
+          <div class="sim-row-dual">
+            <span class="sim-label indent" style="flex:1">IRRF Income Tax</span>
+            <span class="sim-value negative">(2,979.06)</span><span class="sim-value negative">(592.19)</span>
+          </div>
+          <div class="sim-total-row-dual">
+            <span class="sim-total-label" style="flex:1">Net Monthly Salary</span>
+            <span class="sim-total-value">R$ 11,112</span>
+            <span class="sim-total-value">$ 2,209</span>
+          </div>
+          <div class="sim-note">Net deposited to employee's Brazilian bank account.</div>
+        </div>
+
+        <!-- Key ratios -->
+        <div class="callout">
+          <p><strong>Cost ratio at this salary level:</strong><br/>
+          Total employer cost = 1.57× gross salary<br/>
+          Net salary received = 74.1% of gross<br/>
+          Social charges alone = 36.8% of gross</p>
+        </div>
+
+        <div class="callout" style="margin-top:8px; border-left-color: var(--green);">
+          <p><strong>Note on annual provisions:</strong> 13th salary and vacation bonus are provisioned monthly so invoices remain consistent throughout the year. No balloon payments in November/December.</p>
+        </div>
+
+        <div style="margin-top:8px; padding:8px 10px; background:var(--offwhite); border:1px solid var(--lgray); border-radius:3px;">
+          <div style="font-family:'Montserrat',sans-serif;font-size:7pt;font-weight:700;color:var(--gray);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px;">Exchange Rate Used</div>
+          <div style="font-family:'Montserrat',sans-serif;font-size:9pt;font-weight:800;color:var(--navy);">USD/BRL 5.0303</div>
+          <div style="font-family:'Source Serif 4',serif;font-size:7.5pt;color:var(--gray);">Banco Central do Brasil, June 2, 2026. Invoice amounts may vary with exchange rate at billing date.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <div class="pf-brand">Wide Brazil <span>| EOR &amp; Recruitment</span></div>
+    <div class="pf-disclaimer">Confidential — prepared solely for Victoria Puente Innovación México.</div>
+    <div class="pf-page">Page 5</div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     PAGE 6 — PRICING
+══════════════════════════════════════════ -->
+<div class="page inner-page">
+  <div class="page-header">
+    <div class="page-header-left">Wide Brazil <span>| Commercial Proposal</span></div>
+    <div class="page-header-right">Partnership Proposal — Victoria Puente Innovación México</div>
+  </div>
+
+  <div class="page-body">
+    <div class="section-header-block">
+      <div class="section-num">Section 05</div>
+      <div class="section-title">Partner Pricing</div>
+      <div class="section-subtitle">EOR fees, recruitment fees, and monthly invoice illustration</div>
+    </div>
+
+    <!-- EOR PRICING -->
+    <div style="font-family:'Montserrat',sans-serif;font-size:8pt;font-weight:800;color:var(--navy);letter-spacing:0.5px;text-transform:uppercase;margin-bottom:6px;">EOR Service Fee</div>
+
+    <table class="pricing-table">
+      <thead>
+        <tr>
+          <th>Component</th>
+          <th>Description</th>
+          <th style="text-align:right">Amount (USD)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <span class="pt-item">Total Employer Payroll Cost</span>
+            <span class="pt-note">Gross salary + social charges + benefits + annual provisions</span>
+          </td>
+          <td class="pt-desc">Pass-through — exact statutory cost, no markup</td>
+          <td class="pt-value">$ 4,694.67 <span style="font-size:7pt;font-weight:400;color:var(--gray);">(example)</span></td>
+        </tr>
+        <tr>
+          <td>
+            <span class="pt-item">Wide Brazil Fixed Retainer</span>
+            <span class="pt-note">Monthly fee per employee</span>
+          </td>
+          <td class="pt-desc">EOR administration, legal compliance, payroll processing, HR support</td>
+          <td class="pt-value">$ 249.00</td>
+        </tr>
+        <tr>
+          <td>
+            <span class="pt-item">GST / Overhead — 8.5%</span>
+            <span class="pt-note">Applied on total employer payroll cost</span>
+          </td>
+          <td class="pt-desc">Wide Brazil operational service charge covering compliance infrastructure and platform</td>
+          <td class="pt-value">$ 399.05 <span style="font-size:7pt;font-weight:400;color:var(--gray);">(example)</span></td>
+        </tr>
+        <tr class="pt-total">
+          <td><span class="pt-item">Total Monthly Invoice per Employee</span></td>
+          <td></td>
+          <td class="pt-value">$ 5,342.72</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="invoice-summary">
+      <div class="invoice-summary-row">
+        <span class="inv-label">Employer Payroll Cost (pass-through, example at R$ 15,000)</span>
+        <span class="inv-value">$ 4,694.67</span>
+      </div>
+      <div class="invoice-summary-row">
+        <span class="inv-label">Wide Brazil Fixed Retainer</span>
+        <span class="inv-value">$ 249.00</span>
+      </div>
+      <div class="invoice-summary-row">
+        <span class="inv-label">GST / Overhead (8.5% on payroll cost)</span>
+        <span class="inv-value">$ 399.05</span>
+      </div>
+      <div class="invoice-summary-row total">
+        <span class="inv-label">Total Monthly Invoice per Employee</span>
+        <span class="inv-value">$ 5,342.72</span>
+      </div>
+    </div>
+    <div class="inv-asterisk">Example based on R$ 15,000 gross salary, no optional benefits, USD/BRL 5.0303. Annual provisions include social charges on 13th salary and on vacation bonus (1/3). Fees scale with employee salary and FX rate at billing date. Statutory costs are pass-through with no markup.</div>
+
+    <!-- RECRUITMENT PRICING -->
+    <div style="font-family:'Montserrat',sans-serif;font-size:8pt;font-weight:800;color:var(--navy);letter-spacing:0.5px;text-transform:uppercase;margin-top:12px;margin-bottom:6px;">Recruitment Fee Structure — Partner Rates</div>
+
+    <table class="rec-table">
+      <thead>
+        <tr>
+          <th>Category</th>
+          <th>Standard Partner Fee</th>
+          <th>If Hired via EOR</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="rt-label">White Collar</span><br><span class="rt-note">Managers, directors, specialists, commercial roles</span></td>
+          <td><strong>1.5× gross monthly salary</strong></td>
+          <td><strong style="color:var(--teal2);">1st placement free</strong><br><span class="rt-note">subsequent at 1.5×</span></td>
+          <td><span class="rt-note">Shortlist in 3–4 weeks. 3–5 candidates pre-screened and interviewed.</span></td>
+        </tr>
+        <tr>
+          <td><span class="rt-label">Blue Collar</span><br><span class="rt-note">Operators, mechanics, technicians, factory floor</span></td>
+          <td><strong>Quoted per project</strong></td>
+          <td><strong style="color:var(--teal2);">Negotiated on volume</strong></td>
+          <td><span class="rt-note">Requires position list to quote. Regional sourcing partners engaged for MG and other states.</span></td>
+        </tr>
+        <tr>
+          <td><span class="rt-label">Key Projects</span><br><span class="rt-note">High-volume or strategic hires</span></td>
+          <td><strong>Negotiable</strong></td>
+          <td><strong style="color:var(--teal2);">Preferential terms</strong></td>
+          <td><span class="rt-note">For bulk hiring projects or executive search mandates, fees are agreed per project scope.</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout" style="margin-top:8px;">
+      <p><strong>EOR + Recruitment bundle:</strong> When a candidate is recruited by Wide Brazil and subsequently employed through our EOR service, the first placement fee is waived. This applies per client. You retain full margin flexibility with your end client on recruitment billing.</p>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <div class="pf-brand">Wide Brazil <span>| EOR &amp; Recruitment</span></div>
+    <div class="pf-disclaimer">Confidential — prepared solely for Victoria Puente Innovación México.</div>
+    <div class="pf-page">Page 6</div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     PAGE 7 — NEXT STEPS
+══════════════════════════════════════════ -->
+<div class="page inner-page">
+  <div class="page-header">
+    <div class="page-header-left">Wide Brazil <span>| Commercial Proposal</span></div>
+    <div class="page-header-right">Partnership Proposal — Victoria Puente Innovación México</div>
+  </div>
+
+  <div class="page-body">
+    <div class="navy-section-header">
+      <div class="section-num">Section 06</div>
+      <div class="section-title">Next Steps &amp; Assumptions</div>
+      <div class="section-subtitle">How to move forward and what we need from you</div>
+    </div>
+
+    <div class="step-row">
+      <div class="step-num"><span>1</span></div>
+      <div>
+        <div class="step-title">Share the manufacturing position list</div>
+        <div class="step-desc">For the Minas Gerais client, send us the detailed list of roles, headcount, and target salaries. This allows Wide Brazil to produce a specific blue collar recruitment quote and confirm EOR cost simulations per role.</div>
+      </div>
+    </div>
+
+    <div class="step-row">
+      <div class="step-num"><span>2</span></div>
+      <div>
+        <div class="step-title">Define the pilot employee or role</div>
+        <div class="step-desc">As discussed, we recommend starting with a single pilot — either a white collar hire for the commercial client in São Paulo, or the first EOR activation. No minimum contract size is required. The pilot validates the workflow between our teams before scaling.</div>
+      </div>
+    </div>
+
+    <div class="step-row">
+      <div class="step-num"><span>3</span></div>
+      <div>
+        <div class="step-title">Agree on the partnership framework</div>
+        <div class="step-desc">Wide Brazil will prepare a simple partner agreement confirming pricing tiers, confidentiality, and operating procedures. This protects both parties and ensures consistency as new clients are introduced.</div>
+      </div>
+    </div>
+
+    <div class="step-row">
+      <div class="step-num"><span>4</span></div>
+      <div>
+        <div class="step-title">Begin onboarding or recruitment kick-off</div>
+        <div class="step-desc">Once a mandate is confirmed, Wide Brazil can initiate EOR onboarding (typically 5–7 business days for documentation) or begin the recruitment process for white collar roles (shortlist in 3–4 weeks).</div>
+      </div>
+    </div>
+
+    <div class="step-row">
+      <div class="step-num"><span>5</span></div>
+      <div>
+        <div class="step-title">In-person meeting in São Paulo (when ready)</div>
+        <div class="step-desc">When Mariana travels to Brazil, Wide Brazil's São Paulo team will be available to meet in our offices — or for a lunch — to strengthen the partnership and discuss any active mandates in detail.</div>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top:10px;">
+      <p><strong>Assumptions &amp; Exclusions:</strong> This proposal covers white collar EOR and recruitment in Brazil. Blue collar recruitment fees require a separate quote based on the position list. Optional employee benefits (health insurance, dental) are not included in the cost simulation and are costed separately. Immigration and visa support for Chinese nationals is a separate scope item. All pricing is in USD; BRL amounts convert at the exchange rate prevailing on the invoice date. Wide Brazil fees do not include local taxes payable by the partner or client in their own jurisdiction.</p>
+    </div>
+
+    <div class="contact-box">
+      <div class="contact-box-left">
+        <h3>Wide Brazil</h3>
+        <p>Employment, recruitment and compliance solutions for international companies operating in Brazil and Latin America.</p>
+      </div>
+      <div class="contact-box-right">
+        <div class="contact-detail"><span>Contact</span>Victor Dias</div>
+        <div class="contact-detail"><span>Email</span>victor.dias@widebrazil.com</div>
+        <div class="contact-detail"><span>Phone</span>+351 965 043 393</div>
+        <div class="contact-detail"><span>Web</span>widebrazil.com</div>
+        <div class="contact-detail"><span>Location</span>São Paulo, Brazil</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <div class="pf-brand">Wide Brazil <span>| EOR &amp; Recruitment</span></div>
+    <div class="pf-disclaimer">Confidential — prepared solely for Victoria Puente Innovación México.</div>
+    <div class="pf-page">Page 7</div>
+  </div>
+</div>
+
+</body>
+</html>
