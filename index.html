@@ -1,46 +1,28 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Wide Brazil — Proposals</title>
+<title>Wide Brazil</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: 'Montserrat', sans-serif; background: #0D1B2E; color: #fff; min-height: 100vh; }
-  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
-  header { background: #0D1B2E; border-bottom: 2px solid #00C8C8; padding: 24px 40px; display: flex; align-items: center; gap: 16px; }
-  header svg { width: 40px; height: 40px; }
-  header h1 { font-size: 20px; font-weight: 700; color: #00C8C8; }
-  header span { font-size: 14px; color: #8899aa; margin-left: 8px; }
-  main { padding: 48px 40px; max-width: 900px; }
-  h2 { font-size: 28px; font-weight: 700; margin-bottom: 8px; }
-  .subtitle { color: #8899aa; margin-bottom: 40px; font-size: 15px; }
-  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; }
-  .card { background: #132338; border: 1px solid #1e3a5f; border-radius: 12px; padding: 24px; transition: border-color 0.2s; text-decoration: none; color: inherit; display: block; }
-  .card:hover { border-color: #00C8C8; }
-  .card-label { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #00C8C8; margin-bottom: 8px; }
-  .card-title { font-size: 18px; font-weight: 600; margin-bottom: 6px; }
-  .card-date { font-size: 13px; color: #8899aa; }
-  .empty { color: #8899aa; font-size: 15px; padding: 40px 0; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: Montserrat, sans-serif; background: #0D1B2E; color: #fff; min-height: 100vh; display: flex; align-items: center; justify-content: center; }
+.wrap { text-align: center; }
+.hex { width: 64px; height: 64px; margin: 0 auto 24px; }
+h1 { font-size: 22px; font-weight: 700; color: #00C8C8; margin-bottom: 8px; }
+p { color: #8899aa; font-size: 14px; }
+a { color: #00C8C8; text-decoration: none; }
 </style>
 </head>
 <body>
-<header>
-  <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <polygon points="20,2 38,12 38,28 20,38 2,28 2,12" fill="#00C8C8" opacity="0.15" stroke="#00C8C8" stroke-width="1.5"/>
-    <text x="20" y="26" text-anchor="middle" font-size="14" font-weight="700" fill="#00C8C8" font-family="Montserrat,sans-serif">W</text>
+<div class="wrap">
+  <svg class="hex" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <polygon points="32,4 60,18 60,46 32,60 4,46 4,18" fill="#00C8C8" opacity="0.12" stroke="#00C8C8" stroke-width="1.5"/>
+    <text x="32" y="42" text-anchor="middle" font-size="22" font-weight="700" fill="#00C8C8" font-family="Montserrat,sans-serif">W</text>
   </svg>
-  <div>
-    <h1>Wide Brazil</h1>
-    <span>Proposals & Reports</span>
-  </div>
-</header>
-<main>
-  <h2>Documentos de Cliente</h2>
-  <p class="subtitle">Propostas e relatórios publicados pela equipa Wide Brazil.</p>
-  <div class="grid" id="grid">
-    <p class="empty">Nenhum documento publicado ainda.</p>
-  </div>
-</main>
+  <h1>Wide Brazil</h1>
+  <p>Employer of Record &amp; Workforce Solutions in Brazil<br><br><a href="https://widebrazil.com">widebrazil.com</a></p>
+</div>
 </body>
 </html>
