@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Salary Benchmark — HubSpot Operations Specialist | Wide Brazil</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Source+Serif+4:wght@300;400;600&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --navy:     #0D1B2E;
+    --teal:     #00C8C8;
+    --teal2:    #00A8A8;
+    --green:    #3DD68C;
+    --white:    #FFFFFF;
+    --offwhite: #F7F9FC;
+    --lgray:    #E8EDF3;
+    --text:     #1A2535;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Source Serif 4', serif;
+    background: #dde4ed;
+    color: var(--text);
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    max-height: 297mm;
+    background: var(--white);
+    margin: 0 auto 28px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* COVER */
+  .cover { background: var(--navy); }
+  .cover-hex { position: absolute; opacity: 0.06; pointer-events: none; }
+  .hex-tl { top: -60px; left: -60px; width: 280px; height: 280px; }
+  .hex-br { bottom: -80px; right: -80px; width: 340px; height: 340px; }
+  .hex-mr { top: 38%; right: -40px; width: 160px; height: 160px; }
+  .cover-inner { position: relative; z-index: 2; padding: 32px 36px 28px; display: flex; flex-direction: column; height: 297mm; }
+  .cover-top { display: flex; justify-content: space-between; align-items: flex-start; }
+  .cover-badge { background: var(--teal); color: var(--navy); font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 7pt; letter-spacing: 2px; text-transform: uppercase; padding: 5px 14px; border-radius: 2px; }
+  .cover-content { margin-top: auto; padding-bottom: 28px; }
+  .cover-tag { font-family: 'Montserrat', sans-serif; font-size: 7pt; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--teal); margin-bottom: 14px; }
+  .cover-title { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 26pt; color: var(--white); line-height: 1.1; margin-bottom: 12px; }
+  .cover-title span { color: var(--teal); }
+  .cover-subtitle { font-family: 'Source Serif 4', serif; font-weight: 300; font-size: 10.5pt; color: rgba(255,255,255,0.70); line-height: 1.55; max-width: 360px; margin-bottom: 28px; }
+  .cover-meta { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: rgba(255,255,255,0.12); border-radius: 4px; overflow: hidden; margin-bottom: 24px; }
+  .cover-meta-item { background: rgba(255,255,255,0.06); padding: 10px 14px; }
+  .cover-meta-label { font-family: 'Montserrat', sans-serif; font-size: 6.5pt; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--teal); margin-bottom: 4px; }
+  .cover-meta-value { font-family: 'Montserrat', sans-serif; font-size: 8.5pt; font-weight: 700; color: var(--white); }
+  .cover-skyline { margin-top: auto; opacity: 0.08; pointer-events: none; overflow: hidden; height: 68px; }
+
+  /* INNER */
+  .inner-page { display: flex; flex-direction: column; }
+  .page-header { background: var(--navy); padding: 9px 22px; display: flex; justify-content: space-between; align-items: center; flex-shrink: 0; }
+  .page-header-left { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 7.5pt; color: var(--white); letter-spacing: 0.5px; }
+  .page-header-left span { color: var(--teal); font-weight: 400; }
+  .page-header-right { font-family: 'Source Serif 4', serif; font-size: 7.5pt; font-weight: 300; color: rgba(255,255,255,0.55); font-style: italic; }
+  .page-body { flex: 1; padding: 0 26px 14px; overflow: hidden; }
+  .page-footer { border-top: 2px solid var(--teal); padding: 7px 22px; display: flex; justify-content: space-between; align-items: center; flex-shrink: 0; }
+  .pf-brand { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 7pt; color: var(--navy); }
+  .pf-brand span { color: var(--teal2); font-weight: 400; }
+  .pf-disclaimer { font-family: 'Source Serif 4', serif; font-size: 6.5pt; font-weight: 300; color: #8a96a8; font-style: italic; }
+
+  /* SECTION HEADERS */
+  .section-header-block { background: var(--teal); margin: 0 -26px 18px; padding: 14px 26px 12px; }
+  .navy-section-header { background: var(--navy); }
+  .section-num { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 7pt; letter-spacing: 3px; text-transform: uppercase; color: rgba(0,0,0,0.4); margin-bottom: 3px; }
+  .navy-section-header .section-num { color: rgba(255,255,255,0.4); }
+  .section-title { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 15pt; color: var(--navy); line-height: 1.1; }
+  .navy-section-header .section-title { color: var(--white); }
+  .section-subtitle { font-family: 'Source Serif 4', serif; font-weight: 300; font-size: 8.5pt; color: rgba(0,0,0,0.55); margin-top: 4px; }
+  .navy-section-header .section-subtitle { color: rgba(255,255,255,0.55); }
+
+  /* TYPOGRAPHY */
+  h2 { font-size: 9.5pt; font-weight: 800; color: var(--navy); margin: 16px 0 7px; display: flex; align-items: center; gap: 8px; font-family: 'Montserrat', sans-serif; }
+  h2::before { content: ''; display: inline-block; width: 4px; height: 13px; background: var(--teal); border-radius: 2px; flex-shrink: 0; }
+  p { font-size: 8.5pt; line-height: 1.6; color: #2a3548; margin-bottom: 9px; font-family: 'Source Serif 4', serif; font-weight: 300; }
+  p strong { font-family: 'Montserrat', sans-serif; font-weight: 700; color: var(--navy); }
+
+  /* BAND BLOCK */
+  .band-block { border: 2px solid var(--teal); border-radius: 6px; overflow: hidden; margin: 14px 0; }
+  .band-header { background: var(--navy); padding: 11px 18px; display: flex; justify-content: space-between; align-items: center; }
+  .band-label { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 8pt; color: var(--white); letter-spacing: 0.5px; }
+  .band-range { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 13pt; color: var(--teal); }
+  .band-body { padding: 12px 18px; background: var(--offwhite); }
+  .band-note { font-family: 'Source Serif 4', serif; font-size: 8pt; font-weight: 300; color: #2a3548; line-height: 1.55; }
+  .band-flags { display: flex; gap: 8px; margin-top: 8px; flex-wrap: wrap; }
+  .band-flag-item { background: var(--white); border: 1.5px solid var(--lgray); border-radius: 3px; padding: 5px 10px; font-family: 'Montserrat', sans-serif; font-size: 7.5pt; font-weight: 700; color: var(--navy); display: flex; align-items: center; gap: 5px; }
+  .flag-note { font-weight: 400; color: #8a96a8; font-size: 7pt; }
+
+  /* BAR */
+  .bar-section { margin: 10px 0; }
+  .bar-label-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 3px; }
+  .bar-country { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 7.5pt; color: var(--navy); }
+  .bar-usd { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 7.5pt; color: var(--teal2); }
+  .bar-outer { background: var(--lgray); border-radius: 3px; height: 9px; margin-bottom: 7px; overflow: hidden; }
+  .bar-inner { height: 100%; border-radius: 3px; background: var(--teal); }
+  .bar-inner.us { background: #8a96a8; }
+  .bar-inner.latam-upper { background: var(--teal); }
+  .bar-inner.latam-lower { background: rgba(0,200,200,0.55); }
+
+  /* EOR BLOCK */
+  .eor-block { border: 1.5px solid var(--lgray); border-radius: 4px; overflow: hidden; margin: 14px 0; }
+  .eor-header { background: var(--teal); padding: 9px 16px; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 8pt; color: var(--navy); letter-spacing: 0.5px; }
+  .eor-row { display: flex; justify-content: space-between; align-items: baseline; padding: 7px 16px; border-bottom: 1px solid var(--lgray); }
+  .eor-row:last-child { border-bottom: none; }
+  .eor-row-label { font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 7.5pt; color: #5a6a7a; }
+  .eor-row-value { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 8.5pt; color: var(--navy); }
+  .eor-total-row { background: var(--navy); }
+  .eor-total-row .eor-row-label { color: rgba(255,255,255,0.7); font-size: 8pt; }
+  .eor-total-row .eor-row-value { color: var(--teal); font-size: 10pt; }
+  .eor-note { background: var(--offwhite); padding: 7px 16px; font-family: 'Source Serif 4', serif; font-size: 7.5pt; font-weight: 300; color: #5a6a7a; font-style: italic; line-height: 1.5; }
+
+  /* CALLOUT */
+  .callout { border-left: 4px solid var(--teal); background: rgba(0,200,200,0.06); padding: 10px 14px; margin: 10px 0; border-radius: 0 4px 4px 0; }
+  .callout-label { font-size: 6.5pt; font-weight: 800; letter-spacing: 2px; color: var(--teal2); text-transform: uppercase; margin-bottom: 4px; font-family: 'Montserrat', sans-serif; }
+  .callout p { margin: 0; font-size: 8pt; }
+  .callout-navy { border-left-color: var(--navy); background: rgba(13,27,46,0.04); }
+  .callout-navy .callout-label { color: var(--navy); }
+
+  /* SOURCES */
+  .sources-list { margin: 10px 0; }
+  .source-row { display: flex; gap: 10px; align-items: flex-start; padding: 5px 0; border-bottom: 1px solid var(--lgray); }
+  .source-row:last-child { border-bottom: none; }
+  .source-dot { width: 6px; height: 6px; background: var(--teal); border-radius: 1px; flex-shrink: 0; margin-top: 4px; clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); }
+  .source-name { font-family: 'Montserrat', sans-serif; font-size: 7.5pt; font-weight: 700; color: var(--navy); }
+  .source-desc { font-family: 'Source Serif 4', serif; font-size: 7pt; font-weight: 300; color: #5a6a7a; line-height: 1.4; }
+
+  /* CONTACT */
+  .contact-box { background: var(--navy); color: var(--white); padding: 14px 20px; border-radius: 4px; margin-top: 14px; display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+  .contact-box-left h3 { color: var(--teal); font-size: 9.5pt; margin-bottom: 3px; font-family: 'Montserrat', sans-serif; font-weight: 900; }
+  .contact-box-left p { color: rgba(255,255,255,0.65); font-size: 7.5pt; margin: 0; }
+  .contact-box-right { text-align: right; flex-shrink: 0; }
+  .contact-detail { font-size: 7.5pt; color: var(--white); margin-bottom: 3px; font-family: 'Montserrat', sans-serif; font-weight: 600; }
+  .contact-detail span { color: var(--teal); margin-right: 4px; }
+
+  .divider { border: none; border-top: 1.5px solid var(--lgray); margin: 12px 0; }
+
+  @media screen { body { background: #dde4ed; padding: 30px 0; } }
+  @media print { body { background: none; padding: 0; } .page { margin: 0; page-break-after: always; } .page:last-child { page-break-after: auto; } }
+</style>
+</head>
+<body>
+
+<!-- PAGE 1 — COVER -->
+<div class="page cover">
+  <svg class="cover-hex hex-tl" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><polygon fill="#00C8C8" points="50,2 93,25 93,75 50,98 7,75 7,25"/></svg>
+  <svg class="cover-hex hex-br" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><polygon fill="#00C8C8" points="50,2 93,25 93,75 50,98 7,75 7,25"/></svg>
+  <svg class="cover-hex hex-mr" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><polygon fill="#3DD68C" points="50,2 93,25 93,75 50,98 7,75 7,25"/></svg>
+
+  <div class="cover-inner">
+    <div class="cover-top">
+      <div class="cover-logo">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="440 390 1060 320" style="height:42px;width:auto;display:block;">
+          <defs>
+            <linearGradient id="lg" x1="528.00962" y1="437.79086" x2="693.52564" y2="437.79086" gradientTransform="translate(0 1081.58265) scale(1 -1)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#101827"/><stop offset="1" stop-color="#0ec668"/></linearGradient>
+            <linearGradient id="lg1" x1="438.90681" y1="505.95149" x2="604.42283" y2="505.95149" gradientTransform="translate(0 1081.58265) scale(1 -1)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#101827"/><stop offset="1" stop-color="#0ec668"/></linearGradient>
+            <linearGradient id="lg2" x1="712.59445" y1="474.81047" x2="460.26471" y2="699.39719" gradientTransform="translate(0 1081.58265) scale(1 -1)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#0ec668"/><stop offset="1" stop-color="#12ace6"/></linearGradient>
+          </defs>
+          <polygon fill="#ffffff" points="1067.75549 401.49997 1023.07159 544.20905 982.00995 404.26547 947.97415 404.26547 906.91302 544.20905 862.2291 401.49997 825.9744 401.49997 889.94604 595.09726 923.0683 595.09726 964.99228 462.89842 1006.63654 595.09726 1040.03796 595.09726 1104.0097 401.49997 1067.75549 401.49997"/>
+          <path fill="#ffffff" d="M1149.14148,401.49997v193.59729h-32.08148v-193.59729h32.08148Z"/>
+          <path fill="#ffffff" d="M1233.70984,401.49997c59.46155,0,102.33014,43.14445,102.33014,96.79817s-42.86859,96.79912-102.33014,96.79912h-66.37671v-193.59729h66.37671ZM1199.41461,562.73893h34.29523c38.99573,0,66.37579-27.38007,66.37579-64.44079s-27.38007-64.43983-66.37579-64.43983h-34.29523v128.88062Z"/>
+          <path fill="#ffffff" d="M1461.63257,401.49997v32.35833h-78.31946v40.93167h45.29926v32.35833h-45.29926v55.59062h78.31946v32.35834h-110.40094v-193.59729h110.40094Z"/>
+          <path fill="#ffffff" d="M1006.4671,663.3115c0,9.59277-7.51465,15.18848-21.9043,15.18848h-27.81934v-55.95898h26.2207c13.42969,0,20.625,5.67578,20.625,14.5498,0,5.75586-2.87793,9.99219-7.19531,12.31055,5.99609,1.91895,10.07324,6.63574,10.07324,13.91016ZM967.13608,630.69529v15.42871h14.70895c7.19434,0,11.27148-2.55859,11.27148-7.6748,0-5.19531-4.07715-7.75391-11.27148-7.75391h-14.70898ZM995.99445,662.27244c0-5.59668-4.2373-8.07422-12.07129-8.07422h-16.78711v16.14746h16.78711c7.83398,0,12.07129-2.47754,12.07129-8.07324Z"/>
+          <path fill="#ffffff" d="M1075.78156,678.49997l-11.43164-16.3877c-.71875.08008-1.43848.08008-2.1582.08008h-12.62988v16.30762h-10.39258v-55.95898h23.02246c14.70898,0,23.82227,7.51465,23.82227,19.90527,0,8.47461-4.31641,14.70996-11.91113,17.66699l12.87109,18.38672h-11.19238ZM1061.71228,631.33494h-12.15039v22.30371h12.15039c9.11328,0,13.83008-4.15723,13.83008-11.19238,0-7.03418-4.7168-11.11133-13.83008-11.11133Z"/>
+          <path fill="#ffffff" d="M1155.48859,665.54978h-27.97949l-5.51562,12.9502h-10.71191l25.18066-55.95898h10.23242l25.26172,55.95898h-10.87207l-5.5957-12.9502ZM1152.05109,657.39548l-10.55176-24.46191-10.47266,24.46191h21.02441Z"/>
+          <path fill="#ffffff" d="M1244.14978,669.70603v8.79395h-47.72461v-6.95508l32.93555-40.20996h-32.37598v-8.79395h46.12598v6.95508l-32.93555,40.20996h33.97461Z"/>
+          <path fill="#ffffff" d="M1275.25323,622.54099h10.39258v55.95898h-10.39258v-55.95898Z"/>
+          <path fill="#ffffff" d="M1322.34113,622.54099h10.39258v47.16504h29.25781v8.79395h-39.65039v-55.95898Z"/>
+          <rect fill="url(#lg)" x="591.52898" y="609.08361" width="93.76549" height="69.41637"/>
+          <rect fill="url(#lg1)" x="502.42616" y="540.92298" width="93.76549" height="69.41637"/>
+          <path fill="url(#lg2)" d="M773.49542,470.72999l43.49487,69.26999-87.9592,138.5h-88.79871l133.26303-207.76999ZM684.48682,401.49997l-158.30856,246.82742,18.93906,30.17258h46.68304l157.73888-245.92795-19.50873-31.07205h-45.5437ZM548.11559,401.49997l-89.74816,138.8298,43.95461,70.00955,133.95263-208.83936h-88.15908Z"/>
+        </svg>
+      </div>
+      <div class="cover-badge">Salary Benchmark</div>
+    </div>
+
+    <div class="cover-content">
+      <div class="cover-tag">Compensation Intelligence · LATAM · June 2026</div>
+      <div class="cover-title">HubSpot<br/><span>Operations</span><br/>Specialist</div>
+      <div class="cover-subtitle">Indicative salary benchmarking across Brazil, Argentina, Chile, and Uruguay — with a preliminary EOR cost estimate for budget planning purposes.</div>
+      <div class="cover-meta">
+        <div class="cover-meta-item">
+          <div class="cover-meta-label">Role</div>
+          <div class="cover-meta-value">HubSpot Ops Specialist</div>
+        </div>
+        <div class="cover-meta-item">
+          <div class="cover-meta-label">Seniority</div>
+          <div class="cover-meta-value">Mid / Senior Level</div>
+        </div>
+        <div class="cover-meta-item">
+          <div class="cover-meta-label">Markets</div>
+          <div class="cover-meta-value">BR · AR · CL · UY</div>
+        </div>
+        <div class="cover-meta-item">
+          <div class="cover-meta-label">Stage</div>
+          <div class="cover-meta-value">Pre-Recruitment</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cover-skyline">
+      <svg viewBox="0 0 594 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMax meet" style="width:100%;height:100%;">
+        <rect x="10" y="40" width="18" height="40" fill="white"/><rect x="14" y="30" width="10" height="12" fill="white"/>
+        <rect x="35" y="25" width="22" height="55" fill="white"/><rect x="40" y="15" width="12" height="12" fill="white"/>
+        <rect x="64" y="35" width="16" height="45" fill="white"/>
+        <rect x="86" y="20" width="28" height="60" fill="white"/><rect x="92" y="10" width="16" height="12" fill="white"/>
+        <rect x="120" y="30" width="20" height="50" fill="white"/>
+        <rect x="145" y="15" width="14" height="65" fill="white"/><rect x="149" y="5" width="6" height="12" fill="white"/>
+        <rect x="165" y="38" width="18" height="42" fill="white"/>
+        <rect x="189" y="22" width="24" height="58" fill="white"/><rect x="194" y="12" width="14" height="12" fill="white"/>
+        <rect x="218" y="32" width="20" height="48" fill="white"/>
+        <rect x="244" y="18" width="26" height="62" fill="white"/><rect x="250" y="8" width="14" height="12" fill="white"/>
+        <rect x="276" y="28" width="18" height="52" fill="white"/>
+        <rect x="300" y="14" width="22" height="66" fill="white"/><rect x="305" y="4" width="12" height="12" fill="white"/>
+        <rect x="328" y="36" width="16" height="44" fill="white"/>
+        <rect x="350" y="24" width="24" height="56" fill="white"/>
+        <rect x="380" y="18" width="20" height="62" fill="white"/>
+        <rect x="406" y="30" width="18" height="50" fill="white"/>
+        <rect x="430" y="12" width="26" height="68" fill="white"/><rect x="436" y="2" width="14" height="12" fill="white"/>
+        <rect x="462" y="26" width="20" height="54" fill="white"/>
+        <rect x="488" y="20" width="16" height="60" fill="white"/>
+        <rect x="510" y="34" width="22" height="46" fill="white"/>
+        <rect x="538" y="16" width="18" height="64" fill="white"/><rect x="542" y="6" width="10" height="12" fill="white"/>
+        <rect x="562" y="28" width="20" height="52" fill="white"/>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 2 — BENCHMARK + EOR -->
+<div class="page inner-page">
+  <div class="page-header">
+    <div class="page-header-left">Wide Brazil <span>| Salary Benchmark</span></div>
+    <div class="page-header-right">HubSpot Operations Specialist · June 2026</div>
+  </div>
+
+  <div class="page-body">
+    <div class="section-header-block">
+      <div class="section-num">Section 01</div>
+      <div class="section-title">Salary Bands — All Markets</div>
+      <div class="section-subtitle">Gross monthly salary · Formal employment · Brazil, Argentina, Chile, Uruguay</div>
+    </div>
+
+    <p>The four markets present a broadly unified talent cost band for this profile. Despite different local labour structures, a mid-level HubSpot Operations Specialist with strong English, 2–4 years of hands-on experience, and remote delivery capability lands within a comparable range across the region. The differentiators are availability of talent, currency stability, and local employment cost structure — not gross salary.</p>
+
+    <!-- MID BAND -->
+    <div class="band-block">
+      <div class="band-header">
+        <span class="band-label">Mid-Level · 2–4 years · HubSpot experience · Strong English</span>
+        <span class="band-range">USD 1,500 – 2,200 / mo</span>
+      </div>
+      <div class="band-body">
+        <div class="band-note">Brazil and Chile trend toward the upper end of this band. Argentina and Uruguay sit in the lower-to-mid range. Profiles with active HubSpot certifications or prior B2B SaaS agency experience command a premium within band.</div>
+        <div class="band-flags" style="margin-top:10px;">
+          <div class="band-flag-item">🇧🇷 Brazil <span class="flag-note">upper end · USD 1,900–2,200</span></div>
+          <div class="band-flag-item">🇨🇱 Chile <span class="flag-note">upper-mid · USD 1,800–2,100</span></div>
+          <div class="band-flag-item">🇺🇾 Uruguay <span class="flag-note">mid · USD 1,600–2,000</span></div>
+          <div class="band-flag-item">🇦🇷 Argentina <span class="flag-note">lower-mid · USD 1,300–1,700</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SENIOR BAND -->
+    <div class="band-block" style="border-color: var(--navy);">
+      <div class="band-header" style="background: rgba(13,27,46,0.85);">
+        <span class="band-label">Senior · 4+ years · Certifications · B2B SaaS background</span>
+        <span class="band-range">USD 2,000 – 2,800 / mo</span>
+      </div>
+      <div class="band-body">
+        <div class="band-note">Senior profiles with HubSpot certifications, Salesforce exposure, and experience supporting B2B SaaS operations (as described in the preferred qualifications) will push salary expectations toward this band. Brazil and Chile senior profiles may reach the top of the range in competitive sourcing scenarios.</div>
+        <div class="band-flags" style="margin-top:10px;">
+          <div class="band-flag-item">🇧🇷 Brazil <span class="flag-note">USD 2,300–2,800</span></div>
+          <div class="band-flag-item">🇨🇱 Chile <span class="flag-note">USD 2,200–2,700</span></div>
+          <div class="band-flag-item">🇺🇾 Uruguay <span class="flag-note">USD 2,000–2,500</span></div>
+          <div class="band-flag-item">🇦🇷 Argentina <span class="flag-note">USD 1,700–2,200</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BAR CHART -->
+    <h2>Visual: Mid-Level Band vs US Equivalent</h2>
+
+    <div class="bar-section">
+      <div class="bar-label-row">
+        <span class="bar-country">🇺🇸 United States (reference)</span>
+        <span class="bar-usd">USD 5,500–6,500/mo</span>
+      </div>
+      <div class="bar-outer"><div class="bar-inner us" style="width:100%;"></div></div>
+
+      <div class="bar-label-row">
+        <span class="bar-country">🇧🇷 Brazil</span>
+        <span class="bar-usd">USD 1,900–2,200/mo</span>
+      </div>
+      <div class="bar-outer"><div class="bar-inner latam-upper" style="width:34%;"></div></div>
+
+      <div class="bar-label-row">
+        <span class="bar-country">🇨🇱 Chile</span>
+        <span class="bar-usd">USD 1,800–2,100/mo</span>
+      </div>
+      <div class="bar-outer"><div class="bar-inner latam-upper" style="width:32%;"></div></div>
+
+      <div class="bar-label-row">
+        <span class="bar-country">🇺🇾 Uruguay</span>
+        <span class="bar-usd">USD 1,600–2,000/mo</span>
+      </div>
+      <div class="bar-outer"><div class="bar-inner latam-upper" style="width:29%;"></div></div>
+
+      <div class="bar-label-row">
+        <span class="bar-country">🇦🇷 Argentina</span>
+        <span class="bar-usd">USD 1,300–1,700/mo</span>
+      </div>
+      <div class="bar-outer"><div class="bar-inner latam-lower" style="width:24%;"></div></div>
+    </div>
+
+    <div class="callout">
+      <div class="callout-label">Nearshoring Saving vs US</div>
+      <p>Hiring the equivalent profile from LATAM represents a <strong>60–70% cost reduction</strong> on gross salary compared to a US-based hire — before factoring in employment taxes, benefits, and overheads on both sides. The gap widens further when total employer cost is calculated.</p>
+    </div>
+
+  </div>
+
+  <div class="page-footer">
+    <div class="pf-brand">Wide Brazil <span>| Salary Benchmark</span></div>
+    <div class="pf-disclaimer">Indicative ranges. A detailed simulation will be provided once recruitment is launched and market data is validated.</div>
+  </div>
+</div>
+
+<!-- PAGE 3 — EOR ESTIMATE + SOURCES -->
+<div class="page inner-page">
+  <div class="page-header">
+    <div class="page-header-left">Wide Brazil <span>| Salary Benchmark</span></div>
+    <div class="page-header-right">HubSpot Operations Specialist · June 2026</div>
+  </div>
+
+  <div class="page-body">
+    <div class="section-header-block navy-section-header">
+      <div class="section-num">Section 02</div>
+      <div class="section-title">Preliminary EOR Cost Estimate</div>
+      <div class="section-subtitle">Wide Brazil EOR fee structure applied to mid-level band · Planning reference only</div>
+    </div>
+
+    <p>The figures below illustrate what a typical monthly EOR engagement would look like for this role, based on the mid-band gross salary. These are <strong>planning estimates</strong> — a complete payroll simulation with itemised statutory charges, provisions, and benefits will be prepared once recruitment is launched and the final salary is confirmed with the candidate.</p>
+
+    <!-- MID-BAND EOR ESTIMATE -->
+    <h2>Mid-Level Profile — Illustrative Monthly Budget</h2>
+
+    <div class="eor-block">
+      <div class="eor-header">Based on gross salary mid-point of USD 1,850/mo · All markets reference</div>
+      <div class="eor-row">
+        <span class="eor-row-label">Gross Salary (employee)</span>
+        <span class="eor-row-value">USD 1,850</span>
+      </div>
+      <div class="eor-row">
+        <span class="eor-row-label">Employer Social Charges + Provisions (est.)</span>
+        <span class="eor-row-value">Varies by country*</span>
+      </div>
+      <div class="eor-row">
+        <span class="eor-row-label">Wide Brazil EOR Fee (fixed)</span>
+        <span class="eor-row-value">USD 149</span>
+      </div>
+      <div class="eor-row">
+        <span class="eor-row-label">Wide Brazil GST / Overhead (8.5% on payroll cost)</span>
+        <span class="eor-row-value">calculated on final payroll</span>
+      </div>
+      <div class="eor-row eor-total-row">
+        <span class="eor-row-label">Estimated Total Invoice Range (mid-level)</span>
+        <span class="eor-row-value">≈ USD 2,400 – 3,600 / mo</span>
+      </div>
+      <div class="eor-note">* Employer burden varies significantly by country: Brazil carries the highest statutory load (~69% of gross including 13th salary and vacation provisions); Chile and Uruguay are lower; Argentina adds complexity due to inflation indexation. The total invoice range above reflects this variation. Brazil sits toward the upper end; Argentina toward the lower end.</div>
+    </div>
+
+    <div class="callout callout-navy">
+      <div class="callout-label">Next Step — Detailed Simulation</div>
+      <p>A complete payroll simulation — with itemised social charges, mandatory benefits, provisions, and total invoice broken down by country — will be provided at the next stage, once recruitment is launched and the salary is validated against actual candidate market feedback. These figures should be treated as directional budget inputs only.</p>
+    </div>
+
+    <hr class="divider"/>
+
+    <h2>Research Sources</h2>
+
+    <div class="sources-list">
+      <div class="source-row">
+        <div class="source-dot"></div>
+        <div>
+          <div class="source-name">Glassdoor BR — Salários 2025/26</div>
+          <div class="source-desc">Brazilian salary data for CRM Specialist and Marketing Automation Specialist profiles. Basis for mid-band gross calibration in Brazil.</div>
+        </div>
+      </div>
+      <div class="source-row">
+        <div class="source-dot"></div>
+        <div>
+          <div class="source-name">Robert Half — Guia Salarial 2026 (Vendas & Marketing)</div>
+          <div class="source-desc">Brazil-specific compensation guide. Referenced for seniority band structure and market trend context.</div>
+        </div>
+      </div>
+      <div class="source-row">
+        <div class="source-dot"></div>
+        <div>
+          <div class="source-name">PayScale — Marketing Automation Specialist with HubSpot Skills (2026)</div>
+          <div class="source-desc">US baseline: USD 67,450 avg annual / ~USD 5,620/mo. Used as the comparison reference for nearshoring savings calculation.</div>
+        </div>
+      </div>
+      <div class="source-row">
+        <div class="source-dot"></div>
+        <div>
+          <div class="source-name">HireInSouth — Remote Marketing Salaries: Latin America vs US (2026)</div>
+          <div class="source-desc">Country-level LATAM salary ranges and 40–70% nearshoring savings benchmark. Used to cross-validate Argentina, Chile, and Uruguay ranges.</div>
+        </div>
+      </div>
+      <div class="source-row">
+        <div class="source-dot"></div>
+        <div>
+          <div class="source-name">RemotelyTalents — Marketing Roles Salary Guide: LATAM 2025</div>
+          <div class="source-desc">Argentina senior digital specialist benchmark (~USD 35,000/yr) and regional positioning data used for calibration.</div>
+        </div>
+      </div>
+      <div class="source-row">
+        <div class="source-dot"></div>
+        <div>
+          <div class="source-name">RemotePeople — Average Salary Chile (2026)</div>
+          <div class="source-desc">Chilean market context (national average ~USD 1,030/mo) used to position specialist compensation above national baseline.</div>
+        </div>
+      </div>
+      <div class="source-row">
+        <div class="source-dot"></div>
+        <div>
+          <div class="source-name">Wide Brazil Internal — EOR Payroll Logic & Fee Structure</div>
+          <div class="source-desc">Brazilian CLT statutory rates (FGTS, INSS, RAT, Sistema S, 13th salary, vacation provisions) applied for cost modelling. EOR fee: USD 149 fixed + 8.5% GST/overhead on total payroll cost.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-box">
+      <div class="contact-box-left">
+        <h3>Wide Brazil</h3>
+        <p>Employer of Record, Payroll and Recruitment across Brazil and Latin America.</p>
+      </div>
+      <div class="contact-box-right">
+        <div class="contact-detail"><span>Email</span>victor.dias@widebrazil.com</div>
+        <div class="contact-detail"><span>Phone</span>+351 965 043 393</div>
+        <div class="contact-detail"><span>Location</span>São Paulo · Lisbon · Montevideo</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <div class="pf-brand">Wide Brazil <span>| Salary Benchmark</span></div>
+    <div class="pf-disclaimer">Confidential — prepared for client advisory purposes. Not legal or tax advice. Detailed simulation follows at recruitment stage.</div>
+  </div>
+</div>
+
+</body>
+</html>
