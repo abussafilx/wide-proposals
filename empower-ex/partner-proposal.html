@@ -1,0 +1,1321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Wide Brazil — Partner Proposal | Empower-EX</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Source+Serif+4:wght@300;400;600&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --navy:    #0D1B2E;
+    --teal:    #00C8C8;
+    --teal2:   #00A8A8;
+    --green:   #3DD68C;
+    --white:   #FFFFFF;
+    --offwhite:#F7F9FC;
+    --lgray:   #E8EDF3;
+    --text:    #1A2535;
+    --gray:    #6B7A90;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #CBD5E0; font-family: 'Source Serif 4', serif; color: var(--text); }
+
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    background: #fff;
+    margin: 12mm auto;
+    position: relative;
+    overflow: hidden;
+    page-break-after: always;
+  }
+
+  /* ── COVER ── */
+  .cover {
+    background: var(--navy);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0;
+  }
+  .cover-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 28px 32px 0;
+    position: relative;
+    z-index: 10;
+  }
+  .cover-badge {
+    background: var(--teal);
+    border-radius: 3px;
+    padding: 5px 14px;
+  }
+  .cover-badge-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 7.5pt;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+  }
+  .cover-content {
+    padding: 0 32px;
+    margin-top: 32px;
+    position: relative;
+    z-index: 10;
+  }
+  .cover-eyebrow {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 7.5pt;
+    font-weight: 600;
+    color: var(--teal);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .cover-divider {
+    width: 48px;
+    height: 3px;
+    background: var(--teal);
+    border-radius: 2px;
+    margin-bottom: 18px;
+  }
+  .cover-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 26pt;
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1.12;
+    margin-bottom: 14px;
+  }
+  .cover-title span { color: var(--teal); }
+  .cover-subtitle {
+    font-family: 'Source Serif 4', serif;
+    font-size: 10.5pt;
+    font-weight: 300;
+    color: rgba(255,255,255,0.75);
+    max-width: 360px;
+    line-height: 1.55;
+    margin-bottom: 20px;
+  }
+  .cover-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+  .cover-tag {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 7pt;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    background: rgba(0,200,200,0.15);
+    color: var(--teal);
+    border-radius: 3px;
+    padding: 4px 10px;
+  }
+  .cover-tag.outline {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.25);
+    color: rgba(255,255,255,0.6);
+  }
+  .cover-meta {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    margin: 28px 32px 0;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 5px;
+    overflow: hidden;
+    width: 60%;
+    position: relative;
+    z-index: 10;
+  }
+  .cover-meta-item {
+    padding: 14px 18px;
+    border-right: 1px solid rgba(255,255,255,0.1);
+  }
+  .cover-meta-item:last-child { border-right: none; }
+  .cover-meta-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 6.5pt;
+    font-weight: 600;
+    color: var(--teal);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .cover-meta-value {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 8.5pt;
+    font-weight: 700;
+    color: var(--white);
+  }
+  .hex-group { position: absolute; top: 0; right: 0; pointer-events: none; }
+  .hex {
+    position: absolute;
+    border-radius: 18px;
+    transform: rotate(30deg);
+  }
+  .cover-image-area {
+    flex: 1;
+    display: flex;
+    align-items: flex-end;
+    position: relative;
+    z-index: 5;
+    margin-top: 20px;
+  }
+  .brazil-photo {
+    width: 100%;
+    height: 110px;
+    position: relative;
+    overflow: hidden;
+  }
+  .cover-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 32px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    position: relative;
+    z-index: 10;
+  }
+  .cover-footer-url {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 7pt;
+    font-weight: 600;
+    color: var(--teal);
+    letter-spacing: 1px;
+  }
+  .cover-footer-edition {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 7pt;
+    color: rgba(255,255,255,0.35);
+    letter-spacing: 0.5px;
+  }
+
+  /* ── INNER PAGE ── */
+  .inner-page {
+    display: flex;
+    flex-direction: column;
+  }
+  .page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 32px;
+    border-bottom: 2px solid var(--teal);
+    background: var(--white);
+  }
+  .page-header-left {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 7.5pt;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: 0.5px;
+  }
+  .page-header-left span { color: var(--gray); font-weight: 400; }
+  .page-header-right {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 7pt;
+    color: var(--gray);
+    letter-spacing: 0.3px;
+  }
+  .page-body {
+    flex: 1;
+    padding: 24px 32px 20px;
+  }
+  .page-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 32px;
+    border-top: 1px solid var(--lgray);
+    background: var(--offwhite);
+  }
+  .pf-brand {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 7pt;
+    font-weight: 700;
+    color: var(--navy);
+  }
+  .pf-brand span { color: var(--gray); font-weight: 400; }
+  .pf-disclaimer {
+    font-family: 'Source Serif 4', serif;
+    font-size: 7pt;
+    color: var(--gray);
+    font-style: italic;
+  }
+  .pf-page {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 7pt;
+    font-weight: 700;
+    color: var(--teal2);
+  }
+
+  /* ── SECTION HEADERS ── */
+  .section-header-block {
+    background: var(--teal);
+    border-radius: 5px;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+  }
+  .section-header-block .section-num {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 7pt;
+    font-weight: 700;
+    color: rgba(13,27,46,0.7);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 3px;
+  }
+  .section-header-block .section-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14pt;
+    font-weight: 800;
+    color: var(--navy);
+    line-height: 1.1;
+  }
+  .section-header-block .section-subtitle {
+    font-family: 'Source Serif 4', serif;
+    font-size: 8.5pt;
+    font-weight: 300;
+    color: rgba(13,27,46,0.75);
+    margin-top: 5px;
+    line-height: 1.45;
+  }
+  .navy-section-header {
+    background: var(--navy);
+    border-radius: 5px;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+  }
+  .navy-section-header .section-num {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 7pt;
+    font-weight: 700;
+    color: var(--teal);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 3px;
+  }
+  .navy-section-header .section-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14pt;
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1.1;
+  }
+  .navy-section-header .section-subtitle {
+    font-family: 'Source Serif 4', serif;
+    font-size: 8.5pt;
+    font-weight: 300;
+    color: rgba(255,255,255,0.7);
+    margin-top: 5px;
+    line-height: 1.45;
+  }
+  .continuation-label {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 8pt;
+    color: var(--teal2);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-bottom: 1.5px solid var(--lgray);
+    padding-bottom: 8px;
+    margin-bottom: 18px;
+  }
+
+  /* ── PROSE ── */
+  .prose {
+    font-family: 'Source Serif 4', serif;
+    font-size: 9pt;
+    line-height: 1.65;
+    color: var(--text);
+    margin-bottom: 12px;
+  }
+
+  /* ── CONTEXT CARDS ── */
+  .context-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 14px 0;
+  }
+  .context-card {
+    background: var(--offwhite);
+    border: 1.5px solid var(--lgray);
+    border-left: 3px solid var(--teal);
+    border-radius: 4px;
+    padding: 12px 14px;
+  }
+  .context-card-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 6.5pt;
+    font-weight: 700;
+    color: var(--teal2);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .context-card-value {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9pt;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 2px;
+  }
+  .context-card-sub {
+    font-family: 'Source Serif 4', serif;
+    font-size: 7.5pt;
+    color: var(--gray);
+    line-height: 1.45;
+  }
+
+  /* ── PARTNER NOTE BOX ── */
+  .partner-callout {
+    background: var(--navy);
+    border-radius: 5px;
+    padding: 14px 18px;
+    margin: 16px 0;
+  }
+  .partner-callout p {
+    font-family: 'Source Serif 4', serif;
+    font-size: 8.5pt;
+    color: rgba(255,255,255,0.82);
+    line-height: 1.6;
+    font-style: italic;
+  }
+  .partner-callout p strong {
+    color: var(--teal);
+    font-style: normal;
+  }
+
+  /* ── SCOPE ── */
+  .scope-block { margin-bottom: 14px; }
+  .scope-area {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 7pt;
+    font-weight: 700;
+    color: var(--white);
+    background: var(--teal2);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 3px;
+    display: inline-block;
+    margin-bottom: 8px;
+  }
+  .scope-item {
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+    padding: 5px 0;
+    border-bottom: 1px solid var(--lgray);
+  }
+  .scope-item:last-child { border-bottom: none; }
+  .scope-item-check {
+    font-size: 9pt;
+    color: var(--teal);
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .scope-item-text {
+    font-family: 'Source Serif 4', serif;
+    font-size: 8pt;
+    color: var(--text);
+    line-height: 1.5;
+  }
+
+  /* ── PRICING TABLES ── */
+  .pricing-tiers-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Montserrat', sans-serif;
+  }
+  .pricing-tiers-table th {
+    background: var(--navy);
+    color: var(--white);
+    font-size: 7.5pt;
+    font-weight: 700;
+    padding: 8px 12px;
+    text-align: left;
+    letter-spacing: 0.3px;
+  }
+  .pricing-tiers-table th:last-child { text-align: right; }
+  .pricing-tiers-table td {
+    font-size: 8pt;
+    padding: 6px 12px;
+    border-bottom: 1px solid var(--lgray);
+    vertical-align: top;
+  }
+  .pricing-tiers-table tr:last-child td { border-bottom: none; }
+  .pricing-tiers-table td:last-child {
+    text-align: right;
+    font-weight: 700;
+    color: var(--navy);
+    white-space: nowrap;
+  }
+  .pricing-tiers-table tr.highlight td {
+    background: rgba(0,200,200,0.05);
+    font-weight: 600;
+  }
+  .pt-desc {
+    font-family: 'Source Serif 4', serif;
+    font-size: 7.5pt;
+    color: var(--gray);
+    margin-top: 2px;
+  }
+
+  /* ── VISA CARDS ── */
+  .visa-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin: 10px 0;
+  }
+  .visa-card {
+    background: var(--offwhite);
+    border: 1.5px solid var(--lgray);
+    border-radius: 4px;
+    padding: 12px 14px;
+  }
+  .visa-type {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 7.5pt;
+    font-weight: 700;
+    color: var(--teal2);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: 3px;
+  }
+  .visa-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9pt;
+    font-weight: 800;
+    color: var(--navy);
+    margin-bottom: 5px;
+  }
+  .visa-body {
+    font-family: 'Source Serif 4', serif;
+    font-size: 7.5pt;
+    color: var(--gray);
+    line-height: 1.45;
+  }
+
+  /* ── STEP ROWS ── */
+  .step-row {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--lgray);
+  }
+  .step-row:last-of-type { border-bottom: none; }
+  .step-num {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--teal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .step-num span {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9pt;
+    font-weight: 800;
+    color: var(--navy);
+  }
+  .step-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 8.5pt;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 3px;
+  }
+  .step-desc {
+    font-family: 'Source Serif 4', serif;
+    font-size: 8pt;
+    color: var(--text);
+    line-height: 1.5;
+  }
+
+  /* ── ASSUMPTIONS BOX ── */
+  .assumptions-box {
+    background: var(--offwhite);
+    border: 1.5px solid var(--lgray);
+    border-radius: 5px;
+    padding: 14px 18px;
+    margin: 16px 0;
+  }
+  .assumptions-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 7.5pt;
+    font-weight: 700;
+    color: var(--gray);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 8px;
+  }
+  .assumptions-list {
+    list-style: none;
+    padding: 0;
+  }
+  .assumptions-list li {
+    font-family: 'Source Serif 4', serif;
+    font-size: 8pt;
+    color: var(--text);
+    padding: 3px 0;
+    padding-left: 14px;
+    position: relative;
+    line-height: 1.5;
+  }
+  .assumptions-list li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--teal2);
+    font-weight: 700;
+  }
+
+  /* ── SUMMARY CARD ── */
+  .summary-card {
+    background: var(--navy);
+    border-radius: 5px;
+    padding: 18px 22px;
+    margin: 16px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .summary-card-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9pt;
+    font-weight: 700;
+    color: rgba(255,255,255,0.85);
+  }
+  .summary-card-sub {
+    font-family: 'Source Serif 4', serif;
+    font-size: 7.5pt;
+    color: rgba(255,255,255,0.5);
+    margin-top: 2px;
+  }
+  .summary-card-value {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14pt;
+    font-weight: 900;
+    color: var(--teal);
+  }
+
+  /* ── CONTACT BOX ── */
+  .contact-box {
+    background: var(--navy);
+    border-radius: 5px;
+    padding: 20px 24px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .contact-box-left h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11pt;
+    font-weight: 800;
+    color: var(--white);
+    margin-bottom: 6px;
+  }
+  .contact-box-left p {
+    font-family: 'Source Serif 4', serif;
+    font-size: 8pt;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.55;
+    max-width: 240px;
+  }
+  .contact-box-right {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .contact-detail {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 7.5pt;
+    color: rgba(255,255,255,0.75);
+    display: flex;
+    gap: 10px;
+  }
+  .contact-detail span {
+    color: var(--teal);
+    font-weight: 700;
+    width: 52px;
+    flex-shrink: 0;
+  }
+
+  @media print {
+    body { background: white; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .page { margin: 0; box-shadow: none; page-break-after: always; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+
+<!-- PAGE 1 — COVER -->
+<div class="page cover">
+  <div class="hex-group">
+    <div class="hex" style="width:280px;height:280px;background:rgba(0,200,200,0.04);top:-60px;right:-50px;"></div>
+    <div class="hex" style="width:170px;height:170px;background:rgba(0,200,200,0.06);top:70px;right:90px;"></div>
+    <div class="hex" style="width:95px;height:95px;background:rgba(0,200,200,0.1);top:185px;right:205px;"></div>
+    <div class="hex" style="width:70px;height:70px;background:rgba(61,214,140,0.08);top:25px;right:245px;"></div>
+  </div>
+
+  <div class="cover-top">
+    <div class="cover-logo">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+           viewBox="440 390 1060 320" style="height:50px;width:auto;display:block;">
+        <defs>
+          <linearGradient id="lg" x1="528.00962" y1="437.79086" x2="693.52564" y2="437.79086"
+            gradientTransform="translate(0 1081.58265) scale(1 -1)" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#101827"/><stop offset="1" stop-color="#0ec668"/>
+          </linearGradient>
+          <linearGradient id="lg1" x1="438.90681" y1="505.95149" x2="604.42283" y2="505.95149"
+            gradientTransform="translate(0 1081.58265) scale(1 -1)" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#101827"/><stop offset="1" stop-color="#0ec668"/>
+          </linearGradient>
+          <linearGradient id="lg2" x1="712.59445" y1="474.81047" x2="460.26471" y2="699.39719"
+            gradientTransform="translate(0 1081.58265) scale(1 -1)" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#0ec668"/><stop offset="1" stop-color="#12ace6"/>
+          </linearGradient>
+        </defs>
+        <polygon fill="#ffffff" points="1067.75549 401.49997 1023.07159 544.20905 982.00995 404.26547 947.97415 404.26547 906.91302 544.20905 862.2291 401.49997 825.9744 401.49997 889.94604 595.09726 923.0683 595.09726 964.99228 462.89842 1006.63654 595.09726 1040.03796 595.09726 1104.0097 401.49997 1067.75549 401.49997"/>
+        <path fill="#ffffff" d="M1149.14148,401.49997v193.59729h-32.08148v-193.59729h32.08148Z"/>
+        <path fill="#ffffff" d="M1233.70984,401.49997c59.46155,0,102.33014,43.14445,102.33014,96.79817s-42.86859,96.79912-102.33014,96.79912h-66.37671v-193.59729h66.37671ZM1199.41461,562.73893h34.29523c38.99573,0,66.37579-27.38007,66.37579-64.44079s-27.38007-64.43983-66.37579-64.43983h-34.29523v128.88062Z"/>
+        <path fill="#ffffff" d="M1461.63257,401.49997v32.35833h-78.31946v40.93167h45.29926v32.35833h-45.29926v55.59062h78.31946v32.35834h-110.40094v-193.59729h110.40094Z"/>
+        <path fill="#ffffff" d="M1006.4671,663.3115c0,9.59277-7.51465,15.18848-21.9043,15.18848h-27.81934v-55.95898h26.2207c13.42969,0,20.625,5.67578,20.625,14.5498,0,5.75586-2.87793,9.99219-7.19531,12.31055,5.99609,1.91895,10.07324,6.63574,10.07324,13.91016ZM967.13608,630.69529v15.42871h14.70895c7.19434,0,11.27148-2.55859,11.27148-7.6748,0-5.19531-4.07715-7.75391-11.27148-7.75391h-14.70898ZM995.99445,662.27244c0-5.59668-4.2373-8.07422-12.07129-8.07422h-16.78711v16.14746h16.78711c7.83398,0,12.07129-2.47754,12.07129-8.07324Z"/>
+        <path fill="#ffffff" d="M1075.78156,678.49997l-11.43164-16.3877c-.71875.08008-1.43848.08008-2.1582.08008h-12.62988v16.30762h-10.39258v-55.95898h23.02246c14.70898,0,23.82227,7.51465,23.82227,19.90527,0,8.47461-4.31641,14.70996-11.91113,17.66699l12.87109,18.38672h-11.19238ZM1061.71228,631.33494h-12.15039v22.30371h12.15039c9.11328,0,13.83008-4.15723,13.83008-11.19238,0-7.03418-4.7168-11.11133-13.83008-11.11133Z"/>
+        <path fill="#ffffff" d="M1155.48859,665.54978h-27.97949l-5.51562,12.9502h-10.71191l25.18066-55.95898h10.23242l25.26172,55.95898h-10.87207l-5.5957-12.9502ZM1152.05109,657.39548l-10.55176-24.46191-10.47266,24.46191h21.02441Z"/>
+        <path fill="#ffffff" d="M1244.14978,669.70603v8.79395h-47.72461v-6.95508l32.93555-40.20996h-32.37598v-8.79395h46.12598v6.95508l-32.93555,40.20996h33.97461Z"/>
+        <path fill="#ffffff" d="M1275.25323,622.54099h10.39258v55.95898h-10.39258v-55.95898Z"/>
+        <path fill="#ffffff" d="M1322.34113,622.54099h10.39258v47.16504h29.25781v8.79395h-39.65039v-55.95898Z"/>
+        <rect fill="url(#lg)" x="591.52898" y="609.08361" width="93.76549" height="69.41637"/>
+        <rect fill="url(#lg1)" x="502.42616" y="540.92298" width="93.76549" height="69.41637"/>
+        <path fill="url(#lg2)" d="M773.49542,470.72999l43.49487,69.26999-87.9592,138.5h-88.79871l133.26303-207.76999ZM684.48682,401.49997l-158.30856,246.82742,18.93906,30.17258h46.68304l157.73888-245.92795-19.50873-31.07205h-45.5437ZM548.11559,401.49997l-89.74816,138.8298,43.95461,70.00955,133.95263-208.83936h-88.15908Z"/>
+      </svg>
+    </div>
+    <div class="cover-badge"><div class="cover-badge-text">Partner Proposal</div></div>
+  </div>
+
+  <div class="cover-content">
+    <div class="cover-eyebrow">Brazil Infrastructure · Partnership</div>
+    <div class="cover-divider"></div>
+    <div class="cover-title"><span>Wide Brazil</span><br>as Empower-EX's Brazil Partner</div>
+    <div class="cover-subtitle">Entity incorporation, legal representation, accounting, HR &amp; payroll BPO, and immigration support — delivered by Wide Brazil as the visible on-the-ground partner for Empower-EX's EOR client in Brazil.</div>
+    <div class="cover-tags">
+      <span class="cover-tag">White-Label Partnership</span>
+      <span class="cover-tag">Entity Setup</span>
+      <span class="cover-tag">HR &amp; Payroll BPO</span>
+      <span class="cover-tag">Immigration</span>
+      <span class="cover-tag outline">Confidential</span>
+    </div>
+  </div>
+
+  <div class="cover-meta">
+    <div class="cover-meta-item">
+      <div class="cover-meta-label">Prepared for</div>
+      <div class="cover-meta-value">Empower-EX</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="cover-meta-label">Contact</div>
+      <div class="cover-meta-value">Reena</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="cover-meta-label">Date</div>
+      <div class="cover-meta-value">June 2026</div>
+    </div>
+  </div>
+
+  <div class="cover-image-area">
+    <div class="brazil-photo">
+      <svg width="100%" height="110" viewBox="0 0 794 110" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <rect width="794" height="110" fill="#0D1B2E"/>
+        <rect x="30" y="55" width="18" height="55" fill="rgba(0,200,200,0.12)"/>
+        <rect x="52" y="40" width="14" height="70" fill="rgba(0,200,200,0.09)"/>
+        <rect x="70" y="62" width="22" height="48" fill="rgba(0,200,200,0.07)"/>
+        <rect x="96" y="35" width="10" height="75" fill="rgba(0,200,200,0.13)"/>
+        <rect x="110" y="50" width="16" height="60" fill="rgba(0,200,200,0.08)"/>
+        <rect x="130" y="28" width="12" height="82" fill="rgba(0,200,200,0.15)"/>
+        <rect x="146" y="45" width="20" height="65" fill="rgba(0,200,200,0.07)"/>
+        <rect x="170" y="58" width="14" height="52" fill="rgba(0,200,200,0.1)"/>
+        <rect x="188" y="38" width="18" height="72" fill="rgba(0,200,200,0.12)"/>
+        <rect x="210" y="22" width="10" height="88" fill="rgba(0,200,200,0.16)"/>
+        <rect x="224" y="48" width="16" height="62" fill="rgba(0,200,200,0.09)"/>
+        <rect x="244" y="60" width="24" height="50" fill="rgba(0,200,200,0.07)"/>
+        <rect x="272" y="32" width="12" height="78" fill="rgba(0,200,200,0.14)"/>
+        <rect x="288" y="44" width="18" height="66" fill="rgba(0,200,200,0.1)"/>
+        <rect x="310" y="55" width="14" height="55" fill="rgba(0,200,200,0.08)"/>
+        <rect x="328" y="30" width="20" height="80" fill="rgba(0,200,200,0.13)"/>
+        <rect x="352" y="42" width="16" height="68" fill="rgba(0,200,200,0.09)"/>
+        <rect x="372" y="18" width="10" height="92" fill="rgba(0,200,200,0.17)"/>
+        <rect x="386" y="50" width="22" height="60" fill="rgba(0,200,200,0.08)"/>
+        <rect x="412" y="35" width="14" height="75" fill="rgba(0,200,200,0.12)"/>
+        <rect x="430" y="25" width="12" height="85" fill="rgba(0,200,200,0.15)"/>
+        <rect x="446" y="55" width="18" height="55" fill="rgba(0,200,200,0.07)"/>
+        <rect x="468" y="40" width="14" height="70" fill="rgba(0,200,200,0.11)"/>
+        <rect x="486" y="30" width="20" height="80" fill="rgba(0,200,200,0.13)"/>
+        <rect x="510" y="48" width="16" height="62" fill="rgba(0,200,200,0.09)"/>
+        <rect x="530" y="20" width="10" height="90" fill="rgba(0,200,200,0.16)"/>
+        <rect x="544" y="55" width="24" height="55" fill="rgba(0,200,200,0.07)"/>
+        <rect x="572" y="38" width="12" height="72" fill="rgba(0,200,200,0.12)"/>
+        <rect x="588" y="45" width="18" height="65" fill="rgba(0,200,200,0.1)"/>
+        <rect x="610" y="28" width="14" height="82" fill="rgba(0,200,200,0.14)"/>
+        <rect x="628" y="50" width="20" height="60" fill="rgba(0,200,200,0.08)"/>
+        <rect x="652" y="35" width="12" height="75" fill="rgba(0,200,200,0.13)"/>
+        <rect x="668" y="22" width="16" height="88" fill="rgba(0,200,200,0.16)"/>
+        <rect x="688" y="55" width="22" height="55" fill="rgba(0,200,200,0.07)"/>
+        <rect x="714" y="40" width="14" height="70" fill="rgba(0,200,200,0.11)"/>
+        <rect x="732" y="30" width="18" height="80" fill="rgba(0,200,200,0.13)"/>
+        <rect x="754" y="45" width="12" height="65" fill="rgba(0,200,200,0.09)"/>
+        <rect x="770" y="35" width="20" height="75" fill="rgba(0,200,200,0.12)"/>
+        <rect x="0" y="108" width="794" height="2" fill="rgba(0,200,200,0.3)"/>
+      </svg>
+    </div>
+  </div>
+
+  <div class="cover-footer">
+    <span class="cover-footer-url">widebrazil.com</span>
+    <span class="cover-footer-edition">Confidential · Prepared for Empower-EX · v2.0</span>
+  </div>
+</div>
+
+
+<!-- PAGE 2 — PARTNERSHIP CONTEXT & APPROACH -->
+<div class="page inner-page">
+  <div class="page-header">
+    <div class="page-header-left">Wide Brazil <span>| Partner Proposal</span></div>
+    <div class="page-header-right">Brazil Partnership — Empower-EX</div>
+  </div>
+  <div class="page-body">
+    <div class="section-header-block">
+      <div class="section-num">Section 01</div>
+      <div class="section-title">The Partnership Context</div>
+      <div class="section-subtitle">How Wide Brazil and Empower-EX work together to deliver Brazil operations for Empower-EX's EOR client.</div>
+    </div>
+
+    <p class="prose">This proposal is addressed directly to <strong>Empower-EX</strong> as a commercial partner. The end client is an EOR company looking to establish a compliant legal entity in Brazil and operate it at scale — employing staff under CLT, running payroll, and potentially relocating executives through the Brazilian immigration system.</p>
+
+    <p class="prose">The structure is a partnership. Empower-EX manages the client relationship and the global EOR context. Wide Brazil delivers the Brazilian infrastructure — visible as a named partner — covering entity incorporation, legal representation, accounting, payroll BPO, and immigration support. Neither party is invisible in this arrangement: the client knows they are working with both Empower-EX and Wide Brazil.</p>
+
+    <div class="context-cards">
+      <div class="context-card">
+        <div class="context-card-label">Partner</div>
+        <div class="context-card-value">Empower-EX</div>
+        <div class="context-card-sub">Brings the client relationship, global EOR context, and commercial terms with the end client.</div>
+      </div>
+      <div class="context-card">
+        <div class="context-card-label">End Client</div>
+        <div class="context-card-value">EOR company</div>
+        <div class="context-card-sub">Seeking a Brazilian legal entity to employ staff under CLT and operate payroll compliantly from day one.</div>
+      </div>
+      <div class="context-card">
+        <div class="context-card-label">Wide Brazil's role</div>
+        <div class="context-card-value">Brazil Infrastructure Partner</div>
+        <div class="context-card-sub">Visible on-the-ground partner. Handles incorporation, compliance, payroll BPO, and immigration — not a background subcontractor.</div>
+      </div>
+      <div class="context-card">
+        <div class="context-card-label">Commercial model</div>
+        <div class="context-card-value">BPO at scale</div>
+        <div class="context-card-sub">Pricing structured to grow with the end client's Brazilian headcount. No setup fee for incorporation is included in the partnership terms.</div>
+      </div>
+    </div>
+
+    <div class="partner-callout">
+      <p>Wide Brazil is itself an active EOR operator in Brazil. We process CLT payroll, manage statutory compliance, and handle government filings for international companies every month. We are not consultants explaining how EOR works — we run the same model the end client is trying to build. <strong>Empower-EX can present this partnership with confidence that local execution will match the standard their own client expects.</strong></p>
+    </div>
+
+  </div>
+  <div class="page-footer">
+    <div class="pf-brand">Wide Brazil <span>| Partner Proposal</span></div>
+    <div class="pf-disclaimer">Confidential — prepared solely for Empower-EX.</div>
+    <div class="pf-page">Page 2</div>
+  </div>
+</div>
+
+
+<!-- PAGE 3 — SCOPE OF SERVICES (Part 1) -->
+<div class="page inner-page">
+  <div class="page-header">
+    <div class="page-header-left">Wide Brazil <span>| Partner Proposal</span></div>
+    <div class="page-header-right">Brazil Partnership — Empower-EX</div>
+  </div>
+  <div class="page-body">
+    <div class="navy-section-header">
+      <div class="section-num">Section 02</div>
+      <div class="section-title">Scope of Services</div>
+      <div class="section-subtitle">What Wide Brazil delivers under the partnership — across every stage of the engagement, from incorporation through ongoing operations.</div>
+    </div>
+
+    <div class="scope-block">
+      <div class="scope-area">Entity Incorporation</div>
+      <div class="scope-item">
+        <div class="scope-item-check">✓</div>
+        <div class="scope-item-text"><strong>Company incorporation (Ltda. or S.A.)</strong> — full registration package including CNPJ, NIRE, state registration (Junta Comercial), and municipal registration (CCM). Entity type is confirmed at kick-off based on the end client's shareholding structure and business model.</div>
+      </div>
+      <div class="scope-item">
+        <div class="scope-item-check">✓</div>
+        <div class="scope-item-text"><strong>Articles of association</strong> — drafting of the contrato social or estatuto social in Portuguese, prepared in compliance with Brazilian corporate law and tailored to the end client's operational requirements.</div>
+      </div>
+      <div class="scope-item">
+        <div class="scope-item-check">✓</div>
+        <div class="scope-item-text"><strong>Tax regime election</strong> — guidance and registration under the appropriate federal tax regime (Simples Nacional, Lucro Presumido, or Lucro Real) based on the entity's projected revenues and operational profile.</div>
+      </div>
+      <div class="scope-item">
+        <div class="scope-item-check">✓</div>
+        <div class="scope-item-text"><strong>Legal representative appointment</strong> — a Brazilian-resident individual acting as the entity's formal representante legal, satisfying Receita Federal requirements for foreign-owned entities. This is a statutory role that enables the entity to operate under Brazilian law.</div>
+      </div>
+    </div>
+
+    <div class="scope-block">
+      <div class="scope-area">Ongoing Accounting &amp; Compliance</div>
+      <div class="scope-item">
+        <div class="scope-item-check">✓</div>
+        <div class="scope-item-text"><strong>Monthly bookkeeping and financial statements</strong> — full accounting records maintained in accordance with Brazilian GAAP (CPC standards), including P&amp;L, balance sheet, and cash flow statements.</div>
+      </div>
+      <div class="scope-item">
+        <div class="scope-item-check">✓</div>
+        <div class="scope-item-text"><strong>Federal, state, and municipal tax filings</strong> — DCTF, EFD-Contribuições, SPED Fiscal, SPED Contábil, and all ancillary obligations filed on time. No gaps, no penalties.</div>
+      </div>
+      <div class="scope-item">
+        <div class="scope-item-check">✓</div>
+        <div class="scope-item-text"><strong>Annual corporate income tax (IRPJ/CSLL)</strong> — preparation and submission of the ECF (annual tax return) and supporting documentation in compliance with Receita Federal requirements.</div>
+      </div>
+    </div>
+
+  </div>
+  <div class="page-footer">
+    <div class="pf-brand">Wide Brazil <span>| Partner Proposal</span></div>
+    <div class="pf-disclaimer">Confidential — prepared solely for Empower-EX.</div>
+    <div class="pf-page">Page 3</div>
+  </div>
+</div>
+
+
+<!-- PAGE 4 — SCOPE (continued) -->
+<div class="page inner-page">
+  <div class="page-header">
+    <div class="page-header-left">Wide Brazil <span>| Partner Proposal</span></div>
+    <div class="page-header-right">Brazil Partnership — Empower-EX</div>
+  </div>
+  <div class="page-body">
+    <div class="continuation-label">Scope of Services — continued</div>
+
+    <div class="scope-block">
+      <div class="scope-area">HR &amp; Payroll BPO</div>
+      <div class="scope-item">
+        <div class="scope-item-check">✓</div>
+        <div class="scope-item-text"><strong>CLT employment contracts</strong> — drafting and ongoing maintenance of compliant employment agreements in Portuguese, covering all mandatory CLT clauses. Wide Brazil applies the same rigour here that Empower-EX would expect from their own EOR operations.</div>
+      </div>
+      <div class="scope-item">
+        <div class="scope-item-check">✓</div>
+        <div class="scope-item-text"><strong>Monthly payroll processing</strong> — full calculation of gross salary, INSS, FGTS, IRRF, and all statutory deductions. Processed with the accuracy and auditability an EOR business demands. Payslips distributed to employees monthly.</div>
+      </div>
+      <div class="scope-item">
+        <div class="scope-item-check">✓</div>
+        <div class="scope-item-text"><strong>eSocial &amp; SEFIP filings</strong> — submission of all payroll-related government reports including eSocial events (S-1200, S-1210, S-2200, S-2299), DARF payments, and FGTS GFIP. Filed on schedule, every cycle.</div>
+      </div>
+      <div class="scope-item">
+        <div class="scope-item-check">✓</div>
+        <div class="scope-item-text"><strong>13th salary, vacation, and annual provisions</strong> — calculation and management of all statutory provisions including 13th salary (paid in November and December), vacation entitlements, and constitutional vacation bonus (1/3 of gross). Fully itemised in monthly reporting.</div>
+      </div>
+      <div class="scope-item">
+        <div class="scope-item-check">✓</div>
+        <div class="scope-item-text"><strong>Benefits administration</strong> — management of mandatory benefits (meal allowance, life insurance) and any optional benefits the end client elects to provide. All benefits are passed through at cost with full itemisation.</div>
+      </div>
+      <div class="scope-item">
+        <div class="scope-item-check">✓</div>
+        <div class="scope-item-text"><strong>Employee onboarding &amp; offboarding</strong> — structured onboarding process covering documentation, registration with government systems, and benefits activation. Offboarding includes calculation of all termination entitlements and compliance with CLT dismissal procedures.</div>
+      </div>
+    </div>
+
+    <div class="scope-block">
+      <div class="scope-area">Immigration Support</div>
+      <div class="scope-item">
+        <div class="scope-item-check">✓</div>
+        <div class="scope-item-text"><strong>Work visa and residency applications</strong> — management of VITEM V (work permit) and CRNM (permanent residency) applications for foreign executives and senior employees employed by the entity. Each case is managed from document preparation through issuance.</div>
+      </div>
+      <div class="scope-item">
+        <div class="scope-item-check">✓</div>
+        <div class="scope-item-text"><strong>Investor visa support</strong> — assistance with CATIR/Resolução 13 investment visa applications where applicable. Complexity and timeline vary by case; pricing confirmed after eligibility review.</div>
+      </div>
+      <div class="scope-item">
+        <div class="scope-item-check">✓</div>
+        <div class="scope-item-text"><strong>Digital nomad visa (VITEM XIV)</strong> — processing for remote workers and digital professionals seeking legal residency in Brazil. Requirements and eligibility confirmed at intake.</div>
+      </div>
+    </div>
+
+  </div>
+  <div class="page-footer">
+    <div class="pf-brand">Wide Brazil <span>| Partner Proposal</span></div>
+    <div class="pf-disclaimer">Confidential — prepared solely for Empower-EX.</div>
+    <div class="pf-page">Page 4</div>
+  </div>
+</div>
+
+
+<!-- PAGE 5 — INVESTMENT & FEE STRUCTURE -->
+<div class="page inner-page">
+  <div class="page-header">
+    <div class="page-header-left">Wide Brazil <span>| Partner Proposal</span></div>
+    <div class="page-header-right">Brazil Partnership — Empower-EX</div>
+  </div>
+  <div class="page-body">
+    <div class="section-header-block">
+      <div class="section-num">Section 03</div>
+      <div class="section-title">Investment &amp; Fee Structure</div>
+      <div class="section-subtitle">Wide Brazil's fees for the partnership — structured to be transparent, scalable, and commercially straightforward for Empower-EX to present to the end client.</div>
+    </div>
+
+    <p class="prose" style="margin-bottom:8px;font-size:8.5pt;"><strong>One-Time Setup Fee</strong></p>
+    <table class="pricing-tiers-table" style="margin-bottom:20px;">
+      <thead>
+        <tr><th>Service</th><th>Description</th><th style="text-align:right">Fee (USD)</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="pt-item">Entity Incorporation</span><span class="pt-desc">One-time, billed at engagement start</span></td>
+          <td class="pt-desc">Full incorporation package: CNPJ, NIRE, state and municipal registrations, articles of association</td>
+          <td class="pt-value">$2,000</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="prose" style="margin-bottom:8px;font-size:8.5pt;"><strong>Monthly Recurring Fees</strong></p>
+    <table class="pricing-tiers-table" style="margin-bottom:20px;">
+      <thead>
+        <tr><th style="width:35%">Service</th><th>Description</th><th style="text-align:right;white-space:nowrap">Monthly Fee (USD)</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="pt-item">Accounting &amp; Tax</span></td>
+          <td class="pt-desc">Bookkeeping, tax filings, ancillary obligations, billing &amp; treasury management</td>
+          <td class="pt-value">$2,000</td>
+        </tr>
+        <tr>
+          <td><span class="pt-item">Legal Representation</span><span class="pt-desc">Bureaucratic &amp; legal purposes only</span></td>
+          <td class="pt-desc">Qualified Brazilian resident as legal representative (representante legal) — required by law for foreign-owned entities. Not a management role.</td>
+          <td class="pt-value">$1,500</td>
+        </tr>
+        <tr>
+          <td><span class="pt-item">Company Residence Address</span></td>
+          <td class="pt-desc">Registered business address in São Paulo for fiscal and commercial domicile</td>
+          <td class="pt-value">$50</td>
+        </tr>
+        <tr>
+          <td><span class="pt-item">HR &amp; Payroll BPO</span><span class="pt-desc">Fee scales with headcount — see tiers below</span></td>
+          <td class="pt-desc">Full payroll processing, HR administration, eSocial filings, benefits management, onboarding &amp; offboarding</td>
+          <td class="pt-value">See tiers below</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="prose" style="margin-bottom:8px;font-size:8.5pt;"><strong>Payroll Processing — Tiered by Headcount (per employee/month)</strong></p>
+    <table class="pricing-tiers-table" style="margin-bottom:14px;">
+      <thead>
+        <tr><th>Headcount</th><th>Includes</th><th style="text-align:right">Fee (USD/employee/mo)</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="pt-item">1–10 employees</span></td>
+          <td class="pt-desc">Full payroll calculation, eSocial &amp; SEFIP filings, payslips, onboarding &amp; offboarding</td>
+          <td class="pt-value">$120 / employee</td>
+        </tr>
+        <tr>
+          <td><span class="pt-item">11–20 employees</span></td>
+          <td class="pt-desc">Full payroll calculation, eSocial &amp; SEFIP filings, payslips, onboarding &amp; offboarding</td>
+          <td class="pt-value">$100 / employee</td>
+        </tr>
+        <tr>
+          <td><span class="pt-item">21–50 employees</span></td>
+          <td class="pt-desc">Full payroll calculation, eSocial &amp; SEFIP filings, payslips, onboarding &amp; offboarding</td>
+          <td class="pt-value">$90 / employee</td>
+        </tr>
+        <tr class="highlight">
+          <td><span class="pt-item">50+ employees</span></td>
+          <td class="pt-desc">Full payroll calculation, eSocial &amp; SEFIP filings, payslips, onboarding &amp; offboarding</td>
+          <td class="pt-value">$80 / employee</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+  <div class="page-footer">
+    <div class="pf-brand">Wide Brazil <span>| Partner Proposal</span></div>
+    <div class="pf-disclaimer">Confidential — prepared solely for Empower-EX.</div>
+    <div class="pf-page">Page 5</div>
+  </div>
+</div>
+
+
+<!-- PAGE 6 — IMMIGRATION PRICING + PAYROLL TRANSPARENCY -->
+<div class="page inner-page">
+  <div class="page-header">
+    <div class="page-header-left">Wide Brazil <span>| Partner Proposal</span></div>
+    <div class="page-header-right">Brazil Partnership — Empower-EX</div>
+  </div>
+  <div class="page-body">
+    <div class="continuation-label">Investment &amp; Fee Structure — continued</div>
+
+    <p class="prose" style="margin-bottom:8px;font-size:8.5pt;"><strong>Additional HR Services</strong></p>
+    <table class="pricing-tiers-table" style="margin-bottom:14px;">
+      <thead>
+        <tr><th>Service</th><th>Description</th><th style="text-align:right">Fee (USD)</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="pt-item">Benefits Management</span></td>
+          <td class="pt-desc">Administration of mandatory and optional employee benefits — enrollment, tracking, and monthly reporting</td>
+          <td class="pt-value">$20 / employee / mo</td>
+        </tr>
+        <tr>
+          <td><span class="pt-item">Dedicated HRBP</span></td>
+          <td class="pt-desc">Assignment of a named HR Business Partner to support the end client's people operations in Brazil</td>
+          <td class="pt-value">Negotiable</td>
+        </tr>
+        <tr>
+          <td><span class="pt-item">HR Advisory</span></td>
+          <td class="pt-desc">On-demand consulting on Brazilian labor law, HR strategy, and workforce structuring. Monthly retainer packages available.</td>
+          <td class="pt-value">$200 / hour<br><span class="pt-desc">Monthly packages negotiable</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="partner-callout" style="margin-bottom:18px;">
+      <p>Payroll processing fees cover Wide Brazil's service and operational costs. They do not include employee gross salaries, statutory employer contributions (INSS, FGTS, RAT, Sistema S), or mandatory benefits — these are passed through at cost, fully itemised, as Empower-EX will already know from operating their own EOR model elsewhere. <strong>No markups on statutory costs.</strong></p>
+    </div>
+
+    <p class="prose" style="margin-bottom:8px;"><strong>Immigration &amp; Visa Services</strong></p>
+    <p class="prose" style="font-size:8.5pt;margin-bottom:10px;">Visa fees are quoted per application and vary based on category and applicant profile. Government fees and third-party costs (apostille, translation, notarial) are billed at cost, separately from Wide Brazil's service fee.</p>
+
+    <div class="visa-grid" style="margin-bottom:18px;">
+      <div class="visa-card">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;">
+          <div class="visa-name">Standard Permanent Residence</div>
+          <div style="text-align:right;flex-shrink:0;">
+            <div style="font-family:'Montserrat',sans-serif;font-size:10pt;font-weight:800;color:var(--navy);">from $2,000</div>
+            <span style="font-family:'Montserrat',sans-serif;font-size:6.5pt;color:var(--gray);text-transform:uppercase;letter-spacing:0.5px;">per application</span>
+          </div>
+        </div>
+        <div class="visa-body">Covers applications under standard permanent residence categories — including family reunification, long-term residency, and employment-based pathways.</div>
+      </div>
+      <div class="visa-card">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;">
+          <div class="visa-name">Investor Visa</div>
+          <div style="text-align:right;flex-shrink:0;">
+            <div style="font-family:'Montserrat',sans-serif;font-size:10pt;font-weight:800;color:var(--navy);">on request</div>
+            <span style="font-family:'Montserrat',sans-serif;font-size:6.5pt;color:var(--gray);text-transform:uppercase;letter-spacing:0.5px;">per application</span>
+          </div>
+        </div>
+        <div class="visa-body">For foreign investors bringing capital into Brazil under CATIR/RESOLUÇÃO 13 framework. Complexity and timeline vary significantly by case — pricing confirmed after eligibility review.</div>
+      </div>
+      <div class="visa-card">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;">
+          <div class="visa-name">Executive / Senior Manager</div>
+          <div style="text-align:right;flex-shrink:0;">
+            <div style="font-family:'Montserrat',sans-serif;font-size:10pt;font-weight:800;color:var(--navy);">on request</div>
+            <span style="font-family:'Montserrat',sans-serif;font-size:6.5pt;color:var(--gray);text-transform:uppercase;letter-spacing:0.5px;">per application</span>
+          </div>
+        </div>
+        <div class="visa-body">Permanent residence for executive-level professionals and senior managers employed by a Brazilian entity. Requires demonstrable managerial function and remuneration threshold.</div>
+      </div>
+      <div class="visa-card">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;">
+          <div class="visa-name">Digital Nomad Visa</div>
+          <div style="text-align:right;flex-shrink:0;">
+            <div style="font-family:'Montserrat',sans-serif;font-size:10pt;font-weight:800;color:var(--navy);">on request</div>
+            <span style="font-family:'Montserrat',sans-serif;font-size:6.5pt;color:var(--gray);text-transform:uppercase;letter-spacing:0.5px;">per application</span>
+          </div>
+        </div>
+        <div class="visa-body">For remote workers employed or contracted abroad meeting Brazil's minimum monthly income requirement. Renewable and eligible for conversion to permanent residency.</div>
+      </div>
+    </div>
+
+  </div>
+  <div class="page-footer">
+    <div class="pf-brand">Wide Brazil <span>| Partner Proposal</span></div>
+    <div class="pf-disclaimer">Confidential — prepared solely for Empower-EX.</div>
+    <div class="pf-page">Page 6</div>
+  </div>
+</div>
+
+
+<!-- PAGE 7 — PAYROLL PASS-THROUGH + NEXT STEPS INTRO -->
+<div class="page inner-page">
+  <div class="page-header">
+    <div class="page-header-left">Wide Brazil <span>| Partner Proposal</span></div>
+    <div class="page-header-right">Brazil Partnership — Empower-EX</div>
+  </div>
+  <div class="page-body">
+    <div class="continuation-label">Investment &amp; Fee Structure — continued</div>
+
+    <p class="prose" style="margin-bottom:6px;font-size:8.5pt;"><strong>Payroll Pass-Through Transparency</strong></p>
+    <p class="prose" style="font-size:8.5pt;margin-bottom:14px;">As a fellow EOR operator, Empower-EX already knows how the pass-through model works. For completeness, the table below reflects the statutory employer costs Wide Brazil applies on behalf of the end client — no markup, full itemisation on every invoice.</p>
+
+    <table class="pricing-tiers-table" style="margin-bottom:20px;">
+      <thead>
+        <tr><th>Statutory Item</th><th>Rate</th><th>Base</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>FGTS</strong> (Fundo de Garantia do Tempo de Serviço)</td>
+          <td>8%</td>
+          <td>Gross salary</td>
+        </tr>
+        <tr>
+          <td><strong>Employer INSS</strong> (Social Security)</td>
+          <td>20%</td>
+          <td>Gross salary</td>
+        </tr>
+        <tr>
+          <td><strong>RAT</strong> (Work Accident Insurance)</td>
+          <td>3%</td>
+          <td>Gross salary</td>
+        </tr>
+        <tr>
+          <td><strong>Sistema S</strong> (SENAI, SESI, SEBRAE, etc.)</td>
+          <td>5.8%</td>
+          <td>Gross salary</td>
+        </tr>
+        <tr class="highlight">
+          <td><strong>Total Statutory Employer Charges</strong></td>
+          <td><strong>36.8%</strong></td>
+          <td>Gross salary</td>
+        </tr>
+        <tr>
+          <td><strong>Annual Provisions</strong> (13th salary + vacation + 1/3 bonus)</td>
+          <td>~21.7%</td>
+          <td>Gross + social charges ÷ 12</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="prose" style="margin-bottom:6px;"><strong>Consolidated Monthly Investment — Illustrative Range</strong></p>
+    <p class="prose" style="font-size:8.5pt;margin-bottom:8px;">The table below reflects the representative monthly run-rate at initial operating capacity (1–10 employees of the end client), excluding payroll pass-throughs and immigration fees.</p>
+
+    <div style="border:1.5px solid var(--lgray);border-radius:4px;overflow:hidden;margin-bottom:8px;">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;padding:9px 16px;border-bottom:1px solid var(--lgray);">
+        <span style="font-family:'Montserrat',sans-serif;font-weight:600;font-size:8.5pt;color:var(--text);">Accounting &amp; Tax + Billing/Finance</span>
+        <span style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:9.5pt;color:var(--navy);">$2,000 / mo</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:baseline;padding:9px 16px;border-bottom:1px solid var(--lgray);">
+        <span style="font-family:'Montserrat',sans-serif;font-weight:600;font-size:8.5pt;color:var(--text);">Legal Representation</span>
+        <span style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:9.5pt;color:var(--navy);">$1,500 / mo</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:baseline;padding:9px 16px;border-bottom:1px solid var(--lgray);">
+        <span style="font-family:'Montserrat',sans-serif;font-weight:600;font-size:8.5pt;color:var(--text);">Company Residence Address</span>
+        <span style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:9.5pt;color:var(--navy);">$50 / mo</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:baseline;padding:9px 16px;border-bottom:1px solid var(--lgray);">
+        <span style="font-family:'Montserrat',sans-serif;font-weight:600;font-size:8.5pt;color:var(--text);">Payroll Processing — 10 employees × $120</span>
+        <span style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:9.5pt;color:var(--navy);">$1,200 / mo</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:baseline;padding:9px 16px;border-bottom:1px solid var(--lgray);">
+        <span style="font-family:'Montserrat',sans-serif;font-weight:600;font-size:8.5pt;color:var(--text);">Benefits Management — 10 employees × $20</span>
+        <span style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:9.5pt;color:var(--navy);">$200 / mo</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:baseline;padding:9px 16px;background:var(--navy);">
+        <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:8.5pt;color:rgba(255,255,255,.85);">Total Monthly Management Fee</span>
+        <span style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:12pt;color:var(--teal);">$4,950 / mo</span>
+      </div>
+    </div>
+    <p style="font-family:'Source Serif 4',serif;font-size:7pt;color:#6B7A90;font-style:italic;margin-top:6px;">Illustrative example at 10 end-client employees. Excludes: one-time setup fee (USD 2,000), employee gross salaries, statutory employer contributions, HRBP and HR advisory fees, and government/third-party immigration costs. All payroll-related statutory costs are passed through at cost with full itemisation.</p>
+
+  </div>
+  <div class="page-footer">
+    <div class="pf-brand">Wide Brazil <span>| Partner Proposal</span></div>
+    <div class="pf-disclaimer">Confidential — prepared solely for Empower-EX.</div>
+    <div class="pf-page">Page 7</div>
+  </div>
+</div>
+
+
+<!-- PAGE 8 — NEXT STEPS -->
+<div class="page inner-page">
+  <div class="page-header">
+    <div class="page-header-left">Wide Brazil <span>| Partner Proposal</span></div>
+    <div class="page-header-right">Brazil Partnership — Empower-EX</div>
+  </div>
+  <div class="page-body">
+    <div class="navy-section-header">
+      <div class="section-num">Section 04</div>
+      <div class="section-title">Next Steps</div>
+      <div class="section-subtitle">How to move this partnership forward — from alignment to entity live and operations running.</div>
+    </div>
+
+    <div class="step-row">
+      <div class="step-num"><span>1</span></div>
+      <div>
+        <div class="step-title">Partner Alignment Call — Empower-EX &amp; Wide Brazil</div>
+        <div class="step-desc">Empower-EX confirms scope, fee structure, and any adjustments before the end client is formally brought in. Wide Brazil is available to join a call with the end client directly if that is useful — the partnership is visible, and so are we.</div>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-num"><span>2</span></div>
+      <div>
+        <div class="step-title">End Client Kick-off</div>
+        <div class="step-desc">A structured call — with Empower-EX and the end client — to confirm entity structure (Ltda. vs. S.A.), tax regime, legal representative requirements, and any immediate immigration needs. Time is not spent explaining how EOR works; both partners already know.</div>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-num"><span>3</span></div>
+      <div>
+        <div class="step-title">Services Agreement &amp; Partner Onboarding</div>
+        <div class="step-desc">Execution of the services agreement between Wide Brazil and the contracting party (Empower-EX and/or the end client, depending on the commercial structure agreed). Wide Brazil provides a complete document checklist and incorporation timeline immediately upon signature.</div>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-num"><span>4</span></div>
+      <div>
+        <div class="step-title">Entity Incorporation</div>
+        <div class="step-desc">Wide Brazil initiates the incorporation process. Typical timeline is 15–45 business days depending on the Brazilian state selected and the completeness of shareholder documentation provided. Empower-EX receives milestone updates throughout.</div>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-num"><span>5</span></div>
+      <div>
+        <div class="step-title">Activation of Recurring Services</div>
+        <div class="step-desc">Once the entity is registered and the CNPJ is active, all recurring services go live: accounting and legal representation immediately, HR &amp; Payroll BPO from the first employee onboarded. Immigration processing runs in parallel as soon as applicant documentation is available.</div>
+      </div>
+    </div>
+
+    <div class="assumptions-box">
+      <div class="assumptions-title">Key Assumptions &amp; Exclusions</div>
+      <ul class="assumptions-list">
+        <li>This proposal covers Wide Brazil's service fees only. Statutory employer contributions (INSS, FGTS, RAT, Sistema S), employee gross salaries, and mandatory benefits are pass-through costs billed at cost with full itemisation.</li>
+        <li>Government registration fees, notarial services, apostille, and certified translations required for incorporation are not included in the USD 2,000 setup fee and will be invoiced at cost with supporting documentation.</li>
+        <li>Immigration service fees are quoted per applicant at case initiation. Government filing fees and third-party costs are invoiced separately at cost.</li>
+        <li>Entity structure (Ltda. or S.A.) and tax regime to be confirmed at kick-off based on the end client's shareholding structure and projected revenue profile.</li>
+        <li>Wide Brazil's BPO scope does not cover tax litigation, regulatory disputes, or labor court proceedings. These are out of scope unless separately agreed in writing.</li>
+        <li>This proposal is valid for 30 days from date of issue.</li>
+      </ul>
+    </div>
+
+    <div class="contact-box">
+      <div class="contact-box-left">
+        <h3>Wide Brazil</h3>
+        <p>Empower-EX's on-the-ground partner in Brazil. We handle entity, compliance, payroll, and immigration — as a named, visible partner — so the end client has the Brazilian infrastructure they need from day one.</p>
+      </div>
+      <div class="contact-box-right">
+        <div class="contact-detail"><span>Email</span>helena.pinotti@widebrazil.com</div>
+        <div class="contact-detail"><span>Web</span>widebrazil.com</div>
+        <div class="contact-detail"><span>Location</span>São Paulo, Brazil</div>
+      </div>
+    </div>
+
+  </div>
+  <div class="page-footer">
+    <div class="pf-brand">Wide Brazil <span>| Partner Proposal</span></div>
+    <div class="pf-disclaimer">Confidential — prepared solely for Empower-EX.</div>
+    <div class="pf-page">Page 8</div>
+</html>
