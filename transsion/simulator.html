@@ -1,0 +1,1277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wide Brazil — Payroll Cost Simulator</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Source+Serif+4:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0D1B2E;
+    --navy2: #122440;
+    --teal: #00C8C8;
+    --teal2: #00A8A8;
+    --green: #3DD68C;
+    --white: #FFFFFF;
+    --offwhite: #F7F9FC;
+    --lgray: #E8EDF3;
+    --mgray: #C4CDD8;
+    --text: #1A2535;
+    --muted: #5A6A7E;
+    --amber: #D69E2E;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Source Serif 4', serif;
+    background: var(--offwhite);
+    color: var(--text);
+    min-height: 100vh;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    background: var(--navy);
+    padding: 22px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 3px solid var(--teal);
+    gap: 20px;
+  }
+  .header-center { text-align: center; }
+  .header-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11pt;
+    font-weight: 700;
+    color: var(--teal);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  .header-sub {
+    font-family: 'Source Serif 4', serif;
+    font-size: 8.5pt;
+    color: rgba(255,255,255,0.5);
+    margin-top: 3px;
+  }
+
+  /* ── FX CONTROL ── */
+  .fx-control {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(0,200,200,0.08);
+    border: 1px solid rgba(0,200,200,0.25);
+    border-radius: 6px;
+    padding: 7px 14px;
+    flex-shrink: 0;
+  }
+  .fx-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 7.5pt;
+    font-weight: 700;
+    color: rgba(255,255,255,0.55);
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .fx-prefix {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9pt;
+    font-weight: 700;
+    color: var(--teal);
+  }
+  .fx-input {
+    background: transparent;
+    border: none;
+    outline: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11pt;
+    font-weight: 800;
+    color: var(--teal);
+    width: 62px;
+    text-align: right;
+  }
+  .fx-input::-webkit-inner-spin-button { display: none; }
+  .fx-date {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 7pt;
+    color: rgba(255,255,255,0.35);
+    white-space: nowrap;
+  }
+
+  /* ── LAYOUT ── */
+  .main {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 32px 28px 60px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: 390px 1fr;
+    gap: 26px;
+    align-items: start;
+  }
+
+  /* ── PANELS ── */
+  .panel {
+    background: white;
+    border: 1px solid var(--lgray);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .panel-header {
+    background: var(--navy);
+    padding: 13px 20px;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+  }
+  .ph-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--teal); flex-shrink: 0; }
+  .panel-header h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 8.5pt;
+    font-weight: 700;
+    color: white;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+  .panel-body { padding: 20px; }
+
+  /* ── INPUT GROUP ── */
+  .input-group { margin-bottom: 20px; }
+  .input-group:last-child { margin-bottom: 0; }
+  .input-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 7.5pt;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    display: block;
+  }
+  .input-hint {
+    font-family: 'Source Serif 4', serif;
+    font-size: 7.5pt;
+    color: var(--muted);
+    margin-bottom: 7px;
+    font-style: italic;
+  }
+  .input-wrapper { position: relative; }
+  .input-prefix {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9pt;
+    font-weight: 700;
+    color: var(--teal2);
+    pointer-events: none;
+  }
+  .salary-input {
+    width: 100%;
+    border: 1.5px solid var(--lgray);
+    border-radius: 6px;
+    padding: 11px 12px 11px 48px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13pt;
+    font-weight: 700;
+    color: var(--navy);
+    background: var(--offwhite);
+    transition: border-color 0.2s;
+    outline: none;
+  }
+  .salary-input:focus { border-color: var(--teal); background: white; }
+
+  /* ── MEAL SLIDER ── */
+  .meal-slider-wrap { margin-top: 4px; }
+  .meal-slider-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+  }
+  .meal-value-display {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11pt;
+    font-weight: 800;
+    color: var(--navy);
+  }
+  .meal-value-usd {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 8pt;
+    font-weight: 500;
+    color: var(--muted);
+  }
+  input[type=range] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 5px;
+    border-radius: 3px;
+    background: var(--lgray);
+    outline: none;
+    cursor: pointer;
+  }
+  input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--teal);
+    border: 2px solid white;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+    cursor: pointer;
+  }
+  .meal-range-labels {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 7pt;
+    color: var(--muted);
+    margin-top: 5px;
+    font-weight: 600;
+  }
+
+  /* ── OPTIONAL TOGGLES ── */
+  .optional-section { margin-top: 6px; }
+  .optional-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 7.5pt;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    padding-bottom: 7px;
+    border-bottom: 1px dashed var(--lgray);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .optional-title span {
+    background: rgba(0,200,200,0.12);
+    color: var(--teal2);
+    font-size: 6.5pt;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-weight: 700;
+  }
+  .toggle-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    gap: 10px;
+  }
+  .toggle-info { flex: 1; }
+  .toggle-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 8.5pt;
+    font-weight: 600;
+    color: var(--text);
+  }
+  .toggle-desc {
+    font-family: 'Source Serif 4', serif;
+    font-size: 7.5pt;
+    color: var(--muted);
+    margin-top: 2px;
+    font-style: italic;
+  }
+  .toggle-cost {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 8.5pt;
+    font-weight: 700;
+    color: var(--navy);
+    white-space: nowrap;
+    padding-top: 2px;
+  }
+  .toggle-switch { position: relative; width: 40px; height: 22px; flex-shrink: 0; margin-top: 1px; }
+  .toggle-switch input { opacity: 0; width: 0; height: 0; }
+  .toggle-slider {
+    position: absolute;
+    inset: 0;
+    background: var(--lgray);
+    border-radius: 22px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .toggle-slider::before {
+    content: '';
+    position: absolute;
+    width: 16px; height: 16px;
+    background: white;
+    border-radius: 50%;
+    top: 3px; left: 3px;
+    transition: transform 0.2s;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  }
+  .toggle-switch input:checked + .toggle-slider { background: var(--teal); }
+  .toggle-switch input:checked + .toggle-slider::before { transform: translateX(18px); }
+
+  .allowance-field { margin-top: 8px; display: none; }
+  .allowance-field.visible { display: block; }
+  .allowance-input {
+    width: 100%;
+    border: 1.5px solid var(--lgray);
+    border-radius: 6px;
+    padding: 9px 12px 9px 44px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10pt;
+    font-weight: 700;
+    color: var(--navy);
+    background: var(--offwhite);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .allowance-input:focus { border-color: var(--teal); background: white; }
+
+  /* ── RESULTS ── */
+  .result-section { margin-bottom: 18px; }
+  .result-section:last-child { margin-bottom: 0; }
+  .result-section-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 7pt;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--teal2);
+    border-bottom: 1.5px solid var(--lgray);
+    padding-bottom: 6px;
+    margin-bottom: 8px;
+  }
+
+  .cost-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 7px 0;
+    border-bottom: 1px solid var(--lgray);
+    gap: 12px;
+    position: relative;
+  }
+  .cost-row:last-child { border-bottom: none; }
+  .cost-row:hover { background: rgba(0,200,200,0.025); border-radius: 3px; }
+  .cost-row-left { flex: 1; min-width: 0; }
+  .cost-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 8.5pt;
+    font-weight: 600;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    flex-wrap: wrap;
+  }
+  .info-icon {
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    background: var(--lgray);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 7pt;
+    font-weight: 800;
+    color: var(--muted);
+    flex-shrink: 0;
+    font-style: normal;
+    cursor: help;
+  }
+  .cost-desc {
+    font-family: 'Source Serif 4', serif;
+    font-size: 7.5pt;
+    color: var(--muted);
+    margin-top: 2px;
+    font-style: italic;
+    line-height: 1.5;
+  }
+  .cost-values { text-align: right; flex-shrink: 0; }
+  .cost-brl {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9.5pt;
+    font-weight: 700;
+    color: var(--navy);
+  }
+  .cost-usd {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 7.5pt;
+    font-weight: 500;
+    color: var(--muted);
+    margin-top: 1px;
+  }
+
+  /* Tooltip */
+  .tooltip {
+    display: none;
+    position: absolute;
+    bottom: calc(100% + 6px);
+    right: 0;
+    background: var(--navy);
+    color: rgba(255,255,255,0.88);
+    font-family: 'Source Serif 4', serif;
+    font-size: 7.5pt;
+    padding: 9px 13px;
+    border-radius: 5px;
+    width: 260px;
+    z-index: 100;
+    line-height: 1.6;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+    pointer-events: none;
+  }
+  .cost-row:hover .tooltip { display: block; }
+
+  /* ── PROVISIONS BREAKDOWN ── */
+  .prov-breakdown {
+    background: var(--offwhite);
+    border: 1px solid var(--lgray);
+    border-radius: 5px;
+    padding: 9px 12px;
+    margin-top: 4px;
+  }
+  .prov-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 3px 0;
+    border-bottom: 1px dashed var(--lgray);
+  }
+  .prov-line:last-child { border-bottom: none; padding-bottom: 0; }
+  .prov-line-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 7.5pt;
+    font-weight: 600;
+    color: var(--muted);
+  }
+  .prov-line-val {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 7.5pt;
+    font-weight: 700;
+    color: var(--navy);
+  }
+  .prov-total-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 5px 0 0;
+    margin-top: 4px;
+    border-top: 1.5px solid var(--lgray);
+  }
+  .prov-total-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 8pt;
+    font-weight: 700;
+    color: var(--navy);
+  }
+  .prov-total-val {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 8pt;
+    font-weight: 800;
+    color: var(--teal2);
+  }
+
+  /* ── SUBTOTAL ── */
+  .subtotal-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 14px;
+    background: var(--offwhite);
+    border: 1px solid var(--lgray);
+    border-radius: 5px;
+    margin: 8px 0;
+  }
+  .subtotal-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 8.5pt;
+    font-weight: 700;
+    color: var(--navy);
+  }
+  .subtotal-values { text-align: right; }
+  .subtotal-brl {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10pt;
+    font-weight: 800;
+    color: var(--navy);
+  }
+  .subtotal-usd {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 7.5pt;
+    font-weight: 500;
+    color: var(--muted);
+  }
+
+  /* ── WIDE FEE BLOCK ── */
+  .fee-block {
+    background: var(--navy);
+    border-radius: 6px;
+    padding: 13px 16px;
+    margin: 10px 0;
+  }
+  .fee-block-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 7.5pt;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 9px;
+    padding-bottom: 7px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .fee-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    gap: 10px;
+  }
+  .fee-row:last-child { border-bottom: none; }
+  .fee-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 8pt;
+    font-weight: 600;
+    color: rgba(255,255,255,0.85);
+  }
+  .fee-desc {
+    font-family: 'Source Serif 4', serif;
+    font-size: 7pt;
+    color: rgba(255,255,255,0.4);
+    margin-top: 2px;
+    font-style: italic;
+  }
+  .fee-values { text-align: right; flex-shrink: 0; }
+  .fee-brl {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9pt;
+    font-weight: 700;
+    color: white;
+  }
+  .fee-usd {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 7.5pt;
+    color: rgba(255,255,255,0.45);
+    margin-top: 1px;
+  }
+
+  /* ── GRAND TOTAL ── */
+  .grand-total {
+    background: linear-gradient(135deg, var(--teal) 0%, var(--teal2) 100%);
+    border-radius: 7px;
+    padding: 16px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 6px;
+  }
+  .gt-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9pt;
+    font-weight: 800;
+    color: var(--navy);
+  }
+  .gt-sub {
+    font-family: 'Source Serif 4', serif;
+    font-size: 7.5pt;
+    color: rgba(13,27,46,0.6);
+    margin-top: 2px;
+  }
+  .gt-values { text-align: right; }
+  .gt-brl {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 17pt;
+    font-weight: 900;
+    color: var(--navy);
+  }
+  .gt-usd {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10pt;
+    font-weight: 700;
+    color: rgba(13,27,46,0.65);
+    margin-top: 2px;
+  }
+
+  /* ── VAT NOTE ── */
+  .vat-note {
+    background: rgba(214,158,46,0.07);
+    border: 1px solid rgba(214,158,46,0.28);
+    border-radius: 5px;
+    padding: 9px 13px;
+    margin-top: 9px;
+    font-family: 'Source Serif 4', serif;
+    font-size: 7.5pt;
+    color: #9a6f1a;
+    font-style: italic;
+    line-height: 1.6;
+  }
+  .vat-note strong {
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 7.5pt;
+    color: var(--amber);
+  }
+
+  /* ── BADGES ── */
+  .locked-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    background: rgba(90,106,126,0.08);
+    border: 1px solid rgba(90,106,126,0.18);
+    border-radius: 3px;
+    padding: 1px 6px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 6pt;
+    font-weight: 700;
+    color: var(--muted);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    vertical-align: middle;
+  }
+  .auto-badge {
+    background: rgba(61,214,140,0.1);
+    border: 1px solid rgba(61,214,140,0.3);
+    color: #2A7A56;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 6pt;
+    font-weight: 700;
+    padding: 1px 6px;
+    border-radius: 3px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* ── FV NOTICE ── */
+  .fv-notice {
+    background: rgba(61,214,140,0.07);
+    border: 1px solid rgba(61,214,140,0.28);
+    border-radius: 4px;
+    padding: 7px 11px;
+    font-family: 'Source Serif 4', serif;
+    font-size: 7.5pt;
+    color: #2A7A56;
+    margin-bottom: 6px;
+    font-style: italic;
+  }
+
+  /* ── LEGEND CARD ── */
+  .legend-card {
+    margin-top: 14px;
+    padding: 14px 16px;
+    background: white;
+    border: 1px solid var(--lgray);
+    border-radius: 8px;
+  }
+  .legend-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 7.5pt;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .legend-text {
+    font-family: 'Source Serif 4', serif;
+    font-size: 7.5pt;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  .disclaimer {
+    font-family: 'Source Serif 4', serif;
+    font-size: 7pt;
+    color: var(--muted);
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px dashed var(--lgray);
+    font-style: italic;
+    text-align: center;
+    line-height: 1.7;
+  }
+
+  .hidden { display: none !important; }
+
+  @media (max-width: 800px) {
+    .grid { grid-template-columns: 1fr; }
+    .header { flex-direction: column; align-items: flex-start; gap: 12px; }
+    .main { padding: 18px 14px 40px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <!-- Logo -->
+  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+       viewBox="440 390 1060 320" style="height:38px;width:auto;display:block;flex-shrink:0;">
+    <defs>
+      <linearGradient id="lg" x1="528.00962" y1="437.79086" x2="693.52564" y2="437.79086" gradientTransform="translate(0 1081.58265) scale(1 -1)" gradientUnits="userSpaceOnUse">
+        <stop offset="0" stop-color="#101827"/><stop offset="1" stop-color="#0ec668"/>
+      </linearGradient>
+      <linearGradient id="lg1" x1="438.90681" y1="505.95149" x2="604.42283" y2="505.95149" gradientTransform="translate(0 1081.58265) scale(1 -1)" gradientUnits="userSpaceOnUse">
+        <stop offset="0" stop-color="#101827"/><stop offset="1" stop-color="#0ec668"/>
+      </linearGradient>
+      <linearGradient id="lg2" x1="712.59445" y1="474.81047" x2="460.26471" y2="699.39719" gradientTransform="translate(0 1081.58265) scale(1 -1)" gradientUnits="userSpaceOnUse">
+        <stop offset="0" stop-color="#0ec668"/><stop offset="1" stop-color="#12ace6"/>
+      </linearGradient>
+    </defs>
+    <polygon fill="#ffffff" points="1067.75549 401.49997 1023.07159 544.20905 982.00995 404.26547 947.97415 404.26547 906.91302 544.20905 862.2291 401.49997 825.9744 401.49997 889.94604 595.09726 923.0683 595.09726 964.99228 462.89842 1006.63654 595.09726 1040.03796 595.09726 1104.0097 401.49997 1067.75549 401.49997"/>
+    <path fill="#ffffff" d="M1149.14148,401.49997v193.59729h-32.08148v-193.59729h32.08148Z"/>
+    <path fill="#ffffff" d="M1233.70984,401.49997c59.46155,0,102.33014,43.14445,102.33014,96.79817s-42.86859,96.79912-102.33014,96.79912h-66.37671v-193.59729h66.37671ZM1199.41461,562.73893h34.29523c38.99573,0,66.37579-27.38007,66.37579-64.44079s-27.38007-64.43983-66.37579-64.43983h-34.29523v128.88062Z"/>
+    <path fill="#ffffff" d="M1461.63257,401.49997v32.35833h-78.31946v40.93167h45.29926v32.35833h-45.29926v55.59062h78.31946v32.35834h-110.40094v-193.59729h110.40094Z"/>
+    <path fill="#ffffff" d="M1006.4671,663.3115c0,9.59277-7.51465,15.18848-21.9043,15.18848h-27.81934v-55.95898h26.2207c13.42969,0,20.625,5.67578,20.625,14.5498,0,5.75586-2.87793,9.99219-7.19531,12.31055,5.99609,1.91895,10.07324,6.63574,10.07324,13.91016ZM967.13608,630.69529v15.42871h14.70895c7.19434,0,11.27148-2.55859,11.27148-7.6748,0-5.19531-4.07715-7.75391-11.27148-7.75391h-14.70898ZM995.99445,662.27244c0-5.59668-4.2373-8.07422-12.07129-8.07422h-16.78711v16.14746h16.78711c7.83398,0,12.07129-2.47754,12.07129-8.07324Z"/>
+    <path fill="#ffffff" d="M1075.78156,678.49997l-11.43164-16.3877c-.71875.08008-1.43848.08008-2.1582.08008h-12.62988v16.30762h-10.39258v-55.95898h23.02246c14.70898,0,23.82227,7.51465,23.82227,19.90527,0,8.47461-4.31641,14.70996-11.91113,17.66699l12.87109,18.38672h-11.19238ZM1061.71228,631.33494h-12.15039v22.30371h12.15039c9.11328,0,13.83008-4.15723,13.83008-11.19238,0-7.03418-4.7168-11.11133-13.83008-11.11133Z"/>
+    <path fill="#ffffff" d="M1155.48859,665.54978h-27.97949l-5.51562,12.9502h-10.71191l25.18066-55.95898h10.23242l25.26172,55.95898h-10.87207l-5.5957-12.9502ZM1152.05109,657.39548l-10.55176-24.46191-10.47266,24.46191h21.02441Z"/>
+    <path fill="#ffffff" d="M1244.14978,669.70603v8.79395h-47.72461v-6.95508l32.93555-40.20996h-32.37598v-8.79395h46.12598v6.95508l-32.93555,40.20996h33.97461Z"/>
+    <path fill="#ffffff" d="M1275.25323,622.54099h10.39258v55.95898h-10.39258v-55.95898Z"/>
+    <path fill="#ffffff" d="M1322.34113,622.54099h10.39258v47.16504h29.25781v8.79395h-39.65039v-55.95898Z"/>
+    <rect fill="url(#lg)" x="591.52898" y="609.08361" width="93.76549" height="69.41637"/>
+    <rect fill="url(#lg1)" x="502.42616" y="540.92298" width="93.76549" height="69.41637"/>
+    <path fill="url(#lg2)" d="M773.49542,470.72999l43.49487,69.26999-87.9592,138.5h-88.79871l133.26303-207.76999ZM684.48682,401.49997l-158.30856,246.82742,18.93906,30.17258h46.68304l157.73888-245.92795-19.50873-31.07205h-45.5437ZM548.11559,401.49997l-89.74816,138.8298,43.95461,70.00955,133.95263-208.83936h-88.15908Z"/>
+  </svg>
+
+  <div class="header-center">
+    <div class="header-title">Payroll Cost Simulator</div>
+    <div class="header-sub">Brazil Employer of Record — Estimated Monthly Employer Cost</div>
+  </div>
+
+  <!-- FX Control -->
+  <div class="fx-control">
+    <div class="fx-label">USD / BRL</div>
+    <div class="fx-prefix">R$</div>
+    <input type="number" id="fx-rate" class="fx-input" value="5.19" min="1" max="20" step="0.01" oninput="calc()" title="Edit exchange rate">
+    <div class="fx-date">Jun 2026</div>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+  <div class="grid">
+
+    <!-- LEFT: INPUTS -->
+    <div>
+      <div class="panel">
+        <div class="panel-header">
+          <div class="ph-dot"></div>
+          <h2>Configure the Simulation</h2>
+        </div>
+        <div class="panel-body">
+
+          <!-- SALARY -->
+          <div class="input-group">
+            <label class="input-label" for="salary">Gross Monthly Salary</label>
+            <div class="input-hint">Agreed salary with the employee (BRL)</div>
+            <div class="input-wrapper">
+              <span class="input-prefix">R$</span>
+              <input type="number" id="salary" class="salary-input" value="8000" min="0" step="100" oninput="calc()">
+            </div>
+          </div>
+
+          <!-- MEAL ALLOWANCE SLIDER -->
+          <div class="input-group">
+            <label class="input-label">Meal Allowance</label>
+            <div class="input-hint">Monthly meal credit loaded onto employee's benefit card</div>
+            <div class="meal-slider-wrap">
+              <div class="meal-slider-top">
+                <div>
+                  <div class="meal-value-display" id="meal-display">R$ 1,200.00</div>
+                  <div class="meal-value-usd" id="meal-usd-display">USD 231.21</div>
+                </div>
+              </div>
+              <input type="range" id="meal-slider" min="570.40" max="3000" step="10" value="1200" oninput="updateMeal()">
+              <div class="meal-range-labels">
+                <span>R$ 570.40 (min)</span>
+                <span>R$ 3,000.00 (max)</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- FOOD VOUCHER NOTICE -->
+          <div id="fv-notice" class="fv-notice hidden">
+            ✓ Salary below R$ 6,500 — <strong>Food Voucher (R$ 174.10)</strong> included automatically.
+          </div>
+
+          <!-- OPTIONAL BENEFITS -->
+          <div class="optional-section">
+            <div class="optional-title">
+              Optional Benefits
+              <span>Toggle On / Off</span>
+            </div>
+
+            <!-- Health Plan -->
+            <div class="toggle-row">
+              <label class="toggle-switch">
+                <input type="checkbox" id="tog-health" onchange="calc()">
+                <span class="toggle-slider"></span>
+              </label>
+              <div class="toggle-info">
+                <div class="toggle-name">Health Insurance Plan</div>
+                <div class="toggle-desc">Private health coverage for the employee, paid by the employer</div>
+              </div>
+              <div class="toggle-cost">R$ 1,500.00</div>
+            </div>
+
+            <!-- Monthly Allowance -->
+            <div class="toggle-row">
+              <label class="toggle-switch">
+                <input type="checkbox" id="tog-allowance" onchange="toggleAllowance()">
+                <span class="toggle-slider"></span>
+              </label>
+              <div class="toggle-info">
+                <div class="toggle-name">Monthly Allowance</div>
+                <div class="toggle-desc">Custom monthly stipend (e.g. home office, mobility, representation)</div>
+              </div>
+              <div class="toggle-cost" id="allowance-display">—</div>
+            </div>
+            <div id="allowance-field" class="allowance-field">
+              <div class="input-wrapper">
+                <span class="input-prefix" style="font-size:8pt;">R$</span>
+                <input type="number" id="allowance-val" class="allowance-input" placeholder="0.00" min="0" step="50" oninput="calc()">
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- LEGEND -->
+      <div class="legend-card">
+        <div class="legend-title">How to read this simulator</div>
+        <div class="legend-text">
+          All statutory employer charges and benefits are <strong>pass-through costs</strong> — billed to the client at actual cost with no markup. Wide Brazil charges its service fee separately.<br><br>
+          Hover over any line item to see a detailed explanation of that cost. The annual provisions row is expanded by default to show the 13th salary, vacation pay and constitutional bonus broken out individually.
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: RESULTS -->
+    <div class="panel">
+      <div class="panel-header">
+        <div class="ph-dot"></div>
+        <h2>Estimated Total Employer Cost — Monthly</h2>
+      </div>
+      <div class="panel-body">
+
+        <!-- STATUTORY EMPLOYER CHARGES -->
+        <div class="result-section">
+          <div class="result-section-label">Statutory Employer Charges</div>
+
+          <div class="cost-row" style="cursor:default;">
+            <div class="cost-row-left">
+              <div class="cost-name">Gross Salary <span class="locked-badge">base</span></div>
+              <div class="cost-desc">Agreed remuneration — base for all statutory charge calculations</div>
+            </div>
+            <div class="cost-values">
+              <div class="cost-brl" id="r-salary-brl">R$ 0.00</div>
+              <div class="cost-usd" id="r-salary-usd">USD 0.00</div>
+            </div>
+          </div>
+
+          <div class="cost-row">
+            <div class="cost-row-left">
+              <div class="cost-name">INSS — Employer Social Security (20%) <i class="info-icon">i</i></div>
+              <div class="cost-desc">Mandatory employer contribution to the national social security system (RGPS)</div>
+            </div>
+            <div class="cost-values">
+              <div class="cost-brl" id="r-inss-brl">R$ 0.00</div>
+              <div class="cost-usd" id="r-inss-usd">USD 0.00</div>
+            </div>
+            <div class="tooltip">INSS Patronal: 20% of gross salary. The employer's contribution to Brazil's Regime Geral de Previdência Social — funds retirement, sick pay and disability benefits for the employee.</div>
+          </div>
+
+          <div class="cost-row">
+            <div class="cost-row-left">
+              <div class="cost-name">FGTS — Severance Fund (8%) <i class="info-icon">i</i></div>
+              <div class="cost-desc">Compulsory savings fund managed by the government on the employee's behalf</div>
+            </div>
+            <div class="cost-values">
+              <div class="cost-brl" id="r-fgts-brl">R$ 0.00</div>
+              <div class="cost-usd" id="r-fgts-usd">USD 0.00</div>
+            </div>
+            <div class="tooltip">FGTS (Fundo de Garantia do Tempo de Serviço): 8% of gross salary deposited monthly into a government-managed account. The employee receives the accumulated balance upon termination without cause, retirement, or when buying a first property.</div>
+          </div>
+
+          <div class="cost-row">
+            <div class="cost-row-left">
+              <div class="cost-name">RAT — Work Accident Insurance (3%) <i class="info-icon">i</i></div>
+              <div class="cost-desc">Mandatory insurance covering occupational accidents and work-related illness</div>
+            </div>
+            <div class="cost-values">
+              <div class="cost-brl" id="r-rat-brl">R$ 0.00</div>
+              <div class="cost-usd" id="r-rat-usd">USD 0.00</div>
+            </div>
+            <div class="tooltip">RAT (Risco Ambiental do Trabalho): 3% of gross salary. Funds accident-related sickness benefit and permanent disability pension. Rate varies by risk category of the activity (1%–3%); 3% is the standard rate applied here.</div>
+          </div>
+
+          <div class="cost-row">
+            <div class="cost-row-left">
+              <div class="cost-name">Sistema S — Vocational Levy (5.8%) <i class="info-icon">i</i></div>
+              <div class="cost-desc">Contributions to SESC, SENAC, SEBRAE and other professional education bodies</div>
+            </div>
+            <div class="cost-values">
+              <div class="cost-brl" id="r-ss-brl">R$ 0.00</div>
+              <div class="cost-usd" id="r-ss-usd">USD 0.00</div>
+            </div>
+            <div class="tooltip">Sistema S: 5.8% of gross salary, distributed across SESC (1.5%), SENAC (1%), SENAI (1%), SEBRAE (0.6%), INCRA (0.2%) and others. Finances vocational training, social assistance and worker welfare programmes.</div>
+          </div>
+
+          <!-- PROVISIONS — expanded row -->
+          <div class="cost-row" style="flex-direction: column; align-items: stretch; cursor: default;">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;">
+              <div class="cost-row-left">
+                <div class="cost-name">Annual Provisions <i class="info-icon">i</i> <span class="locked-badge">breakdown ↓</span></div>
+                <div class="cost-desc">Monthly provision covering the 13th salary, the constitutional vacation bonus (1/3), and employer charges on both</div>
+              </div>
+              <div class="cost-values">
+                <div class="cost-brl" id="r-prov-brl">R$ 0.00</div>
+                <div class="cost-usd" id="r-prov-usd">USD 0.00</div>
+              </div>
+            </div>
+            <!-- Breakdown box -->
+            <div class="prov-breakdown" id="prov-breakdown">
+              <div class="prov-line">
+                <span class="prov-line-name">13th Salary (1/12 per month)</span>
+                <span class="prov-line-val" id="pb-13th">R$ 0.00</span>
+              </div>
+              <div class="prov-line">
+                <span class="prov-line-name">Constitutional Vacation Bonus (1/3 of salary, 1/12 per month)</span>
+                <span class="prov-line-val" id="pb-bonus">R$ 0.00</span>
+              </div>
+              <div class="prov-line">
+                <span class="prov-line-name">Employer Charges on Provisions (36.8%)</span>
+                <span class="prov-line-val" id="pb-charges">R$ 0.00</span>
+              </div>
+              <div class="prov-total-line">
+                <span class="prov-total-name">Total Monthly Provision</span>
+                <span class="prov-total-val" id="pb-total">R$ 0.00</span>
+              </div>
+            </div>
+            <div class="tooltip" style="position:relative;display:block;background:transparent;color:var(--muted);font-family:'Source Serif 4',serif;font-size:7pt;padding:0;width:auto;box-shadow:none;font-style:italic;margin-top:4px;">
+              Brazilian law mandates 1 extra salary per year (13th) and a 1/3 constitutional bonus on vacation pay. Since Wide Brazil invoices 12 times per year, vacation pay itself is not provisioned — only the 13th salary and the constitutional bonus are accrued monthly, plus the 36.8% employer charges on both.
+            </div>
+          </div>
+
+        </div>
+
+        <!-- MANDATORY BENEFITS -->
+        <div class="result-section">
+          <div class="result-section-label">Mandatory Benefits</div>
+
+          <div class="cost-row">
+            <div class="cost-row-left">
+              <div class="cost-name">Meal Allowance <i class="info-icon">i</i> <span class="locked-badge" style="background:rgba(0,168,168,0.08);border-color:rgba(0,168,168,0.2);color:var(--teal2);">adjustable</span></div>
+              <div class="cost-desc">Monthly meal credit loaded onto employee's benefit card for restaurant use</div>
+            </div>
+            <div class="cost-values">
+              <div class="cost-brl" id="r-meal-brl">R$ 1,200.00</div>
+              <div class="cost-usd" id="r-meal-usd">USD 0.00</div>
+            </div>
+            <div class="tooltip">Meal Allowance: monthly credit for restaurant meals during working hours. Range: R$ 570.40 (minimum per collective agreement) to R$ 3,000.00. Adjust using the slider on the left. Default: R$ 1,200.00/month.</div>
+          </div>
+
+          <div id="row-fv" class="cost-row hidden">
+            <div class="cost-row-left">
+              <div class="cost-name">Food Voucher <i class="info-icon">i</i> <span class="auto-badge">auto</span></div>
+              <div class="cost-desc">Grocery / supermarket allowance — mandatory for salaries below R$ 6,500</div>
+            </div>
+            <div class="cost-values">
+              <div class="cost-brl">R$ 174.10</div>
+              <div class="cost-usd" id="r-fv-usd">USD 0.00</div>
+            </div>
+            <div class="tooltip">Food Voucher: R$ 174.10/month. Grocery and supermarket benefit card. Mandatory per collective bargaining agreement when the employee's salary is below R$ 6,500. Automatically applied when that condition is met.</div>
+          </div>
+
+          <div class="cost-row">
+            <div class="cost-row-left">
+              <div class="cost-name">Life Insurance <i class="info-icon">i</i> <span class="locked-badge">fixed</span></div>
+              <div class="cost-desc">Group life insurance policy taken out by the employer in favour of the employee</div>
+            </div>
+            <div class="cost-values">
+              <div class="cost-brl">R$ 270.00</div>
+              <div class="cost-usd" id="r-life-usd">USD 0.00</div>
+            </div>
+            <div class="tooltip">Life Insurance: R$ 270.00/month. Employer-funded group policy providing a death benefit to the employee's nominated beneficiaries, plus accidental disability coverage. Fully covered by the employer.</div>
+          </div>
+
+        </div>
+
+        <!-- OPTIONAL BENEFITS (dynamic) -->
+        <div id="section-optional" class="result-section hidden">
+          <div class="result-section-label">Optional Benefits — Active</div>
+
+          <div id="row-health" class="cost-row hidden">
+            <div class="cost-row-left">
+              <div class="cost-name">Health Insurance Plan <i class="info-icon">i</i></div>
+              <div class="cost-desc">Private healthcare coverage: consultations, diagnostics, hospitalisation</div>
+            </div>
+            <div class="cost-values">
+              <div class="cost-brl">R$ 1,500.00</div>
+              <div class="cost-usd" id="r-health-usd">USD 0.00</div>
+            </div>
+            <div class="tooltip">Health Insurance Plan: R$ 1,500.00/month. Private health plan covering medical consultations, laboratory exams, and hospitalisation. Employer-funded as an optional benefit per company policy.</div>
+          </div>
+
+          <div id="row-allowance" class="cost-row hidden">
+            <div class="cost-row-left">
+              <div class="cost-name">Monthly Allowance <i class="info-icon">i</i></div>
+              <div class="cost-desc">Custom monthly stipend as agreed with the employee</div>
+            </div>
+            <div class="cost-values">
+              <div class="cost-brl" id="r-allow-brl">R$ 0.00</div>
+              <div class="cost-usd" id="r-allow-usd">USD 0.00</div>
+            </div>
+            <div class="tooltip">Monthly Allowance: open-value monthly stipend. Common uses: home office subsidy, mobility allowance, representation expenses. Amount is freely defined between employer and employee.</div>
+          </div>
+        </div>
+
+        <!-- SUBTOTAL -->
+        <div class="subtotal-row">
+          <div class="subtotal-label">Subtotal — Payroll Cost</div>
+          <div class="subtotal-values">
+            <div class="subtotal-brl" id="r-sub-brl">R$ 0.00</div>
+            <div class="subtotal-usd" id="r-sub-usd">USD 0.00</div>
+          </div>
+        </div>
+
+        <!-- WIDE BRAZIL FEE -->
+        <div class="fee-block">
+          <div class="fee-block-title">
+            Wide Brazil Fees
+            <span class="locked-badge" style="border-color:rgba(255,255,255,0.15);color:rgba(255,255,255,0.4);">non-editable</span>
+          </div>
+
+          <div class="fee-row">
+            <div>
+              <div class="fee-name">Wide Brazil Service Fee</div>
+              <div class="fee-desc">Fixed monthly EOR management fee — payroll administration, compliance, HR support</div>
+            </div>
+            <div class="fee-values">
+              <div class="fee-brl" id="r-fee-brl">R$ 0.00</div>
+              <div class="fee-usd">USD 59.00</div>
+            </div>
+          </div>
+
+          <div class="fee-row">
+            <div>
+              <div class="fee-name">VAT (14%)</div>
+              <div class="fee-desc">Value-added tax applied on total payroll cost (statutory charges + benefits)</div>
+            </div>
+            <div class="fee-values">
+              <div class="fee-brl" id="r-vat-brl">R$ 0.00</div>
+              <div class="fee-usd" id="r-vat-usd">USD 0.00</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- GRAND TOTAL -->
+        <div class="grand-total">
+          <div>
+            <div class="gt-label">Total Estimated Monthly Cost</div>
+            <div class="gt-sub">Payroll + Wide Brazil fee + VAT 14%</div>
+          </div>
+          <div class="gt-values">
+            <div class="gt-brl" id="r-total-brl">R$ 0.00</div>
+            <div class="gt-usd" id="r-total-usd">USD 0.00</div>
+          </div>
+        </div>
+
+        <div class="vat-note">
+          <strong>VAT note:</strong> The 14% VAT is applied on the total payroll cost (statutory charges + benefits). The Wide Brazil service fee of USD 59 is charged in US dollars; the BRL equivalent shown is for reference only, calculated at the current exchange rate.
+        </div>
+
+        <div class="disclaimer">
+          Estimated simulation based on statutory employer charges applicable in Brazil as of June 2026.<br>
+          Exchange rate: USD/BRL editable above (default R$ 5.19 · Jun 11, 2026). Actual costs may vary by applicable collective bargaining agreement, economic activity, and contract modality.<br>
+          This document does not constitute a formal payroll assessment. Wide Brazil · contact@widebrazil.com
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  function getFX() {
+    return parseFloat(document.getElementById('fx-rate').value) || 5.19;
+  }
+
+  function fmtBRL(val) {
+    return 'R$ ' + val.toLocaleString('en-US', {minimumFractionDigits:2, maximumFractionDigits:2});
+  }
+
+  function fmtUSD(brl) {
+    const fx = getFX();
+    return 'USD ' + (brl / fx).toLocaleString('en-US', {minimumFractionDigits:2, maximumFractionDigits:2});
+  }
+
+  function setBRL(id, val) {
+    const el = document.getElementById(id);
+    if (el) el.textContent = fmtBRL(val);
+  }
+
+  function setUSD(id, brl) {
+    const el = document.getElementById(id);
+    if (el) el.textContent = fmtUSD(brl);
+  }
+
+  function updateMeal() {
+    const val = parseFloat(document.getElementById('meal-slider').value) || 1200;
+    document.getElementById('meal-display').textContent = fmtBRL(val);
+    document.getElementById('meal-usd-display').textContent = fmtUSD(val);
+    calc();
+  }
+
+  function toggleAllowance() {
+    const tog = document.getElementById('tog-allowance');
+    const field = document.getElementById('allowance-field');
+    if (tog.checked) {
+      field.classList.add('visible');
+    } else {
+      field.classList.remove('visible');
+      document.getElementById('allowance-val').value = '';
+      document.getElementById('allowance-display').textContent = '—';
+    }
+    calc();
+  }
+
+  function calc() {
+    const fx = getFX();
+    const salary = parseFloat(document.getElementById('salary').value) || 0;
+    const meal   = parseFloat(document.getElementById('meal-slider').value) || 1200;
+
+    // Update meal USD display in real time with FX change
+    document.getElementById('meal-display').textContent = fmtBRL(meal);
+    document.getElementById('meal-usd-display').textContent = fmtUSD(meal);
+
+    // Fixed benefits
+    const life = 270;
+    const fvAmount = 174.10;
+    const fvActive = salary > 0 && salary < 6500;
+
+    // Optional
+    const healthActive    = document.getElementById('tog-health').checked;
+    const health          = healthActive ? 1500 : 0;
+    const allowanceActive = document.getElementById('tog-allowance').checked;
+    const allowanceVal    = parseFloat(document.getElementById('allowance-val').value) || 0;
+    const allowance       = allowanceActive ? allowanceVal : 0;
+
+    // Update allowance display
+    const dispEl = document.getElementById('allowance-display');
+    if (allowanceActive) {
+      dispEl.textContent = allowanceVal > 0 ? fmtBRL(allowanceVal) : 'Enter amount';
+    } else {
+      dispEl.textContent = '—';
+    }
+
+    // Social charges (on salary only, no cap for simplicity)
+    const inss = salary * 0.20;
+    const fgts = salary * 0.08;
+    const rat  = salary * 0.03;
+    const ss   = salary * 0.058;
+    const chargesRate = 0.368; // total 36.8%
+
+    // Annual provisions breakdown
+    // 13th salary: 1 month per year → salary/12 per month
+    const p13th      = salary / 12;
+    // Constitutional vacation bonus: 1/3 of one month's salary → salary/36 per month
+    // (vacation pay itself not provisioned — Wide Brazil invoices 12x/year)
+    const pBonus     = salary / 36;
+    // Employer charges on (13th + bonus)
+    const provBase   = p13th + pBonus;
+    const pCharges   = provBase * chargesRate;
+    const provision  = provBase + pCharges;
+
+    // Food voucher
+    const fv = fvActive ? fvAmount : 0;
+
+    // Benefits total
+    const benefits = meal + life + fv + health + allowance;
+
+    // Subtotal payroll
+    const subtotal = salary + inss + fgts + rat + ss + provision + benefits;
+
+    // Wide fee (USD 59 → BRL)
+    const wideFee = 59 * fx;
+
+    // VAT 14% on subtotal payroll
+    const vat = subtotal * 0.14;
+
+    // Grand total
+    const total = subtotal + wideFee + vat;
+
+    // ── UPDATE DOM ──
+
+    setBRL('r-salary-brl', salary); setUSD('r-salary-usd', salary);
+    setBRL('r-inss-brl',   inss);   setUSD('r-inss-usd',   inss);
+    setBRL('r-fgts-brl',   fgts);   setUSD('r-fgts-usd',   fgts);
+    setBRL('r-rat-brl',    rat);    setUSD('r-rat-usd',     rat);
+    setBRL('r-ss-brl',     ss);     setUSD('r-ss-usd',      ss);
+
+    // Provisions
+    setBRL('r-prov-brl', provision); setUSD('r-prov-usd', provision);
+    document.getElementById('pb-13th').textContent    = fmtBRL(p13th);
+    document.getElementById('pb-bonus').textContent   = fmtBRL(pBonus);
+    document.getElementById('pb-charges').textContent = fmtBRL(pCharges);
+    document.getElementById('pb-total').textContent   = fmtBRL(provision);
+
+    // Meal
+    setBRL('r-meal-brl', meal); setUSD('r-meal-usd', meal);
+
+    // Life insurance USD
+    setUSD('r-life-usd', life);
+
+    // Food voucher
+    const rowFv   = document.getElementById('row-fv');
+    const fvNote  = document.getElementById('fv-notice');
+    if (fvActive) {
+      rowFv.classList.remove('hidden');
+      fvNote.classList.remove('hidden');
+      setUSD('r-fv-usd', fvAmount);
+    } else {
+      rowFv.classList.add('hidden');
+      fvNote.classList.add('hidden');
+    }
+
+    // Optional section
+    const secOpt   = document.getElementById('section-optional');
+    const rowHlth  = document.getElementById('row-health');
+    const rowAllow = document.getElementById('row-allowance');
+
+    const anyOptional = healthActive || (allowanceActive && allowanceVal > 0);
+    secOpt.classList.toggle('hidden', !anyOptional);
+
+    rowHlth.classList.toggle('hidden', !healthActive);
+    if (healthActive) setUSD('r-health-usd', 1500);
+
+    const showAllow = allowanceActive && allowanceVal > 0;
+    rowAllow.classList.toggle('hidden', !showAllow);
+    if (showAllow) { setBRL('r-allow-brl', allowance); setUSD('r-allow-usd', allowance); }
+
+    // Subtotal
+    setBRL('r-sub-brl', subtotal); setUSD('r-sub-usd', subtotal);
+
+    // Wide fee
+    setBRL('r-fee-brl', wideFee);
+
+    // VAT
+    setBRL('r-vat-brl', vat); setUSD('r-vat-usd', vat);
+
+    // Grand total
+    setBRL('r-total-brl', total); setUSD('r-total-usd', total);
+  }
+
+  // Init
+  calc();
+</script>
+
+</body>
+</html>
