@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>EOR Venezuela — Annual Payroll Simulation | Wide Brazil</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Source+Serif+4:wght@300;400;600&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy:    #0D1B2E;
+    --teal:    #00C8C8;
+    --teal2:   #00A8A8;
+    --green:   #3DD68C;
+    --amber:   #F59E0B;
+    --white:   #FFFFFF;
+    --offwhite:#F7F9FC;
+    --lgray:   #E8EDF3;
+    --text:    #1A2535;
+    --gray:    #6B7A90;
+  }
+  body { font-family:'Source Serif 4',serif; background:#CBD5E0; color:var(--text); -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+
+  .page { width:210mm; min-height:297mm; max-height:297mm; overflow:hidden; background:#fff; margin:0 auto 20px; position:relative; display:flex; flex-direction:column; }
+
+  /* COVER */
+  .cover { background:var(--navy); color:var(--white); }
+  .cover-top { display:flex; justify-content:space-between; align-items:center; padding:28px 32px 0; position:relative; z-index:10; }
+  .cover-badge { border:1.5px solid rgba(0,200,200,0.55); border-radius:3px; padding:5px 12px; }
+  .cover-badge-text { font-family:'Montserrat',sans-serif; font-size:7.5pt; font-weight:700; letter-spacing:1.2px; text-transform:uppercase; color:var(--teal); }
+  .cover-content { padding:0 32px; position:relative; z-index:10; flex:1; display:flex; flex-direction:column; justify-content:center; }
+  .cover-eyebrow { font-family:'Montserrat',sans-serif; font-size:7.5pt; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--teal); margin-bottom:10px; }
+  .cover-divider { width:40px; height:3px; background:var(--teal); margin-bottom:16px; }
+  .cover-title { font-family:'Montserrat',sans-serif; font-size:26pt; font-weight:900; line-height:1.1; color:var(--white); margin-bottom:12px; }
+  .cover-title span { color:var(--teal); }
+  .cover-subtitle { font-family:'Source Serif 4',serif; font-size:10.5pt; font-weight:300; color:rgba(255,255,255,0.75); max-width:420px; line-height:1.5; margin-bottom:18px; }
+  .cover-tags { display:flex; gap:8px; flex-wrap:wrap; }
+  .cover-tag { font-family:'Montserrat',sans-serif; font-size:7pt; font-weight:700; letter-spacing:0.8px; text-transform:uppercase; background:rgba(0,200,200,0.15); border:1px solid rgba(0,200,200,0.35); color:var(--teal); padding:4px 10px; border-radius:2px; }
+  .cover-tag.outline { background:transparent; border-color:rgba(255,255,255,0.25); color:rgba(255,255,255,0.55); }
+  .cover-tag.amber { background:rgba(245,158,11,0.15); border-color:rgba(245,158,11,0.45); color:#F59E0B; }
+  .cover-meta { display:grid; grid-template-columns:repeat(3,1fr); margin:0 32px 24px; width:60%; border:1px solid rgba(255,255,255,0.1); border-radius:4px; overflow:hidden; position:relative; z-index:10; }
+  .cover-meta-item { padding:12px 16px; border-right:1px solid rgba(255,255,255,0.1); background:rgba(255,255,255,0.04); }
+  .cover-meta-item:last-child { border-right:none; }
+  .cover-meta-label { font-family:'Montserrat',sans-serif; font-size:6.5pt; font-weight:700; letter-spacing:1.2px; text-transform:uppercase; color:var(--teal); margin-bottom:4px; }
+  .cover-meta-value { font-family:'Montserrat',sans-serif; font-size:8.5pt; font-weight:600; color:rgba(255,255,255,0.9); }
+  .hex-group { position:absolute; top:0; right:0; z-index:2; }
+  .hex { position:absolute; clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%); }
+  .cover-footer { display:flex; justify-content:space-between; padding:10px 32px; border-top:1px solid rgba(255,255,255,0.08); position:relative; z-index:10; }
+  .cover-footer-url { font-family:'Montserrat',sans-serif; font-size:7pt; font-weight:700; color:var(--teal); letter-spacing:1px; }
+  .cover-footer-edition { font-family:'Montserrat',sans-serif; font-size:6.5pt; color:rgba(255,255,255,0.35); }
+
+  /* INNER */
+  .page-header { display:flex; justify-content:space-between; align-items:center; padding:11px 28px; border-bottom:2px solid var(--teal); background:var(--navy); }
+  .page-header-left { font-family:'Montserrat',sans-serif; font-size:7.5pt; font-weight:700; color:var(--white); letter-spacing:0.5px; }
+  .page-header-left span { color:rgba(255,255,255,0.45); font-weight:400; }
+  .page-header-right { font-family:'Montserrat',sans-serif; font-size:7pt; color:rgba(255,255,255,0.55); font-weight:600; }
+  .page-body { flex:1; padding:20px 28px 14px; overflow:hidden; }
+  .page-footer { display:flex; justify-content:space-between; align-items:center; padding:8px 28px; border-top:1px solid var(--lgray); }
+  .pf-brand { font-family:'Montserrat',sans-serif; font-size:7pt; font-weight:700; color:var(--navy); }
+  .pf-brand span { color:var(--gray); font-weight:400; }
+  .pf-disclaimer { font-family:'Montserrat',sans-serif; font-size:6.5pt; color:var(--gray); }
+  .pf-page { font-family:'Montserrat',sans-serif; font-size:7pt; font-weight:700; color:var(--teal2); }
+
+  /* SECTION HEADERS */
+  .shb { padding:12px 18px 10px; border-radius:4px; margin-bottom:14px; }
+  .shb.teal { background:var(--teal); }
+  .shb.navy { background:var(--navy); }
+  .shb.dark-red { background:#7C2D12; }
+  .section-num { font-family:'Montserrat',sans-serif; font-size:7pt; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:rgba(255,255,255,0.55); margin-bottom:3px; }
+  .section-title { font-family:'Montserrat',sans-serif; font-size:12pt; font-weight:800; color:var(--white); line-height:1.15; }
+  .section-subtitle { font-family:'Source Serif 4',serif; font-size:8pt; color:rgba(255,255,255,0.75); margin-top:3px; font-weight:300; }
+
+  /* SIM TABLE */
+  .sim-table { width:100%; border-collapse:collapse; font-size:8pt; }
+  .sim-table thead tr { background:var(--navy); }
+  .sim-table thead th { font-family:'Montserrat',sans-serif; font-size:7pt; font-weight:700; color:rgba(255,255,255,0.8); padding:7px 12px; text-align:left; letter-spacing:0.4px; }
+  .sim-table thead th:not(:first-child) { text-align:right; }
+  .sim-table tbody tr { border-bottom:1px solid var(--lgray); }
+  .sim-table tbody tr:nth-child(even) { background:var(--offwhite); }
+  .sim-table td { padding:6px 12px; }
+
+  .grp-teal td { font-family:'Montserrat',sans-serif; font-size:7pt; font-weight:800; color:var(--teal2); text-transform:uppercase; letter-spacing:0.8px; background:rgba(0,168,168,0.07); padding:5px 12px; border-top:1.5px solid rgba(0,200,200,0.2); }
+  .grp-green td { font-family:'Montserrat',sans-serif; font-size:7pt; font-weight:800; color:#2A9D6E; text-transform:uppercase; letter-spacing:0.8px; background:rgba(61,214,140,0.07); padding:5px 12px; border-top:1.5px solid rgba(61,214,140,0.2); }
+  .grp-amber td { font-family:'Montserrat',sans-serif; font-size:7pt; font-weight:800; color:#92400E; text-transform:uppercase; letter-spacing:0.8px; background:rgba(245,158,11,0.08); padding:5px 12px; border-top:1.5px solid rgba(245,158,11,0.25); }
+
+  .subtotal-teal td { background:rgba(0,200,200,0.09); font-family:'Montserrat',sans-serif; font-size:7.5pt; font-weight:700; color:var(--teal2); }
+  .subtotal-green td { background:rgba(61,214,140,0.09); font-family:'Montserrat',sans-serif; font-size:7.5pt; font-weight:700; color:#2A9D6E; }
+
+  .row-total td { background:var(--navy); font-family:'Montserrat',sans-serif; font-size:9pt; font-weight:900; color:var(--white); padding:10px 12px; }
+  .row-total td.hi { color:var(--teal); font-size:10.5pt; }
+
+  .row-fee-wb td { background:rgba(61,214,140,0.06); }
+  .row-fee-gst td { background:rgba(245,158,11,0.05); }
+  .row-fee-total td { background:#0F2317; font-family:'Montserrat',sans-serif; font-size:9pt; font-weight:900; color:var(--white); padding:10px 12px; }
+  .row-fee-total td.hi { color:var(--green); font-size:10.5pt; }
+
+  .row-provision td { background:rgba(13,27,46,0.04); font-family:'Montserrat',sans-serif; font-size:7.5pt; font-weight:700; color:var(--gray); font-style:italic; border-top:2px dashed var(--lgray); padding:7px 12px; }
+  .row-provision td.hi { color:var(--teal2); font-size:9pt; font-weight:900; }
+
+  td.lbl { font-family:'Source Serif 4',serif; font-size:8pt; color:var(--text); }
+  td.lbl.ind { padding-left:22px; font-size:7.5pt; color:var(--gray); }
+  td.v { text-align:right; font-family:'Montserrat',sans-serif; font-size:8pt; font-weight:700; color:var(--navy); }
+  td.v.dim { color:var(--gray); font-weight:600; font-size:7.5pt; }
+  td.v.neg { color:#B91C1C; }
+  td.v.g { color:#2A9D6E; }
+  td.v.t { color:var(--teal2); }
+
+  /* CALLOUT */
+  .callout { background:var(--offwhite); border-left:3px solid var(--teal); border-radius:3px; padding:9px 13px; margin-bottom:9px; }
+  .callout.red { border-left-color:#DC2626; }
+  .callout-title { font-family:'Montserrat',sans-serif; font-size:7.5pt; font-weight:800; color:var(--navy); margin-bottom:4px; }
+  .callout p { font-family:'Source Serif 4',serif; font-size:7.5pt; color:var(--text); line-height:1.5; margin:0; }
+
+  /* WARNING */
+  .warn { background:rgba(245,158,11,0.07); border:1.5px solid rgba(245,158,11,0.35); border-radius:4px; padding:9px 13px; margin-bottom:9px; }
+  .warn-title { font-family:'Montserrat',sans-serif; font-size:7.5pt; font-weight:800; color:#92400E; margin-bottom:4px; }
+  .warn p { font-family:'Source Serif 4',serif; font-size:7.5pt; color:var(--text); line-height:1.5; margin:0; }
+
+  /* PRELIM BANNER */
+  .prelim-banner {
+    background:rgba(245,158,11,0.12); border:1.5px solid rgba(245,158,11,0.4);
+    border-radius:4px; padding:9px 14px; margin-bottom:14px;
+    display:flex; align-items:flex-start; gap:10px;
+  }
+  .prelim-icon { font-size:14pt; line-height:1; flex-shrink:0; margin-top:1px; }
+  .prelim-text { font-family:'Source Serif 4',serif; font-size:8pt; line-height:1.55; color:#7C2D12; }
+  .prelim-text strong { font-family:'Montserrat',sans-serif; font-size:7.5pt; font-weight:800; display:block; margin-bottom:2px; color:#92400E; }
+
+  /* SCOPE */
+  .scope-block { margin-bottom:11px; }
+  .scope-area { font-family:'Montserrat',sans-serif; font-size:7.5pt; font-weight:800; letter-spacing:1.2px; text-transform:uppercase; color:var(--teal2); border-bottom:1.5px solid var(--lgray); padding-bottom:5px; margin-bottom:7px; }
+  .scope-item { display:flex; align-items:flex-start; gap:8px; margin-bottom:5px; }
+  .scope-check { font-size:9pt; color:var(--teal); font-weight:700; flex-shrink:0; margin-top:1px; }
+  .scope-text { font-family:'Source Serif 4',serif; font-size:8pt; line-height:1.45; color:var(--text); }
+
+  /* STEPS */
+  .step-row { display:flex; gap:11px; align-items:flex-start; margin-bottom:9px; }
+  .step-num { width:23px; height:23px; background:var(--teal); border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .step-num span { font-family:'Montserrat',sans-serif; font-size:8.5pt; font-weight:900; color:var(--white); }
+  .step-title { font-family:'Montserrat',sans-serif; font-size:8pt; font-weight:700; color:var(--navy); margin-bottom:2px; }
+  .step-desc { font-family:'Source Serif 4',serif; font-size:7.5pt; color:var(--gray); line-height:1.4; }
+
+  /* CONTACT */
+  .contact-box { display:grid; grid-template-columns:1fr 1fr; border:1.5px solid var(--lgray); border-radius:5px; overflow:hidden; margin-top:13px; }
+  .contact-box-left { background:var(--navy); padding:13px 17px; }
+  .contact-box-left h3 { font-family:'Montserrat',sans-serif; font-size:10pt; font-weight:800; color:var(--white); margin-bottom:4px; }
+  .contact-box-left p { font-family:'Source Serif 4',serif; font-size:7.5pt; color:rgba(255,255,255,0.6); line-height:1.5; }
+  .contact-box-right { background:var(--offwhite); padding:13px 17px; display:flex; flex-direction:column; justify-content:center; gap:5px; }
+  .contact-detail { font-family:'Montserrat',sans-serif; font-size:7.5pt; color:var(--text); }
+  .contact-detail span { font-weight:700; color:var(--teal2); display:inline-block; width:55px; }
+
+  /* INVOICE SUMMARY */
+  .inv-box { border:1.5px solid var(--lgray); border-radius:4px; overflow:hidden; margin:11px 0; }
+  .inv-row { display:flex; justify-content:space-between; align-items:baseline; padding:8px 15px; border-bottom:1px solid var(--lgray); }
+  .inv-row:last-child { border-bottom:none; }
+  .inv-row.total-row { background:var(--navy); }
+  .inv-row.total-row .inv-l { color:rgba(255,255,255,.85); font-weight:700; }
+  .inv-row.total-row .inv-r { color:var(--teal); font-size:12pt; font-weight:900; }
+  .inv-l { font-family:'Montserrat',sans-serif; font-weight:600; font-size:8pt; color:var(--text); }
+  .inv-l small { font-family:'Source Serif 4',serif; font-size:7pt; color:var(--gray); font-style:italic; display:block; }
+  .inv-r { font-family:'Montserrat',sans-serif; font-weight:800; font-size:9pt; color:var(--navy); }
+
+  .rate-note { font-family:'Source Serif 4',serif; font-size:7pt; color:var(--gray); font-style:italic; text-align:center; margin-top:8px; }
+
+  @media print {
+    body { background:white; }
+    .page { margin:0; box-shadow:none; page-break-after:always; }
+    .page:last-child { page-break-after:avoid; }
+    @page { size:A4 portrait; margin:0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════ PAGE 1 — COVER ══════════ -->
+<div class="page cover">
+  <div class="hex-group">
+    <div class="hex" style="width:280px;height:280px;background:rgba(0,200,200,0.04);top:-60px;right:-50px;"></div>
+    <div class="hex" style="width:170px;height:170px;background:rgba(0,200,200,0.06);top:70px;right:90px;"></div>
+    <div class="hex" style="width:95px;height:95px;background:rgba(0,200,200,0.1);top:185px;right:205px;"></div>
+    <div class="hex" style="width:70px;height:70px;background:rgba(61,214,140,0.08);top:25px;right:245px;"></div>
+  </div>
+  <div class="cover-top">
+    <div class="cover-logo">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="440 390 1060 320" style="height:48px;width:auto;display:block;">
+        <defs>
+          <linearGradient id="lg" x1="528.00962" y1="437.79086" x2="693.52564" y2="437.79086" gradientTransform="translate(0 1081.58265) scale(1 -1)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#101827"/><stop offset="1" stop-color="#0ec668"/></linearGradient>
+          <linearGradient id="lg1" x1="438.90681" y1="505.95149" x2="604.42283" y2="505.95149" gradientTransform="translate(0 1081.58265) scale(1 -1)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#101827"/><stop offset="1" stop-color="#0ec668"/></linearGradient>
+          <linearGradient id="lg2" x1="712.59445" y1="474.81047" x2="460.26471" y2="699.39719" gradientTransform="translate(0 1081.58265) scale(1 -1)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#0ec668"/><stop offset="1" stop-color="#12ace6"/></linearGradient>
+        </defs>
+        <polygon fill="#ffffff" points="1067.75549 401.49997 1023.07159 544.20905 982.00995 404.26547 947.97415 404.26547 906.91302 544.20905 862.2291 401.49997 825.9744 401.49997 889.94604 595.09726 923.0683 595.09726 964.99228 462.89842 1006.63654 595.09726 1040.03796 595.09726 1104.0097 401.49997 1067.75549 401.49997"/>
+        <path fill="#ffffff" d="M1149.14148,401.49997v193.59729h-32.08148v-193.59729h32.08148Z"/>
+        <path fill="#ffffff" d="M1233.70984,401.49997c59.46155,0,102.33014,43.14445,102.33014,96.79817s-42.86859,96.79912-102.33014,96.79912h-66.37671v-193.59729h66.37671ZM1199.41461,562.73893h34.29523c38.99573,0,66.37579-27.38007,66.37579-64.44079s-27.38007-64.43983-66.37579-64.43983h-34.29523v128.88062Z"/>
+        <path fill="#ffffff" d="M1461.63257,401.49997v32.35833h-78.31946v40.93167h45.29926v32.35833h-45.29926v55.59062h78.31946v32.35834h-110.40094v-193.59729h110.40094Z"/>
+        <path fill="#ffffff" d="M1006.4671,663.3115c0,9.59277-7.51465,15.18848-21.9043,15.18848h-27.81934v-55.95898h26.2207c13.42969,0,20.625,5.67578,20.625,14.5498,0,5.75586-2.87793,9.99219-7.19531,12.31055,5.99609,1.91895,10.07324,6.63574,10.07324,13.91016ZM967.13608,630.69529v15.42871h14.70895c7.19434,0,11.27148-2.55859,11.27148-7.6748,0-5.19531-4.07715-7.75391-11.27148-7.75391h-14.70898ZM995.99445,662.27244c0-5.59668-4.2373-8.07422-12.07129-8.07422h-16.78711v16.14746h16.78711c7.83398,0,12.07129-2.47754,12.07129-8.07324Z"/>
+        <path fill="#ffffff" d="M1075.78156,678.49997l-11.43164-16.3877c-.71875.08008-1.43848.08008-2.1582.08008h-12.62988v16.30762h-10.39258v-55.95898h23.02246c14.70898,0,23.82227,7.51465,23.82227,19.90527,0,8.47461-4.31641,14.70996-11.91113,17.66699l12.87109,18.38672h-11.19238ZM1061.71228,631.33494h-12.15039v22.30371h12.15039c9.11328,0,13.83008-4.15723,13.83008-11.19238,0-7.03418-4.7168-11.11133-13.83008-11.11133Z"/>
+        <path fill="#ffffff" d="M1155.48859,665.54978h-27.97949l-5.51562,12.9502h-10.71191l25.18066-55.95898h10.23242l25.26172,55.95898h-10.87207l-5.5957-12.9502ZM1152.05109,657.39548l-10.55176-24.46191-10.47266,24.46191h21.02441Z"/>
+        <path fill="#ffffff" d="M1244.14978,669.70603v8.79395h-47.72461v-6.95508l32.93555-40.20996h-32.37598v-8.79395h46.12598v6.95508l-32.93555,40.20996h33.97461Z"/>
+        <path fill="#ffffff" d="M1275.25323,622.54099h10.39258v55.95898h-10.39258v-55.95898Z"/>
+        <path fill="#ffffff" d="M1322.34113,622.54099h10.39258v47.16504h29.25781v8.79395h-39.65039v-55.95898Z"/>
+        <rect fill="url(#lg)" x="591.52898" y="609.08361" width="93.76549" height="69.41637"/>
+        <rect fill="url(#lg1)" x="502.42616" y="540.92298" width="93.76549" height="69.41637"/>
+        <path fill="url(#lg2)" d="M773.49542,470.72999l43.49487,69.26999-87.9592,138.5h-88.79871l133.26303-207.76999ZM684.48682,401.49997l-158.30856,246.82742,18.93906,30.17258h46.68304l157.73888-245.92795-19.50873-31.07205h-45.5437ZM548.11559,401.49997l-89.74816,138.8298,43.95461,70.00955,133.95263-208.83936h-88.15908Z"/>
+      </svg>
+    </div>
+    <div class="cover-badge"><div class="cover-badge-text">Commercial One-Pager</div></div>
+  </div>
+  <div class="cover-content">
+    <div class="cover-eyebrow">Workforce Solutions · Venezuela</div>
+    <div class="cover-divider"></div>
+    <div class="cover-title"><span>EOR Venezuela</span><br>Annual Cost Simulation</div>
+    <div class="cover-subtitle">Preliminary annual employer cost breakdown for an expatriate professional in the Oil &amp; Gas sector — gross salary EUR 30,000/year. For internal provisioning and client pricing.</div>
+    <div class="cover-tags">
+      <span class="cover-tag">Employer of Record</span>
+      <span class="cover-tag">Oil &amp; Gas</span>
+      <span class="cover-tag">Expatriate Profile</span>
+      <span class="cover-tag amber">Preliminary</span>
+      <span class="cover-tag outline">Confidential</span>
+    </div>
+  </div>
+  <div class="cover-meta">
+    <div class="cover-meta-item">
+      <div class="cover-meta-label">Service</div>
+      <div class="cover-meta-value">EOR Venezuela</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="cover-meta-label">Basis</div>
+      <div class="cover-meta-value">Annual · EUR 30,000</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="cover-meta-label">Date</div>
+      <div class="cover-meta-value">June 2026</div>
+    </div>
+  </div>
+  <div class="cover-footer">
+    <span class="cover-footer-url">widebrazil.com</span>
+    <span class="cover-footer-edition">Confidential · Wide Brazil · Preliminary Reference v1.0</span>
+  </div>
+</div>
+
+
+<!-- ══════════ PAGE 2 — SIMULATION ══════════ -->
+<div class="page inner-page">
+  <div class="page-header">
+    <div class="page-header-left">Wide Brazil <span>| EOR Venezuela — Annual Cost Simulation</span></div>
+    <div class="page-header-right">Expatriate · Oil &amp; Gas · EUR 30,000 / year · EUR/USD 1.157</div>
+  </div>
+  <div class="page-body">
+
+    <!-- PRELIMINARY BANNER -->
+    <div class="prelim-banner">
+      <div class="prelim-icon">⚠</div>
+      <div class="prelim-text">
+        <strong>Preliminary Simulation — Subject to Review</strong>
+        This document is a preliminary cost reference. Final figures are subject to confirmation of the employee's nationality, role classification, and tax residency status. Employer social charges and applicable tax rates may vary materially depending on these factors.
+      </div>
+    </div>
+
+    <div class="shb navy" style="margin-bottom:12px;">
+      <div class="section-num">Section 01</div>
+      <div class="section-title">Annual Employer Cost — Full Breakdown</div>
+      <div class="section-subtitle">All figures in USD · Annual basis · Monthly provision = annual ÷ 12</div>
+    </div>
+
+    <div style="border:1.5px solid var(--lgray);border-radius:5px;overflow:hidden;margin-bottom:11px;">
+      <table class="sim-table">
+        <thead>
+          <tr>
+            <th style="width:50%">Item</th>
+            <th>Rate</th>
+            <th>Annual (USD)</th>
+            <th>Monthly provision</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <!-- A: GROSS SALARY -->
+          <tr class="grp-teal"><td colspan="4">A — Gross Salary</td></tr>
+          <tr>
+            <td class="lbl">Annual Gross Salary</td>
+            <td class="v dim">EUR 30,000</td>
+            <td class="v">$ 34,710</td>
+            <td class="v dim">$ 2,893</td>
+          </tr>
+
+          <!-- B: SOCIAL CHARGES -->
+          <tr class="grp-teal"><td colspan="4">B — Employer Social Charges (24%)</td></tr>
+          <tr>
+            <td class="lbl ind">IVSS — Social Security</td>
+            <td class="v dim">13%</td>
+            <td class="v dim">$ 4,512</td>
+            <td class="v dim">$ 376</td>
+          </tr>
+          <tr>
+            <td class="lbl ind">RPE — Employment Protection</td>
+            <td class="v dim">3%</td>
+            <td class="v dim">$ 1,041</td>
+            <td class="v dim">$ 87</td>
+          </tr>
+          <tr>
+            <td class="lbl ind">FAOV — Housing Fund</td>
+            <td class="v dim">2%</td>
+            <td class="v dim">$ 694</td>
+            <td class="v dim">$ 58</td>
+          </tr>
+          <tr>
+            <td class="lbl ind">INCE — Vocational Training</td>
+            <td class="v dim">2%</td>
+            <td class="v dim">$ 694</td>
+            <td class="v dim">$ 58</td>
+          </tr>
+          <tr>
+            <td class="lbl ind">Hazardous Activity Contribution</td>
+            <td class="v dim">4%</td>
+            <td class="v dim">$ 1,388</td>
+            <td class="v dim">$ 116</td>
+          </tr>
+          <tr class="subtotal-teal">
+            <td class="lbl" style="font-family:'Montserrat',sans-serif;font-size:7.5pt;font-weight:700;">Total Social Charges</td>
+            <td class="v t">24%</td>
+            <td class="v t">$ 8,330</td>
+            <td class="v t">$ 694</td>
+          </tr>
+
+          <!-- C: PROVISIONS -->
+          <tr class="grp-green"><td colspan="4">C — Annual Provisions (LOTTT) — incl. social charges on provisions</td></tr>
+          <tr>
+            <td class="lbl ind">Utilidades — year-end bonus (30 days)</td>
+            <td class="v dim">1 month + 24%</td>
+            <td class="v dim">$ 3,587</td>
+            <td class="v dim">$ 299</td>
+          </tr>
+          <tr>
+            <td class="lbl ind">Bono Vacacional — vacation bonus (15 days)</td>
+            <td class="v dim">0.5 month + 24%</td>
+            <td class="v dim">$ 1,793</td>
+            <td class="v dim">$ 149</td>
+          </tr>
+          <tr>
+            <td class="lbl ind">Vacaciones — paid leave (15 days)</td>
+            <td class="v dim">0.5 month + 24%</td>
+            <td class="v dim">$ 1,793</td>
+            <td class="v dim">$ 149</td>
+          </tr>
+          <tr>
+            <td class="lbl ind">Prestaciones Sociales — severance guarantee (60 days)</td>
+            <td class="v dim">2 months + 24%</td>
+            <td class="v dim">$ 7,173</td>
+            <td class="v dim">$ 598</td>
+          </tr>
+          <tr class="subtotal-green">
+            <td class="lbl" style="font-family:'Montserrat',sans-serif;font-size:7.5pt;font-weight:700;">Total Annual Provisions</td>
+            <td class="v g" style="font-size:7.5pt;">incl. charges</td>
+            <td class="v g">$ 14,347</td>
+            <td class="v g">$ 1,196</td>
+          </tr>
+
+          <!-- TOTAL EMPLOYER -->
+          <tr class="row-total">
+            <td class="lbl" style="font-family:'Montserrat',sans-serif;font-size:9pt;font-weight:900;color:#fff;">Total Annual Employer Cost</td>
+            <td class="v" style="color:rgba(255,255,255,0.5);font-size:8pt;">A + B + C</td>
+            <td class="v hi">$ 57,387</td>
+            <td class="v" style="color:var(--teal);font-size:9pt;font-weight:800;">$ 4,782</td>
+          </tr>
+
+          <!-- WIDE BRAZIL FEE -->
+          <tr class="grp-amber"><td colspan="4">D — Wide Brazil Fee</td></tr>
+          <tr class="row-fee-wb">
+            <td class="lbl" style="font-family:'Montserrat',sans-serif;font-size:8pt;font-weight:600;">Service Fee — 8%</td>
+            <td class="v dim">8% on A+B+C</td>
+            <td class="v" style="color:#92400E;">$ 4,591</td>
+            <td class="v dim">$ 383</td>
+          </tr>
+          <tr class="row-fee-gst">
+            <td class="lbl" style="font-family:'Montserrat',sans-serif;font-size:8pt;font-weight:600;">GST — 10%</td>
+            <td class="v dim">10% on A+B+C</td>
+            <td class="v" style="color:#92400E;">$ 5,739</td>
+            <td class="v dim">$ 478</td>
+          </tr>
+          <tr class="row-fee-total">
+            <td class="lbl" style="font-family:'Montserrat',sans-serif;font-size:9pt;font-weight:900;color:#fff;">Fee + GST</td>
+            <td class="v" style="color:rgba(255,255,255,0.5);font-size:8pt;">Service + Tax</td>
+            <td class="v hi">$ 10,330</td>
+            <td class="v" style="color:var(--green);font-size:9pt;font-weight:800;">$ 861</td>
+          </tr>
+
+          <!-- GRAND TOTAL INVOICE -->
+          <tr class="row-provision">
+            <td class="lbl" style="font-family:'Montserrat',sans-serif;font-size:8pt;font-weight:800;color:var(--navy);font-style:normal;" colspan="2">Total Annual Invoice to Client &nbsp;(Employer Cost + Fee + GST)</td>
+            <td class="v hi" style="color:var(--navy);font-size:11pt;font-weight:900;text-align:right;">$ 67,717</td>
+            <td class="v hi" style="font-size:10pt;font-weight:900;text-align:right;">$ 5,643</td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+
+    <!-- EMPLOYEE NET + MONTHLY INVOICE BOX -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:13px;">
+
+      <div>
+        <div style="font-family:'Montserrat',sans-serif;font-size:7.5pt;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--teal2);border-bottom:1.5px solid var(--lgray);padding-bottom:5px;margin-bottom:8px;">Employee Annual Net (reference)</div>
+        <div style="border:1.5px solid var(--lgray);border-radius:5px;overflow:hidden;">
+          <table class="sim-table">
+            <tbody>
+              <tr><td class="lbl">Annual Gross Salary</td><td class="v">$ 34,710</td></tr>
+              <tr><td class="lbl ind">IVSS employee (4%)</td><td class="v neg">($ 1,388)</td></tr>
+              <tr><td class="lbl ind">FAOV employee (1%)</td><td class="v neg">($ 347)</td></tr>
+              <tr><td class="lbl ind">ISLR — non-resident flat 34%</td><td class="v neg">($ 11,211)</td></tr>
+              <tr class="row-total"><td class="lbl" style="font-family:'Montserrat',sans-serif;font-weight:800;color:#fff;">Net Annual Salary</td><td class="v hi" style="font-size:9.5pt;">$ 21,763</td></tr>
+              <tr class="row-provision"><td class="lbl" style="font-style:italic;font-size:7pt;">Monthly net to employee</td><td class="v hi" style="font-size:9pt;">$ 1,814</td></tr>
+            </tbody>
+          </table>
+          <div style="font-family:'Source Serif 4',serif;font-size:6.5pt;color:var(--gray);font-style:italic;padding:5px 10px;background:var(--offwhite);border-top:1px solid var(--lgray);">ISLR 34% flat for non-resident expatriates. Disbursed in VES at BCV official rate on payment date.</div>
+        </div>
+      </div>
+
+      <div>
+        <div style="font-family:'Montserrat',sans-serif;font-size:7.5pt;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:#2A9D6E;border-bottom:1.5px solid var(--lgray);padding-bottom:5px;margin-bottom:8px;">Monthly Invoice Reference</div>
+        <div style="background:rgba(13,27,46,0.03);border:1.5px solid var(--lgray);border-radius:5px;padding:14px 16px;text-align:center;">
+          <div style="font-family:'Montserrat',sans-serif;font-size:7.5pt;font-weight:700;color:var(--gray);margin-bottom:4px;text-transform:uppercase;letter-spacing:0.8px;">Total Annual Invoice ÷ 12</div>
+          <div style="font-family:'Montserrat',sans-serif;font-size:22pt;font-weight:900;color:var(--navy);line-height:1;">$ 5,643</div>
+          <div style="font-family:'Montserrat',sans-serif;font-size:8pt;color:var(--gray);font-weight:600;margin-bottom:10px;">per month</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:8px;">
+            <div style="background:var(--offwhite);border-radius:3px;padding:7px 10px;text-align:left;">
+              <div style="font-family:'Montserrat',sans-serif;font-size:6.5pt;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:0.5px;">Employer cost</div>
+              <div style="font-family:'Montserrat',sans-serif;font-size:9.5pt;font-weight:800;color:var(--teal2);">$ 4,782</div>
+            </div>
+            <div style="background:var(--offwhite);border-radius:3px;padding:7px 10px;text-align:left;">
+              <div style="font-family:'Montserrat',sans-serif;font-size:6.5pt;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:0.5px;">Fee + GST</div>
+              <div style="font-family:'Montserrat',sans-serif;font-size:9.5pt;font-weight:800;color:#2A9D6E;">$ 861</div>
+            </div>
+          </div>
+          <div style="font-family:'Source Serif 4',serif;font-size:6.5pt;color:var(--gray);margin-top:8px;font-style:italic;">For provisioning reference. Actual invoicing cycle to be agreed at contract stage.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="rate-note">EUR/USD 1.157 · mid-market rate 12 June 2026. Salaries in EUR/USD are disbursed in VES at the BCV official rate on disbursement date.</div>
+
+  </div>
+  <div class="page-footer">
+    <div class="pf-brand">Wide Brazil <span>| EOR Venezuela</span></div>
+    <div class="pf-disclaimer">Confidential — preliminary reference. Subject to review of employee profile.</div>
+    <div class="pf-page">Page 2</div>
+  </div>
+</div>
+
+
+<!-- ══════════ PAGE 3 — SCOPE + RISKS + NEXT STEPS ══════════ -->
+<div class="page inner-page">
+  <div class="page-header">
+    <div class="page-header-left">Wide Brazil <span>| EOR Venezuela — Annual Cost Simulation</span></div>
+    <div class="page-header-right">Expatriate · Oil &amp; Gas · EUR 30,000 / year</div>
+  </div>
+  <div class="page-body">
+    <div style="display:grid;grid-template-columns:1.1fr 0.9fr;gap:18px;">
+
+      <!-- LEFT -->
+      <div>
+        <div class="shb teal" style="margin-bottom:12px;">
+          <div class="section-num">Section 02</div>
+          <div class="section-title">Context &amp; Scope of Services</div>
+          <div class="section-subtitle">EOR structure for Venezuela — Oil &amp; Gas expatriate</div>
+        </div>
+
+        <p style="font-family:'Source Serif 4',serif;font-size:8.5pt;line-height:1.6;color:var(--text);margin-bottom:10px;">
+          Venezuela's labor framework under LOTTT is strongly protective of workers and includes mandatory provisions — utilidades, bono vacacional, and prestaciones sociales — that compound the annual employer cost significantly beyond the base salary. For Oil &amp; Gas expatriates, the statutory structure is further layered by currency controls, the ISLR non-resident tax regime, and sector-specific contribution requirements.
+        </p>
+
+        <div class="scope-block">
+          <div class="scope-area">Employment &amp; Onboarding</div>
+          <div class="scope-item"><div class="scope-check">✓</div><div class="scope-text"><strong>Employment contract</strong> — drafted in Spanish under LOTTT, with USD/EUR salary reference clause</div></div>
+          <div class="scope-item"><div class="scope-check">✓</div><div class="scope-text"><strong>IVSS registration</strong> — employer and employee enrollment at the Venezuelan Social Security Institute</div></div>
+          <div class="scope-item"><div class="scope-check">✓</div><div class="scope-text"><strong>FAOV, INCE, RPE</strong> — registration and monthly remittance to all statutory funds</div></div>
+        </div>
+
+        <div class="scope-block">
+          <div class="scope-area">Payroll &amp; Compliance</div>
+          <div class="scope-item"><div class="scope-check">✓</div><div class="scope-text"><strong>Monthly payroll in VES</strong> — FX conversion at BCV official rate on disbursement date</div></div>
+          <div class="scope-item"><div class="scope-check">✓</div><div class="scope-text"><strong>ISLR withholding</strong> — 34% flat non-resident rate applied and remitted to SENIAT</div></div>
+          <div class="scope-item"><div class="scope-check">✓</div><div class="scope-text"><strong>Annual provisions accrual</strong> — utilidades, bono vacacional, vacaciones, and prestaciones tracked monthly</div></div>
+          <div class="scope-item"><div class="scope-check">✓</div><div class="scope-text"><strong>Prestaciones Sociales guarantee</strong> — quarterly deposit of 15 days per statutory requirement</div></div>
+        </div>
+
+        <div class="scope-block">
+          <div class="scope-area">HR Support &amp; Offboarding</div>
+          <div class="scope-item"><div class="scope-check">✓</div><div class="scope-text"><strong>Dedicated HR contact</strong> — in-country via Wide Brazil local partner network</div></div>
+          <div class="scope-item"><div class="scope-check">✓</div><div class="scope-text"><strong>Termination &amp; settlement</strong> — preaviso, full liquidación calculation, IVSS deregistration</div></div>
+        </div>
+      </div>
+
+      <!-- RIGHT -->
+      <div>
+        <div class="shb dark-red" style="margin-bottom:12px;">
+          <div class="section-num">Section 03</div>
+          <div class="section-title">Key Assumptions &amp; Risks</div>
+          <div class="section-subtitle">Critical factors before final pricing</div>
+        </div>
+
+        <div class="warn" style="margin-bottom:9px;">
+          <div class="warn-title">⚠ Preliminary — Employee Profile Required</div>
+          <p>This simulation is based on a generic expatriate profile. Final costs depend on the employee's nationality, role classification (particularly for sector-specific contributions), and confirmed tax residency. Wide Brazil will issue a revised simulation once these details are available.</p>
+        </div>
+
+        <div class="warn">
+          <div class="warn-title">⚠ OFAC Sanctions</div>
+          <p>US sanctions on Venezuela remain in force as of June 2026. General Licenses 46–55 have expanded Oil &amp; Gas activity for US-incorporated entities, but restrictions persist broadly. Wide Brazil is not a US entity. <strong>If the client has US ownership or nexus, a compliance review is required before contract execution.</strong></p>
+        </div>
+
+        <div class="callout" style="margin-top:9px;">
+          <div class="callout-title">Currency &amp; FX Risk</div>
+          <p>Venezuela's inflation is projected at ~629% for 2026 (IMF). Salaries referenced in EUR or USD are disbursed in VES at the BCV official rate on the payment date. The USD simulation figures will fluctuate monthly. Provisioning should be reviewed at least quarterly.</p>
+        </div>
+
+        <div class="callout">
+          <div class="callout-title">Provisioning Logic</div>
+          <p>The "Monthly provision" column shows the cash to set aside each month to cover all annual obligations — including year-end utilidades, vacation entitlements, and prestaciones. It is not the monthly payroll disbursement amount.</p>
+        </div>
+
+        <div style="margin-top:12px;">
+          <div style="font-family:'Montserrat',sans-serif;font-size:7.5pt;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--teal2);border-bottom:1.5px solid var(--lgray);padding-bottom:5px;margin-bottom:10px;">Next Steps</div>
+          <div class="step-row">
+            <div class="step-num"><span>1</span></div>
+            <div>
+              <div class="step-title">Confirm Employee Profile</div>
+              <div class="step-desc">Share nationality, role/function, and tax residency. Required to finalize charge rates and ISLR treatment.</div>
+            </div>
+          </div>
+          <div class="step-row">
+            <div class="step-num"><span>2</span></div>
+            <div>
+              <div class="step-title">Client Sanctions Check</div>
+              <div class="step-desc">Confirm whether client has US nexus. Determines whether an OFAC compliance review is required.</div>
+            </div>
+          </div>
+          <div class="step-row">
+            <div class="step-num"><span>3</span></div>
+            <div>
+              <div class="step-title">Revised Simulation</div>
+              <div class="step-desc">Wide Brazil issues updated cost simulation based on confirmed profile and agreed engagement scope.</div>
+            </div>
+          </div>
+          <div class="step-row">
+            <div class="step-num"><span>4</span></div>
+            <div>
+              <div class="step-title">Sign EOR Agreement</div>
+              <div class="step-desc">Service agreement with annual provisioning schedule, FX review cadence, and invoicing terms.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-box">
+          <div class="contact-box-left">
+            <h3>Wide Brazil</h3>
+            <p>Employer of Record and workforce solutions across Brazil and Latin America.</p>
+          </div>
+          <div class="contact-box-right">
+            <div class="contact-detail"><span>Email</span>victor.dias@widebrazil.com</div>
+            <div class="contact-detail"><span>Phone</span>+351 965 043 393</div>
+            <div class="contact-detail"><span>Web</span>widebrazil.com</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <div class="pf-brand">Wide Brazil <span>| EOR Venezuela</span></div>
+    <div class="pf-disclaimer">Confidential — preliminary reference. Subject to review of employee profile.</div>
+    <div class="pf-page">Page 3</div>
+  </div>
+</div>
+
+</body>
+</html>
