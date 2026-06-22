@@ -1,0 +1,1332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wide Brazil — EOR Proposal · ChemSec</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0D1B2E;
+    --teal: #00C8C8;
+    --teal2: #00A8A8;
+    --green: #3DD68C;
+    --white: #FFFFFF;
+    --offwhite: #F7F9FC;
+    --lgray: #E8EDF3;
+    --text: #1A2535;
+    --gray: #6B7A8D;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #CBD5E1; font-family: 'Montserrat', sans-serif; color: var(--text); }
+
+  /* ── PAGE ── */
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    max-height: 297mm;
+    overflow: hidden;
+    background: #fff;
+    margin: 12px auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    page-break-after: always;
+  }
+
+  /* ── COVER ── */
+  .cover {
+    background: var(--navy);
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    overflow: hidden;
+  }
+  .hex-group { position: absolute; top: 0; right: 0; pointer-events: none; }
+  .hex {
+    position: absolute;
+    clip-path: polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);
+  }
+  .cover-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 28px 36px 0;
+    position: relative;
+    z-index: 2;
+  }
+  .cover-badge {
+    background: rgba(0,200,200,0.18);
+    border: 1px solid rgba(0,200,200,0.5);
+    border-radius: 20px;
+    padding: 6px 16px;
+  }
+  .cover-badge-text {
+    font-size: 8pt;
+    font-weight: 700;
+    color: var(--teal);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+  .cover-content {
+    padding: 38px 36px 0;
+    position: relative;
+    z-index: 2;
+    flex: 1;
+  }
+  .cover-eyebrow {
+    font-size: 8pt;
+    font-weight: 600;
+    color: var(--teal);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .cover-divider {
+    width: 48px;
+    height: 3px;
+    background: var(--teal);
+    margin-bottom: 18px;
+    border-radius: 2px;
+  }
+  .cover-title {
+    font-size: 28pt;
+    font-weight: 900;
+    line-height: 1.1;
+    color: var(--white);
+    margin-bottom: 14px;
+  }
+  .cover-title span { color: var(--teal); }
+  .cover-subtitle {
+    font-family: 'Source Serif 4', serif;
+    font-size: 11pt;
+    font-weight: 300;
+    color: rgba(255,255,255,.75);
+    line-height: 1.5;
+    max-width: 420px;
+    margin-bottom: 20px;
+  }
+  .cover-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 28px; }
+  .cover-tag {
+    font-size: 7.5pt;
+    font-weight: 700;
+    padding: 5px 12px;
+    border-radius: 14px;
+    background: rgba(0,200,200,0.15);
+    color: var(--teal);
+    border: 1px solid rgba(0,200,200,0.35);
+    letter-spacing: .5px;
+  }
+  .cover-tag.outline {
+    background: transparent;
+    color: rgba(255,255,255,.6);
+    border-color: rgba(255,255,255,.3);
+  }
+  .cover-meta {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 0;
+    width: 60%;
+    margin: 0 36px;
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+  }
+  .cover-meta-item {
+    padding: 12px 16px;
+    border-right: 1px solid rgba(255,255,255,.1);
+  }
+  .cover-meta-item:last-child { border-right: none; }
+  .cover-meta-label {
+    font-size: 6.5pt;
+    font-weight: 600;
+    color: var(--teal);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 3px;
+  }
+  .cover-meta-value {
+    font-size: 8.5pt;
+    font-weight: 700;
+    color: var(--white);
+  }
+  .cover-image-area {
+    margin-top: 18px;
+    height: 72px;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    background: linear-gradient(to bottom, var(--navy), rgba(13,27,46,0.85));
+  }
+  .skyline {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 60'%3E%3Crect x='0' y='30' width='30' height='30' fill='rgba(0,200,200,0.08)'/%3E%3Crect x='35' y='20' width='40' height='40' fill='rgba(0,200,200,0.06)'/%3E%3Crect x='80' y='10' width='20' height='50' fill='rgba(0,200,200,0.08)'/%3E%3Crect x='105' y='25' width='50' height='35' fill='rgba(0,200,200,0.05)'/%3E%3Crect x='160' y='15' width='25' height='45' fill='rgba(0,200,200,0.07)'/%3E%3Crect x='190' y='28' width='35' height='32' fill='rgba(0,200,200,0.06)'/%3E%3Crect x='230' y='8' width='18' height='52' fill='rgba(0,200,200,0.09)'/%3E%3Crect x='252' y='22' width='44' height='38' fill='rgba(0,200,200,0.05)'/%3E%3Crect x='300' y='18' width='22' height='42' fill='rgba(0,200,200,0.07)'/%3E%3Crect x='328' y='30' width='38' height='30' fill='rgba(0,200,200,0.06)'/%3E%3Crect x='372' y='12' width='28' height='48' fill='rgba(0,200,200,0.08)'/%3E%3Crect x='405' y='24' width='45' height='36' fill='rgba(0,200,200,0.05)'/%3E%3Crect x='455' y='6' width='20' height='54' fill='rgba(0,200,200,0.09)'/%3E%3Crect x='480' y='20' width='32' height='40' fill='rgba(0,200,200,0.06)'/%3E%3Crect x='518' y='28' width='42' height='32' fill='rgba(0,200,200,0.05)'/%3E%3Crect x='565' y='14' width='24' height='46' fill='rgba(0,200,200,0.07)'/%3E%3Crect x='594' y='22' width='36' height='38' fill='rgba(0,200,200,0.06)'/%3E%3Crect x='635' y='9' width='19' height='51' fill='rgba(0,200,200,0.08)'/%3E%3Crect x='659' y='26' width='48' height='34' fill='rgba(0,200,200,0.05)'/%3E%3Crect x='712' y='16' width='22' height='44' fill='rgba(0,200,200,0.07)'/%3E%3Crect x='738' y='30' width='62' height='30' fill='rgba(0,200,200,0.06)'/%3E%3C/svg%3E");
+    background-size: cover;
+    background-position: bottom;
+  }
+  .cover-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 36px;
+    border-top: 1px solid rgba(255,255,255,.08);
+    position: relative;
+    z-index: 2;
+  }
+  .cover-footer-url { font-size: 7.5pt; font-weight: 600; color: var(--teal); }
+  .cover-footer-edition { font-size: 7pt; color: rgba(255,255,255,.4); }
+
+  /* ── INNER PAGES ── */
+  .inner-page { padding: 0; }
+  .page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 28px 10px;
+    border-bottom: 2px solid var(--teal);
+    background: #fff;
+  }
+  .page-header-left {
+    font-size: 8pt;
+    font-weight: 800;
+    color: var(--navy);
+    letter-spacing: .5px;
+    text-transform: uppercase;
+  }
+  .page-header-left span { color: var(--teal2); font-weight: 600; }
+  .page-header-right { font-size: 7.5pt; color: var(--gray); font-weight: 600; }
+  .page-body { flex: 1; padding: 18px 28px 10px; overflow: hidden; }
+  .page-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 28px;
+    border-top: 1.5px solid var(--lgray);
+    background: var(--offwhite);
+  }
+  .pf-brand { font-size: 7pt; font-weight: 800; color: var(--navy); }
+  .pf-brand span { color: var(--teal2); font-weight: 600; }
+  .pf-disclaimer { font-size: 6.5pt; color: var(--gray); font-style: italic; }
+  .pf-page { font-size: 7pt; font-weight: 700; color: var(--teal2); }
+
+  /* ── SECTION HEADERS ── */
+  .section-header-block {
+    background: var(--teal);
+    border-radius: 4px;
+    padding: 12px 16px;
+    margin-bottom: 14px;
+  }
+  .section-header-block .section-num { font-size: 7pt; font-weight: 700; color: rgba(13,27,46,.65); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 2px; }
+  .section-header-block .section-title { font-size: 13pt; font-weight: 900; color: var(--navy); line-height: 1.15; }
+  .section-header-block .section-subtitle { font-family: 'Source Serif 4', serif; font-size: 8.5pt; color: rgba(13,27,46,.7); margin-top: 3px; }
+  .navy-section-header {
+    background: var(--navy);
+    border-radius: 4px;
+    padding: 12px 16px;
+    margin-bottom: 14px;
+  }
+  .navy-section-header .section-num { font-size: 7pt; font-weight: 700; color: var(--teal); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 2px; }
+  .navy-section-header .section-title { font-size: 13pt; font-weight: 900; color: var(--white); line-height: 1.15; }
+  .navy-section-header .section-subtitle { font-family: 'Source Serif 4', serif; font-size: 8.5pt; color: rgba(255,255,255,.65); margin-top: 3px; }
+
+  /* ── BODY TEXT ── */
+  .body-text { font-family: 'Source Serif 4', serif; font-size: 9.5pt; line-height: 1.55; color: var(--text); margin-bottom: 10px; }
+  .body-text strong { font-weight: 600; }
+
+  /* ── CALLOUT BOX ── */
+  .callout {
+    background: var(--offwhite);
+    border-left: 3.5px solid var(--teal);
+    border-radius: 0 4px 4px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+  }
+  .callout-title { font-size: 8pt; font-weight: 800; color: var(--navy); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+  .callout p { font-family: 'Source Serif 4', serif; font-size: 8.5pt; color: var(--text); line-height: 1.5; }
+
+  /* ── INFO GRID ── */
+  .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 10px 0; }
+  .info-card {
+    background: var(--offwhite);
+    border: 1px solid var(--lgray);
+    border-radius: 5px;
+    padding: 10px 12px;
+  }
+  .info-card-label { font-size: 7pt; font-weight: 700; color: var(--teal2); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 3px; }
+  .info-card-value { font-size: 10pt; font-weight: 800; color: var(--navy); }
+  .info-card-sub { font-size: 7.5pt; color: var(--gray); margin-top: 2px; font-family: 'Source Serif 4', serif; }
+
+  /* ── SCOPE ── */
+  .scope-block { margin-bottom: 10px; }
+  .scope-area {
+    background: var(--navy);
+    color: var(--teal);
+    font-size: 7.5pt;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 3px;
+    margin-bottom: 4px;
+    display: inline-block;
+  }
+  .scope-item { display: flex; align-items: flex-start; gap: 8px; padding: 4px 0; border-bottom: 1px solid var(--lgray); }
+  .scope-item:last-child { border-bottom: none; }
+  .scope-item-check { color: var(--teal); font-weight: 900; font-size: 9pt; flex-shrink: 0; margin-top: 1px; }
+  .scope-item-text { font-family: 'Source Serif 4', serif; font-size: 8.5pt; color: var(--text); line-height: 1.45; }
+
+  /* ── BENEFITS ── */
+  .benefits-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 8px 0; }
+  .benefit-card {
+    border: 1px solid var(--lgray);
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  .benefit-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 7px 10px;
+    background: var(--offwhite);
+    border-bottom: 1px solid var(--lgray);
+  }
+  .benefit-name { font-size: 8pt; font-weight: 800; color: var(--navy); }
+  .benefit-tag {
+    font-size: 6.5pt;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 10px;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+  }
+  .benefit-tag.mandatory { background: rgba(0,200,200,0.12); color: var(--teal2); border: 1px solid rgba(0,200,200,0.3); }
+  .benefit-tag.optional { background: rgba(61,214,140,0.12); color: #1a9e6a; border: 1px solid rgba(61,214,140,0.3); }
+  .benefit-body { padding: 7px 10px; font-family: 'Source Serif 4', serif; font-size: 8pt; color: var(--text); line-height: 1.45; }
+
+  /* ── 13TH SALARY EXPLAINER ── */
+  .thirteenth-box {
+    background: linear-gradient(135deg, var(--navy) 0%, #152644 100%);
+    border-radius: 6px;
+    padding: 14px 16px;
+    margin: 10px 0;
+    color: var(--white);
+  }
+  .thirteenth-title {
+    font-size: 9pt;
+    font-weight: 900;
+    color: var(--teal);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+  .thirteenth-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .thirteenth-item {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(0,200,200,0.2);
+    border-radius: 4px;
+    padding: 8px 10px;
+  }
+  .thirteenth-item-label { font-size: 7pt; font-weight: 700; color: var(--teal); margin-bottom: 3px; }
+  .thirteenth-item-text { font-family: 'Source Serif 4', serif; font-size: 8pt; color: rgba(255,255,255,.8); line-height: 1.45; }
+
+  /* ── SIMULATOR (INTERACTIVE) ── */
+  .sim-page-header {
+    background: var(--navy);
+    color: var(--white);
+    padding: 12px 16px;
+    border-radius: 4px;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .sim-page-title { font-size: 12pt; font-weight: 900; }
+  .sim-page-title span { color: var(--teal); }
+  .sim-page-subtitle { font-family: 'Source Serif 4', serif; font-size: 8pt; color: rgba(255,255,255,.6); }
+  .sim-controls {
+    background: var(--offwhite);
+    border: 1.5px solid var(--lgray);
+    border-radius: 6px;
+    padding: 12px 14px;
+    margin-bottom: 12px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    align-items: end;
+  }
+  .sim-ctrl-group label {
+    display: block;
+    font-size: 7pt;
+    font-weight: 700;
+    color: var(--teal2);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+  }
+  .sim-ctrl-group input[type=range] {
+    width: 100%;
+    accent-color: var(--teal);
+    cursor: pointer;
+  }
+  .sim-ctrl-group input[type=number] {
+    width: 100%;
+    padding: 6px 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9pt;
+    font-weight: 700;
+    color: var(--navy);
+    border: 1.5px solid var(--lgray);
+    border-radius: 4px;
+    background: #fff;
+  }
+  .sim-slider-value {
+    font-size: 11pt;
+    font-weight: 900;
+    color: var(--navy);
+    text-align: center;
+    margin-top: 2px;
+  }
+  .sim-slider-value span { font-size: 8pt; color: var(--gray); font-weight: 600; }
+  .sim-wrap {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 10px;
+  }
+  .sim-block {
+    border: 1px solid var(--lgray);
+    border-radius: 5px;
+    overflow: hidden;
+    font-size: 8pt;
+  }
+  .sim-block-header {
+    font-size: 8pt;
+    font-weight: 800;
+    padding: 7px 12px;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+  }
+  .sim-block-header.navy-bg { background: var(--navy); color: var(--teal); }
+  .sim-block-header.teal-bg { background: var(--teal); color: var(--navy); }
+  .sim-block-header.green-bg { background: var(--green); color: var(--navy); }
+  .sim-row-dual {
+    display: flex;
+    align-items: center;
+    padding: 3.5px 10px;
+    border-bottom: 1px solid var(--lgray);
+    gap: 4px;
+  }
+  .sim-row-dual:last-child { border-bottom: none; }
+  .sim-row-dual.sim-row-header { background: var(--offwhite); }
+  .sim-label { font-family: 'Montserrat', sans-serif; font-size: 7.5pt; color: var(--text); }
+  .sim-label.indent { padding-left: 10px; color: var(--gray); font-size: 7pt; }
+  .sim-col-head { font-size: 7pt; font-weight: 800; color: var(--teal2); width: 72px; text-align: right; flex-shrink: 0; }
+  .sim-value { font-family: 'Montserrat', sans-serif; font-size: 7.5pt; font-weight: 600; color: var(--text); width: 72px; text-align: right; flex-shrink: 0; }
+  .sim-value.teal { color: var(--teal2); font-weight: 800; }
+  .sim-value.negative { color: #b03030; }
+  .sim-total-row-dual {
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    background: var(--navy);
+    gap: 4px;
+  }
+  .sim-total-label { font-size: 7.5pt; font-weight: 800; color: rgba(255,255,255,.85); }
+  .sim-total-value { font-size: 8pt; font-weight: 900; color: var(--teal); width: 72px; text-align: right; flex-shrink: 0; }
+  .sim-note { font-family: 'Source Serif 4', serif; font-size: 7pt; color: var(--gray); font-style: italic; padding: 5px 10px; background: var(--offwhite); border-top: 1px solid var(--lgray); }
+  .sim-invoice-box {
+    background: var(--navy);
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 10px;
+    font-size: 8pt;
+  }
+  .sim-invoice-header { padding: 7px 12px; background: var(--teal); }
+  .sim-invoice-header-text { font-size: 8pt; font-weight: 900; color: var(--navy); text-transform: uppercase; letter-spacing: .5px; }
+  .sim-invoice-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 12px;
+    border-bottom: 1px solid rgba(255,255,255,.07);
+  }
+  .sim-invoice-row-label { font-size: 7.5pt; color: rgba(255,255,255,.7); }
+  .sim-invoice-row-value { font-size: 8pt; font-weight: 700; color: var(--white); }
+  .sim-invoice-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    background: rgba(0,200,200,0.1);
+    border-top: 1.5px solid var(--teal);
+  }
+  .sim-invoice-total-label { font-size: 8.5pt; font-weight: 900; color: var(--teal); text-transform: uppercase; letter-spacing: .5px; }
+  .sim-invoice-total-value { font-size: 11pt; font-weight: 900; color: var(--teal); }
+  .fx-note { font-family: 'Source Serif 4', serif; font-size: 7pt; color: var(--gray); font-style: italic; text-align: right; margin-top: 4px; }
+
+  /* ── PRICING TABLE ── */
+  .pricing-table { width: 100%; border-collapse: collapse; font-size: 8.5pt; margin: 10px 0; }
+  .pricing-table thead tr { background: var(--navy); }
+  .pricing-table thead th { padding: 8px 12px; text-align: left; font-size: 7.5pt; font-weight: 700; color: var(--teal); text-transform: uppercase; letter-spacing: .5px; }
+  .pricing-table thead th:last-child { text-align: right; }
+  .pricing-table tbody tr:nth-child(even) { background: var(--offwhite); }
+  .pricing-table tbody tr:nth-child(odd) { background: #fff; }
+  .pricing-table tbody td { padding: 8px 12px; border-bottom: 1px solid var(--lgray); vertical-align: top; }
+  .pricing-table tbody td:last-child { text-align: right; }
+  .pt-item { font-weight: 700; color: var(--navy); display: block; }
+  .pt-note { font-family: 'Source Serif 4', serif; font-size: 7.5pt; color: var(--gray); font-style: italic; }
+  .pt-desc { font-family: 'Source Serif 4', serif; font-size: 8pt; color: var(--text); }
+  .pt-value { font-weight: 800; color: var(--navy); font-family: 'Montserrat', sans-serif; }
+  .pt-total { background: var(--navy) !important; }
+  .pt-total td { border-bottom: none; padding: 9px 12px; }
+  .pt-total .pt-item { color: var(--white); font-size: 9pt; }
+  .pt-total .pt-value { color: var(--teal); font-size: 10pt; }
+
+  /* ── INVOICE SUMMARY ── */
+  .invoice-summary { border:1.5px solid var(--lgray); border-radius:4px; overflow:hidden; margin:14px 0; }
+  .invoice-summary-row { display:flex; justify-content:space-between; align-items:baseline; padding:9px 16px; border-bottom:1px solid var(--lgray); }
+  .invoice-summary-row:last-of-type { border-bottom:none; }
+  .invoice-summary-row.total { background:var(--navy); }
+  .invoice-summary-row.total .inv-label { color:rgba(255,255,255,.85); font-weight:700; }
+  .invoice-summary-row.total .inv-value { color:var(--teal); font-size:12pt; font-weight:900; }
+  .inv-label { font-family:'Montserrat',sans-serif; font-weight:600; font-size:8.5pt; color:var(--text); }
+  .inv-value { font-family:'Montserrat',sans-serif; font-weight:800; font-size:9.5pt; color:var(--navy); }
+  .inv-asterisk { font-family:'Source Serif 4',serif; font-size:7pt; color:var(--gray); font-style:italic; padding:6px 16px 8px; background:var(--offwhite); }
+
+  /* ── CONTINUATION ── */
+  .continuation-label { font-family:'Montserrat',sans-serif; font-weight:700; font-size:8pt; color:var(--teal2); letter-spacing:1px; text-transform:uppercase; border-bottom:1.5px solid var(--lgray); padding-bottom:8px; margin-bottom:18px; }
+
+  /* ── NEXT STEPS ── */
+  .step-row { display: flex; align-items: flex-start; gap: 14px; padding: 10px 0; border-bottom: 1px solid var(--lgray); }
+  .step-row:last-child { border-bottom: none; }
+  .step-num {
+    width: 28px; height: 28px; border-radius: 50%;
+    background: var(--teal); color: var(--navy);
+    font-weight: 900; font-size: 9pt;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .step-title { font-size: 9pt; font-weight: 800; color: var(--navy); margin-bottom: 2px; }
+  .step-desc { font-family: 'Source Serif 4', serif; font-size: 8.5pt; color: var(--text); line-height: 1.45; }
+
+  /* ── CONTACT BOX ── */
+  .contact-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    background: var(--navy);
+    border-radius: 6px;
+    padding: 16px 20px;
+    margin-top: 14px;
+    color: var(--white);
+  }
+  .contact-box-left h3 { font-size: 11pt; font-weight: 900; color: var(--white); margin-bottom: 4px; }
+  .contact-box-left p { font-family: 'Source Serif 4', serif; font-size: 8.5pt; color: rgba(255,255,255,.65); max-width: 200px; line-height: 1.45; }
+  .contact-box-right { display: flex; flex-direction: column; gap: 5px; }
+  .contact-detail { display: flex; align-items: center; gap: 8px; font-size: 8pt; color: rgba(255,255,255,.85); }
+  .contact-detail span { font-weight: 700; color: var(--teal); width: 44px; flex-shrink: 0; }
+
+  /* ── ASSUMPTIONS ── */
+  .assumptions-box {
+    background: var(--offwhite);
+    border: 1px solid var(--lgray);
+    border-radius: 4px;
+    padding: 10px 14px;
+    margin: 10px 0;
+  }
+  .assumptions-title { font-size: 7.5pt; font-weight: 800; color: var(--navy); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+  .assumptions-box ul { list-style: none; padding: 0; }
+  .assumptions-box ul li { font-family: 'Source Serif 4', serif; font-size: 8pt; color: var(--text); padding: 2px 0 2px 14px; position: relative; line-height: 1.45; }
+  .assumptions-box ul li::before { content: '—'; position: absolute; left: 0; color: var(--teal2); font-weight: 700; }
+
+  /* ── PRINT ── */
+  @media print {
+    body { background: white; }
+    .page { margin: 0; page-break-after: always; box-shadow: none; }
+    .sim-controls input[type=range] { display: none; }
+    .sim-ctrl-group label::after { content: ' (see above)'; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════
+     PAGE 1 — COVER
+═══════════════════════════════════════════════════ -->
+<div class="page cover">
+  <div class="hex-group">
+    <div class="hex" style="width:280px;height:280px;background:rgba(0,200,200,0.04);top:-60px;right:-50px;"></div>
+    <div class="hex" style="width:170px;height:170px;background:rgba(0,200,200,0.06);top:70px;right:90px;"></div>
+    <div class="hex" style="width:95px;height:95px;background:rgba(0,200,200,0.1);top:185px;right:205px;"></div>
+    <div class="hex" style="width:70px;height:70px;background:rgba(61,214,140,0.08);top:25px;right:245px;"></div>
+  </div>
+
+  <div class="cover-top">
+    <div class="cover-logo">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+           viewBox="440 390 1060 320" style="height:50px;width:auto;display:block;">
+        <defs>
+          <linearGradient id="lg" x1="528.00962" y1="437.79086" x2="693.52564" y2="437.79086"
+            gradientTransform="translate(0 1081.58265) scale(1 -1)" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#101827"/><stop offset="1" stop-color="#0ec668"/>
+          </linearGradient>
+          <linearGradient id="lg1" x1="438.90681" y1="505.95149" x2="604.42283" y2="505.95149"
+            gradientTransform="translate(0 1081.58265) scale(1 -1)" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#101827"/><stop offset="1" stop-color="#0ec668"/>
+          </linearGradient>
+          <linearGradient id="lg2" x1="712.59445" y1="474.81047" x2="460.26471" y2="699.39719"
+            gradientTransform="translate(0 1081.58265) scale(1 -1)" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#0ec668"/><stop offset="1" stop-color="#12ace6"/>
+          </linearGradient>
+        </defs>
+        <polygon fill="#ffffff" points="1067.75549 401.49997 1023.07159 544.20905 982.00995 404.26547 947.97415 404.26547 906.91302 544.20905 862.2291 401.49997 825.9744 401.49997 889.94604 595.09726 923.0683 595.09726 964.99228 462.89842 1006.63654 595.09726 1040.03796 595.09726 1104.0097 401.49997 1067.75549 401.49997"/>
+        <path fill="#ffffff" d="M1149.14148,401.49997v193.59729h-32.08148v-193.59729h32.08148Z"/>
+        <path fill="#ffffff" d="M1233.70984,401.49997c59.46155,0,102.33014,43.14445,102.33014,96.79817s-42.86859,96.79912-102.33014,96.79912h-66.37671v-193.59729h66.37671ZM1199.41461,562.73893h34.29523c38.99573,0,66.37579-27.38007,66.37579-64.44079s-27.38007-64.43983-66.37579-64.43983h-34.29523v128.88062Z"/>
+        <path fill="#ffffff" d="M1461.63257,401.49997v32.35833h-78.31946v40.93167h45.29926v32.35833h-45.29926v55.59062h78.31946v32.35834h-110.40094v-193.59729h110.40094Z"/>
+        <path fill="#ffffff" d="M1006.4671,663.3115c0,9.59277-7.51465,15.18848-21.9043,15.18848h-27.81934v-55.95898h26.2207c13.42969,0,20.625,5.67578,20.625,14.5498,0,5.75586-2.87793,9.99219-7.19531,12.31055,5.99609,1.91895,10.07324,6.63574,10.07324,13.91016ZM967.13608,630.69529v15.42871h14.70895c7.19434,0,11.27148-2.55859,11.27148-7.6748,0-5.19531-4.07715-7.75391-11.27148-7.75391h-14.70898ZM995.99445,662.27244c0-5.59668-4.2373-8.07422-12.07129-8.07422h-16.78711v16.14746h16.78711c7.83398,0,12.07129-2.47754,12.07129-8.07324Z"/>
+        <path fill="#ffffff" d="M1075.78156,678.49997l-11.43164-16.3877c-.71875.08008-1.43848.08008-2.1582.08008h-12.62988v16.30762h-10.39258v-55.95898h23.02246c14.70898,0,23.82227,7.51465,23.82227,19.90527,0,8.47461-4.31641,14.70996-11.91113,17.66699l12.87109,18.38672h-11.19238ZM1061.71228,631.33494h-12.15039v22.30371h12.15039c9.11328,0,13.83008-4.15723,13.83008-11.19238,0-7.03418-4.7168-11.11133-13.83008-11.11133Z"/>
+        <path fill="#ffffff" d="M1155.48859,665.54978h-27.97949l-5.51562,12.9502h-10.71191l25.18066-55.95898h10.23242l25.26172,55.95898h-10.87207l-5.5957-12.9502ZM1152.05109,657.39548l-10.55176-24.46191-10.47266,24.46191h21.02441Z"/>
+        <path fill="#ffffff" d="M1244.14978,669.70603v8.79395h-47.72461v-6.95508l32.93555-40.20996h-32.37598v-8.79395h46.12598v6.95508l-32.93555,40.20996h33.97461Z"/>
+        <path fill="#ffffff" d="M1275.25323,622.54099h10.39258v55.95898h-10.39258v-55.95898Z"/>
+        <path fill="#ffffff" d="M1322.34113,622.54099h10.39258v47.16504h29.25781v8.79395h-39.65039v-55.95898Z"/>
+        <rect fill="url(#lg)" x="591.52898" y="609.08361" width="93.76549" height="69.41637"/>
+        <rect fill="url(#lg1)" x="502.42616" y="540.92298" width="93.76549" height="69.41637"/>
+        <path fill="url(#lg2)" d="M773.49542,470.72999l43.49487,69.26999-87.9592,138.5h-88.79871l133.26303-207.76999ZM684.48682,401.49997l-158.30856,246.82742,18.93906,30.17258h46.68304l157.73888-245.92795-19.50873-31.07205h-45.5437ZM548.11559,401.49997l-89.74816,138.8298,43.95461,70.00955,133.95263-208.83936h-88.15908Z"/>
+      </svg>
+    </div>
+    <div class="cover-badge"><div class="cover-badge-text">Commercial Proposal</div></div>
+  </div>
+
+  <div class="cover-content">
+    <div class="cover-eyebrow">Workforce Solutions · Brazil</div>
+    <div class="cover-divider"></div>
+    <div class="cover-title"><span>Employer of Record</span><br>Expatriate Employment Structure</div>
+    <div class="cover-subtitle">Compliant employment solution for a Swedish national relocating to Brazil as a trailing spouse — maintaining continuity with the home employer via an EOR structure.</div>
+    <div class="cover-tags">
+      <span class="cover-tag">EOR — Brazil</span>
+      <span class="cover-tag">CLT Employment</span>
+      <span class="cover-tag">Expat Compliance</span>
+      <span class="cover-tag outline">Confidential</span>
+    </div>
+  </div>
+
+  <div class="cover-meta">
+    <div class="cover-meta-item">
+      <div class="cover-meta-label">Prepared for</div>
+      <div class="cover-meta-value">ChemSec</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="cover-meta-label">Contact</div>
+      <div class="cover-meta-value">Jonatan</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="cover-meta-label">Date</div>
+      <div class="cover-meta-value">June 2026</div>
+    </div>
+  </div>
+
+  <div class="cover-image-area">
+    <div class="skyline"></div>
+  </div>
+
+  <div class="cover-footer">
+    <span class="cover-footer-url">widebrazil.com</span>
+    <span class="cover-footer-edition">Confidential · Prepared for ChemSec · v1.0</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     PAGE 2 — CONTEXT & STRUCTURE
+═══════════════════════════════════════════════════ -->
+<div class="page inner-page">
+  <div class="page-header">
+    <div class="page-header-left">Wide Brazil <span>| Commercial Proposal</span></div>
+    <div class="page-header-right">EOR — Expatriate Employment · ChemSec</div>
+  </div>
+  <div class="page-body">
+    <div class="section-header-block">
+      <div class="section-num">Section 01</div>
+      <div class="section-title">Context & Recommended Structure</div>
+      <div class="section-subtitle">Understanding the situation and the right employment approach for Brazil</div>
+    </div>
+
+    <p class="body-text">Jonatan is a Swedish national employed by ChemSec in Sweden. His spouse has accepted an expatriate assignment in Brazil, and he will accompany her for the duration of the posting — approximately two years. Jonatan intends to continue his role at ChemSec from Brazil, which creates a compliance obligation that must be addressed before the move.</p>
+
+    <p class="body-text">Working from Brazilian territory — even fully remotely — means Jonatan generates employment activity in Brazil under a foreign contract. Without a local employment structure, ChemSec operates as an unregistered employer in the country, creating exposure to social security liabilities, corporate tax risk, and potential labor law penalties. This is not a grey area: Brazil's tax and labor authorities treat economic presence seriously, regardless of where the payroll is run.</p>
+
+    <div class="callout">
+      <div class="callout-title">The recommended structure: Employer of Record (EOR)</div>
+      <p>Wide Brazil becomes the legal employer in Brazil for the duration of the assignment. Jonatan is issued a CLT employment contract, enrolled in the Brazilian social security and tax systems, and paid locally in BRL. ChemSec retains full operational control — direction, deliverables, schedule — while Wide Brazil carries the legal employment responsibility on the ground.</p>
+    </div>
+
+    <p class="body-text">This is the standard structure for this type of international assignment and the cleanest path to full compliance. It protects ChemSec from unintended legal exposure in Brazil, ensures Jonatan's rights are properly covered under local law, and gives both parties a clear, auditable employment arrangement from day one.</p>
+
+    <div class="info-grid">
+      <div class="info-card">
+        <div class="info-card-label">Assignment duration</div>
+        <div class="info-card-value">24 months</div>
+        <div class="info-card-sub">EOR contract aligned with assignment period</div>
+      </div>
+      <div class="info-card">
+        <div class="info-card-label">Employment regime</div>
+        <div class="info-card-value">CLT (Brazil)</div>
+        <div class="info-card-sub">Full statutory benefits and protections apply</div>
+      </div>
+      <div class="info-card">
+        <div class="info-card-label">Gross monthly salary</div>
+        <div class="info-card-value">USD 6,461.53</div>
+        <div class="info-card-sub">USD 77,538/year · equivalent to EUR 84,000 annual</div>
+      </div>
+      <div class="info-card">
+        <div class="info-card-label">Residence basis</div>
+        <div class="info-card-value">Dependent Visa</div>
+        <div class="info-card-sub">Via spouse's expatriate work authorization</div>
+      </div>
+    </div>
+
+    <div class="callout" style="border-color: var(--green); margin-top: 8px;">
+      <div class="callout-title" style="color: #1a9e6a;">Why not keep the Swedish payroll running?</div>
+      <p>Brazil establishes tax residency after 183 days of presence in the country. From that point, Jonatan's worldwide income is subject to Brazilian IRRF. Maintaining only a Swedish payroll does not discharge this obligation — it simply leaves it undeclared. The EOR structure ensures Jonatan is correctly registered, taxed, and covered from arrival, with no gap between legal reality and payroll treatment.</p>
+    </div>
+  </div>
+  <div class="page-footer">
+    <div class="pf-brand">Wide Brazil <span>| EOR Proposal</span></div>
+    <div class="pf-disclaimer">Confidential — prepared solely for ChemSec.</div>
+    <div class="pf-page">Page 2</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     PAGE 3 — SCOPE OF SERVICES
+═══════════════════════════════════════════════════ -->
+<div class="page inner-page">
+  <div class="page-header">
+    <div class="page-header-left">Wide Brazil <span>| Commercial Proposal</span></div>
+    <div class="page-header-right">EOR — Expatriate Employment · ChemSec</div>
+  </div>
+  <div class="page-body">
+    <div class="navy-section-header">
+      <div class="section-num">Section 02</div>
+      <div class="section-title">Scope of Services</div>
+      <div class="section-subtitle">What Wide Brazil will handle for the duration of Jonatan's assignment</div>
+    </div>
+
+    <div class="scope-block">
+      <div class="scope-area">Employment & Onboarding</div>
+      <div class="scope-item">
+        <div class="scope-item-check">✓</div>
+        <div class="scope-item-text"><strong>CLT employment contract</strong> — drafted in Portuguese and English, compliant with Brazilian labor law and aligned to the agreed compensation and assignment terms.</div>
+      </div>
+      <div class="scope-item">
+        <div class="scope-item-check">✓</div>
+        <div class="scope-item-text"><strong>Employee registration</strong> — enrollment in eSocial (Brazil's HR reporting system), INSS (social security), and FGTS (severance fund) from day one.</div>
+      </div>
+      <div class="scope-item">
+        <div class="scope-item-check">✓</div>
+        <div class="scope-item-text"><strong>CPF and banking support</strong> — assistance obtaining a Brazilian taxpayer number and local bank account for salary deposits.</div>
+      </div>
+    </div>
+
+    <div class="scope-block">
+      <div class="scope-area">Payroll & Tax Compliance</div>
+      <div class="scope-item">
+        <div class="scope-item-check">✓</div>
+        <div class="scope-item-text"><strong>Monthly payroll processing</strong> — full calculation including salary, social charges, deductions, benefits, and statutory obligations.</div>
+      </div>
+      <div class="scope-item">
+        <div class="scope-item-check">✓</div>
+        <div class="scope-item-text"><strong>Tax management</strong> — IRRF income tax withholding and remittance, INSS and FGTS contributions collected and filed monthly.</div>
+      </div>
+      <div class="scope-item">
+        <div class="scope-item-check">✓</div>
+        <div class="scope-item-text"><strong>Digital payslips</strong> — delivered directly to Jonatan each month, with a full breakdown of gross, deductions, and net salary.</div>
+      </div>
+      <div class="scope-item">
+        <div class="scope-item-check">✓</div>
+        <div class="scope-item-text"><strong>13th salary management</strong> — provisioned monthly, paid in two installments as required by Brazilian law (November and December). See Section 04 for a full explanation.</div>
+      </div>
+      <div class="scope-item">
+        <div class="scope-item-check">✓</div>
+        <div class="scope-item-text"><strong>Vacation entitlement & bonus</strong> — 30 calendar days per year with a mandatory constitutional bonus of 1/3 of the monthly salary, fully managed by Wide Brazil.</div>
+      </div>
+    </div>
+
+    <div class="scope-block">
+      <div class="scope-area">Benefits Administration</div>
+      <div class="scope-item">
+        <div class="scope-item-check">✓</div>
+        <div class="scope-item-text"><strong>Mandatory benefits</strong> — meal allowance (VR/VA) and life insurance, as required by Brazilian law.</div>
+      </div>
+      <div class="scope-item">
+        <div class="scope-item-check">✓</div>
+        <div class="scope-item-text"><strong>Optional benefits</strong> — healthcare, dental, and transport can be included at ChemSec's request. Quoted and invoiced as pass-throughs at no markup.</div>
+      </div>
+    </div>
+
+    <div class="scope-block">
+      <div class="scope-area">Offboarding & Contract Closure</div>
+      <div class="scope-item">
+        <div class="scope-item-check">✓</div>
+        <div class="scope-item-text"><strong>Contract termination management</strong> — at end of assignment, Wide Brazil handles all legal procedures for the employment closure, including final settlement calculations, FGTS release, and documentation.</div>
+      </div>
+      <div class="scope-item">
+        <div class="scope-item-check">✓</div>
+        <div class="scope-item-text"><strong>ESocial deregistration</strong> — formal closure of all government registrations at end of the assignment period.</div>
+      </div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <div class="pf-brand">Wide Brazil <span>| EOR Proposal</span></div>
+    <div class="pf-disclaimer">Confidential — prepared solely for ChemSec.</div>
+    <div class="pf-page">Page 3</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     PAGE 4 — BENEFITS + 13TH SALARY EXPLAINER
+═══════════════════════════════════════════════════ -->
+<div class="page inner-page">
+  <div class="page-header">
+    <div class="page-header-left">Wide Brazil <span>| Commercial Proposal</span></div>
+    <div class="page-header-right">EOR — Expatriate Employment · ChemSec</div>
+  </div>
+  <div class="page-body">
+    <div class="section-header-block">
+      <div class="section-num">Section 03</div>
+      <div class="section-title">Benefits & The 13th Salary</div>
+      <div class="section-subtitle">What Jonatan receives — and how Brazil's unique bonus structure works</div>
+    </div>
+
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <div class="benefit-card-top">
+          <div class="benefit-name">Meal Allowance (VR/VA)</div>
+          <span class="benefit-tag mandatory">Mandatory</span>
+        </div>
+        <div class="benefit-body">R$ 545.60/month (R$ 24.80/day × 22 working days). Provided via a benefit card, non-taxable for the employee.</div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-card-top">
+          <div class="benefit-name">Life Insurance</div>
+          <span class="benefit-tag mandatory">Mandatory</span>
+        </div>
+        <div class="benefit-body">~R$ 270/month group life insurance. Required for all CLT employees.</div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-card-top">
+          <div class="benefit-name">Annual Paid Leave</div>
+          <span class="benefit-tag mandatory">Mandatory</span>
+        </div>
+        <div class="benefit-body">30 calendar days per year. Jonatan receives full salary during leave, plus a constitutional bonus of 1/3 of his monthly salary on top.</div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-card-top">
+          <div class="benefit-name">FGTS (Severance Fund)</div>
+          <span class="benefit-tag mandatory">Mandatory</span>
+        </div>
+        <div class="benefit-body">8% of gross salary deposited monthly into a government-managed fund in Jonatan's name. Accessible upon termination or under specific qualifying events.</div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-card-top">
+          <div class="benefit-name">Healthcare</div>
+          <span class="benefit-tag optional">Optional</span>
+        </div>
+        <div class="benefit-body">Private health insurance can be added for Jonatan and dependents. Quoted separately and passed through at cost.</div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-card-top">
+          <div class="benefit-name">Transport Voucher</div>
+          <span class="benefit-tag optional">Optional</span>
+        </div>
+        <div class="benefit-body">Statutory for commuting employees. If Jonatan works remotely, this benefit is typically not required. To be confirmed based on work arrangement.</div>
+      </div>
+    </div>
+
+    <div class="thirteenth-box">
+      <div class="thirteenth-title">How the 13th Salary Works in Brazil</div>
+      <p style="font-family:'Source Serif 4',serif; font-size:8pt; color:rgba(255,255,255,.75); margin-bottom:10px; line-height:1.5;">The <strong style="color:#fff;">13th salary</strong> (décimo terceiro salário) is a mandatory annual bonus guaranteed by the Brazilian Constitution. Every employee with a CLT contract is entitled to one full additional month of salary per year, paid in two installments.</p>
+      <div class="thirteenth-grid">
+        <div class="thirteenth-item">
+          <div class="thirteenth-item-label">First Installment — November</div>
+          <div class="thirteenth-item-text">50% of the gross monthly salary, paid by November 30th each year. No income tax on this installment.</div>
+        </div>
+        <div class="thirteenth-item">
+          <div class="thirteenth-item-label">Second Installment — December</div>
+          <div class="thirteenth-item-text">Remaining 50% of gross salary, paid by December 20th. INSS and IRRF are calculated and deducted on the full 13th amount.</div>
+        </div>
+        <div class="thirteenth-item">
+          <div class="thirteenth-item-label">How it is provisioned</div>
+          <div class="thirteenth-item-text">Wide Brazil sets aside 1/12 of gross salary each month (plus employer social charges), so the cost is spread evenly across all 12 monthly invoices. No year-end cash spike for ChemSec.</div>
+        </div>
+        <div class="thirteenth-item">
+          <div class="thirteenth-item-label">Pro-rated for partial years</div>
+          <div class="thirteenth-item-text">If Jonatan's assignment starts or ends mid-year, the 13th salary is calculated proportionally to the months worked in that calendar year.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <div class="pf-brand">Wide Brazil <span>| EOR Proposal</span></div>
+    <div class="pf-disclaimer">Confidential — prepared solely for ChemSec.</div>
+    <div class="pf-page">Page 4</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     PAGE 5 — INTERACTIVE PAYROLL SIMULATOR
+═══════════════════════════════════════════════════ -->
+<div class="page inner-page">
+  <div class="page-header">
+    <div class="page-header-left">Wide Brazil <span>| Commercial Proposal</span></div>
+    <div class="page-header-right">EOR — Expatriate Employment · ChemSec</div>
+  </div>
+  <div class="page-body">
+    <div class="navy-section-header">
+      <div class="section-num">Section 04</div>
+      <div class="section-title">Payroll Cost Simulator</div>
+      <div class="section-subtitle">Full cost breakdown for ChemSec · adjust salary and FX rates to model different scenarios</div>
+    </div>
+
+    <!-- CONTROLS -->
+    <div class="sim-controls">
+      <div class="sim-ctrl-group">
+        <label>Monthly Gross Salary (USD)</label>
+        <input type="range" id="salarySlider" min="1000" max="25000" step="100" value="6461">
+        <div class="sim-slider-value"><span id="sliderDisplay">USD 6,461.53</span></div>
+      </div>
+      <div class="sim-ctrl-group">
+        <label>USD / BRL Rate</label>
+        <input type="number" id="usdBrl" value="5.1515" step="0.01" min="2" max="10">
+        <div style="font-size:7pt;color:var(--gray);margin-top:3px;font-family:'Source Serif 4',serif;">Banco Central · 19 Jun 2026</div>
+      </div>
+      <div class="sim-ctrl-group">
+        <label>EUR / BRL Rate</label>
+        <input type="number" id="eurBrl" value="5.9008" step="0.01" min="3" max="10">
+        <div style="font-size:7pt;color:var(--gray);margin-top:3px;font-family:'Source Serif 4',serif;">Live rate · 22 Jun 2026</div>
+      </div>
+    </div>
+
+    <!-- SIMULATION OUTPUT -->
+    <div class="sim-wrap">
+      <!-- LEFT: Employer Cost -->
+      <div class="sim-block">
+        <div class="sim-block-header navy-bg">A. Salary &amp; Social Charges</div>
+        <div class="sim-row-dual sim-row-header">
+          <span class="sim-label" style="flex:1"></span>
+          <span class="sim-col-head">BRL</span>
+          <span class="sim-col-head">USD</span>
+        </div>
+        <div class="sim-row-dual">
+          <span class="sim-label" style="flex:1;font-weight:700;">Gross Salary</span>
+          <span class="sim-value" id="r_gross_brl">R$ 33,286.57</span>
+          <span class="sim-value" id="r_gross_eur">$ 6,461.53</span>
+        </div>
+        <div class="sim-row-dual">
+          <span class="sim-label indent" style="flex:1">FGTS — 8%</span>
+          <span class="sim-value" id="r_fgts_brl">R$ 2,662.93</span>
+          <span class="sim-value" id="r_fgts_eur">$ 516.92</span>
+        </div>
+        <div class="sim-row-dual">
+          <span class="sim-label indent" style="flex:1">Employer INSS — 20%</span>
+          <span class="sim-value" id="r_inss_brl">R$ 6,657.31</span>
+          <span class="sim-value" id="r_inss_eur">$ 1,292.31</span>
+        </div>
+        <div class="sim-row-dual">
+          <span class="sim-label indent" style="flex:1">RAT (Work Accident) — 3%</span>
+          <span class="sim-value" id="r_rat_brl">R$ 998.60</span>
+          <span class="sim-value" id="r_rat_eur">$ 193.85</span>
+        </div>
+        <div class="sim-row-dual">
+          <span class="sim-label indent" style="flex:1">Sistema S — 5.8%</span>
+          <span class="sim-value" id="r_ss_brl">R$ 1,930.62</span>
+          <span class="sim-value" id="r_ss_eur">$ 374.77</span>
+        </div>
+        <div class="sim-row-dual" style="background:rgba(0,200,200,0.06)">
+          <span class="sim-label" style="flex:1;font-weight:700;">Total Social Charges (36.8%)</span>
+          <span class="sim-value teal" id="r_charges_brl">R$ 12,249.46</span>
+          <span class="sim-value teal" id="r_charges_eur">$ 2,377.84</span>
+        </div>
+        <div class="sim-block-header teal-bg" style="margin-top:0;">B. Mandatory Benefits</div>
+        <div class="sim-row-dual">
+          <span class="sim-label" style="flex:1">Meal Allowance (22 days)</span>
+          <span class="sim-value" id="r_meal_brl">R$ 545.60</span>
+          <span class="sim-value" id="r_meal_eur">$ 105.91</span>
+        </div>
+        <div class="sim-row-dual">
+          <span class="sim-label" style="flex:1">Life Insurance</span>
+          <span class="sim-value" id="r_life_brl">R$ 270.00</span>
+          <span class="sim-value" id="r_life_eur">$ 52.41</span>
+        </div>
+        <div class="sim-block-header green-bg" style="margin-top:0;">C. Annual Provisions</div>
+        <div class="sim-row-dual">
+          <span class="sim-label indent" style="flex:1">13th salary (1/12 gross + charges)</span>
+          <span class="sim-value" id="r_p13_brl">R$ 3,795.39</span>
+          <span class="sim-value" id="r_p13_eur">$ 736.76</span>
+        </div>
+        <div class="sim-row-dual">
+          <span class="sim-label indent" style="flex:1">Vacation bonus 1/3 (+ charges)</span>
+          <span class="sim-value" id="r_pvac_brl">R$ 1,265.12</span>
+          <span class="sim-value" id="r_pvac_eur">$ 245.59</span>
+        </div>
+        <div class="sim-total-row-dual">
+          <span class="sim-total-label" style="flex:1">Total Monthly Employer Cost</span>
+          <span class="sim-total-value" id="r_total_brl">R$ 51,411.19</span>
+          <span class="sim-total-value" id="r_total_eur">$ 9,979.85</span>
+        </div>
+        <div class="sim-note">All statutory costs and benefits are pass-through. No markup applied by Wide Brazil.</div>
+      </div>
+
+      <!-- RIGHT: Employee Net + Invoice -->
+      <div>
+        <div class="sim-block" style="margin-bottom:8px;">
+          <div class="sim-block-header teal-bg">Employee Net Salary</div>
+          <div class="sim-row-dual sim-row-header">
+            <span class="sim-label" style="flex:1"></span>
+            <span class="sim-col-head">BRL</span>
+            <span class="sim-col-head">USD</span>
+          </div>
+          <div class="sim-row-dual">
+            <span class="sim-label" style="flex:1">Gross Salary</span>
+            <span class="sim-value" id="n_gross_brl">R$ 33,286.57</span>
+            <span class="sim-value" id="n_gross_eur">$ 6,461.53</span>
+          </div>
+          <div class="sim-row-dual">
+            <span class="sim-label indent" style="flex:1">Employee INSS</span>
+            <span class="sim-value negative" id="n_einss_brl">(R$ 987.00)</span>
+            <span class="sim-value negative" id="n_einss_eur">($ 191.60)</span>
+          </div>
+          <div class="sim-row-dual">
+            <span class="sim-label indent" style="flex:1">IRRF Income Tax</span>
+            <span class="sim-value negative" id="n_irrf_brl">(R$ 7,986.38)</span>
+            <span class="sim-value negative" id="n_irrf_eur">($ 1,550.30)</span>
+          </div>
+          <div class="sim-total-row-dual">
+            <span class="sim-total-label" style="flex:1">Net Monthly Salary</span>
+            <span class="sim-total-value" id="n_net_brl">R$ 24,313.19</span>
+            <span class="sim-total-value" id="n_net_eur">$ 4,719.63</span>
+          </div>
+          <div class="sim-note">Net deposited to Jonatan's Brazilian bank account each month.</div>
+        </div>
+
+        <div class="sim-invoice-box">
+          <div class="sim-invoice-header">
+            <div class="sim-invoice-header-text">Wide Brazil Monthly Invoice</div>
+          </div>
+          <div class="sim-invoice-row">
+            <span class="sim-invoice-row-label">Total Employer Payroll Cost</span>
+            <span class="sim-invoice-row-value" id="inv_payroll">$ 9,979.85</span>
+          </div>
+          <div class="sim-invoice-row">
+            <span class="sim-invoice-row-label">Fixed Retainer</span>
+            <span class="sim-invoice-row-value">$ 199.00</span>
+          </div>
+          <div class="sim-invoice-row">
+            <span class="sim-invoice-row-label">GST / Overhead (8.5%)</span>
+            <span class="sim-invoice-row-value" id="inv_gst">$ 848.29</span>
+          </div>
+          <div class="sim-invoice-total">
+            <span class="sim-invoice-total-label">Total Invoice</span>
+            <span class="sim-invoice-total-value" id="inv_total">$ 11,027.14</span>
+          </div>
+        </div>
+        <div class="fx-note">All USD values use today's rate: 1 USD = R$ <span id="fxNoteRate">5.1515</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <div class="pf-brand">Wide Brazil <span>| EOR Proposal</span></div>
+    <div class="pf-disclaimer">Confidential — prepared solely for ChemSec.</div>
+    <div class="pf-page">Page 5</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     PAGE 6 — PRICING
+═══════════════════════════════════════════════════ -->
+<div class="page inner-page">
+  <div class="page-header">
+    <div class="page-header-left">Wide Brazil <span>| Commercial Proposal</span></div>
+    <div class="page-header-right">EOR — Expatriate Employment · ChemSec</div>
+  </div>
+  <div class="page-body">
+    <div class="section-header-block">
+      <div class="section-num">Section 05</div>
+      <div class="section-title">Pricing</div>
+      <div class="section-subtitle">Fee structure based on USD 6,461.53/month gross · rates as of 22 June 2026</div>
+    </div>
+
+    <p class="body-text">Wide Brazil charges a flat monthly retainer plus a variable component applied on the total employer payroll cost. Every statutory item — social charges, mandatory benefits, and annual provisions — is invoiced at cost, with no markup. The fee structure below reflects the full monthly cost of employing Jonatan in Brazil at USD 6,461.53/month gross.</p>
+
+    <table class="pricing-table">
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Description</th>
+          <th style="text-align:right">Amount (USD)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <span class="pt-item">Total Employer Payroll Cost</span>
+            <span class="pt-note">Gross salary + social charges (36.8%) + benefits + annual provisions</span>
+          </td>
+          <td class="pt-desc">Pass-through — no markup</td>
+          <td class="pt-value">$ 9,979.85</td>
+        </tr>
+        <tr>
+          <td>
+            <span class="pt-item">Wide Brazil Fixed Retainer</span>
+            <span class="pt-note">Flat monthly fee</span>
+          </td>
+          <td class="pt-desc">EOR administration, legal compliance, HR support, payroll platform</td>
+          <td class="pt-value">$ 199.00</td>
+        </tr>
+        <tr>
+          <td>
+            <span class="pt-item">GST / Overhead — 8.5%</span>
+            <span class="pt-note">Applied on total employer payroll cost</span>
+          </td>
+          <td class="pt-desc">Covers local taxes, liability insurance, risk management, compliance infrastructure, and EOR platform operations</td>
+          <td class="pt-value">$ 848.29</td>
+        </tr>
+        <tr class="pt-total">
+          <td><span class="pt-item">Total Monthly Invoice</span></td>
+          <td></td>
+          <td class="pt-value">$ 11,027.14</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="invoice-summary">
+      <div class="invoice-summary-row">
+        <span class="inv-label">Total Employer Payroll Cost (pass-through)</span>
+        <span class="inv-value">$ 9,979.85</span>
+      </div>
+      <div class="invoice-summary-row">
+        <span class="inv-label">Wide Brazil Fixed Retainer</span>
+        <span class="inv-value">$ 199.00</span>
+      </div>
+      <div class="invoice-summary-row">
+        <span class="inv-label">GST / Overhead (8.5% on payroll cost)</span>
+        <span class="inv-value">$ 848.29</span>
+      </div>
+      <div class="invoice-summary-row total">
+        <span class="inv-label">Total Monthly Invoice</span>
+        <span class="inv-value">$ 11,027.14</span>
+      </div>
+      <div class="inv-asterisk">Exchange rates applied: EUR/BRL 5.9008 · USD/BRL 5.1515 · Banco Central do Brasil, 19 Jun 2026. Invoice currency is USD. Statutory costs are fixed in BRL and will vary with currency movements.</div>
+    </div>
+
+  </div>
+  <div class="page-footer">
+    <div class="pf-brand">Wide Brazil <span>| EOR Proposal</span></div>
+    <div class="pf-disclaimer">Confidential — prepared solely for ChemSec.</div>
+    <div class="pf-page">Page 6</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     PAGE 7 — NEXT STEPS
+═══════════════════════════════════════════════════ -->
+<div class="page inner-page">
+  <div class="page-header">
+    <div class="page-header-left">Wide Brazil <span>| Commercial Proposal</span></div>
+    <div class="page-header-right">EOR — Expatriate Employment · ChemSec</div>
+  </div>
+  <div class="page-body">
+    <div class="navy-section-header">
+      <div class="section-num">Section 06</div>
+      <div class="section-title">Next Steps</div>
+      <div class="section-subtitle">A straightforward path from proposal to active employment in Brazil</div>
+    </div>
+
+    <div class="step-row">
+      <div class="step-num"><span>1</span></div>
+      <div>
+        <div class="step-title">Confirm the assignment details</div>
+        <div class="step-desc">Confirm the expected start date, Jonatan's work location in Brazil, and whether the compensation package includes any allowances beyond base salary (housing, relocation, cost-of-living adjustments). This allows Wide Brazil to finalize the employment contract and payroll structure.</div>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-num"><span>2</span></div>
+      <div>
+        <div class="step-title">Proposal acceptance & service agreement</div>
+        <div class="step-desc">Wide Brazil will issue a service agreement covering the EOR engagement terms, liability allocation, invoicing currency, and assignment duration. Standard turnaround is 72 hours from proposal acceptance.</div>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-num"><span>3</span></div>
+      <div>
+        <div class="step-title">Employee onboarding initiation</div>
+        <div class="step-desc">Wide Brazil contacts Jonatan directly to collect required documentation — passport, Brazilian address, CPF application (if not yet obtained), and bank account details. The CLT employment contract is prepared for his review and signature ahead of the start date.</div>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-num"><span>4</span></div>
+      <div>
+        <div class="step-title">Registration and first payroll</div>
+        <div class="step-desc">Wide Brazil registers Jonatan in eSocial, INSS, and FGTS on or before his start date. First payroll is processed on the agreed monthly cycle, with net salary deposited to his Brazilian account. ChemSec receives an itemised invoice for the same period — payroll cost, fixed retainer, and GST/overhead shown separately.</div>
+      </div>
+    </div>
+
+    <div class="assumptions-box">
+      <div class="assumptions-title">Key Assumptions & Exclusions</div>
+      <ul>
+        <li>Gross salary is USD 6,461.53/month (equivalent to EUR 84,000/year at current rates). Any changes prior to contract signature should be communicated to Wide Brazil to update the payroll simulation.</li>
+        <li>Benefits shown (meal allowance, life insurance) are mandatory minimums. Optional benefits (healthcare, transport) are available at ChemSec's request and quoted separately.</li>
+        <li>Visa and immigration support for Jonatan (dependent visa processing, CRNM registration) can be provided by Wide Brazil as an add-on service. Pricing to be quoted separately upon request.</li>
+        <li>Exchange rates used in this proposal are indicative. Invoice amounts in USD are converted monthly at the prevailing Banco Central do Brasil rate.</li>
+        <li>This proposal is valid for 30 days from the date of issue.</li>
+        <li>Income tax obligations in Sweden arising from the Brazilian assignment are outside this scope. ChemSec's tax counsel should be consulted regarding double-taxation treaty treatment between Brazil and Sweden.</li>
+      </ul>
+    </div>
+
+    <div class="contact-box">
+      <div class="contact-box-left">
+        <h3>Wide Brazil</h3>
+        <p>Specialist EOR and workforce solutions across Brazil and Latin America.</p>
+      </div>
+      <div class="contact-box-right">
+        <div class="contact-detail"><span>Email</span>victor.dias@widebrazil.com</div>
+        <div class="contact-detail"><span>Phone</span>+351 965 043 393</div>
+        <div class="contact-detail"><span>Web</span>widebrazil.com</div>
+        <div class="contact-detail"><span>Location</span>São Paulo, Brazil</div>
+      </div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <div class="pf-brand">Wide Brazil <span>| EOR Proposal</span></div>
+    <div class="pf-disclaimer">Confidential — prepared solely for ChemSec.</div>
+    <div class="pf-page">Page 7</div>
+  </div>
+</div>
+
+<script>
+// ── SIMULATOR LOGIC ── (base currency: USD)
+const USD_BRL_DEFAULT = 5.1515;
+const EUR_BRL_DEFAULT = 5.9008;
+
+function fmt(n, prefix='R$ ') {
+  return prefix + n.toLocaleString('pt-BR', {minimumFractionDigits:2, maximumFractionDigits:2});
+}
+function fmtUsd(n) { return '$ ' + n.toLocaleString('pt-BR', {minimumFractionDigits:2, maximumFractionDigits:2}); }
+
+function calcEmployeeINSS(gross) {
+  if (gross <= 1412) return gross * 0.075;
+  if (gross <= 2666.68) return 1412 * 0.075 + (gross - 1412) * 0.09;
+  if (gross <= 4000.03) return 1412 * 0.075 + (2666.68 - 1412) * 0.09 + (gross - 2666.68) * 0.12;
+  if (gross <= 7786.02) return 1412 * 0.075 + (2666.68 - 1412) * 0.09 + (4000.03 - 2666.68) * 0.12 + (gross - 4000.03) * 0.14;
+  return 987.00;
+}
+
+function calcIRRF(gross, einss) {
+  const base = gross - einss;
+  if (base <= 2259.20) return 0;
+  if (base <= 2826.65) return base * 0.075 - 169.44;
+  if (base <= 3751.05) return base * 0.15 - 381.44;
+  if (base <= 4664.68) return base * 0.225 - 662.77;
+  return base * 0.275 - 896.00;
+}
+
+function recalc() {
+  const usdMonthly = parseFloat(document.getElementById('salarySlider').value) || 6461.53;
+  const usdBrl = parseFloat(document.getElementById('usdBrl').value) || USD_BRL_DEFAULT;
+  const eurBrl = parseFloat(document.getElementById('eurBrl').value) || EUR_BRL_DEFAULT;
+
+  // Format display with decimals if slider is at default
+  const displayVal = usdMonthly === 6461 ? '6,461.53' : usdMonthly.toLocaleString('pt-BR');
+  document.getElementById('sliderDisplay').textContent = 'USD ' + displayVal;
+
+  const gross = usdMonthly * usdBrl;  // BRL gross
+  const toUsd = (brl) => brl / usdBrl;
+
+  // Social charges
+  const fgts = gross * 0.08;
+  const inssEmp = gross * 0.20;
+  const rat = gross * 0.03;
+  const ss = gross * 0.058;
+  const totalCharges = fgts + inssEmp + rat + ss;
+
+  // Benefits
+  const meal = 24.80 * 22;
+  const life = 270.00;
+  const totalBenefits = meal + life;
+
+  // Provisions
+  const prov13 = gross / 12;
+  const charges13 = prov13 * 0.368;
+  const provVac = (gross / 12) / 3;
+  const chargesVac = provVac * 0.368;
+  const totalProvisions = prov13 + charges13 + provVac + chargesVac;
+
+  // Total employer
+  const totalEmp = gross + totalCharges + totalBenefits + totalProvisions;
+  const totalEmpUsd = toUsd(totalEmp);
+
+  // Employee net
+  const einss = calcEmployeeINSS(gross);
+  const irrf = Math.max(0, calcIRRF(gross, einss));
+  const net = gross - einss - irrf;
+
+  // Wide Brazil invoice
+  const gst = totalEmpUsd * 0.085;
+  const invoice = totalEmpUsd + 199 + gst;
+
+  // Update DOM — Employer cost block
+  document.getElementById('r_gross_brl').textContent = fmt(gross);
+  document.getElementById('r_gross_eur').textContent = fmtUsd(usdMonthly);
+  document.getElementById('r_fgts_brl').textContent = fmt(fgts);
+  document.getElementById('r_fgts_eur').textContent = fmtUsd(toUsd(fgts));
+  document.getElementById('r_inss_brl').textContent = fmt(inssEmp);
+  document.getElementById('r_inss_eur').textContent = fmtUsd(toUsd(inssEmp));
+  document.getElementById('r_rat_brl').textContent = fmt(rat);
+  document.getElementById('r_rat_eur').textContent = fmtUsd(toUsd(rat));
+  document.getElementById('r_ss_brl').textContent = fmt(ss);
+  document.getElementById('r_ss_eur').textContent = fmtUsd(toUsd(ss));
+  document.getElementById('r_charges_brl').textContent = fmt(totalCharges);
+  document.getElementById('r_charges_eur').textContent = fmtUsd(toUsd(totalCharges));
+  document.getElementById('r_meal_brl').textContent = fmt(meal);
+  document.getElementById('r_meal_eur').textContent = fmtUsd(toUsd(meal));
+  document.getElementById('r_life_brl').textContent = fmt(life);
+  document.getElementById('r_life_eur').textContent = fmtUsd(toUsd(life));
+  document.getElementById('r_p13_brl').textContent = fmt(prov13 + charges13);
+  document.getElementById('r_p13_eur').textContent = fmtUsd(toUsd(prov13 + charges13));
+  document.getElementById('r_pvac_brl').textContent = fmt(provVac + chargesVac);
+  document.getElementById('r_pvac_eur').textContent = fmtUsd(toUsd(provVac + chargesVac));
+  document.getElementById('r_total_brl').textContent = fmt(totalEmp);
+  document.getElementById('r_total_eur').textContent = fmtUsd(totalEmpUsd);
+
+  // Employee net block
+  document.getElementById('n_gross_brl').textContent = fmt(gross);
+  document.getElementById('n_gross_eur').textContent = fmtUsd(usdMonthly);
+  document.getElementById('n_einss_brl').textContent = '(' + fmt(einss) + ')';
+  document.getElementById('n_einss_eur').textContent = '(' + fmtUsd(toUsd(einss)) + ')';
+  document.getElementById('n_irrf_brl').textContent = '(' + fmt(irrf) + ')';
+  document.getElementById('n_irrf_eur').textContent = '(' + fmtUsd(toUsd(irrf)) + ')';
+  document.getElementById('n_net_brl').textContent = fmt(net);
+  document.getElementById('n_net_eur').textContent = fmtUsd(toUsd(net));
+
+  // Invoice
+  document.getElementById('inv_payroll').textContent = fmtUsd(totalEmpUsd);
+  document.getElementById('inv_gst').textContent = fmtUsd(gst);
+  document.getElementById('inv_total').textContent = fmtUsd(invoice);
+  document.getElementById('fxNoteRate').textContent = usdBrl.toFixed(4);
+}
+
+document.getElementById('salarySlider').addEventListener('input', recalc);
+document.getElementById('usdBrl').addEventListener('input', recalc);
+document.getElementById('eurBrl').addEventListener('input', recalc);
+
+recalc();
+</script>
+</body>
+</html>
