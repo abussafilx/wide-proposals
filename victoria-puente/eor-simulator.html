@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Wide Brazil — EOR Cost Simulator · Brazil</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Source+Serif+4:wght@300;400;600&display=swap');
+
+:root{
+  --ink-900:#101827;--ink-800:#1C2637;--ink-700:#2A3547;--ink-600:#3E4B60;
+  --ink-500:#5B6778;--ink-400:#8591A3;--ink-300:#B2BCCB;--ink-200:#D6DCE4;
+  --ink-100:#EAEEF3;--ink-50:#F5F7FA;--white:#FFFFFF;
+  --green:#0EC668;--blue:#12ACE6;
+  --grad:linear-gradient(135deg,#12ACE6 0%,#0EC668 100%);
+  --font:'Montserrat',system-ui,sans-serif;
+  --serif:'Source Serif 4',Georgia,serif;
+  --r:10px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-family:var(--font);color:var(--ink-900);background:#0d1520;-webkit-font-smoothing:antialiased}
+body{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
+
+.card{
+  width:100%;max-width:960px;
+  background:var(--ink-900);
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:0 32px 80px rgba(0,0,0,.6);
+  position:relative;
+}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad);z-index:5}
+
+/* ── TOP BAR ── */
+.top{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:20px 32px;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.logo svg{height:32px;width:auto;display:block}
+.top-right{text-align:right}
+.top-right .title{font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--green)}
+.top-right .sub{font-family:var(--serif);font-size:12px;color:rgba(255,255,255,.45);margin-top:2px}
+
+/* ── MAIN GRID ── */
+.grid{display:grid;grid-template-columns:1fr 1.25fr;min-height:520px}
+
+/* ── LEFT: INPUTS ── */
+.inputs{padding:32px;border-right:1px solid rgba(255,255,255,.07)}
+.inputs-label{font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:24px}
+
+.ctrl{margin-bottom:26px}
+.ctrl:last-child{margin-bottom:0}
+.ctrl-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px}
+.ctrl-top .l{font-family:var(--serif);font-size:13px;color:rgba(255,255,255,.6)}
+.ctrl-top .v{font-size:17px;font-weight:700;color:var(--white);letter-spacing:-.01em}
+.ctrl-top .v .c{color:rgba(255,255,255,.4);font-weight:400;margin-right:3px;font-size:14px}
+
+input[type=range]{
+  appearance:none;-webkit-appearance:none;
+  width:100%;height:4px;
+  background:rgba(255,255,255,.12);
+  border-radius:2px;outline:none;cursor:pointer;
+}
+input[type=range]::-webkit-slider-thumb{
+  appearance:none;-webkit-appearance:none;
+  width:18px;height:18px;
+  background:var(--white);
+  border-radius:50%;cursor:pointer;
+  box-shadow:0 2px 8px rgba(0,0,0,.4);
+  transition:transform 120ms;
+}
+input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.15)}
+.range-labels{display:flex;justify-content:space-between;font-size:10px;color:rgba(255,255,255,.3);margin-top:5px;font-weight:600;letter-spacing:.04em}
+
+.seg{display:flex;gap:6px;margin-top:2px}
+.seg button{
+  flex:1;padding:8px 4px;
+  font-family:var(--font);font-size:11px;font-weight:600;
+  color:rgba(255,255,255,.5);
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.1);
+  cursor:pointer;border-radius:6px;
+  transition:all 120ms;
+}
+.seg button:hover{border-color:rgba(255,255,255,.3)}
+.seg button.on{background:rgba(255,255,255,.15);color:var(--white);border-color:rgba(255,255,255,.3)}
+.seg button.on.green{background:rgba(14,198,104,.2);color:var(--green);border-color:rgba(14,198,104,.35)}
+
+.divider{height:1px;background:rgba(255,255,255,.07);margin:28px 0}
+
+.fx-note{font-family:var(--serif);font-size:11px;color:rgba(255,255,255,.35);line-height:1.5}
+.fx-note strong{font-family:var(--font);font-weight:700;color:rgba(255,255,255,.55);font-size:11px}
+
+/* ── RIGHT: OUTPUT ── */
+.output{padding:32px;display:flex;flex-direction:column;position:relative;overflow:hidden}
+.output::after{
+  content:'';position:absolute;right:-60px;bottom:-60px;
+  width:260px;height:260px;
+  clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);
+  background:rgba(14,198,104,.05);pointer-events:none;
+}
+.output-label{font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--green);margin-bottom:20px}
+
+.headline-label{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:4px}
+.headline{font-size:46px;font-weight:800;letter-spacing:-.03em;line-height:1;margin-bottom:18px}
+.headline em{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:24px}
+.kpi{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:12px 14px}
+.kpi .kl{font-size:9.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:5px}
+.kpi .kv{font-size:15px;font-weight:700;color:var(--white)}
+.kpi .kv em{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+.rows{flex:1}
+.row{display:flex;justify-content:space-between;align-items:baseline;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.06);gap:8px;font-size:12.5px}
+.row:last-child{border-bottom:none}
+.row .l{color:rgba(255,255,255,.6);flex:1}
+.row .l.ind{padding-left:12px;color:rgba(255,255,255,.42);font-size:12px}
+.row .pct{color:var(--green);font-weight:600;font-size:11px;min-width:40px;text-align:right}
+.row .v{font-weight:600;color:var(--white);min-width:80px;text-align:right;white-space:nowrap}
+.row.grp{padding:10px 0 2px;border-bottom:none}
+.row.grp .l{font-size:9.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(14,198,104,.7)}
+.row.tot{margin-top:4px;padding:10px 0;border-top:1.5px solid rgba(255,255,255,.15);border-bottom:none}
+.row.tot .l{font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.row.tot .v{font-size:17px;font-weight:800;letter-spacing:-.01em}
+
+.foot{margin-top:16px;padding-top:14px;border-top:1px solid rgba(255,255,255,.07);font-family:var(--serif);font-size:10.5px;line-height:1.55;color:rgba(255,255,255,.35);position:relative;z-index:1}
+
+/* ── BOTTOM BAR ── */
+.bottom{display:flex;justify-content:space-between;align-items:center;padding:14px 32px;border-top:1px solid rgba(255,255,255,.07)}
+.bottom .brand{font-size:10.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--green)}
+.bottom .note{font-family:var(--serif);font-size:11px;color:rgba(255,255,255,.3)}
+.bottom .btn{font-family:var(--font);font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:8px 16px;background:rgba(255,255,255,.08);color:var(--white);border:1px solid rgba(255,255,255,.15);border-radius:999px;cursor:pointer;transition:all 120ms;text-decoration:none}
+.bottom .btn:hover{background:rgba(255,255,255,.14)}
+
+@media(max-width:720px){
+  body{padding:12px}
+  .grid{grid-template-columns:1fr}
+  .inputs{border-right:none;border-bottom:1px solid rgba(255,255,255,.07)}
+  .headline{font-size:32px}
+  .kpis{grid-template-columns:1fr 1fr}
+  .top{padding:16px 20px}
+  .inputs,.output{padding:22px 20px}
+  .bottom{padding:12px 20px;flex-wrap:wrap;gap:10px}
+}
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="card" style="box-shadow:none;border-radius:0">
+
+    <!-- TOP BAR -->
+    <div class="top">
+      <div class="logo">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="440 390 1060 320">
+          <defs>
+            <linearGradient id="lg" x1="528" y1="437.79" x2="693.53" y2="437.79" gradientTransform="translate(0 1081.58) scale(1 -1)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#101827"/><stop offset="1" stop-color="#0ec668"/></linearGradient>
+            <linearGradient id="lg1" x1="438.91" y1="505.95" x2="604.42" y2="505.95" gradientTransform="translate(0 1081.58) scale(1 -1)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#101827"/><stop offset="1" stop-color="#0ec668"/></linearGradient>
+            <linearGradient id="lg2" x1="712.59" y1="474.81" x2="460.26" y2="699.4" gradientTransform="translate(0 1081.58) scale(1 -1)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#0ec668"/><stop offset="1" stop-color="#12ace6"/></linearGradient>
+          </defs>
+          <polygon fill="#fff" points="1067.76 401.5 1023.07 544.21 982.01 404.27 947.97 404.27 906.91 544.21 862.23 401.5 825.97 401.5 889.95 595.1 923.07 595.1 964.99 462.9 1006.64 595.1 1040.04 595.1 1104.01 401.5 1067.76 401.5"/>
+          <path fill="#fff" d="M1149.14,401.5v193.6h-32.08V401.5h32.08Z"/>
+          <path fill="#fff" d="M1233.71,401.5c59.46,0,102.33,43.14,102.33,96.8s-42.87,96.8-102.33,96.8h-66.38V401.5h66.38Zm-34.3,161.24h34.3c39,0,66.38-27.38,66.38-64.44s-27.38-64.44-66.38-64.44h-34.3v128.88Z"/>
+          <path fill="#fff" d="M1461.63,401.5v32.36h-78.32v40.93h45.3v32.36h-45.3v55.59h78.32v32.36h-110.4V401.5h110.4Z"/>
+          <rect fill="url(#lg)" x="591.53" y="609.08" width="93.77" height="69.42"/>
+          <rect fill="url(#lg1)" x="502.43" y="540.92" width="93.77" height="69.42"/>
+          <path fill="url(#lg2)" d="M773.5,470.73l43.49,69.27-87.96,138.5h-88.8l133.26-207.77Zm-89.01-69.23l-158.31,246.83,18.94,30.17h46.68l157.74-245.93-19.51-31.07h-45.54Zm-136.37,0l-89.75,138.83,43.95,70.01,133.95-208.84h-88.16Z"/>
+        </svg>
+      </div>
+      <div class="top-right">
+        <div class="title">EOR Cost Simulator · Brazil</div>
+        <div class="sub">Partner pricing · CLT employment</div>
+      </div>
+    </div>
+
+    <!-- MAIN GRID -->
+    <div class="grid">
+
+      <!-- LEFT: INPUTS -->
+      <div class="inputs">
+        <div class="inputs-label">Adjust parameters</div>
+
+        <div class="ctrl">
+          <div class="ctrl-top">
+            <span class="l">Gross monthly salary</span>
+            <span class="v"><span class="c">R$</span><span data-out="salary">16,000</span></span>
+          </div>
+          <input type="range" min="5000" max="60000" step="500" value="16000" data-in="salary">
+          <div class="range-labels"><span>R$ 5k</span><span>R$ 60k</span></div>
+        </div>
+
+        <div class="ctrl">
+          <div class="ctrl-top">
+            <span class="l">Headcount</span>
+            <span class="v" data-out="hc">1</span>
+          </div>
+          <input type="range" min="1" max="50" step="1" value="1" data-in="hc">
+          <div class="range-labels"><span>1</span><span>50</span></div>
+        </div>
+
+        <div class="ctrl">
+          <div class="ctrl-top">
+            <span class="l">USD / BRL exchange rate</span>
+            <span class="v"><span class="c">R$</span><span data-out="fxDisplay">5.0303</span></span>
+          </div>
+          <input type="range" min="4.50" max="6.50" step="0.01" value="5.0303" data-in="fx">
+          <div class="range-labels"><span>4.50</span><span>6.50</span></div>
+        </div>
+
+        <div class="ctrl">
+          <div class="ctrl-top">
+            <span class="l">Health insurance</span>
+            <span class="v" data-out="health-label">No</span>
+          </div>
+          <div class="seg" data-seg="health">
+            <button data-val="0" class="on">No</button>
+            <button data-val="1" class="green">Yes (~R$ 1,200)</button>
+          </div>
+        </div>
+
+        <div class="ctrl">
+          <div class="ctrl-top">
+            <span class="l">Currency display</span>
+            <span class="v" data-out="cur-label">USD</span>
+          </div>
+          <div class="seg" data-seg="cur">
+            <button data-val="usd" class="on">USD</button>
+            <button data-val="brl">BRL</button>
+            <button data-val="both">Both</button>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="fx-note">
+          <strong>FX default:</strong> 1 USD = R$ 5.0303<br>
+          Banco Central do Brasil · June 2, 2026<br>
+          Partner pricing: USD 249 retainer + 8.5% GST on payroll cost
+        </div>
+      </div>
+
+      <!-- RIGHT: OUTPUT -->
+      <div class="output">
+        <div class="output-label">Monthly invoice · per headcount</div>
+
+        <div class="headline-label">Total (incl. GST / Overhead 8.5%)</div>
+        <div class="headline"><em data-out="grand">$ 5,614</em></div>
+
+        <div class="kpis">
+          <div class="kpi"><div class="kl">Markup vs gross</div><div class="kv" data-out="markup">76.5%</div></div>
+          <div class="kpi"><div class="kl">Annual · <span data-out="hc2">1</span> FTE</div><div class="kv"><em data-out="annual">$ 67,374</em></div></div>
+          <div class="kpi"><div class="kl">Payroll cost only</div><div class="kv" data-out="payroll">$ 4,945</div></div>
+        </div>
+
+        <div class="rows">
+          <div class="row"><span class="l">Gross monthly salary</span><span class="pct">100%</span><span class="v" data-out="grossV">R$ 16,000</span></div>
+          <div class="row grp"><span class="l">Statutory charges (36.8% + RAT)</span></div>
+          <div class="row"><span class="l ind">FGTS</span><span class="pct">8.0%</span><span class="v" data-out="fgts">R$ 1,280</span></div>
+          <div class="row"><span class="l ind">Employer INSS</span><span class="pct">20.0%</span><span class="v" data-out="inss">R$ 3,200</span></div>
+          <div class="row"><span class="l ind">RAT / SAT</span><span class="pct" data-out="ratPct">3.0%</span><span class="v" data-out="ratV">R$ 480</span></div>
+          <div class="row"><span class="l ind">Sistema S</span><span class="pct">5.8%</span><span class="v" data-out="sis">R$ 928</span></div>
+          <div class="row grp"><span class="l">Annual provisions (÷12)</span></div>
+          <div class="row"><span class="l ind">13th salary + charges</span><span class="pct">11.4%</span><span class="v" data-out="thirteenth">R$ 1,824</span></div>
+          <div class="row"><span class="l ind">Vacation bonus ⅓ + charges</span><span class="pct">3.8%</span><span class="v" data-out="vac">R$ 608</span></div>
+          <div class="row grp"><span class="l">Benefits &amp; fee</span></div>
+          <div class="row"><span class="l ind">Meal allowance + life insurance</span><span class="pct"></span><span class="v" data-out="ben">R$ 556</span></div>
+          <div class="row" id="hrow" style="display:none"><span class="l ind">Health insurance</span><span class="pct"></span><span class="v" data-out="healthV">R$ 1.200</span></div>
+          <div class="row"><span class="l ind">Wide Brazil retainer</span><span class="pct">fixed</span><span class="v">$ 249</span></div>
+          <div class="row tot"><span class="l">Payroll cost (pass-through)</span><span class="v" data-out="payrollRow">$ 4,945</span></div>
+          <div class="row"><span class="l">GST / Overhead</span><span class="pct">8.5%</span><span class="v" data-out="gst">$ 420</span></div>
+          <div class="row tot"><span class="l">Total monthly invoice</span><span class="v" data-out="grandRow">$ 5,614</span></div>
+        </div>
+
+        <div class="foot">Statutory costs pass-through at cost, no markup. FX: USD/BRL 5.0303 (BCB, Jun 2, 2026). Final values depend on RAT classification and prevailing FX at billing date.</div>
+      </div>
+    </div>
+
+    <!-- BOTTOM BAR -->
+    <div class="bottom">
+      <span class="brand">widebrazil.com</span>
+      <span class="note">Confidential · Partner pricing</span>
+      <button class="btn" onclick="window.print()">Export PDF</button>
+    </div>
+
+  </div>
+</div>
+
+<script>
+const FX = 5.0303;
+const RETAINER = 249;
+const GST = 0.085;
+const state = { salary: 16000, hc: 1, fx: 5.0303, health: 0, cur: 'usd' };
+
+function f(n, prefix='R$ '){ return prefix + Math.round(n).toLocaleString('pt-BR'); }
+function fu(n){ return '$ ' + Math.round(n).toLocaleString('en-US'); }
+function both(brl, usd){ return fu(usd) + ' · ' + f(brl); }
+
+function fmt(brl){
+  const usd = brl / FX;
+  if(state.cur === 'usd') return fu(usd);
+  if(state.cur === 'brl') return f(brl);
+  return both(brl, usd);
+}
+
+function calc(){
+  const g = state.salary;
+  const FX = state.fx;
+  const rat = 0.03; // fixed at 3%
+  const sr = 0.08 + 0.20 + rat + 0.058;
+  const fgts = g * 0.08;
+  const inss = g * 0.20;
+  const ratV = g * rat;
+  const sis = g * 0.058;
+  const thirteenth = (g + g * sr) / 12;
+  const vacBase = g / 3;
+  const vac = (vacBase + vacBase * sr) / 12;
+  const meal = 24.80 * 22;
+  const life = 10;
+  const ben = meal + life;
+  const health = state.health * 1200;
+  const payrollBRL = g + fgts + inss + ratV + sis + thirteenth + vac + ben + health;
+  const payrollUSD = payrollBRL / FX;
+  const gstUSD = payrollUSD * GST;
+  const grandUSD = payrollUSD + RETAINER + gstUSD;
+  const grandBRL = grandUSD * FX;
+  const markup = ((grandUSD - g/FX) / (g/FX)) * 100;
+  const annual = grandUSD * 12 * state.hc;
+  return { g, fgts, inss, ratV, sis, thirteenth, vac, ben, health,
+    payrollBRL, payrollUSD, gstUSD, grandUSD, grandBRL, markup, annual };
+}
+
+function render(){
+  const r = calc();
+  const g = r.g;
+
+  // grand headline & KPIs — always show USD for headline
+  const grandStr = state.cur === 'brl'
+    ? 'R$ ' + Math.round(r.grandBRL).toLocaleString('pt-BR')
+    : '$ ' + Math.round(r.grandUSD).toLocaleString('en-US');
+  const annualStr = state.cur === 'brl'
+    ? 'R$ ' + Math.round(r.annual * FX).toLocaleString('pt-BR')
+    : '$ ' + Math.round(r.annual).toLocaleString('en-US');
+  const payrollStr = state.cur === 'brl'
+    ? 'R$ ' + Math.round(r.payrollBRL).toLocaleString('pt-BR')
+    : '$ ' + Math.round(r.payrollUSD).toLocaleString('en-US');
+
+  set('grand', grandStr);
+  set('grandRow', grandStr);
+  set('markup', r.markup.toFixed(1) + '%');
+  set('annual', annualStr);
+  set('payroll', payrollStr);
+  set('payrollRow', payrollStr);
+  set('gst', state.cur === 'brl'
+    ? 'R$ ' + Math.round(r.gstUSD * FX).toLocaleString('pt-BR')
+    : '$ ' + Math.round(r.gstUSD).toLocaleString('en-US'));
+
+  // row values
+  set('salary', g.toLocaleString('pt-BR'));
+  set('grossV', fmt(g));
+  set('fgts', fmt(r.fgts));
+  set('inss', fmt(r.inss));
+  set('ratPct', state.rat.toFixed(1) + '%');
+  set('ratV', fmt(r.ratV));
+  set('sis', fmt(r.sis));
+  set('thirteenth', fmt(r.thirteenth));
+  set('vac', fmt(r.vac));
+  set('ben', fmt(r.ben));
+  set('healthV', fmt(r.health));
+
+  set('hc', state.hc);
+  set('hc2', state.hc);
+  set('fxDisplay', state.fx.toFixed(4));
+  set('health-label', state.health ? 'Yes' : 'No');
+  set('cur-label', state.cur === 'usd' ? 'USD' : state.cur === 'brl' ? 'BRL' : 'Both');
+
+  document.getElementById('hrow').style.display = state.health ? '' : 'none';
+}
+
+function set(k, v){
+  document.querySelectorAll('[data-out="'+k+'"]').forEach(el => el.textContent = v);
+}
+
+document.querySelectorAll('[data-in]').forEach(el => {
+  el.addEventListener('input', () => {
+    const k = el.dataset.in;
+    state[k] = k === 'fx' ? parseFloat(el.value) : +el.value;
+    render();
+  });
+});
+document.querySelectorAll('[data-seg]').forEach(seg => {
+  seg.querySelectorAll('button').forEach(b => {
+    b.addEventListener('click', () => {
+      seg.querySelectorAll('button').forEach(x => x.classList.remove('on'));
+      b.classList.add('on');
+      const k = seg.dataset.seg;
+      state[k] = b.dataset.val === '0' ? 0 : b.dataset.val === '1' ? 1 : b.dataset.val;
+      render();
+    });
+  });
+});
+
+render();
+</script>
+</body>
+</html>
