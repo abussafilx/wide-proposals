@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Wide Brazil — Commercial Proposal — NES Canada</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0D1B2E;
+    --teal:#00C8C8;
+    --teal2:#00A8A8;
+    --green:#3DD68C;
+    --white:#FFFFFF;
+    --offwhite:#F7F9FC;
+    --lgray:#E8EDF3;
+    --text:#1A2535;
+    --gray:#6B7A90;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{font-family:'Source Serif 4',serif; color:var(--text); background:#DCE3EC;}
+  .page{
+    width:210mm; min-height:297mm; background:#fff; margin:0 auto 18px auto;
+    position:relative; overflow:hidden; page-break-after:always;
+  }
+  @media print{
+    body{background:#fff;}
+    .page{margin:0; box-shadow:none;}
+  }
+
+  /* ===== COVER ===== */
+  .cover{background:var(--navy); color:#fff; display:flex; flex-direction:column;}
+  .hex-group{position:absolute; inset:0; overflow:hidden; pointer-events:none;}
+  .hex{position:absolute; border-radius:16px; transform:rotate(18deg);}
+  .cover-top{display:flex; justify-content:space-between; align-items:flex-start; padding:40px 46px 0 46px; position:relative; z-index:2;}
+  .cover-logo svg{height:42px; width:auto; display:block;}
+  .cover-badge{border:1px solid rgba(255,255,255,0.35); border-radius:20px; padding:6px 16px;}
+  .cover-badge-text{font-family:'Montserrat',sans-serif; font-size:8.5pt; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:var(--teal);}
+  .cover-content{padding:70px 46px 0 46px; position:relative; z-index:2;}
+  .cover-eyebrow{font-family:'Montserrat',sans-serif; font-size:9.5pt; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--teal);}
+  .cover-divider{width:56px; height:3px; background:var(--teal); margin:16px 0 22px 0;}
+  .cover-title{font-family:'Montserrat',sans-serif; font-weight:800; font-size:33pt; line-height:1.15;}
+  .cover-title span{color:var(--teal);}
+  .cover-subtitle{font-family:'Source Serif 4',serif; font-weight:300; font-size:13pt; color:rgba(255,255,255,0.82); margin-top:18px; max-width:520px; line-height:1.5;}
+  .cover-tags{display:flex; gap:10px; margin-top:26px;}
+  .cover-tag{font-family:'Montserrat',sans-serif; font-size:8pt; font-weight:700; letter-spacing:0.5px; text-transform:uppercase; background:rgba(0,200,200,0.14); color:var(--teal); padding:7px 14px; border-radius:20px;}
+  .cover-tag.outline{background:transparent; border:1px solid rgba(255,255,255,0.35); color:rgba(255,255,255,0.75);}
+  .cover-meta{display:grid; grid-template-columns:repeat(3,1fr); width:60%; gap:0; margin:46px 46px 0 46px; position:relative; z-index:2;}
+  .cover-meta-item{border-top:1px solid rgba(255,255,255,0.2); padding:14px 18px 0 0;}
+  .cover-meta-label{font-family:'Montserrat',sans-serif; font-size:7.5pt; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:var(--teal);}
+  .cover-meta-value{font-family:'Montserrat',sans-serif; font-size:10.5pt; font-weight:600; margin-top:6px; color:#fff;}
+  .cover-image-area{flex:1; position:relative;}
+  .brazil-photo{position:absolute; inset:0; background:linear-gradient(180deg, rgba(13,27,46,0) 0%, rgba(13,27,46,0.55) 100%);}
+  .skyline{position:absolute; bottom:0; left:0; right:0; height:120px; background:linear-gradient(0deg, rgba(0,200,200,0.08), transparent);}
+  .cover-footer{display:flex; justify-content:space-between; align-items:center; padding:18px 46px; border-top:1px solid rgba(255,255,255,0.15); position:relative; z-index:2;}
+  .cover-footer-url{font-family:'Montserrat',sans-serif; font-size:8pt; font-weight:700; color:var(--teal); letter-spacing:0.5px;}
+  .cover-footer-edition{font-family:'Montserrat',sans-serif; font-size:7.5pt; color:rgba(255,255,255,0.55);}
+
+  /* ===== INNER PAGES ===== */
+  .inner-page{display:flex; flex-direction:column;}
+  .page-header{display:flex; justify-content:space-between; align-items:center; padding:22px 46px; border-bottom:1px solid var(--lgray);}
+  .page-header-left{font-family:'Montserrat',sans-serif; font-size:8.5pt; font-weight:700; color:var(--navy);}
+  .page-header-left span{color:var(--teal2); font-weight:600;}
+  .page-header-right{font-family:'Montserrat',sans-serif; font-size:8pt; color:var(--gray);}
+  .page-body{flex:1; padding:34px 46px;}
+  .page-footer{display:flex; justify-content:space-between; align-items:center; padding:16px 46px; border-top:1.5px solid var(--teal); margin-top:auto;}
+  .pf-brand{font-family:'Montserrat',sans-serif; font-size:8pt; font-weight:700; color:var(--navy);}
+  .pf-brand span{color:var(--gray); font-weight:500;}
+  .pf-disclaimer{font-family:'Montserrat',sans-serif; font-size:7.5pt; color:var(--gray); font-style:italic;}
+  .pf-page{font-family:'Montserrat',sans-serif; font-size:8pt; color:var(--gray);}
+
+  .section-header-block{border-left:4px solid var(--teal); padding-left:18px; margin-bottom:24px;}
+  .section-header-block.navy-variant{border-left-color:var(--navy);}
+  .section-num{font-family:'Montserrat',sans-serif; font-size:8pt; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--teal2);}
+  .section-title{font-family:'Montserrat',sans-serif; font-size:19pt; font-weight:800; color:var(--navy); margin-top:4px;}
+  .section-subtitle{font-family:'Source Serif 4',serif; font-size:10.5pt; color:var(--gray); margin-top:6px; font-weight:300;}
+
+  p.body-text{font-size:10.5pt; line-height:1.7; margin-bottom:14px; color:var(--text);}
+  .lead{font-size:11.5pt; line-height:1.7; color:var(--navy); font-weight:400; margin-bottom:18px;}
+
+  .callout{background:var(--offwhite); border-left:3px solid var(--teal); border-radius:4px; padding:16px 20px; margin:18px 0;}
+  .callout-title{font-family:'Montserrat',sans-serif; font-size:8.5pt; font-weight:700; letter-spacing:0.5px; text-transform:uppercase; color:var(--teal2); margin-bottom:6px;}
+  .callout p{font-size:9.7pt; line-height:1.6; color:var(--text);}
+
+  .rationale-grid{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:20px;}
+  .rationale-card{border:1px solid var(--lgray); border-radius:6px; padding:16px 18px;}
+  .rationale-card h4{font-family:'Montserrat',sans-serif; font-size:9.5pt; font-weight:700; color:var(--navy); margin-bottom:6px;}
+  .rationale-card p{font-size:9.3pt; line-height:1.55; color:var(--gray);}
+
+  .scope-block{margin-bottom:22px;}
+  .scope-area{font-family:'Montserrat',sans-serif; font-size:9.5pt; font-weight:700; letter-spacing:0.5px; text-transform:uppercase; color:var(--teal2); border-bottom:1px solid var(--lgray); padding-bottom:8px; margin-bottom:12px;}
+  .scope-item{display:flex; gap:12px; align-items:flex-start; margin-bottom:11px;}
+  .scope-item-check{width:18px; height:18px; border-radius:50%; background:var(--navy); color:var(--teal); font-size:10px; display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:2px; font-weight:700;}
+  .scope-item-text{font-size:9.8pt; line-height:1.55; color:var(--text);}
+  .scope-item-text strong{color:var(--navy);}
+
+  table.rate-table{width:100%; border-collapse:collapse; margin:18px 0;}
+  table.rate-table th{background:var(--navy); color:#fff; font-family:'Montserrat',sans-serif; font-size:8pt; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; padding:10px 14px; text-align:left;}
+  table.rate-table th:last-child, table.rate-table td:last-child{text-align:right;}
+  table.rate-table td{padding:11px 14px; font-size:9.5pt; border-bottom:1px solid var(--lgray);}
+  table.rate-table tr:nth-child(even) td{background:var(--offwhite);}
+  table.rate-table .rt-label{font-family:'Montserrat',sans-serif; font-weight:600; color:var(--navy);}
+  table.rate-table .rt-note{display:block; font-family:'Source Serif 4',serif; font-size:8.3pt; color:var(--gray); font-weight:300; margin-top:2px;}
+  table.rate-table .rt-value{font-family:'Montserrat',sans-serif; font-weight:800; color:var(--navy);}
+
+  table.pricing-table{width:100%; border-collapse:collapse; margin:16px 0;}
+  table.pricing-table th{background:var(--navy); color:#fff; font-family:'Montserrat',sans-serif; font-size:8pt; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; padding:10px 14px; text-align:left;}
+  table.pricing-table th:last-child{text-align:right;}
+  table.pricing-table td{padding:11px 14px; font-size:9.3pt; border-bottom:1px solid var(--lgray); vertical-align:top;}
+  table.pricing-table tr:nth-child(even) td{background:var(--offwhite);}
+  .pt-item{font-family:'Montserrat',sans-serif; font-weight:700; color:var(--navy); font-size:9.5pt;}
+  .pt-note{font-family:'Source Serif 4',serif; font-size:8.2pt; color:var(--gray); font-weight:300;}
+  .pt-desc{font-size:8.8pt; color:var(--gray);}
+  .pt-value{font-family:'Montserrat',sans-serif; font-weight:800; color:var(--navy); text-align:right; white-space:nowrap;}
+  tr.pt-total td{background:var(--navy) !important; color:#fff;}
+  tr.pt-total .pt-item{color:#fff;}
+  tr.pt-total .pt-value{color:var(--teal); font-size:10.5pt;}
+
+  .formula-box{background:var(--offwhite); border:1px solid var(--lgray); border-radius:6px; padding:18px 22px; margin:18px 0;}
+  .formula-box .fb-title{font-family:'Montserrat',sans-serif; font-size:8.5pt; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; color:var(--teal2); margin-bottom:10px;}
+  .formula-line{font-family:'Montserrat',sans-serif; font-size:9.8pt; color:var(--navy); line-height:1.9;}
+  .formula-line .op{color:var(--teal2); font-weight:700; margin:0 6px;}
+
+  .step-row{display:flex; gap:16px; align-items:flex-start; margin-bottom:18px;}
+  .step-num{width:30px; height:30px; border-radius:50%; background:var(--navy); flex-shrink:0; display:flex; align-items:center; justify-content:center;}
+  .step-num span{font-family:'Montserrat',sans-serif; color:var(--teal); font-weight:800; font-size:11pt;}
+  .step-title{font-family:'Montserrat',sans-serif; font-size:10.5pt; font-weight:700; color:var(--navy); margin-bottom:3px;}
+  .step-desc{font-size:9.7pt; line-height:1.55; color:var(--text);}
+
+  .contact-box{display:flex; justify-content:space-between; background:var(--navy); border-radius:8px; padding:26px 30px; margin-top:26px; color:#fff;}
+  .contact-box-left h3{font-family:'Montserrat',sans-serif; font-size:14pt; font-weight:800; margin-bottom:8px;}
+  .contact-box-left p{font-size:9.7pt; color:rgba(255,255,255,0.75); max-width:280px; line-height:1.5;}
+  .contact-box-right{display:flex; flex-direction:column; gap:6px; justify-content:center;}
+  .contact-detail{font-family:'Montserrat',sans-serif; font-size:9.3pt; color:#fff;}
+  .contact-detail span{color:var(--teal); font-weight:700; display:inline-block; width:66px;}
+
+  .assumptions-box{border:1px dashed var(--gray); border-radius:6px; padding:16px 20px; margin-top:20px;}
+  .assumptions-box .ab-title{font-family:'Montserrat',sans-serif; font-size:8.5pt; font-weight:700; text-transform:uppercase; color:var(--gray); letter-spacing:0.5px; margin-bottom:8px;}
+  .assumptions-box ul{padding-left:16px;}
+  .assumptions-box li{font-size:9pt; line-height:1.6; color:var(--gray); margin-bottom:5px;}
+</style>
+</head>
+<body>
+
+<!-- ============ PAGE 1 — COVER ============ -->
+<div class="page cover">
+  <div class="hex-group">
+    <div class="hex" style="width:280px;height:280px;background:rgba(0,200,200,0.04);top:-60px;right:-50px;"></div>
+    <div class="hex" style="width:170px;height:170px;background:rgba(0,200,200,0.06);top:70px;right:90px;"></div>
+    <div class="hex" style="width:95px;height:95px;background:rgba(0,200,200,0.1);top:185px;right:205px;"></div>
+    <div class="hex" style="width:70px;height:70px;background:rgba(61,214,140,0.08);top:25px;right:245px;"></div>
+  </div>
+
+  <div class="cover-top">
+    <div class="cover-logo">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+           viewBox="440 390 1060 320" style="height:42px;width:auto;display:block;">
+        <defs>
+          <linearGradient id="lg" x1="528.00962" y1="437.79086" x2="693.52564" y2="437.79086"
+            gradientTransform="translate(0 1081.58265) scale(1 -1)" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#101827"/><stop offset="1" stop-color="#0ec668"/>
+          </linearGradient>
+          <linearGradient id="lg1" x1="438.90681" y1="505.95149" x2="604.42283" y2="505.95149"
+            gradientTransform="translate(0 1081.58265) scale(1 -1)" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#101827"/><stop offset="1" stop-color="#0ec668"/>
+          </linearGradient>
+          <linearGradient id="lg2" x1="712.59445" y1="474.81047" x2="460.26471" y2="699.39719"
+            gradientTransform="translate(0 1081.58265) scale(1 -1)" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#0ec668"/><stop offset="1" stop-color="#12ace6"/>
+          </linearGradient>
+        </defs>
+        <polygon fill="#ffffff" points="1067.75549 401.49997 1023.07159 544.20905 982.00995 404.26547 947.97415 404.26547 906.91302 544.20905 862.2291 401.49997 825.9744 401.49997 889.94604 595.09726 923.0683 595.09726 964.99228 462.89842 1006.63654 595.09726 1040.03796 595.09726 1104.0097 401.49997 1067.75549 401.49997"/>
+        <path fill="#ffffff" d="M1149.14148,401.49997v193.59729h-32.08148v-193.59729h32.08148Z"/>
+        <path fill="#ffffff" d="M1233.70984,401.49997c59.46155,0,102.33014,43.14445,102.33014,96.79817s-42.86859,96.79912-102.33014,96.79912h-66.37671v-193.59729h66.37671ZM1199.41461,562.73893h34.29523c38.99573,0,66.37579-27.38007,66.37579-64.44079s-27.38007-64.43983-66.37579-64.43983h-34.29523v128.88062Z"/>
+        <path fill="#ffffff" d="M1461.63257,401.49997v32.35833h-78.31946v40.93167h45.29926v32.35833h-45.29926v55.59062h78.31946v32.35834h-110.40094v-193.59729h110.40094Z"/>
+        <path fill="#ffffff" d="M1006.4671,663.3115c0,9.59277-7.51465,15.18848-21.9043,15.18848h-27.81934v-55.95898h26.2207c13.42969,0,20.625,5.67578,20.625,14.5498,0,5.75586-2.87793,9.99219-7.19531,12.31055,5.99609,1.91895,10.07324,6.63574,10.07324,13.91016ZM967.13608,630.69529v15.42871h14.70895c7.19434,0,11.27148-2.55859,11.27148-7.6748,0-5.19531-4.07715-7.75391-11.27148-7.75391h-14.70898ZM995.99445,662.27244c0-5.59668-4.2373-8.07422-12.07129-8.07422h-16.78711v16.14746h16.78711c7.83398,0,12.07129-2.47754,12.07129-8.07324Z"/>
+        <path fill="#ffffff" d="M1075.78156,678.49997l-11.43164-16.3877c-.71875.08008-1.43848.08008-2.1582.08008h-12.62988v16.30762h-10.39258v-55.95898h23.02246c14.70898,0,23.82227,7.51465,23.82227,19.90527,0,8.47461-4.31641,14.70996-11.91113,17.66699l12.87109,18.38672h-11.19238ZM1061.71228,631.33494h-12.15039v22.30371h12.15039c9.11328,0,13.83008-4.15723,13.83008-11.19238,0-7.03418-4.7168-11.11133-13.83008-11.11133Z"/>
+        <path fill="#ffffff" d="M1155.48859,665.54978h-27.97949l-5.51562,12.9502h-10.71191l25.18066-55.95898h10.23242l25.26172,55.95898h-10.87207l-5.5957-12.9502ZM1152.05109,657.39548l-10.55176-24.46191-10.47266,24.46191h21.02441Z"/>
+        <path fill="#ffffff" d="M1244.14978,669.70603v8.79395h-47.72461v-6.95508l32.93555-40.20996h-32.37598v-8.79395h46.12598v6.95508l-32.93555,40.20996h33.97461Z"/>
+        <path fill="#ffffff" d="M1275.25323,622.54099h10.39258v55.95898h-10.39258v-55.95898Z"/>
+        <path fill="#ffffff" d="M1322.34113,622.54099h10.39258v47.16504h29.25781v8.79395h-39.65039v-55.95898Z"/>
+        <rect fill="url(#lg)" x="591.52898" y="609.08361" width="93.76549" height="69.41637"/>
+        <rect fill="url(#lg1)" x="502.42616" y="540.92298" width="93.76549" height="69.41637"/>
+        <path fill="url(#lg2)" d="M773.49542,470.72999l43.49487,69.26999-87.9592,138.5h-88.79871l133.26303-207.76999ZM684.48682,401.49997l-158.30856,246.82742,18.93906,30.17258h46.68304l157.73888-245.92795-19.50873-31.07205h-45.5437ZM548.11559,401.49997l-89.74816,138.8298,43.95461,70.00955,133.95263-208.83936h-88.15908Z"/>
+      </svg>
+    </div>
+    <div class="cover-badge"><div class="cover-badge-text">Commercial Proposal</div></div>
+  </div>
+
+  <div class="cover-content">
+    <div class="cover-eyebrow">Workforce Solutions · International Mobility</div>
+    <div class="cover-divider"></div>
+    <div class="cover-title"><span>International Contractor</span><br>Engagement Support</div>
+    <div class="cover-subtitle">Compliant payment administration, immigration support, and local coverage for an internationally engaged independent contractor.</div>
+    <div class="cover-tags">
+      <span class="cover-tag">Independent Contractor</span>
+      <span class="cover-tag">Visa &amp; Mobility Support</span>
+      <span class="cover-tag outline">Confidential</span>
+    </div>
+  </div>
+
+  <div class="cover-meta">
+    <div class="cover-meta-item">
+      <div class="cover-meta-label">Prepared for</div>
+      <div class="cover-meta-value">NES Canada</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="cover-meta-label">Contact</div>
+      <div class="cover-meta-value">Victor Dias</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="cover-meta-label">Date</div>
+      <div class="cover-meta-value">July 2026</div>
+    </div>
+  </div>
+
+  <div class="cover-image-area">
+    <div class="brazil-photo">
+      <div class="skyline"></div>
+    </div>
+  </div>
+
+  <div class="cover-footer">
+    <span class="cover-footer-url">widebrazil.com</span>
+    <span class="cover-footer-edition">Confidential · Prepared for NES Canada · v1.0</span>
+  </div>
+</div>
+
+<!-- ============ PAGE 2 — CONTEXT & STRUCTURE ============ -->
+<div class="page inner-page">
+  <div class="page-header">
+    <div class="page-header-left">Wide Brazil <span>| Commercial Proposal</span></div>
+    <div class="page-header-right">International Contractor Engagement — NES Canada</div>
+  </div>
+  <div class="page-body">
+    <div class="section-header-block">
+      <div class="section-num">Section 01</div>
+      <div class="section-title">Context &amp; Recommended Structure</div>
+      <div class="section-subtitle">How Wide Brazil supports this engagement</div>
+    </div>
+
+    <p class="lead">NES Canada requires a compliant structure to engage an independent contractor internationally, with the operational, fiscal, and mobility support needed to keep the arrangement running smoothly throughout the assignment.</p>
+
+    <p class="body-text">Wide Brazil will act as the administrative and support partner for this engagement, processing the contractor's payments according to the agreed rate structure, and providing the mobility, fiscal, and welfare support the assignment requires. This structure is designed for engagements where the professional is compensated on a variable, activity-based basis — hourly work, night differentials, per diem, and travel — rather than a fixed monthly salary, and where the company does not intend to establish a local employment relationship.</p>
+
+    <div class="callout">
+      <div class="callout-title">Recommended Structure</div>
+      <p>Independent Contractor engagement, administered by Wide Brazil. Wide Brazil processes contractor payments per the agreed rate card, and separately provides visa/immigration support, fiscal guidance, international health coverage, life insurance, and local support for the duration of the assignment.</p>
+    </div>
+
+    <div class="rationale-grid">
+      <div class="rationale-card">
+        <h4>Payment Administration</h4>
+        <p>Contractor payments are processed against reported hours, per diem days, and travel days, with full traceability for both NES Canada and the contractor.</p>
+      </div>
+      <div class="rationale-card">
+        <h4>Immigration &amp; Fiscal Support</h4>
+        <p>Visa/residence matters and fiscal guidance for the expatriate are coordinated directly by Wide Brazil's local team, reducing exposure for NES Canada.</p>
+      </div>
+      <div class="rationale-card">
+        <h4>Welfare Coverage</h4>
+        <p>International health plan and life insurance are arranged and maintained for the duration of the engagement.</p>
+      </div>
+      <div class="rationale-card">
+        <h4>Local Support</h4>
+        <p>The contractor has a point of contact in Brazil for day-to-day administrative and documentation matters throughout the assignment.</p>
+      </div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <div class="pf-brand">Wide Brazil <span>| Commercial Proposal</span></div>
+    <div class="pf-disclaimer">Confidential — prepared solely for NES Canada.</div>
+    <div class="pf-page">Page 2</div>
+  </div>
+</div>
+
+<!-- ============ PAGE 3 — SCOPE OF SERVICES ============ -->
+<div class="page inner-page">
+  <div class="page-header">
+    <div class="page-header-left">Wide Brazil <span>| Commercial Proposal</span></div>
+    <div class="page-header-right">International Contractor Engagement — NES Canada</div>
+  </div>
+  <div class="page-body">
+    <div class="section-header-block navy-variant">
+      <div class="section-num">Section 02</div>
+      <div class="section-title">Scope of Services</div>
+      <div class="section-subtitle">What Wide Brazil will do</div>
+    </div>
+
+    <div class="scope-block">
+      <div class="scope-area">Visa &amp; Immigration Support</div>
+      <div class="scope-item">
+        <div class="scope-item-check">✓</div>
+        <div class="scope-item-text"><strong>Visa / residence process management</strong> — advising on the applicable category, formalizing documentation, and filing with the relevant immigration authorities.</div>
+      </div>
+      <div class="scope-item">
+        <div class="scope-item-check">✓</div>
+        <div class="scope-item-text"><strong>Case follow-up</strong> — tracking the application through to approval and coordinating retrieval of the visa where applicable.</div>
+      </div>
+      <div class="scope-item">
+        <div class="scope-item-check">✓</div>
+        <div class="scope-item-text"><strong>Personal documentation support</strong> — assistance with the registrations required for the contractor to operate locally during the assignment.</div>
+      </div>
+    </div>
+
+    <div class="scope-block">
+      <div class="scope-area">Fiscal Support for the Expatriate</div>
+      <div class="scope-item">
+        <div class="scope-item-check">✓</div>
+        <div class="scope-item-text"><strong>Tax guidance</strong> — orientation on the fiscal obligations arising from the contractor's international assignment.</div>
+      </div>
+      <div class="scope-item">
+        <div class="scope-item-check">✓</div>
+        <div class="scope-item-text"><strong>Coordination with local tax matters</strong> — support in aligning payment administration with applicable fiscal requirements.</div>
+      </div>
+      <div class="scope-item">
+        <div class="scope-item-check">✓</div>
+        <div class="scope-item-text"><strong>Tax orientation</strong> — guidance for the contractor on Brazilian tax obligations arising from the assignment.</div>
+      </div>
+      <div class="scope-item">
+        <div class="scope-item-check">✓</div>
+        <div class="scope-item-text"><strong>Payment guide (DARF) preparation</strong> — completion of the applicable payment guides for monthly tax settlement.</div>
+      </div>
+      <div class="scope-item">
+        <div class="scope-item-check">✓</div>
+        <div class="scope-item-text"><strong>Annual income tax return</strong> — preparation and filing of the contractor's annual Brazilian income tax return (Declaração de Imposto de Renda).</div>
+      </div>
+    </div>
+
+    <div class="scope-block">
+      <div class="scope-area">Welfare &amp; Local Support</div>
+      <div class="scope-item">
+        <div class="scope-item-check">✓</div>
+        <div class="scope-item-text"><strong>International health plan</strong> — coverage arranged for the contractor for the duration of the assignment.</div>
+      </div>
+      <div class="scope-item">
+        <div class="scope-item-check">✓</div>
+        <div class="scope-item-text"><strong>Life insurance</strong> — coverage in place for the length of the engagement.</div>
+      </div>
+      <div class="scope-item">
+        <div class="scope-item-check">✓</div>
+        <div class="scope-item-text"><strong>Local support</strong> — a Wide Brazil point of contact available for administrative, documentation, and day-to-day matters throughout the assignment.</div>
+      </div>
+    </div>
+
+    <div class="scope-block">
+      <div class="scope-area">Payment Administration</div>
+      <div class="scope-item">
+        <div class="scope-item-check">✓</div>
+        <div class="scope-item-text"><strong>Monthly payment processing</strong> — calculated against reported hours, night differentials, per diem, home trip allowance, and travel days, per the agreed rate card.</div>
+      </div>
+      <div class="scope-item">
+        <div class="scope-item-check">✓</div>
+        <div class="scope-item-text"><strong>Invoicing</strong> — consolidated monthly invoice to NES Canada itemizing contractor payments and Wide Brazil's fee.</div>
+      </div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <div class="pf-brand">Wide Brazil <span>| Commercial Proposal</span></div>
+    <div class="pf-disclaimer">Confidential — prepared solely for NES Canada.</div>
+    <div class="pf-page">Page 3</div>
+  </div>
+</div>
+
+<!-- ============ PAGE 4 — RATE CARD + PRICING ============ -->
+<div class="page inner-page">
+  <div class="page-header">
+    <div class="page-header-left">Wide Brazil <span>| Commercial Proposal</span></div>
+    <div class="page-header-right">International Contractor Engagement — NES Canada</div>
+  </div>
+  <div class="page-body">
+    <div class="section-header-block">
+      <div class="section-num">Section 03</div>
+      <div class="section-title">Contractor Rate Card &amp; Pricing</div>
+      <div class="section-subtitle">All figures in USD</div>
+    </div>
+
+    <p class="body-text">The contractor is compensated on the following agreed rate structure. All payments are processed by Wide Brazil as pass-through, against reported hours and days each month.</p>
+
+    <table class="rate-table">
+      <thead>
+        <tr><th>Item</th><th>Rate</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="rt-label">Standard Hourly Rate</span><span class="rt-note">Regular working hours</span></td>
+          <td class="rt-value">$ 72.18 / hour</td>
+        </tr>
+        <tr>
+          <td><span class="rt-label">Night Shift Premium</span><span class="rt-note">Hours worked on night shift</span></td>
+          <td class="rt-value">$ 74.34 / hour</td>
+        </tr>
+        <tr>
+          <td><span class="rt-label">Per Diem</span><span class="rt-note">Daily allowance while on assignment</span></td>
+          <td class="rt-value">$ 165.00 / day</td>
+        </tr>
+        <tr>
+          <td><span class="rt-label">Home Trip Travel Expense</span><span class="rt-note">Monthly allowance</span></td>
+          <td class="rt-value">$ 1,000.00 / month</td>
+        </tr>
+        <tr>
+          <td><span class="rt-label">Travel Day Rate</span><span class="rt-note">Standard hourly rate, capped at 12 hours/day</span></td>
+          <td class="rt-value">$ 72.18 / hour (max 12h)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="section-header-block navy-variant" style="margin-top:30px;">
+      <div class="section-num">Section 04</div>
+      <div class="section-title" style="font-size:16pt;">Wide Brazil Fee Structure</div>
+      <div class="section-subtitle">What NES Canada pays Wide Brazil</div>
+    </div>
+
+    <table class="pricing-table">
+      <thead>
+        <tr><th>Item</th><th>Description</th><th>Amount</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="pt-item">Contractor Payments</span><br><span class="pt-note">Per rate card above, based on reported hours/days</span></td>
+          <td class="pt-desc">Pass-through — no markup</td>
+          <td class="pt-value">Per timesheet</td>
+        </tr>
+        <tr>
+          <td><span class="pt-item">Wide Brazil Fixed Fee</span><br><span class="pt-note">Monthly fixed fee</span></td>
+          <td class="pt-desc">Payment administration, mobility, fiscal and welfare support</td>
+          <td class="pt-value">$ 450.00</td>
+        </tr>
+        <tr>
+          <td><span class="pt-item">Overhead — 5%</span><br><span class="pt-note">Applied on total contractor payments made in the month</span></td>
+          <td class="pt-desc">Wide Brazil service charge</td>
+          <td class="pt-value">5% of payments</td>
+        </tr>
+        <tr class="pt-total">
+          <td><span class="pt-item">VAT — 14.38%</span></td>
+          <td style="color:rgba(255,255,255,0.75); font-size:8.8pt;">Applied on total invoice value</td>
+          <td class="pt-value">14.38% of invoice</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="formula-box">
+      <div class="fb-title">How the Monthly Invoice Is Calculated</div>
+      <div class="formula-line">Subtotal <span class="op">=</span> Contractor Payments <span class="op">+</span> $450 Fixed Fee <span class="op">+</span> (5% × Contractor Payments)</div>
+      <div class="formula-line">Total Invoice <span class="op">=</span> Subtotal <span class="op">+</span> (14.38% × Subtotal)</div>
+    </div>
+
+    <div class="assumptions-box">
+      <div class="ab-title">Assumptions</div>
+      <ul>
+        <li>Contractor payments vary monthly based on hours, per diem days, and travel days actually reported and approved.</li>
+        <li>The fixed fee and overhead percentage apply regardless of the volume of hours or days reported in a given month.</li>
+        <li>No setup fee applies to this engagement.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="page-footer">
+    <div class="pf-brand">Wide Brazil <span>| Commercial Proposal</span></div>
+    <div class="pf-disclaimer">Confidential — prepared solely for NES Canada.</div>
+    <div class="pf-page">Page 4</div>
+  </div>
+</div>
+
+<!-- ============ PAGE 5 — NEXT STEPS ============ -->
+<div class="page inner-page">
+  <div class="page-header">
+    <div class="page-header-left">Wide Brazil <span>| Commercial Proposal</span></div>
+    <div class="page-header-right">International Contractor Engagement — NES Canada</div>
+  </div>
+  <div class="page-body">
+    <div class="section-header-block">
+      <div class="section-num">Section 05</div>
+      <div class="section-title">Next Steps</div>
+      <div class="section-subtitle">How to move forward</div>
+    </div>
+
+    <div class="step-row">
+      <div class="step-num"><span>1</span></div>
+      <div>
+        <div class="step-title">Confirm Engagement Details</div>
+        <div class="step-desc">NES Canada confirms assignment start date, expected duration, and any specific immigration requirements for the contractor.</div>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-num"><span>2</span></div>
+      <div>
+        <div class="step-title">Contract &amp; Documentation</div>
+        <div class="step-desc">Wide Brazil issues the service agreement covering payment administration, immigration support, and welfare coverage.</div>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-num"><span>3</span></div>
+      <div>
+        <div class="step-title">Immigration &amp; Coverage Setup</div>
+        <div class="step-desc">Visa/residence process, international health plan, and life insurance are initiated ahead of the contractor's arrival.</div>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-num"><span>4</span></div>
+      <div>
+        <div class="step-title">Assignment Start</div>
+        <div class="step-desc">Monthly payment processing and invoicing begin, with Wide Brazil as the ongoing local point of contact.</div>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top:26px;">
+      <div class="callout-title">Key Assumptions &amp; Exclusions</div>
+      <p>This proposal covers payment administration, visa/immigration support, fiscal guidance, international health plan, life insurance, and local support as described above. Scope items outside this description — including additional dependents, extended family coverage, or services beyond the assignment period — would be quoted separately. Immigration timelines depend on the relevant authorities and are not guaranteed by Wide Brazil.</p>
+    </div>
+
+    <div class="contact-box">
+      <div class="contact-box-left">
+        <h3>Wide Brazil</h3>
+        <p>Your local partner for compliant workforce structuring and international mobility in Brazil and LATAM.</p>
+      </div>
+      <div class="contact-box-right">
+        <div class="contact-detail"><span>Email</span>victor.dias@widebrazil.com</div>
+        <div class="contact-detail"><span>Web</span>widebrazil.com</div>
+        <div class="contact-detail"><span>Phone</span>+351 965 043 393</div>
+        <div class="contact-detail"><span>Location</span>São Paulo, Brazil</div>
+      </div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <div class="pf-brand">Wide Brazil <span>| Commercial Proposal</span></div>
+    <div class="pf-disclaimer">Confidential — prepared solely for NES Canada.</div>
+    <div class="pf-page">Page 5</div>
+  </div>
+</div>
+
+</body>
+</html>
