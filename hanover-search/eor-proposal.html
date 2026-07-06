@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Wide Brazil — Employer of Record Proposal for Hanover Search</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&amp;family=Source+Serif+4:wght@300;400;600&amp;display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+:root{
+  --navy:#0D1B2E; --navy2:#12253D; --teal:#00C8C8; --teal2:#00A8A8;
+  --green:#3DD68C; --white:#FFFFFF; --offwhite:#F7F9FC;
+  --gray:#6B7A8D; --lgray:#E8EDF3; --text:#1A2535;
+}
+body{ font-family:'Montserrat',sans-serif; font-size:10pt; color:var(--text); background:#fff; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+@media print{ .page{page-break-after:always;page-break-inside:avoid;} .page:last-child{page-break-after:auto;} @page{margin:0;size:A4 portrait;} }
+.page{ width:210mm; min-height:297mm; margin:0 auto 20px; position:relative; overflow:hidden; background:#fff; box-shadow:0 4px 32px rgba(0,0,0,.12); }
+
+/* COVER */
+.cover{ background:var(--navy); min-height:297mm; display:flex; flex-direction:column; position:relative; overflow:hidden; }
+.hex-group{ position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; }
+.hex{ position:absolute; clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%); }
+.cover-top{ padding:28px 40px 0; z-index:10; position:relative; display:flex; justify-content:space-between; align-items:flex-start; }
+.cover-badge{ background:rgba(0,200,200,0.15); border:1px solid rgba(0,200,200,0.4); padding:6px 14px; border-radius:2px; }
+.cover-badge-text{ font-size:7pt; font-weight:700; letter-spacing:2px; color:var(--teal); text-transform:uppercase; }
+.cover-content{ padding:44px 40px 0; z-index:10; position:relative; flex:1; }
+.cover-eyebrow{ font-size:7.5pt; font-weight:700; color:var(--teal); letter-spacing:3px; text-transform:uppercase; margin-bottom:16px; }
+.cover-divider{ width:50px; height:3px; background:var(--teal); margin-bottom:20px; }
+.cover-title{ font-size:30pt; font-weight:900; color:var(--white); line-height:1.08; letter-spacing:-0.5px; }
+.cover-title span{ color:var(--teal); }
+.cover-subtitle{ font-size:10pt; font-weight:400; color:rgba(255,255,255,0.72); margin-top:14px; line-height:1.55; max-width:380px; }
+.cover-tags{ display:flex; gap:8px; margin-top:22px; flex-wrap:wrap; }
+.cover-tag{ font-size:7pt; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--navy); background:var(--teal); padding:4px 12px; border-radius:2px; }
+.cover-tag.outline{ background:transparent; border:1px solid rgba(0,200,200,0.5); color:var(--teal); }
+.cover-meta{ margin:32px 40px 0; z-index:10; position:relative; display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:rgba(255,255,255,0.08); border-radius:4px; overflow:hidden; width:60%; }
+.cover-meta-item{ background:rgba(13,27,46,0.6); padding:14px 16px; }
+.cover-meta-label{ font-size:6pt; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:rgba(0,200,200,0.7); margin-bottom:5px; }
+.cover-meta-value{ font-size:9pt; font-weight:600; color:var(--white); }
+.cover-image-area{ position:relative; margin-top:28px; height:195px; overflow:hidden; }
+.cover-hex-overlay{ position:absolute; top:-30px; left:-30px; width:200px; height:200px; clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%); background:rgba(13,27,46,.85); z-index:2; }
+.cover-hex-overlay2{ position:absolute; top:20px; left:100px; width:140px; height:140px; clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%); background:rgba(0,200,200,.2); z-index:3; }
+.brazil-photo{ width:100%; height:100%; background:linear-gradient(180deg,rgba(13,27,46,.3) 0%,rgba(13,27,46,0) 30%,rgba(13,27,46,.6) 100%),linear-gradient(135deg,#1a4a6b 0%,#0d6e8f 20%,#1e9baf 35%,#2ab5c9 45%,#1da8bc 55%,#0d7a8f 65%,#166080 75%,#0d3a55 85%,#0a2a3e 100%); position:relative; }
+.skyline{ position:absolute; bottom:0; left:0; right:0; height:80px; background:var(--navy); clip-path:polygon(0% 100%,0% 70%,2% 70%,2% 50%,4% 50%,4% 35%,5% 35%,5% 50%,6% 50%,6% 40%,7% 40%,7% 55%,8% 55%,8% 30%,9% 30%,9% 55%,10% 55%,10% 45%,11% 45%,11% 60%,12% 60%,12% 35%,14% 35%,14% 25%,15% 25%,15% 35%,16% 35%,16% 50%,17% 50%,17% 38%,18% 38%,18% 50%,20% 50%,20% 42%,21% 42%,21% 28%,22% 28%,22% 42%,23% 42%,23% 55%,25% 55%,25% 40%,27% 40%,27% 30%,28% 30%,28% 40%,30% 40%,30% 55%,32% 55%,32% 38%,33% 38%,33% 22%,34% 22%,34% 38%,35% 38%,35% 50%,36% 50%,36% 42%,38% 42%,38% 32%,40% 32%,40% 45%,42% 45%,42% 55%,44% 55%,44% 35%,45% 35%,45% 20%,46% 20%,46% 35%,47% 35%,47% 50%,49% 50%,49% 40%,51% 40%,51% 30%,53% 30%,53% 45%,55% 45%,55% 55%,57% 55%,57% 38%,58% 38%,58% 25%,59% 25%,59% 38%,60% 38%,60% 48%,62% 48%,62% 35%,63% 35%,63% 50%,65% 50%,65% 40%,67% 40%,67% 28%,68% 28%,68% 40%,70% 40%,70% 52%,72% 52%,72% 42%,74% 42%,74% 35%,75% 35%,75% 42%,77% 42%,77% 55%,79% 55%,79% 40%,81% 40%,81% 30%,82% 30%,82% 40%,84% 40%,84% 52%,86% 52%,86% 44%,88% 44%,88% 58%,90% 58%,90% 45%,92% 45%,92% 35%,94% 35%,94% 45%,96% 45%,96% 58%,98% 58%,98% 50%,100% 50%,100% 100%); }
+.cover-footer{ padding:14px 40px; background:rgba(0,0,0,.3); display:flex; justify-content:space-between; align-items:center; z-index:10; position:relative; }
+.cover-footer-url{ font-size:8pt; font-weight:600; color:var(--teal); letter-spacing:1px; }
+.cover-footer-edition{ font-size:7pt; color:rgba(255,255,255,.5); }
+
+/* INNER PAGES */
+.inner-page{ min-height:297mm; display:flex; flex-direction:column; }
+.page-header{ padding:16px 40px 13px; border-bottom:1px solid var(--lgray); display:flex; justify-content:space-between; align-items:center; }
+.page-header-left{ font-size:7pt; font-weight:700; color:var(--navy); letter-spacing:1px; text-transform:uppercase; }
+.page-header-left span{ color:var(--teal2); }
+.page-header-right{ font-size:7pt; color:var(--gray); }
+.page-body{ padding:30px 40px; flex:1; }
+.page-footer{ padding:11px 40px; border-top:2px solid var(--teal); display:flex; justify-content:space-between; align-items:center; }
+.pf-brand{ font-size:7pt; font-weight:700; color:var(--navy); }
+.pf-brand span{ color:var(--teal2); font-weight:400; }
+.pf-page{ font-size:7pt; color:var(--gray); }
+.pf-disclaimer{ font-size:6.5pt; color:var(--gray); font-style:italic; max-width:260px; text-align:center; }
+
+/* SECTION HEADERS */
+.section-header-block{ background:var(--teal); margin:-30px -40px 26px; padding:26px 40px 22px; position:relative; overflow:hidden; }
+.section-header-block::after{ content:''; position:absolute; right:-40px; top:-40px; width:180px; height:180px; clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%); background:rgba(255,255,255,.12); }
+.section-header-block::before{ content:''; position:absolute; right:40px; top:-20px; width:120px; height:120px; clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%); background:rgba(255,255,255,.08); }
+.navy-section-header{ background:var(--navy); margin:-30px -40px 26px; padding:26px 40px 22px; position:relative; overflow:hidden; }
+.navy-section-header .section-num{ color:rgba(0,200,200,.7); }
+.navy-section-header .section-title{ color:var(--white); }
+.navy-section-header .section-subtitle{ color:rgba(255,255,255,.65); }
+.navy-section-header::after{ content:''; position:absolute; right:-40px; top:-40px; width:180px; height:180px; clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%); background:rgba(0,200,200,.1); }
+.section-num{ font-size:7.5pt; font-weight:700; letter-spacing:3px; color:rgba(13,27,46,.55); text-transform:uppercase; margin-bottom:5px; }
+.section-title{ font-size:21pt; font-weight:900; color:var(--navy); line-height:1.1; }
+.section-subtitle{ font-size:9pt; margin-top:7px; font-weight:400; opacity:.8; }
+
+/* TYPOGRAPHY */
+h2{ font-size:11.5pt; font-weight:800; color:var(--navy); margin:20px 0 7px; display:flex; align-items:center; gap:10px; }
+h2::before{ content:''; display:inline-block; width:4px; height:15px; background:var(--teal); border-radius:2px; flex-shrink:0; }
+h3{ font-size:9pt; font-weight:700; color:var(--navy); margin:12px 0 4px; }
+p{ font-size:8.8pt; line-height:1.65; color:#2a3548; margin-bottom:9px; font-family:'Source Serif 4',serif; font-weight:300; }
+p strong{ font-family:'Montserrat',sans-serif; font-weight:700; color:var(--navy); }
+ul{ margin:6px 0 10px 0; padding-left:0; list-style:none; }
+ul li{ font-size:8.8pt; font-family:'Source Serif 4',serif; font-weight:300; color:#2a3548; line-height:1.55; padding:3px 0 3px 20px; position:relative; }
+ul li::before{ content:''; position:absolute; left:0; top:8px; width:8px; height:8px; clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%); background:var(--teal); }
+
+/* CALLOUTS */
+.callout{ border-left:4px solid var(--teal); background:rgba(0,200,200,.06); padding:12px 15px; margin:12px 0; border-radius:0 4px 4px 0; }
+.callout-label{ font-size:7pt; font-weight:800; letter-spacing:2px; color:var(--teal2); text-transform:uppercase; margin-bottom:4px; }
+.callout p{ margin:0; font-size:8.3pt; color:var(--navy); font-family:'Source Serif 4',serif; }
+.callout-navy{ border-left-color:var(--navy); background:rgba(13,27,46,.04); }
+.callout-navy .callout-label{ color:var(--navy); }
+.callout-warning{ border-left-color:#e05c00; background:rgba(224,92,0,.05); }
+.callout-warning .callout-label{ color:#c05000; }
+
+/* TWO-COLUMN */
+.two-col{ display:grid; grid-template-columns:1fr 1fr; gap:18px; margin:12px 0; }
+.col-box{ border:1.5px solid var(--lgray); border-radius:4px; overflow:hidden; }
+.col-box-header{ padding:9px 14px; font-family:'Montserrat',sans-serif; font-weight:800; font-size:8pt; letter-spacing:.5px; text-transform:uppercase; }
+.col-box-header.navy-bg{ background:var(--navy); color:var(--white); }
+.col-box-header.teal-bg{ background:var(--teal); color:var(--navy); }
+.col-box-body{ padding:10px 14px; }
+
+/* SCOPE */
+.scope-block{ margin-bottom:16px; }
+.scope-area{ font-size:7pt; font-weight:800; letter-spacing:2px; text-transform:uppercase; color:var(--teal2); border-bottom:1.5px solid var(--lgray); padding-bottom:4px; margin-bottom:8px; }
+.scope-item{ display:flex; align-items:flex-start; gap:9px; padding:4px 0; border-bottom:1px solid var(--offwhite); }
+.scope-item:last-child{ border-bottom:none; }
+.scope-item-check{ width:14px; height:14px; background:var(--teal); border-radius:2px; flex-shrink:0; margin-top:2px; display:flex; align-items:center; justify-content:center; font-size:8pt; font-weight:900; color:var(--navy); line-height:1; }
+.scope-item-text{ font-size:8.3pt; font-family:'Source Serif 4',serif; font-weight:300; color:#2a3548; line-height:1.45; }
+.scope-item-text strong{ font-family:'Montserrat',sans-serif; font-weight:700; color:var(--navy); }
+
+/* PRICING TABLE */
+.pricing-table{ width:100%; border-collapse:collapse; margin:12px 0; }
+.pricing-table thead tr{ background:var(--navy); }
+.pricing-table thead th{ padding:10px 13px; font-family:'Montserrat',sans-serif; font-weight:700; font-size:7.5pt; letter-spacing:.5px; color:var(--white); text-align:left; }
+.pricing-table tbody tr{ border-bottom:1px solid var(--lgray); }
+.pricing-table tbody tr:nth-child(even){ background:var(--offwhite); }
+.pricing-table tbody td{ padding:9px 13px; vertical-align:middle; }
+.pricing-table .pt-item{ font-family:'Montserrat',sans-serif; font-weight:700; color:var(--navy); font-size:8.3pt; }
+.pricing-table .pt-desc{ font-family:'Source Serif 4',serif; font-weight:300; color:var(--gray); font-size:7.8pt; line-height:1.4; }
+.pricing-table .pt-value{ font-family:'Montserrat',sans-serif; font-weight:800; color:var(--navy); font-size:10.5pt; white-space:nowrap; text-align:right; }
+.pricing-table .pt-note{ font-family:'Source Serif 4',serif; font-size:7.5pt; color:var(--gray); font-style:italic; }
+.pricing-table .pt-total{ background:var(--navy) !important; }
+.pricing-table .pt-total td{ color:var(--white) !important; padding:11px 13px; }
+.pricing-table .pt-total .pt-item{ color:var(--teal) !important; font-size:8.5pt; }
+.pricing-table .pt-total .pt-value{ color:var(--teal) !important; font-size:12pt; }
+
+/* BENEFITS CARDS */
+.benefits-grid{ display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:12px 0; }
+.benefit-card{ border:1.5px solid var(--lgray); border-radius:4px; overflow:hidden; position:relative; }
+.benefit-card::before{ content:''; position:absolute; top:0; left:0; right:0; height:3px; background:var(--teal); }
+.benefit-card-top{ padding:10px 13px 7px; display:flex; justify-content:space-between; align-items:flex-start; }
+.benefit-name{ font-family:'Montserrat',sans-serif; font-weight:800; font-size:8.5pt; color:var(--navy); }
+.benefit-tag{ font-size:6pt; font-weight:700; letter-spacing:1px; text-transform:uppercase; padding:2px 7px; border-radius:2px; }
+.benefit-tag.mandatory{ background:rgba(0,200,200,.15); color:var(--teal2); }
+.benefit-tag.optional{ background:rgba(61,214,140,.15); color:#2a9060; }
+.benefit-body{ padding:0 13px 10px; font-family:'Source Serif 4',serif; font-weight:300; font-size:8pt; color:#4a5a6a; line-height:1.45; }
+
+/* NEXT STEPS */
+.step-row{ display:flex; align-items:flex-start; gap:14px; margin-bottom:13px; }
+.step-num{ width:28px; height:28px; background:var(--teal); border-radius:2px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.step-num span{ font-family:'Montserrat',sans-serif; font-weight:900; font-size:10pt; color:var(--navy); }
+.step-title{ font-family:'Montserrat',sans-serif; font-weight:700; font-size:9pt; color:var(--navy); margin-bottom:2px; }
+.step-desc{ font-family:'Source Serif 4',serif; font-weight:300; font-size:8.3pt; color:#4a5a6a; line-height:1.5; }
+
+/* CONTACT BOX */
+.contact-box{ background:var(--navy); padding:18px 22px; border-radius:4px; margin-top:18px; display:flex; justify-content:space-between; align-items:center; gap:20px; }
+.contact-box-left h3{ color:var(--teal); font-size:10.5pt; margin-bottom:5px; }
+.contact-box-left p{ color:rgba(255,255,255,.72); font-family:'Source Serif 4',serif; font-size:8.3pt; margin:0; }
+.contact-box-right{ text-align:right; flex-shrink:0; }
+.contact-detail{ font-size:8.3pt; color:var(--white); margin-bottom:3px; font-family:'Montserrat',sans-serif; font-weight:600; }
+.contact-detail span{ color:var(--teal); margin-right:5px; }
+
+/* CONTINUATION LABEL */
+.continuation-label{ font-family:'Montserrat',sans-serif; font-weight:700; font-size:8pt; color:var(--teal2); letter-spacing:1px; text-transform:uppercase; border-bottom:1.5px solid var(--lgray); padding-bottom:8px; margin-bottom:18px; }
+
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════ PAGE 1 — COVER ═══════════════════════════════ -->
+<div class="page cover">
+  <div class="hex-group">
+    <div class="hex" style="width:280px;height:280px;background:rgba(0,200,200,0.04);top:-60px;right:-50px;"></div>
+    <div class="hex" style="width:170px;height:170px;background:rgba(0,200,200,0.06);top:70px;right:90px;"></div>
+    <div class="hex" style="width:95px;height:95px;background:rgba(0,200,200,0.1);top:185px;right:205px;"></div>
+    <div class="hex" style="width:70px;height:70px;background:rgba(61,214,140,0.08);top:25px;right:245px;"></div>
+  </div>
+
+  <div class="cover-top">
+    <div class="cover-logo">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+           viewBox="440 390 1060 320" style="height:50px;width:auto;display:block;">
+        <defs>
+          <linearGradient id="lg" x1="528.00962" y1="437.79086" x2="693.52564" y2="437.79086"
+            gradientTransform="translate(0 1081.58265) scale(1 -1)" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#101827"/><stop offset="1" stop-color="#0ec668"/>
+          </linearGradient>
+          <linearGradient id="lg1" x1="438.90681" y1="505.95149" x2="604.42283" y2="505.95149"
+            gradientTransform="translate(0 1081.58265) scale(1 -1)" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#101827"/><stop offset="1" stop-color="#0ec668"/>
+          </linearGradient>
+          <linearGradient id="lg2" x1="712.59445" y1="474.81047" x2="460.26471" y2="699.39719"
+            gradientTransform="translate(0 1081.58265) scale(1 -1)" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#0ec668"/><stop offset="1" stop-color="#12ace6"/>
+          </linearGradient>
+        </defs>
+        <polygon fill="#ffffff" points="1067.75549 401.49997 1023.07159 544.20905 982.00995 404.26547 947.97415 404.26547 906.91302 544.20905 862.2291 401.49997 825.9744 401.49997 889.94604 595.09726 923.0683 595.09726 964.99228 462.89842 1006.63654 595.09726 1040.03796 595.09726 1104.0097 401.49997 1067.75549 401.49997"/>
+        <path fill="#ffffff" d="M1149.14148,401.49997v193.59729h-32.08148v-193.59729h32.08148Z"/>
+        <path fill="#ffffff" d="M1233.70984,401.49997c59.46155,0,102.33014,43.14445,102.33014,96.79817s-42.86859,96.79912-102.33014,96.79912h-66.37671v-193.59729h66.37671ZM1199.41461,562.73893h34.29523c38.99573,0,66.37579-27.38007,66.37579-64.44079s-27.38007-64.43983-66.37579-64.43983h-34.29523v128.88062Z"/>
+        <path fill="#ffffff" d="M1461.63257,401.49997v32.35833h-78.31946v40.93167h45.29926v32.35833h-45.29926v55.59062h78.31946v32.35834h-110.40094v-193.59729h110.40094Z"/>
+        <path fill="#ffffff" d="M1006.4671,663.3115c0,9.59277-7.51465,15.18848-21.9043,15.18848h-27.81934v-55.95898h26.2207c13.42969,0,20.625,5.67578,20.625,14.5498,0,5.75586-2.87793,9.99219-7.19531,12.31055,5.99609,1.91895,10.07324,6.63574,10.07324,13.91016ZM967.13608,630.69529v15.42871h14.70895c7.19434,0,11.27148-2.55859,11.27148-7.6748,0-5.19531-4.07715-7.75391-11.27148-7.75391h-14.70898ZM995.99445,662.27244c0-5.59668-4.2373-8.07422-12.07129-8.07422h-16.78711v16.14746h16.78711c7.83398,0,12.07129-2.47754,12.07129-8.07324Z"/>
+        <path fill="#ffffff" d="M1075.78156,678.49997l-11.43164-16.3877c-.71875.08008-1.43848.08008-2.1582.08008h-12.62988v16.30762h-10.39258v-55.95898h23.02246c14.70898,0,23.82227,7.51465,23.82227,19.90527,0,8.47461-4.31641,14.70996-11.91113,17.66699l12.87109,18.38672h-11.19238ZM1061.71228,631.33494h-12.15039v22.30371h12.15039c9.11328,0,13.83008-4.15723,13.83008-11.19238,0-7.03418-4.7168-11.11133-13.83008-11.11133Z"/>
+        <path fill="#ffffff" d="M1155.48859,665.54978h-27.97949l-5.51562,12.9502h-10.71191l25.18066-55.95898h10.23242l25.26172,55.95898h-10.87207l-5.5957-12.9502ZM1152.05109,657.39548l-10.55176-24.46191-10.47266,24.46191h21.02441Z"/>
+        <path fill="#ffffff" d="M1244.14978,669.70603v8.79395h-47.72461v-6.95508l32.93555-40.20996h-32.37598v-8.79395h46.12598v6.95508l-32.93555,40.20996h33.97461Z"/>
+        <path fill="#ffffff" d="M1275.25323,622.54099h10.39258v55.95898h-10.39258v-55.95898Z"/>
+        <path fill="#ffffff" d="M1322.34113,622.54099h10.39258v47.16504h29.25781v8.79395h-39.65039v-55.95898Z"/>
+        <rect fill="url(#lg)" x="591.52898" y="609.08361" width="93.76549" height="69.41637"/>
+        <rect fill="url(#lg1)" x="502.42616" y="540.92298" width="93.76549" height="69.41637"/>
+        <path fill="url(#lg2)" d="M773.49542,470.72999l43.49487,69.26999-87.9592,138.5h-88.79871l133.26303-207.76999ZM684.48682,401.49997l-158.30856,246.82742,18.93906,30.17258h46.68304l157.73888-245.92795-19.50873-31.07205h-45.5437ZM548.11559,401.49997l-89.74816,138.8298,43.95461,70.00955,133.95263-208.83936h-88.15908Z"/>
+      </svg>
+    </div>
+    <div class="cover-badge"><div class="cover-badge-text">Commercial Proposal</div></div>
+  </div>
+
+  <div class="cover-content">
+    <div class="cover-eyebrow">Workforce Solutions · Brazil</div>
+    <div class="cover-divider"></div>
+    <div class="cover-title"><span>Employer of Record</span><br>Brazil</div>
+    <div class="cover-subtitle">Compliant local employment for IT professionals placed in Brazil — no local entity required.</div>
+    <div class="cover-tags">
+      <span class="cover-tag">Employer of Record</span>
+      <span class="cover-tag">IT &amp; Technology</span>
+      <span class="cover-tag outline">Confidential</span>
+    </div>
+  </div>
+
+  <div class="cover-meta">
+    <div class="cover-meta-item">
+      <div class="cover-meta-label">Prepared for</div>
+      <div class="cover-meta-value">Hanover Search</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="cover-meta-label">Contact</div>
+      <div class="cover-meta-value">Ben Lang</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="cover-meta-label">Date</div>
+      <div class="cover-meta-value">July 2026</div>
+    </div>
+  </div>
+
+  <div class="cover-image-area">
+    <div class="brazil-photo">
+      <div class="cover-hex-overlay"></div>
+      <div class="cover-hex-overlay2"></div>
+      <div class="skyline"></div>
+    </div>
+  </div>
+
+  <div class="cover-footer">
+    <span class="cover-footer-url">widebrazil.com</span>
+    <span class="cover-footer-edition">Confidential · Prepared for Hanover Search · v1.0</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ PAGE 2 — CONTEXT & STRUCTURE ═══════════════════════════════ -->
+<div class="page inner-page">
+  <div class="page-header">
+    <div class="page-header-left">Wide Brazil <span>| Commercial Proposal</span></div>
+    <div class="page-header-right">EOR Brazil — Hanover Search</div>
+  </div>
+
+  <div class="page-body">
+    <div class="section-header-block">
+      <div class="section-num">Section 01</div>
+      <div class="section-title">Client Context &amp; Recommended Structure</div>
+      <div class="section-subtitle">Understanding the situation and the right employment framework for Brazil</div>
+    </div>
+
+    <h2>The Situation</h2>
+    <p>Hanover Search is supporting a client with the hiring of IT professionals — including Project Manager roles — to be based in Brazil, with compensation at or above the equivalent of <strong>USD 60,000 per year</strong>. As placements are confirmed, each professional will need to be legally employed in Brazil without your client having to open and maintain a local entity.</p>
+
+    <h2>Recommended Structure — Employer of Record</h2>
+    <p>Wide Brazil recommends an <strong>Employer of Record (EOR)</strong> structure for these hires. Under this model, Wide Brazil becomes the formal legal employer of each professional in Brazil, issuing a compliant CLT employment contract, running payroll, and administering all statutory obligations — while the professional works exclusively under your client's day-to-day direction.</p>
+
+    <h2>Why This Structure Is Appropriate</h2>
+    <div class="two-col">
+      <div class="col-box">
+        <div class="col-box-header navy-bg">Compliance &amp; Risk</div>
+        <div class="col-box-body">
+          <ul>
+            <li>Full CLT compliance managed by Wide Brazil</li>
+            <li>Employer liability sits with Wide Brazil, not your client</li>
+            <li>Statutory filings, benefits, and terminations handled correctly from day one</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-box">
+        <div class="col-box-header teal-bg">Speed &amp; Simplicity</div>
+        <div class="col-box-body">
+          <ul>
+            <li>No need to incorporate a Brazilian entity</li>
+            <li>Onboarding can begin as soon as candidate data is confirmed</li>
+            <li>Scales cleanly — from a single hire to the full IT team</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <div class="callout-label">Note</div>
+      <p>This proposal outlines Wide Brazil's standard EOR structure, scope, and fee model for hiring in Brazil. A payroll cost simulation for one employee at an annual salary of USD 60,000, without optional benefits, is attached separately and should be read alongside this document.</p>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <div class="pf-brand">Wide Brazil <span>| EOR Proposal</span></div>
+    <div class="pf-disclaimer">Confidential — prepared solely for Hanover Search.</div>
+    <div class="pf-page">Page 2</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ PAGE 3 — SCOPE OF SERVICES ═══════════════════════════════ -->
+<div class="page inner-page">
+  <div class="page-header">
+    <div class="page-header-left">Wide Brazil <span>| Commercial Proposal</span></div>
+    <div class="page-header-right">EOR Brazil — Hanover Search</div>
+  </div>
+
+  <div class="page-body">
+    <div class="navy-section-header">
+      <div class="section-num">Section 02</div>
+      <div class="section-title">Scope of Services</div>
+      <div class="section-subtitle">What Wide Brazil manages for every employee under the EOR structure</div>
+    </div>
+
+    <div class="scope-block">
+      <div class="scope-area">Employment &amp; Onboarding</div>
+      <div class="scope-item">
+        <div class="scope-item-check">✓</div>
+        <div class="scope-item-text"><strong>CLT employment contract</strong> — drafted in Portuguese and English, tailored to the role and salary agreed.</div>
+      </div>
+      <div class="scope-item">
+        <div class="scope-item-check">✓</div>
+        <div class="scope-item-text"><strong>Employee registration</strong> — eSocial and all mandatory government registrations completed prior to the start date.</div>
+      </div>
+      <div class="scope-item">
+        <div class="scope-item-check">✓</div>
+        <div class="scope-item-text"><strong>Onboarding coordination</strong> — direct communication with each employee to collect documentation and activate benefits.</div>
+      </div>
+    </div>
+
+    <div class="scope-block">
+      <div class="scope-area">Payroll &amp; Compliance</div>
+      <div class="scope-item">
+        <div class="scope-item-check">✓</div>
+        <div class="scope-item-text"><strong>Monthly payroll processing</strong> — gross-to-net calculation, statutory withholdings, and net salary deposit in BRL.</div>
+      </div>
+      <div class="scope-item">
+        <div class="scope-item-check">✓</div>
+        <div class="scope-item-text"><strong>Statutory contributions</strong> — FGTS, INSS, RAT and Sistema S managed and remitted on schedule.</div>
+      </div>
+      <div class="scope-item">
+        <div class="scope-item-check">✓</div>
+        <div class="scope-item-text"><strong>Annual provisions</strong> — 13th salary and vacation accrued and paid in accordance with Brazilian labor law.</div>
+      </div>
+      <div class="scope-item">
+        <div class="scope-item-check">✓</div>
+        <div class="scope-item-text"><strong>Single consolidated invoice</strong> — one monthly invoice per employee, itemized and in USD.</div>
+      </div>
+    </div>
+
+    <div class="scope-block">
+      <div class="scope-area">Ongoing HR Support &amp; Offboarding</div>
+      <div class="scope-item">
+        <div class="scope-item-check">✓</div>
+        <div class="scope-item-text"><strong>HR administration</strong> — leave requests, salary changes, and day-to-day employment queries.</div>
+      </div>
+      <div class="scope-item">
+        <div class="scope-item-check">✓</div>
+        <div class="scope-item-text"><strong>Contract termination management</strong> — legally compliant offboarding, final settlement, and FGTS release when an assignment ends.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <div class="pf-brand">Wide Brazil <span>| EOR Proposal</span></div>
+    <div class="pf-disclaimer">Confidential — prepared solely for Hanover Search.</div>
+    <div class="pf-page">Page 3</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ PAGE 4 — BENEFITS ═══════════════════════════════ -->
+<div class="page inner-page">
+  <div class="page-header">
+    <div class="page-header-left">Wide Brazil <span>| Commercial Proposal</span></div>
+    <div class="page-header-right">EOR Brazil — Hanover Search</div>
+  </div>
+
+  <div class="page-body">
+    <div class="section-header-block">
+      <div class="section-num">Section 03</div>
+      <div class="section-title">Employee Benefits in Brazil</div>
+      <div class="section-subtitle">What every employee receives — mandatory by law, plus optional enhancements</div>
+    </div>
+
+    <p>Brazilian labor law establishes a set of mandatory benefits for all CLT employees. These are pass-through costs — Wide Brazil administers them and invoices your client at exact cost, with no markup.</p>
+
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <div class="benefit-card-top">
+          <div class="benefit-name">Meal Allowance (VR/VA)</div>
+          <span class="benefit-tag mandatory">Mandatory</span>
+        </div>
+        <div class="benefit-body">Daily food/meal voucher, typically R$ 24.80 per working day. Paid via a benefit card; non-taxable for the employee.</div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-card-top">
+          <div class="benefit-name">13th Salary</div>
+          <span class="benefit-tag mandatory">Mandatory</span>
+        </div>
+        <div class="benefit-body">One additional monthly salary paid annually, split across two installments (November and December).</div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-card-top">
+          <div class="benefit-name">Annual Paid Leave</div>
+          <span class="benefit-tag mandatory">Mandatory</span>
+        </div>
+        <div class="benefit-body">30 calendar days per year, plus a constitutional 1/3 bonus on top of the vacation salary.</div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-card-top">
+          <div class="benefit-name">FGTS</div>
+          <span class="benefit-tag mandatory">Mandatory</span>
+        </div>
+        <div class="benefit-body">Employer contribution of 8% of gross salary, deposited monthly into an employee severance fund account.</div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-card-top">
+          <div class="benefit-name">Life Insurance</div>
+          <span class="benefit-tag optional">Optional</span>
+        </div>
+        <div class="benefit-body">Group life insurance, commonly added as a market-competitive enhancement for professional roles.</div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-card-top">
+          <div class="benefit-name">Private Health Insurance</div>
+          <span class="benefit-tag optional">Optional</span>
+        </div>
+        <div class="benefit-body">Not statutory, but standard practice for IT and professional-level hires. Can be quoted on request.</div>
+      </div>
+    </div>
+
+    <div class="callout callout-navy">
+      <div class="callout-label">This Proposal</div>
+      <p>The attached payroll simulation was prepared without optional benefits, reflecting only the mandatory items above. Optional benefits such as health insurance or life insurance can be added and re-quoted at any time.</p>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <div class="pf-brand">Wide Brazil <span>| EOR Proposal</span></div>
+    <div class="pf-disclaimer">Confidential — prepared solely for Hanover Search.</div>
+    <div class="pf-page">Page 4</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ PAGE 5 — PRICING ═══════════════════════════════ -->
+<div class="page inner-page">
+  <div class="page-header">
+    <div class="page-header-left">Wide Brazil <span>| Commercial Proposal</span></div>
+    <div class="page-header-right">EOR Brazil — Hanover Search</div>
+  </div>
+
+  <div class="page-body">
+    <div class="navy-section-header">
+      <div class="section-num">Section 04</div>
+      <div class="section-title">Pricing</div>
+      <div class="section-subtitle">Transparent fee structure — what your client actually pays Wide Brazil</div>
+    </div>
+
+    <p>Wide Brazil's EOR fee is straightforward and applies per employee. It has two components: a fixed monthly retainer, and a GST/overhead percentage applied to the total employer payroll cost. Statutory costs and benefits are always pass-through, invoiced at exact cost with no markup.</p>
+
+    <table class="pricing-table">
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Description</th>
+          <th style="text-align:right">Rate</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="pt-item">Total Employer Payroll Cost</span><br>
+              <span class="pt-note">Gross salary + social charges + benefits + annual provisions</span></td>
+          <td class="pt-desc">Pass-through — no markup</td>
+          <td class="pt-value">At cost</td>
+        </tr>
+        <tr>
+          <td><span class="pt-item">Wide Brazil Fixed Retainer</span><br>
+              <span class="pt-note">Monthly fixed retainer, per employee</span></td>
+          <td class="pt-desc">EOR administration, legal compliance, HR support</td>
+          <td class="pt-value">$ 249</td>
+        </tr>
+        <tr>
+          <td><span class="pt-item">GST — 8.5%</span><br>
+              <span class="pt-note">Applied on total employer payroll cost</span></td>
+          <td class="pt-desc">Covers local taxes and statutory charges applicable in Brazil</td>
+          <td class="pt-value">8.5%</td>
+        </tr>
+        <tr class="pt-total">
+          <td><span class="pt-item">Total Monthly Invoice</span></td>
+          <td></td>
+          <td class="pt-value">Payroll cost + $ 249 + 8.5%</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      <div class="callout-label">How This Applies</div>
+      <p>The fixed retainer and 8.5% GST apply per employee, regardless of headcount. As the number of professionals placed in Brazil grows — from a single Project Manager to the full team — each employee is invoiced under the same fee structure, with no setup fee. A full cost simulation for one employee at USD 60,000 per year is attached separately.</p>
+    </div>
+
+    <h2>Volume Pricing</h2>
+    <p>The fixed retainer reduces with scale. Above 5 concurrent EOR employees, the monthly retainer drops from USD 249 to <strong>USD 149 per employee</strong>, applied automatically once the threshold is reached.</p>
+
+    <table class="pricing-table">
+      <thead>
+        <tr>
+          <th>Headcount</th>
+          <th>Fixed Retainer (per employee/month)</th>
+          <th style="text-align:right">GST</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="pt-item">1–5 employees</td>
+          <td class="pt-desc">$ 249</td>
+          <td class="pt-value">8.5%</td>
+        </tr>
+        <tr>
+          <td class="pt-item">6+ employees</td>
+          <td class="pt-desc">$ 149</td>
+          <td class="pt-value">8.5%</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>What's Included</h2>
+    <ul>
+      <li>No setup fee</li>
+      <li>Statutory employer costs (FGTS, INSS, RAT, Sistema S) are pass-through — no markup</li>
+      <li>Mandatory benefits are pass-through — itemized separately, no markup</li>
+      <li>GST covers local taxes and statutory charges applicable in Brazil</li>
+    </ul>
+  </div>
+
+  <div class="page-footer">
+    <div class="pf-brand">Wide Brazil <span>| EOR Proposal</span></div>
+    <div class="pf-disclaimer">Confidential — prepared solely for Hanover Search.</div>
+    <div class="pf-page">Page 5</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ PAGE 6 — NEXT STEPS ═══════════════════════════════ -->
+<div class="page inner-page">
+  <div class="page-header">
+    <div class="page-header-left">Wide Brazil <span>| Commercial Proposal</span></div>
+    <div class="page-header-right">EOR Brazil — Hanover Search</div>
+  </div>
+
+  <div class="page-body">
+    <div class="section-header-block">
+      <div class="section-num">Section 05</div>
+      <div class="section-title">Assumptions &amp; Next Steps</div>
+      <div class="section-subtitle">Conditions, exclusions, and the path forward</div>
+    </div>
+
+    <h2>Assumptions &amp; Exclusions</h2>
+    <div class="two-col">
+      <div class="col-box">
+        <div class="col-box-header navy-bg">Assumptions</div>
+        <div class="col-box-body">
+          <ul>
+            <li>Employees are already resident in Brazil, or immigration support is scoped separately if relocation is required</li>
+            <li>Pricing is based on the standard EOR fee structure — USD 249 fixed retainer + 8.5% GST per employee, reducing to USD 149 above 5 concurrent employees</li>
+            <li>The attached simulation assumes an annual salary of USD 60,000 without optional benefits</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-box">
+        <div class="col-box-header teal-bg">Exclusions</div>
+        <div class="col-box-body">
+          <ul>
+            <li>Recruitment and candidate sourcing are not included in this proposal</li>
+            <li>Visa or immigration support is not included and would be scoped separately</li>
+            <li>Optional benefits (health insurance, life insurance) are not reflected in the attached simulation</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <h2>Next Steps</h2>
+    <div class="step-row">
+      <div class="step-num"><span>1</span></div>
+      <div>
+        <div class="step-title">Confirm Candidate Details</div>
+        <div class="step-desc">Share job title, confirmed salary, and residency status for each professional as placements are finalized.</div>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-num"><span>2</span></div>
+      <div>
+        <div class="step-title">Service Agreement</div>
+        <div class="step-desc">Wide Brazil issues a service agreement covering the EOR engagement terms, liability scope, and invoicing structure.</div>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-num"><span>3</span></div>
+      <div>
+        <div class="step-title">Employee Onboarding</div>
+        <div class="step-desc">Wide Brazil prepares the compliant employment contract, completes government registrations, and activates benefits before the start date.</div>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-num"><span>4</span></div>
+      <div>
+        <div class="step-title">Ongoing Operations</div>
+        <div class="step-desc">Monthly payroll runs, statutory filings, and a single consolidated invoice per employee, in USD.</div>
+      </div>
+    </div>
+
+    <div class="contact-box">
+      <div class="contact-box-left">
+        <h3>Wide Brazil</h3>
+        <p>Workforce solutions for companies operating in Brazil and Latin America.</p>
+      </div>
+      <div class="contact-box-right">
+        <div class="contact-detail"><span>Contact</span>Victor Dias</div>
+        <div class="contact-detail"><span>Email</span>victor.dias@widebrazil.com</div>
+        <div class="contact-detail"><span>Phone</span>+351 965 043 393</div>
+        <div class="contact-detail"><span>Web</span>widebrazil.com</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <div class="pf-brand">Wide Brazil <span>| EOR Proposal</span></div>
+    <div class="pf-disclaimer">Confidential — prepared solely for Hanover Search.</div>
+    <div class="pf-page">Page 6</div>
+  </div>
+</div>
+
+</body>
+</html>
