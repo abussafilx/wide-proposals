@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Wide Brazil — Propuesta Comercial — Grupo Atlante</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0D1B2E;
+  --teal:#00C8C8;
+  --teal2:#00A8A8;
+  --green:#3DD68C;
+  --white:#FFFFFF;
+  --offwhite:#F7F9FC;
+  --lgray:#E8EDF3;
+  --gray:#8A94A6;
+  --text:#1A2535;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Source Serif 4',serif;color:var(--text);background:#ccc;}
+.page{
+  width:210mm;height:297mm;background:var(--white);
+  position:relative;overflow:hidden;margin:0 auto 8mm;
+  box-shadow:0 0 12px rgba(0,0,0,.15);
+}
+@media print{
+  body{background:none;}
+  .page{margin:0;box-shadow:none;page-break-after:always;}
+}
+
+/* ===== COVER ===== */
+.cover{background:var(--navy);color:var(--white);}
+.hex-group{position:absolute;inset:0;overflow:hidden;pointer-events:none;}
+.hex{position:absolute;border-radius:18px;transform:rotate(18deg);}
+.cover-top{display:flex;justify-content:space-between;align-items:center;padding:16mm 16mm 0;position:relative;z-index:2;}
+.cover-badge{background:rgba(0,200,200,.12);border:1px solid rgba(0,200,200,.4);border-radius:20px;padding:6px 16px;}
+.cover-badge-text{font-family:'Montserrat',sans-serif;font-size:8pt;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--teal);}
+.cover-content{padding:34mm 16mm 0;position:relative;z-index:2;}
+.cover-eyebrow{font-family:'Montserrat',sans-serif;font-size:9pt;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--teal);}
+.cover-divider{width:48px;height:3px;background:var(--teal);margin:14px 0 20px;}
+.cover-title{font-family:'Montserrat',sans-serif;font-weight:800;font-size:30pt;line-height:1.15;}
+.cover-title span{color:var(--teal);}
+.cover-subtitle{font-family:'Source Serif 4',serif;font-size:12pt;font-weight:300;color:rgba(255,255,255,.82);margin-top:14px;max-width:120mm;line-height:1.5;}
+.cover-tags{display:flex;gap:10px;margin-top:22px;}
+.cover-tag{font-family:'Montserrat',sans-serif;font-size:7.5pt;font-weight:700;letter-spacing:.5px;text-transform:uppercase;background:rgba(255,255,255,.08);padding:6px 13px;border-radius:14px;color:var(--white);}
+.cover-tag.outline{background:transparent;border:1px solid rgba(255,255,255,.35);}
+.cover-meta{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:14px 24px;padding:20mm 16mm 0;max-width:130mm;}
+.cover-meta-label{font-family:'Montserrat',sans-serif;font-size:7pt;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal);margin-bottom:4px;}
+.cover-meta-value{font-family:'Montserrat',sans-serif;font-size:10.5pt;font-weight:600;color:var(--white);}
+.cover-image-area{position:absolute;bottom:0;left:0;right:0;height:88mm;z-index:1;}
+.brazil-photo{position:relative;width:100%;height:100%;background:linear-gradient(180deg,rgba(13,27,46,0) 0%, rgba(13,27,46,.5) 55%, var(--navy) 100%);}
+.cover-hex-overlay{position:absolute;width:220px;height:220px;background:rgba(0,200,200,.05);border-radius:24px;transform:rotate(15deg);right:-40px;bottom:20px;}
+.cover-hex-overlay2{position:absolute;width:130px;height:130px;background:rgba(61,214,140,.06);border-radius:20px;transform:rotate(15deg);left:30px;bottom:60px;}
+.skyline{position:absolute;bottom:0;left:0;right:0;height:40mm;background:
+    linear-gradient(180deg, transparent 0%, rgba(0,200,200,.04) 100%);
+  clip-path:polygon(0% 100%,0% 55%,5% 55%,5% 40%,10% 40%,10% 60%,16% 60%,16% 30%,22% 30%,22% 65%,28% 65%,28% 45%,34% 45%,34% 70%,40% 70%,40% 25%,46% 25%,46% 60%,52% 60%,52% 38%,58% 38%,58% 68%,64% 68%,64% 48%,70% 48%,70% 20%,76% 20%,76% 58%,82% 58%,82% 42%,88% 42%,88% 66%,94% 66%,94% 35%,100% 35%,100% 100%);
+}
+.cover-footer{position:absolute;bottom:12mm;left:16mm;right:16mm;display:flex;justify-content:space-between;align-items:baseline;z-index:2;border-top:1px solid rgba(255,255,255,.15);padding-top:10px;}
+.cover-footer-url{font-family:'Montserrat',sans-serif;font-size:8pt;font-weight:700;color:var(--teal);letter-spacing:.5px;}
+.cover-footer-edition{font-family:'Montserrat',sans-serif;font-size:7.5pt;color:rgba(255,255,255,.55);}
+
+/* ===== INNER PAGES ===== */
+.inner-page{display:flex;flex-direction:column;}
+.page-header{display:flex;justify-content:space-between;padding:11mm 16mm 5mm;border-bottom:1.5px solid var(--lgray);}
+.page-header-left{font-family:'Montserrat',sans-serif;font-weight:800;font-size:9.5pt;color:var(--navy);}
+.page-header-left span{font-weight:600;color:var(--gray);}
+.page-header-right{font-family:'Montserrat',sans-serif;font-weight:600;font-size:8pt;color:var(--gray);}
+.page-body{flex:1;padding:9mm 16mm;overflow:hidden;}
+.page-footer{padding:5mm 16mm 10mm;display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--lgray);}
+.pf-brand{font-family:'Montserrat',sans-serif;font-weight:800;font-size:8pt;color:var(--navy);}
+.pf-brand span{font-weight:500;color:var(--gray);}
+.pf-disclaimer{font-family:'Montserrat',sans-serif;font-size:7pt;color:var(--gray);font-style:italic;}
+.pf-page{font-family:'Montserrat',sans-serif;font-size:7.5pt;color:var(--gray);}
+
+.section-header-block{border-left:4px solid var(--teal);padding-left:16px;margin-bottom:20px;}
+.navy-section-header{border-left:4px solid var(--navy);padding-left:16px;margin-bottom:20px;}
+.section-num{font-family:'Montserrat',sans-serif;font-size:8pt;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal2);}
+.navy-section-header .section-num{color:var(--navy);}
+.section-title{font-family:'Montserrat',sans-serif;font-size:17pt;font-weight:800;color:var(--navy);margin-top:2px;}
+.section-subtitle{font-family:'Source Serif 4',serif;font-size:9.5pt;color:var(--gray);margin-top:4px;font-style:italic;}
+
+.continuation-label{font-family:'Montserrat',sans-serif;font-weight:700;font-size:8pt;color:var(--teal2);letter-spacing:1px;text-transform:uppercase;border-bottom:1.5px solid var(--lgray);padding-bottom:8px;margin-bottom:18px;}
+
+p.body-text{font-size:10pt;line-height:1.65;margin-bottom:10px;color:var(--text);}
+p.body-text strong{color:var(--navy);}
+
+.callout{background:var(--offwhite);border-left:3px solid var(--teal);border-radius:4px;padding:12px 16px;margin:14px 0;}
+.callout-title{font-family:'Montserrat',sans-serif;font-size:8.5pt;font-weight:700;color:var(--navy);margin-bottom:5px;text-transform:uppercase;letter-spacing:.5px;}
+.callout p{font-size:9.3pt;line-height:1.55;}
+
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0;}
+.compare-card{border:1.5px solid var(--lgray);border-radius:6px;padding:14px;}
+.compare-card.reco{border-color:var(--teal);background:rgba(0,200,200,.04);}
+.compare-card-title{font-family:'Montserrat',sans-serif;font-weight:800;font-size:10pt;color:var(--navy);margin-bottom:8px;}
+.compare-card-title .tag{font-size:7pt;background:var(--teal);color:var(--white);padding:2px 8px;border-radius:10px;margin-left:6px;vertical-align:middle;}
+.compare-card ul{list-style:none;font-size:8.7pt;line-height:1.6;}
+.compare-card ul li{padding-left:14px;position:relative;margin-bottom:4px;}
+.compare-card ul li::before{content:"—";position:absolute;left:0;color:var(--teal2);}
+
+.scope-block{margin-bottom:16px;}
+.scope-area{font-family:'Montserrat',sans-serif;font-weight:800;font-size:9.5pt;color:var(--white);background:var(--navy);padding:7px 12px;border-radius:4px;margin-bottom:8px;letter-spacing:.3px;}
+.scope-item{display:flex;gap:10px;padding:6px 4px;border-bottom:1px solid var(--lgray);align-items:flex-start;}
+.scope-item-check{width:16px;height:16px;border-radius:50%;background:var(--teal);color:var(--white);font-size:8pt;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+.scope-item-text{font-size:9pt;line-height:1.5;}
+.scope-item-text strong{color:var(--navy);}
+
+.benefits-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.benefit-card{border:1.5px solid var(--lgray);border-radius:6px;padding:12px 14px;}
+.benefit-card-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;}
+.benefit-name{font-family:'Montserrat',sans-serif;font-weight:700;font-size:9.2pt;color:var(--navy);}
+.benefit-tag{font-family:'Montserrat',sans-serif;font-size:6.5pt;font-weight:800;text-transform:uppercase;letter-spacing:.5px;padding:3px 8px;border-radius:10px;}
+.benefit-tag.mandatory{background:rgba(13,27,46,.08);color:var(--navy);}
+.benefit-tag.optional{background:rgba(0,200,200,.12);color:var(--teal2);}
+.benefit-body{font-size:8.6pt;line-height:1.5;color:var(--text);}
+
+.sim-wrap{display:flex;flex-direction:column;gap:14px;}
+.sim-block{border:1.5px solid var(--lgray);border-radius:6px;overflow:hidden;}
+.sim-block-header{font-family:'Montserrat',sans-serif;font-weight:800;font-size:9.5pt;color:var(--white);padding:8px 14px;}
+.navy-bg{background:var(--navy);}
+.teal-bg{background:var(--teal2);}
+.sim-row-dual{display:flex;padding:6px 14px;border-bottom:1px solid var(--lgray);align-items:baseline;}
+.sim-row-header{background:var(--offwhite);padding:5px 14px;}
+.sim-label{font-family:'Montserrat',sans-serif;font-size:8.6pt;color:var(--text);}
+.sim-label.indent{padding-left:14px;color:var(--gray);font-weight:400;}
+.sim-col-head{width:78px;text-align:right;font-family:'Montserrat',sans-serif;font-size:7pt;font-weight:800;color:var(--gray);text-transform:uppercase;}
+.sim-value{width:78px;text-align:right;font-family:'Montserrat',sans-serif;font-size:8.8pt;font-weight:600;color:var(--text);}
+.sim-value.teal{color:var(--teal2);font-weight:800;}
+.sim-value.negative{color:#C0392B;}
+.sim-total-row-dual{display:flex;padding:9px 14px;background:var(--navy);align-items:baseline;}
+.sim-total-label{font-family:'Montserrat',sans-serif;font-size:9pt;font-weight:700;color:rgba(255,255,255,.9);}
+.sim-total-value{width:78px;text-align:right;font-family:'Montserrat',sans-serif;font-size:10pt;font-weight:900;color:var(--teal);}
+.sim-note{font-family:'Source Serif 4',serif;font-size:7.8pt;font-style:italic;color:var(--gray);padding:8px 14px;background:var(--offwhite);}
+
+.pricing-table{width:100%;border-collapse:collapse;margin:14px 0;font-family:'Montserrat',sans-serif;}
+.pricing-table thead th{background:var(--navy);color:var(--white);font-size:7.5pt;text-transform:uppercase;letter-spacing:.5px;padding:9px 12px;text-align:left;}
+.pricing-table tbody td{padding:10px 12px;border-bottom:1px solid var(--lgray);vertical-align:top;font-family:'Source Serif 4',serif;}
+.pt-item{font-family:'Montserrat',sans-serif;font-weight:700;font-size:9pt;color:var(--navy);}
+.pt-note{font-size:7.8pt;color:var(--gray);font-style:italic;}
+.pt-desc{font-size:8.5pt;color:var(--text);}
+.pt-value{font-family:'Montserrat',sans-serif;font-weight:800;font-size:9.5pt;color:var(--navy);text-align:right;}
+.pt-total td{background:var(--offwhite);}
+.pt-total .pt-value{color:var(--teal2);font-size:11pt;}
+
+.invoice-summary{border:1.5px solid var(--lgray);border-radius:4px;overflow:hidden;margin:14px 0;}
+.invoice-summary-row{display:flex;justify-content:space-between;align-items:baseline;padding:9px 16px;border-bottom:1px solid var(--lgray);}
+.invoice-summary-row:last-of-type{border-bottom:none;}
+.invoice-summary-row.total{background:var(--navy);}
+.invoice-summary-row.total .inv-label{color:rgba(255,255,255,.85);font-weight:700;}
+.invoice-summary-row.total .inv-value{color:var(--teal);font-size:12pt;font-weight:900;}
+.inv-label{font-family:'Montserrat',sans-serif;font-weight:600;font-size:8.5pt;color:var(--text);}
+.inv-value{font-family:'Montserrat',sans-serif;font-weight:800;font-size:9.5pt;color:var(--navy);}
+.inv-asterisk{font-family:'Source Serif 4',serif;font-size:7pt;color:var(--gray);font-style:italic;padding:6px 16px 8px;background:var(--offwhite);}
+
+.step-row{display:flex;gap:14px;margin-bottom:16px;align-items:flex-start;}
+.step-num{width:28px;height:28px;border-radius:50%;background:var(--navy);color:var(--white);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.step-num span{font-family:'Montserrat',sans-serif;font-weight:800;font-size:11pt;}
+.step-title{font-family:'Montserrat',sans-serif;font-weight:800;font-size:9.8pt;color:var(--navy);margin-bottom:3px;}
+.step-desc{font-size:9pt;line-height:1.5;color:var(--text);}
+
+.contact-box{display:flex;justify-content:space-between;background:var(--navy);border-radius:8px;padding:20px 24px;margin-top:18px;}
+.contact-box-left h3{font-family:'Montserrat',sans-serif;font-weight:800;font-size:13pt;color:var(--white);}
+.contact-box-left p{font-size:9pt;color:rgba(255,255,255,.7);margin-top:4px;max-width:65mm;}
+.contact-box-right{display:flex;flex-direction:column;gap:6px;}
+.contact-detail{font-family:'Montserrat',sans-serif;font-size:8.5pt;color:rgba(255,255,255,.9);}
+.contact-detail span{display:inline-block;width:60px;color:var(--teal);font-weight:700;text-transform:uppercase;font-size:7pt;letter-spacing:.5px;}
+
+.timeline-block{margin:14px 0;}
+.timeline-row{display:flex;gap:14px;padding:9px 0;border-bottom:1px solid var(--lgray);}
+.timeline-day{width:90px;flex-shrink:0;font-family:'Montserrat',sans-serif;font-weight:800;font-size:9pt;color:var(--teal2);}
+.timeline-text{font-size:9pt;line-height:1.5;}
+</style>
+</head>
+<body>
+
+<!-- ============ PAGE 1 — COVER ============ -->
+<div class="page cover">
+  <div class="hex-group">
+    <div class="hex" style="width:280px;height:280px;background:rgba(0,200,200,0.04);top:-60px;right:-50px;"></div>
+    <div class="hex" style="width:170px;height:170px;background:rgba(0,200,200,0.06);top:70px;right:90px;"></div>
+    <div class="hex" style="width:95px;height:95px;background:rgba(0,200,200,0.1);top:185px;right:205px;"></div>
+    <div class="hex" style="width:70px;height:70px;background:rgba(61,214,140,0.08);top:25px;right:245px;"></div>
+  </div>
+
+  <div class="cover-top">
+    <div class="cover-logo">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+           viewBox="440 390 1060 320" style="height:50px;width:auto;display:block;">
+        <defs>
+          <linearGradient id="lg" x1="528.00962" y1="437.79086" x2="693.52564" y2="437.79086"
+            gradientTransform="translate(0 1081.58265) scale(1 -1)" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#101827"/><stop offset="1" stop-color="#0ec668"/>
+          </linearGradient>
+          <linearGradient id="lg1" x1="438.90681" y1="505.95149" x2="604.42283" y2="505.95149"
+            gradientTransform="translate(0 1081.58265) scale(1 -1)" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#101827"/><stop offset="1" stop-color="#0ec668"/>
+          </linearGradient>
+          <linearGradient id="lg2" x1="712.59445" y1="474.81047" x2="460.26471" y2="699.39719"
+            gradientTransform="translate(0 1081.58265) scale(1 -1)" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#0ec668"/><stop offset="1" stop-color="#12ace6"/>
+          </linearGradient>
+        </defs>
+        <polygon fill="#ffffff" points="1067.75549 401.49997 1023.07159 544.20905 982.00995 404.26547 947.97415 404.26547 906.91302 544.20905 862.2291 401.49997 825.9744 401.49997 889.94604 595.09726 923.0683 595.09726 964.99228 462.89842 1006.63654 595.09726 1040.03796 595.09726 1104.0097 401.49997 1067.75549 401.49997"/>
+        <path fill="#ffffff" d="M1149.14148,401.49997v193.59729h-32.08148v-193.59729h32.08148Z"/>
+        <path fill="#ffffff" d="M1233.70984,401.49997c59.46155,0,102.33014,43.14445,102.33014,96.79817s-42.86859,96.79912-102.33014,96.79912h-66.37671v-193.59729h66.37671ZM1199.41461,562.73893h34.29523c38.99573,0,66.37579-27.38007,66.37579-64.44079s-27.38007-64.43983-66.37579-64.43983h-34.29523v128.88062Z"/>
+        <path fill="#ffffff" d="M1461.63257,401.49997v32.35833h-78.31946v40.93167h45.29926v32.35833h-45.29926v55.59062h78.31946v32.35834h-110.40094v-193.59729h110.40094Z"/>
+        <path fill="#ffffff" d="M1006.4671,663.3115c0,9.59277-7.51465,15.18848-21.9043,15.18848h-27.81934v-55.95898h26.2207c13.42969,0,20.625,5.67578,20.625,14.5498,0,5.75586-2.87793,9.99219-7.19531,12.31055,5.99609,1.91895,10.07324,6.63574,10.07324,13.91016ZM967.13608,630.69529v15.42871h14.70895c7.19434,0,11.27148-2.55859,11.27148-7.6748,0-5.19531-4.07715-7.75391-11.27148-7.75391h-14.70898ZM995.99445,662.27244c0-5.59668-4.2373-8.07422-12.07129-8.07422h-16.78711v16.14746h16.78711c7.83398,0,12.07129-2.47754,12.07129-8.07324Z"/>
+        <path fill="#ffffff" d="M1075.78156,678.49997l-11.43164-16.3877c-.71875.08008-1.43848.08008-2.1582.08008h-12.62988v16.30762h-10.39258v-55.95898h23.02246c14.70898,0,23.82227,7.51465,23.82227,19.90527,0,8.47461-4.31641,14.70996-11.91113,17.66699l12.87109,18.38672h-11.19238ZM1061.71228,631.33494h-12.15039v22.30371h12.15039c9.11328,0,13.83008-4.15723,13.83008-11.19238,0-7.03418-4.7168-11.11133-13.83008-11.11133Z"/>
+        <path fill="#ffffff" d="M1155.48859,665.54978h-27.97949l-5.51562,12.9502h-10.71191l25.18066-55.95898h10.23242l25.26172,55.95898h-10.87207l-5.5957-12.9502ZM1152.05109,657.39548l-10.55176-24.46191-10.47266,24.46191h21.02441Z"/>
+        <path fill="#ffffff" d="M1244.14978,669.70603v8.79395h-47.72461v-6.95508l32.93555-40.20996h-32.37598v-8.79395h46.12598v6.95508l-32.93555,40.20996h33.97461Z"/>
+        <path fill="#ffffff" d="M1275.25323,622.54099h10.39258v55.95898h-10.39258v-55.95898Z"/>
+        <path fill="#ffffff" d="M1322.34113,622.54099h10.39258v47.16504h29.25781v8.79395h-39.65039v-55.95898Z"/>
+        <rect fill="url(#lg)" x="591.52898" y="609.08361" width="93.76549" height="69.41637"/>
+        <rect fill="url(#lg1)" x="502.42616" y="540.92298" width="93.76549" height="69.41637"/>
+        <path fill="url(#lg2)" d="M773.49542,470.72999l43.49487,69.26999-87.9592,138.5h-88.79871l133.26303-207.76999ZM684.48682,401.49997l-158.30856,246.82742,18.93906,30.17258h46.68304l157.73888-245.92795-19.50873-31.07205h-45.5437ZM548.11559,401.49997l-89.74816,138.8298,43.95461,70.00955,133.95263-208.83936h-88.15908Z"/>
+      </svg>
+    </div>
+    <div class="cover-badge"><div class="cover-badge-text">Propuesta Comercial</div></div>
+  </div>
+
+  <div class="cover-content">
+    <div class="cover-eyebrow">Workforce Solutions · Brasil</div>
+    <div class="cover-divider"></div>
+    <div class="cover-title"><span>Empleador de Registro (EOR)</span><br>Contratación Puente en Brasil</div>
+    <div class="cover-subtitle">Contratación temporal de un profesional en Brasil mientras se resuelve su documentación migratoria en México.</div>
+    <div class="cover-tags">
+      <span class="cover-tag">EOR Temporal</span>
+      <span class="cover-tag">CLT Brasil</span>
+      <span class="cover-tag outline">Confidencial</span>
+    </div>
+  </div>
+
+  <div class="cover-meta">
+    <div class="cover-meta-item">
+      <div class="cover-meta-label">Preparado para</div>
+      <div class="cover-meta-value">Grupo Atlante</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="cover-meta-label">Contacto</div>
+      <div class="cover-meta-value">Miriam Jordán Veiga</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="cover-meta-label">Preparado por</div>
+      <div class="cover-meta-value">Wide Brazil</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="cover-meta-label">Fecha</div>
+      <div class="cover-meta-value">Julio 2026</div>
+    </div>
+  </div>
+
+  <div class="cover-image-area">
+    <div class="brazil-photo">
+      <div class="cover-hex-overlay"></div>
+      <div class="cover-hex-overlay2"></div>
+      <div class="skyline"></div>
+    </div>
+  </div>
+
+  <div class="cover-footer">
+    <span class="cover-footer-url">widebrazil.com</span>
+    <span class="cover-footer-edition">Confidencial · Preparado para Grupo Atlante · v1.0</span>
+  </div>
+</div>
+
+<!-- ============ PAGE 2 — CONTEXTO + ESTRUCTURA ============ -->
+<div class="page inner-page">
+  <div class="page-header">
+    <div class="page-header-left">Wide Brazil <span>| Propuesta Comercial</span></div>
+    <div class="page-header-right">EOR Brasil — Grupo Atlante</div>
+  </div>
+  <div class="page-body">
+    <div class="section-header-block">
+      <div class="section-num">Sección 01</div>
+      <div class="section-title">Contexto y Estructura Recomendada</div>
+      <div class="section-subtitle">Situación actual y solución propuesta por Wide Brazil</div>
+    </div>
+
+    <p class="body-text"><strong>Situación actual.</strong> Grupo Atlante necesita incorporar a una profesional que ya se encuentra físicamente en Brasil (São Paulo), mientras se tramita su visado de trabajo para México. El proceso migratorio puede tardar entre seis y ocho semanas, pero la operación de Grupo Atlante requiere que la profesional esté activa antes de que finalice el mes, ya que un cliente de Grupo Atlante está a la espera de su incorporación.</p>
+
+    <p class="body-text"><strong>Restricción clave.</strong> Grupo Atlante no cuenta con entidad legal propia en Brasil, por lo que no puede emplear directamente a la profesional en territorio brasileño sin asumir riesgo de informalidad laboral. Contratar sin cobertura legal local expone a la empresa a pasivos por relación de empleo no declarada ante la legislación brasileña (CLT).</p>
+
+    <div class="callout">
+      <div class="callout-title">Solución propuesta</div>
+      <p>Wide Brazil actúa como <strong>Empleador de Registro (EOR)</strong> en Brasil, contratando formalmente a la profesional bajo un <strong>contrato CLT por plazo determinado de 3 meses</strong>, mientras se resuelve la documentación migratoria en México. Al finalizar ese periodo, el contrato se cierra de forma ordenada y la profesional continúa su vínculo laboral en México, sin pasivo legal para Grupo Atlante en Brasil.</p>
+    </div>
+
+    <div class="compare-grid">
+      <div class="compare-card">
+        <div class="compare-card-title">Contratación directa / informal</div>
+        <ul>
+          <li>Sin cobertura legal en Brasil</li>
+          <li>Riesgo de vínculo laboral no declarado</li>
+          <li>Sin gestión de INSS, FGTS ni beneficios obligatorios</li>
+          <li>Expone a Grupo Atlante a pasivos retroactivos</li>
+        </ul>
+      </div>
+      <div class="compare-card reco">
+        <div class="compare-card-title">EOR Wide Brazil <span class="tag">Recomendado</span></div>
+        <ul>
+          <li>Contrato CLT temporal, 100% conforme a la ley brasileña</li>
+          <li>Wide Brazil asume el rol de empleador legal</li>
+          <li>Incorporación en 4–5 días hábiles</li>
+          <li>Cierre ordenado al finalizar el periodo puente</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="body-text">Esta estructura permite que la profesional empiece a trabajar esta misma semana, sin que Grupo Atlante deba constituir una entidad en Brasil ni asumir el riesgo de una relación laboral no formalizada. A continuación se detalla cómo funciona el plazo del contrato, sus renovaciones y las reglas de rescisión.</p>
+  </div>
+  <div class="page-footer">
+    <div class="pf-brand">Wide Brazil <span>| Propuesta EOR</span></div>
+    <div class="pf-disclaimer">Confidencial — preparado exclusivamente para Grupo Atlante.</div>
+    <div class="pf-page">Página 2</div>
+  </div>
+</div>
+
+<!-- ============ PAGE 2b — CONTINUACIÓN: REGLAS DEL CONTRATO ============ -->
+<div class="page inner-page">
+  <div class="page-header">
+    <div class="page-header-left">Wide Brazil <span>| Propuesta Comercial</span></div>
+    <div class="page-header-right">EOR Brasil — Grupo Atlante</div>
+  </div>
+  <div class="page-body">
+    <div class="continuation-label">Contexto y Estructura Recomendada — continuación</div>
+
+    <p class="body-text"><strong>Cómo funciona el contrato por plazo determinado de 3 meses</strong></p>
+
+    <div class="callout">
+      <div class="callout-title">Duración inicial</div>
+      <p>El contrato se firma por un plazo fijo de <strong>3 meses</strong>, bajo la modalidad de "contrato por prazo determinado" prevista en el Art. 443 de la CLT brasileña — válida para situaciones de naturaleza transitoria, como este caso puente hasta que la profesional cuente con su visado de trabajo en México.</p>
+    </div>
+
+    <div class="callout">
+      <div class="callout-title">Renovación</div>
+      <p>La legislación brasileña permite <strong>una única renovación</strong> de un contrato por plazo determinado sin que este se convierta automáticamente en un contrato por plazo indeterminado, siempre que la duración total (periodo inicial + renovación) no supere 2 años. Si el trámite migratorio en México se extiende más allá de los 3 meses iniciales, Wide Brazil puede renovar el contrato una vez, por el periodo adicional necesario. Una segunda renovación convertiría el vínculo en un contrato por plazo indeterminado.</p>
+    </div>
+
+    <div class="callout">
+      <div class="callout-title">Rescisión anticipada</div>
+      <p>Para dar a Grupo Atlante flexibilidad si la profesional se traslada a México antes de cumplirse los 3 meses, Wide Brazil incluye en el contrato una <strong>cláusula asegurativa de rescisión anticipada</strong> (Art. 481 CLT). Con esta cláusula, cualquiera de las partes puede terminar el contrato antes del plazo aplicando las mismas reglas de un contrato por plazo indeterminado (aviso previo y liquidación estándar), evitando la indemnización de hasta el 50% de los salarios restantes que la ley exige en ausencia de dicha cláusula (Art. 479 CLT).</p>
+    </div>
+
+    <div class="callout">
+      <div class="callout-title">Finalización natural del plazo</div>
+      <p>Si el contrato llega a su término de 3 meses sin renovación ni rescisión anticipada, la profesional recibe la liquidación proporcional de 13º salario y vacaciones + 1/3, y el retiro de su FGTS — <strong>sin la multa del 40% sobre el FGTS</strong>, ya que se trata del vencimiento natural del plazo y no de un despido sin justa causa.</p>
+    </div>
+  </div>
+  <div class="page-footer">
+    <div class="pf-brand">Wide Brazil <span>| Propuesta EOR</span></div>
+    <div class="pf-disclaimer">Confidencial — preparado exclusivamente para Grupo Atlante.</div>
+    <div class="pf-page">Página 2b</div>
+  </div>
+</div>
+<div class="page inner-page">
+  <div class="page-header">
+    <div class="page-header-left">Wide Brazil <span>| Propuesta Comercial</span></div>
+    <div class="page-header-right">EOR Brasil — Grupo Atlante</div>
+  </div>
+  <div class="page-body">
+    <div class="navy-section-header">
+      <div class="section-num">Sección 02</div>
+      <div class="section-title">Alcance del Servicio</div>
+      <div class="section-subtitle">Qué hace Wide Brazil durante el periodo de contratación puente</div>
+    </div>
+
+    <div class="scope-block">
+      <div class="scope-area">Contratación y Onboarding</div>
+      <div class="scope-item"><div class="scope-item-check">✓</div><div class="scope-item-text"><strong>Contrato CLT temporal</strong> — redactado en portugués y español, por plazo determinado de 3 meses</div></div>
+      <div class="scope-item"><div class="scope-item-check">✓</div><div class="scope-item-text"><strong>Contacto directo con la profesional</strong> — Wide Brazil se comunica en español/portugués para generar confianza y validar documentación</div></div>
+      <div class="scope-item"><div class="scope-item-check">✓</div><div class="scope-item-text"><strong>Plataforma de onboarding</strong> — carga de documentos y firma digital del contrato</div></div>
+      <div class="scope-item"><div class="scope-item-check">✓</div><div class="scope-item-text"><strong>Incorporación en 4–5 días hábiles</strong> desde la confirmación de Grupo Atlante</div></div>
+    </div>
+
+    <div class="scope-block">
+      <div class="scope-area">Nómina y Beneficios</div>
+      <div class="scope-item"><div class="scope-item-check">✓</div><div class="scope-item-text"><strong>Procesamiento mensual de nómina</strong> — cálculo de salario, cargas sociales y beneficios</div></div>
+      <div class="scope-item"><div class="scope-item-check">✓</div><div class="scope-item-text"><strong>Pago de beneficios obligatorios</strong> — vale comida/alimentación, seguro de vida</div></div>
+      <div class="scope-item"><div class="scope-item-check">✓</div><div class="scope-item-text"><strong>Provisión de 13º salario y vacaciones</strong> proporcional al periodo trabajado</div></div>
+    </div>
+
+    <div class="scope-block">
+      <div class="scope-area">Cumplimiento Legal</div>
+      <div class="scope-item"><div class="scope-item-check">✓</div><div class="scope-item-text"><strong>Aportes obligatorios</strong> — INSS patronal, FGTS, RAT y Sistema S</div></div>
+      <div class="scope-item"><div class="scope-item-check">✓</div><div class="scope-item-text"><strong>Registro formal del vínculo laboral</strong> ante los organismos brasileños correspondientes</div></div>
+      <div class="scope-item"><div class="scope-item-check">✓</div><div class="scope-item-text"><strong>Atención humana directa</strong> — teléfono, WhatsApp y correo electrónico, sin tickets ni burocracia</div></div>
+    </div>
+
+    <div class="scope-block">
+      <div class="scope-area">Cierre del Contrato (Offboarding)</div>
+      <div class="scope-item"><div class="scope-item-check">✓</div><div class="scope-item-text"><strong>Cierre ordenado</strong> al finalizar el periodo puente, coordinado con la fecha de activación en México</div></div>
+      <div class="scope-item"><div class="scope-item-check">✓</div><div class="scope-item-text"><strong>Liquidación de haberes finales</strong> conforme a la legislación brasileña</div></div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <div class="pf-brand">Wide Brazil <span>| Propuesta EOR</span></div>
+    <div class="pf-disclaimer">Confidencial — preparado exclusivamente para Grupo Atlante.</div>
+    <div class="pf-page">Página 3</div>
+  </div>
+</div>
+
+<!-- ============ PAGE 4 — BENEFICIOS ============ -->
+<div class="page inner-page">
+  <div class="page-header">
+    <div class="page-header-left">Wide Brazil <span>| Propuesta Comercial</span></div>
+    <div class="page-header-right">EOR Brasil — Grupo Atlante</div>
+  </div>
+  <div class="page-body">
+    <div class="section-header-block">
+      <div class="section-num">Sección 03</div>
+      <div class="section-title">Beneficios de la Profesional</div>
+      <div class="section-subtitle">Beneficios obligatorios durante el periodo de contrato CLT</div>
+    </div>
+
+    <p class="body-text">Aun tratándose de un contrato de corta duración, la legislación brasileña exige el pago proporcional de los mismos beneficios obligatorios que aplican a cualquier contrato CLT. Estos costos se muestran de forma transparente en la simulación de nómina, sin ningún margen adicional por parte de Wide Brazil.</p>
+
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <div class="benefit-card-top"><div class="benefit-name">Vale Comida / Alimentación (VR/VA)</div><span class="benefit-tag mandatory">Obligatorio</span></div>
+        <div class="benefit-body">Calculado sobre R$ 24,80 por día trabajado (22 días/mes), destinado a cubrir gastos de alimentación.</div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-card-top"><div class="benefit-name">Seguro de Vida</div><span class="benefit-tag mandatory">Obligatorio</span></div>
+        <div class="benefit-body">Cobertura estándar de seguro de vida grupal, aproximadamente R$ 270/mes.</div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-card-top"><div class="benefit-name">FGTS (Fondo de Garantía)</div><span class="benefit-tag mandatory">Obligatorio</span></div>
+        <div class="benefit-body">Depósito mensual del 8% sobre el salario bruto en cuenta vinculada a nombre de la profesional.</div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-card-top"><div class="benefit-name">13º Salario y Vacaciones Proporcionales</div><span class="benefit-tag mandatory">Obligatorio</span></div>
+        <div class="benefit-body">Provisión proporcional al tiempo trabajado, liquidada al finalizar el contrato.</div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <div class="callout-title">Nota sobre eficiencia fiscal</div>
+      <p>Todos los aportes y beneficios mostrados son costos de traspaso (<em>pass-through</em>) exigidos por la ley brasileña — Wide Brazil no aplica ningún margen sobre ellos. El único costo de servicio de Wide Brazil es el retenedor fijo mensual, más el VAT (impuestos locales brasileños) detallado en la Sección 05.</p>
+    </div>
+  </div>
+  <div class="page-footer">
+    <div class="pf-brand">Wide Brazil <span>| Propuesta EOR</span></div>
+    <div class="pf-disclaimer">Confidencial — preparado exclusivamente para Grupo Atlante.</div>
+    <div class="pf-page">Página 4</div>
+  </div>
+</div>
+
+<!-- ============ PAGE 5 — SIMULACIÓN DE NÓMINA ============ -->
+<div class="page inner-page">
+  <div class="page-header">
+    <div class="page-header-left">Wide Brazil <span>| Propuesta Comercial</span></div>
+    <div class="page-header-right">EOR Brasil — Grupo Atlante</div>
+  </div>
+  <div class="page-body">
+    <div class="navy-section-header">
+      <div class="section-num">Sección 04</div>
+      <div class="section-title">Simulación de Nómina Mensual</div>
+      <div class="section-subtitle">Salario base: € 40.000 brutos anuales (€ 3.333,33/mes) · Tipo de cambio del día: € 1 = R$ 5,86 · US$ 1 = R$ 5,12</div>
+    </div>
+
+    <div class="sim-wrap">
+      <div class="sim-block">
+        <div class="sim-block-header navy-bg">1. Costo Total para el Empleador</div>
+        <div class="sim-row-dual sim-row-header">
+          <span class="sim-label" style="flex:1"></span>
+          <span class="sim-col-head">BRL</span>
+          <span class="sim-col-head">USD</span>
+        </div>
+        <div class="sim-row-dual">
+          <span class="sim-label" style="flex:1">Salario Bruto</span>
+          <span class="sim-value">R$ 19.533,33</span><span class="sim-value">$ 3.814,32</span>
+        </div>
+        <div class="sim-row-dual">
+          <span class="sim-label indent" style="flex:1">FGTS — 8%</span>
+          <span class="sim-value">R$ 1.562,67</span><span class="sim-value">$ 305,21</span>
+        </div>
+        <div class="sim-row-dual">
+          <span class="sim-label indent" style="flex:1">INSS Patronal — 20%</span>
+          <span class="sim-value">R$ 3.906,67</span><span class="sim-value">$ 762,63</span>
+        </div>
+        <div class="sim-row-dual">
+          <span class="sim-label indent" style="flex:1">RAT (Accidentes de Trabajo) — 3%</span>
+          <span class="sim-value">R$ 586,00</span><span class="sim-value">$ 114,45</span>
+        </div>
+        <div class="sim-row-dual">
+          <span class="sim-label indent" style="flex:1">Sistema S — 5,8%</span>
+          <span class="sim-value">R$ 1.132,93</span><span class="sim-value">$ 221,28</span>
+        </div>
+        <div class="sim-row-dual" style="background:rgba(0,200,200,0.06)">
+          <span class="sim-label" style="flex:1;font-weight:600;color:#1A2535">Total Cargas Sociales (36,8%)</span>
+          <span class="sim-value teal">R$ 7.188,27</span><span class="sim-value teal">$ 1.403,96</span>
+        </div>
+        <div class="sim-row-dual">
+          <span class="sim-label" style="flex:1">Beneficios (Vale Comida + Seguro de Vida)</span>
+          <span class="sim-value">R$ 815,60</span><span class="sim-value">$ 159,30</span>
+        </div>
+        <div class="sim-row-dual">
+          <span class="sim-label" style="flex:1">Provisiones Anuales (13º + Vacaciones)</span>
+          <span class="sim-value">R$ 2.969,07</span><span class="sim-value">$ 579,90</span>
+        </div>
+        <div class="sim-total-row-dual">
+          <span class="sim-total-label" style="flex:1">Costo Total Mensual del Empleador</span>
+          <span class="sim-total-value">R$ 30.506,27</span>
+          <span class="sim-total-value">$ 5.958,26</span>
+        </div>
+        <div class="sim-note">Los aportes obligatorios y beneficios son costos de traspaso (pass-through). Sin margen aplicado por Wide Brazil.</div>
+      </div>
+
+      <div class="sim-block">
+        <div class="sim-block-header teal-bg">2. Salario Neto de la Profesional</div>
+        <div class="sim-row-dual">
+          <span class="sim-label" style="flex:1">Salario Bruto</span>
+          <span class="sim-value">R$ 19.533,33</span><span class="sim-value">$ 3.814,32</span>
+        </div>
+        <div class="sim-row-dual">
+          <span class="sim-label indent" style="flex:1">INSS del Empleado</span>
+          <span class="sim-value negative">(R$ 987,00)</span><span class="sim-value negative">($ 192,77)</span>
+        </div>
+        <div class="sim-row-dual">
+          <span class="sim-label indent" style="flex:1">IRRF (Impuesto a la Renta)</span>
+          <span class="sim-value negative">(R$ 4.204,24)</span><span class="sim-value negative">($ 821,14)</span>
+        </div>
+        <div class="sim-total-row-dual">
+          <span class="sim-total-label" style="flex:1">Salario Neto Mensual</span>
+          <span class="sim-total-value">R$ 14.342,09</span><span class="sim-total-value">$ 2.800,41</span>
+        </div>
+        <div class="sim-note">Depósito neto en la cuenta bancaria brasileña de la profesional.</div>
+      </div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <div class="pf-brand">Wide Brazil <span>| Propuesta EOR</span></div>
+    <div class="pf-disclaimer">Confidencial — preparado exclusivamente para Grupo Atlante.</div>
+    <div class="pf-page">Página 5</div>
+  </div>
+</div>
+
+<!-- ============ PAGE 6 — PRICING ============ -->
+<div class="page inner-page">
+  <div class="page-header">
+    <div class="page-header-left">Wide Brazil <span>| Propuesta Comercial</span></div>
+    <div class="page-header-right">EOR Brasil — Grupo Atlante</div>
+  </div>
+  <div class="page-body">
+    <div class="navy-section-header">
+      <div class="section-num">Sección 05</div>
+      <div class="section-title">Estructura de Precios</div>
+      <div class="section-subtitle">Facturación en USD, emitida desde Brasil</div>
+    </div>
+
+    <p class="body-text">Wide Brazil cobra un <strong>retenedor mensual fijo</strong> más el <strong>VAT</strong> aplicado sobre el costo total de nómina del empleador. El VAT corresponde a los <strong>impuestos locales brasileños</strong> que se generan al emitir la factura desde Brasil hacia un cliente extranjero — no es un margen de Wide Brazil, sino una carga tributaria establecida por la legislación fiscal brasileña.</p>
+
+    <table class="pricing-table">
+      <thead>
+        <tr>
+          <th>Concepto</th>
+          <th>Descripción</th>
+          <th style="text-align:right">Monto (USD)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="pt-item">Costo Total de Nómina del Empleador</span><br>
+              <span class="pt-note">Salario bruto + cargas sociales + beneficios + provisiones anuales</span></td>
+          <td class="pt-desc">Costo de traspaso — sin margen</td>
+          <td class="pt-value">$ 5.958,26</td>
+        </tr>
+        <tr>
+          <td><span class="pt-item">Retenedor Fijo Wide Brazil</span><br>
+              <span class="pt-note">Retenedor mensual fijo</span></td>
+          <td class="pt-desc">Administración del EOR, cumplimiento legal, soporte de RR.HH.</td>
+          <td class="pt-value">$ 249,00</td>
+        </tr>
+        <tr>
+          <td><span class="pt-item">VAT — 14,38%</span><br>
+              <span class="pt-note">Impuestos locales brasileños aplicados sobre el costo total de nómina del empleador</span></td>
+          <td class="pt-desc">Carga tributaria establecida por la legislación fiscal de Brasil sobre la factura emitida al exterior</td>
+          <td class="pt-value">$ 856,80</td>
+        </tr>
+        <tr class="pt-total">
+          <td><span class="pt-item">Total Factura Mensual</span></td>
+          <td></td>
+          <td class="pt-value">$ 7.064,06</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="invoice-summary">
+      <div class="invoice-summary-row">
+        <span class="inv-label">Costo Total de Nómina del Empleador (pass-through)</span>
+        <span class="inv-value">$ 5.958,26</span>
+      </div>
+      <div class="invoice-summary-row">
+        <span class="inv-label">Retenedor Fijo</span>
+        <span class="inv-value">$ 249,00</span>
+      </div>
+      <div class="invoice-summary-row">
+        <span class="inv-label">VAT — Impuestos locales brasileños (14,38% sobre costo de nómina)</span>
+        <span class="inv-value">$ 856,80</span>
+      </div>
+      <div class="invoice-summary-row total">
+        <span class="inv-label">Total Factura Mensual</span>
+        <span class="inv-value">$ 7.064,06</span>
+      </div>
+    </div>
+    <div class="inv-asterisk">* Facturación emitida desde Brasil. El costo de nómina puede variar levemente según el tipo de cambio EUR/BRL y USD/BRL vigente al momento del pago. El VAT corresponde a los impuestos locales brasileños generados por la emisión de la factura al exterior, no a un margen de Wide Brazil.</div>
+
+    <div class="callout">
+      <div class="callout-title">Duración del contrato</div>
+      <p>Este presupuesto corresponde a un mes completo de servicio dentro del contrato por plazo determinado de <strong>3 meses</strong>. El importe se factura mensualmente durante toda la vigencia del contrato. Si el trámite migratorio en México requiere más tiempo, el contrato puede renovarse una única vez, conforme a las reglas explicadas en la Sección 01.</p>
+    </div>
+  </div>
+  <div class="page-footer">
+    <div class="pf-brand">Wide Brazil <span>| Propuesta EOR</span></div>
+    <div class="pf-disclaimer">Confidencial — preparado exclusivamente para Grupo Atlante.</div>
+    <div class="pf-page">Página 6</div>
+  </div>
+</div>
+
+<!-- ============ PAGE 7 — PRÓXIMOS PASOS ============ -->
+<div class="page inner-page">
+  <div class="page-header">
+    <div class="page-header-left">Wide Brazil <span>| Propuesta Comercial</span></div>
+    <div class="page-header-right">EOR Brasil — Grupo Atlante</div>
+  </div>
+  <div class="page-body">
+    <div class="section-header-block">
+      <div class="section-num">Sección 06</div>
+      <div class="section-title">Próximos Pasos</div>
+      <div class="section-subtitle">Cronograma para activar la contratación esta misma semana</div>
+    </div>
+
+    <div class="step-row">
+      <div class="step-num"><span>1</span></div>
+      <div>
+        <div class="step-title">Confirmación de Grupo Atlante</div>
+        <div class="step-desc">Grupo Atlante revisa esta propuesta y da el visto bueno a Wide Brazil para iniciar el proceso.</div>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-num"><span>2</span></div>
+      <div>
+        <div class="step-title">Contacto directo con la profesional</div>
+        <div class="step-desc">Wide Brazil se comunica directamente con la profesional (por correo electrónico, conforme exige la ley brasileña) para explicar el proceso y solicitar la documentación necesaria.</div>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-num"><span>3</span></div>
+      <div>
+        <div class="step-title">Firma del contrato CLT</div>
+        <div class="step-desc">Se formaliza el contrato temporal y se cargan los documentos en la plataforma de onboarding.</div>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-num"><span>4</span></div>
+      <div>
+        <div class="step-title">Registro e inicio de actividades</div>
+        <div class="step-desc">Con el contrato firmado, la profesional queda registrada y puede iniciar sus actividades para el cliente de Grupo Atlante esta misma semana.</div>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-num"><span>5</span></div>
+      <div>
+        <div class="step-title">Cierre ordenado al finalizar el periodo puente</div>
+        <div class="step-desc">Cuando la documentación migratoria en México esté lista, Wide Brazil coordina el cierre del contrato en Brasil sin pasivo legal para Grupo Atlante.</div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <div class="callout-title">Supuestos de esta propuesta</div>
+      <p>Salario base de € 40.000 brutos anuales convertido a reales al tipo de cambio del día de emisión. Contrato por plazo determinado de 3 meses, con posibilidad de una única renovación si el trámite migratorio en México lo requiere. Sin beneficios opcionales adicionales solicitados por Grupo Atlante hasta la fecha.</p>
+    </div>
+
+    <div class="contact-box">
+      <div class="contact-box-left">
+        <h3>Wide Brazil</h3>
+        <p>Contratación humana, ágil y conforme — su socio EOR en Brasil.</p>
+      </div>
+      <div class="contact-box-right">
+        <div class="contact-detail"><span>Email</span>victor.dias@widebrazil.com</div>
+        <div class="contact-detail"><span>Web</span>widebrazil.com</div>
+        <div class="contact-detail"><span>Phone</span>+55 (11) 96450-7000</div>
+        <div class="contact-detail"><span>Location</span>São Paulo, Brasil</div>
+      </div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <div class="pf-brand">Wide Brazil <span>| Propuesta EOR</span></div>
+    <div class="pf-disclaimer">Confidencial — preparado exclusivamente para Grupo Atlante.</div>
+    <div class="pf-page">Página 7</div>
+  </div>
+</div>
+
+</body>
+</html>
