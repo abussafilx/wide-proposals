@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex,nofollow"/>
+<title>Wide LATAM — EOR Argentina Proposal — Black Mountain</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,600&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --ink:#101827; --ink2:#16203A;
+  --green:#0EC668; --blue:#12ACE6;
+  --grad:linear-gradient(100deg,#0EC668 0%,#12ACE6 100%);
+  --white:#FFFFFF; --offwhite:#F7F8F6; --lgray:#E7EAE6;
+  --text:#1A2433; --gray:#66738A;
+  --disp:'Bricolage Grotesque',sans-serif; --serif:'Source Serif 4',serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:var(--serif);color:var(--text);background:#ddd;}
+.page{width:210mm;min-height:297mm;background:var(--white);margin:0 auto 10px;position:relative;overflow:hidden;page-break-after:always;}
+@media print{ body{background:none;} .page{margin:0;box-shadow:none;} }
+
+/* ===== COVER ===== */
+.cover{background:var(--ink);color:var(--white);display:flex;flex-direction:column;justify-content:space-between;padding:20mm 16mm;}
+.hex-group{position:absolute;inset:0;pointer-events:none;}
+.hex{position:absolute;border-radius:18px;transform:rotate(18deg);}
+.cover-top{display:flex;justify-content:space-between;align-items:flex-start;position:relative;z-index:2;}
+.cover-badge{border:1px solid rgba(255,255,255,.3);border-radius:20px;padding:5px 14px;}
+.cover-badge-text{font-family:var(--disp);font-size:8.5pt;font-weight:600;letter-spacing:.5px;}
+.cover-content{position:relative;z-index:2;margin-top:60px;}
+.cover-eyebrow{font-family:var(--disp);font-size:9pt;font-weight:600;letter-spacing:2px;text-transform:uppercase;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+.cover-divider{width:40px;height:3px;background:var(--grad);margin:14px 0 20px;border-radius:2px;}
+.cover-title{font-family:var(--disp);font-weight:800;font-size:34pt;line-height:1.12;letter-spacing:-1px;}
+.cover-title span{display:block;}
+.cover-subtitle{font-family:var(--serif);font-weight:300;font-size:12pt;color:rgba(255,255,255,.75);margin-top:16px;max-width:420px;line-height:1.5;}
+.cover-tags{margin-top:22px;display:flex;gap:8px;}
+.cover-tag{font-family:var(--disp);font-size:8pt;font-weight:600;padding:5px 12px;border-radius:14px;background:rgba(255,255,255,.1);}
+.cover-tag.outline{border:1px solid rgba(255,255,255,.35);background:none;}
+.cover-meta{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:14px;margin-top:40px;border-top:1px solid rgba(255,255,255,.15);padding-top:18px;}
+.cover-meta-label{font-family:var(--disp);font-size:7pt;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,.5);margin-bottom:4px;}
+.cover-meta-value{font-family:var(--disp);font-size:9.5pt;font-weight:600;}
+.cover-footer{position:relative;z-index:2;display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(255,255,255,.15);padding-top:14px;}
+.cover-footer-url{font-family:var(--disp);font-size:8.5pt;font-weight:600;}
+.cover-footer-edition{font-family:var(--disp);font-size:7.5pt;color:rgba(255,255,255,.5);}
+.gtext{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+
+/* ===== INNER PAGES ===== */
+.inner-page{display:flex;flex-direction:column;padding:14mm 16mm;}
+.page-header{display:flex;justify-content:space-between;border-bottom:1px solid var(--lgray);padding-bottom:8px;margin-bottom:16px;}
+.page-header-left{font-family:var(--disp);font-size:8pt;font-weight:700;color:var(--ink);}
+.page-header-left span{color:var(--gray);font-weight:400;}
+.page-header-right{font-family:var(--disp);font-size:8pt;color:var(--gray);}
+.page-body{flex:1;}
+.page-footer{border-top:1px solid var(--lgray);padding-top:8px;margin-top:16px;display:flex;justify-content:space-between;align-items:center;}
+.pf-brand{font-family:var(--disp);font-size:7.5pt;font-weight:700;color:var(--ink);}
+.pf-brand span{color:var(--gray);font-weight:400;}
+.pf-disclaimer{font-family:var(--disp);font-size:7pt;color:var(--gray);}
+.pf-page{font-family:var(--disp);font-size:7.5pt;color:var(--gray);}
+
+.section-header-block{margin-bottom:16px;}
+.section-num{font-family:var(--disp);font-size:8pt;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+.section-title{font-family:var(--disp);font-weight:800;font-size:19pt;color:var(--ink);letter-spacing:-.5px;margin-top:4px;}
+.section-subtitle{font-family:var(--serif);font-size:9.5pt;color:var(--gray);margin-top:5px;max-width:520px;line-height:1.5;}
+
+p.body-text{font-size:9.5pt;line-height:1.65;margin-bottom:10px;}
+p.body-text strong{color:var(--ink);}
+.callout{border-left:3px solid var(--green);background:var(--offwhite);padding:10px 14px;font-size:8.7pt;line-height:1.55;margin:12px 0;border-radius:0 4px 4px 0;}
+.callout strong{color:var(--ink);}
+
+.meta-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0;}
+.meta-cell{border:1px solid var(--lgray);border-radius:6px;padding:9px 12px;}
+.meta-cell-label{font-family:var(--disp);font-size:7pt;text-transform:uppercase;letter-spacing:.5px;color:var(--gray);}
+.meta-cell-value{font-family:var(--disp);font-size:9.5pt;font-weight:700;color:var(--ink);margin-top:2px;}
+
+.charge-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0;}
+.charge-card{border:1px solid var(--lgray);border-radius:6px;padding:11px 13px;}
+.charge-card-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:5px;}
+.charge-name{font-family:var(--disp);font-weight:700;font-size:9pt;color:var(--ink);}
+.charge-rate{font-family:var(--disp);font-weight:800;font-size:10.5pt;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+.charge-desc{font-size:8.2pt;color:var(--gray);line-height:1.5;}
+
+.benefits-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0;}
+.benefit-card{border:1px solid var(--lgray);border-radius:6px;padding:11px 13px;}
+.benefit-card-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;}
+.benefit-name{font-family:var(--disp);font-weight:700;font-size:9pt;color:var(--ink);}
+.benefit-tag{font-family:var(--disp);font-size:6.5pt;font-weight:700;text-transform:uppercase;padding:3px 8px;border-radius:10px;letter-spacing:.3px;}
+.benefit-tag.mandatory{background:rgba(14,198,104,.12);color:#0a9a52;}
+.benefit-tag.optional{background:rgba(18,172,230,.12);color:#0f8ec2;}
+.benefit-body{font-size:8.2pt;color:var(--gray);line-height:1.5;}
+
+.scope-area{font-family:var(--disp);font-weight:700;font-size:9.5pt;color:var(--ink);margin:14px 0 8px;text-transform:uppercase;letter-spacing:.5px;}
+.scope-item{display:flex;gap:10px;padding:6px 0;border-bottom:1px solid var(--offwhite);}
+.scope-item-check{width:16px;height:16px;border-radius:50%;background:var(--grad);color:#fff;font-size:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;}
+.scope-item-text{font-size:9pt;line-height:1.5;}
+.scope-item-text strong{color:var(--ink);}
+
+.sim-block{border:1px solid var(--lgray);border-radius:6px;overflow:hidden;margin:14px 0;}
+.sim-block-header{padding:9px 14px;color:#fff;font-family:var(--disp);font-weight:700;font-size:9pt;}
+.sim-block-header.dark-bg{background:var(--ink);}
+.sim-block-header.grad-bg{background:var(--grad);}
+.sim-row-dual{display:flex;padding:6px 14px;font-size:8.2pt;border-bottom:1px solid var(--offwhite);align-items:baseline;}
+.sim-row-dual.header .sim-col-head{font-family:var(--disp);font-size:6.8pt;text-transform:uppercase;color:var(--gray);letter-spacing:.5px;}
+.sim-label{font-family:var(--disp);}
+.sim-label.indent{padding-left:10px;color:var(--gray);}
+.sim-value{width:110px;text-align:right;font-family:var(--disp);font-weight:600;font-variant-numeric:tabular-nums;}
+.sim-total-row-dual{display:flex;padding:10px 14px;background:var(--offwhite);border-top:1.5px solid var(--ink);align-items:baseline;}
+.sim-total-label{font-family:var(--disp);font-weight:700;font-size:8.8pt;color:var(--ink);}
+.sim-total-value{width:110px;text-align:right;font-family:var(--disp);font-weight:800;font-size:9.8pt;color:var(--ink);}
+.sim-note{font-size:7pt;color:var(--gray);padding:6px 14px 9px;font-family:var(--serif);font-style:italic;background:var(--offwhite);}
+
+table.pricing-table{width:100%;border-collapse:collapse;margin:12px 0;font-size:8.3pt;}
+table.pricing-table th{background:var(--ink);color:#fff;font-family:var(--disp);font-size:7.3pt;text-transform:uppercase;letter-spacing:.5px;text-align:left;padding:8px 10px;}
+table.pricing-table th.r, table.pricing-table td.r{text-align:right;}
+table.pricing-table td{padding:8px 10px;border-bottom:1px solid var(--lgray);vertical-align:top;}
+table.pricing-table tr.total td{background:var(--offwhite);font-weight:800;color:var(--ink);border-top:1.5px solid var(--ink);}
+.pt-item{font-family:var(--disp);font-weight:700;font-size:8.5pt;color:var(--ink);}
+.pt-note{font-size:7pt;color:var(--gray);}
+.pt-value{font-family:var(--disp);font-weight:700;font-variant-numeric:tabular-nums;}
+
+.invoice-summary{border:1.5px solid var(--lgray);border-radius:6px;overflow:hidden;margin:14px 0;}
+.invoice-summary-row{display:flex;justify-content:space-between;align-items:baseline;padding:9px 14px;border-bottom:1px solid var(--lgray);}
+.invoice-summary-row:last-of-type{border-bottom:none;}
+.invoice-summary-row.total{background:var(--ink);}
+.invoice-summary-row.total .inv-label{color:rgba(255,255,255,.85);font-weight:700;}
+.invoice-summary-row.total .inv-value{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:11pt;font-weight:800;}
+.inv-label{font-family:var(--disp);font-weight:600;font-size:8pt;color:var(--text);}
+.inv-value{font-family:var(--disp);font-weight:700;font-size:9pt;color:var(--ink);font-variant-numeric:tabular-nums;}
+
+.step-row{display:flex;gap:12px;margin-bottom:14px;}
+.step-num{width:26px;height:26px;border-radius:50%;background:var(--grad);color:#fff;font-family:var(--disp);font-weight:800;font-size:10pt;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.step-title{font-family:var(--disp);font-weight:700;font-size:9.5pt;color:var(--ink);}
+.step-desc{font-size:8.7pt;color:var(--gray);line-height:1.5;margin-top:2px;}
+
+.contact-box{display:flex;justify-content:space-between;background:var(--ink);color:#fff;border-radius:8px;padding:18px 20px;margin-top:16px;gap:20px;}
+.contact-box-left h3{font-family:var(--disp);font-size:13pt;font-weight:800;}
+.contact-box-left p{font-size:8.5pt;color:rgba(255,255,255,.7);margin-top:6px;max-width:230px;}
+.contact-box-right{font-family:var(--disp);font-size:8pt;}
+.contact-detail{margin-bottom:5px;}
+.contact-detail span{display:block;font-size:6.5pt;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.5px;}
+
+ul.assump-list{margin:8px 0 8px 16px;font-size:8.4pt;line-height:1.6;}
+ul.assump-list li{margin-bottom:4px;}
+</style>
+</head>
+<body>
+
+<!-- ============ PAGE 1 — COVER ============ -->
+<div class="page cover">
+  <div class="hex-group">
+    <div class="hex" style="width:280px;height:280px;background:rgba(14,198,104,0.06);top:-60px;right:-50px;"></div>
+    <div class="hex" style="width:170px;height:170px;background:rgba(18,172,230,0.07);top:70px;right:90px;"></div>
+    <div class="hex" style="width:95px;height:95px;background:rgba(14,198,104,0.1);top:185px;right:205px;"></div>
+  </div>
+
+  <div class="cover-top">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="440 390 1060 320" style="height:34px;width:auto">
+      <defs>
+        <linearGradient id="lg" x1="528.00962" y1="437.79086" x2="693.52564" y2="437.79086" gradientTransform="translate(0 1081.58265) scale(1 -1)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#101827"/><stop offset="1" stop-color="#0ec668"/></linearGradient>
+        <linearGradient id="lg1" x1="438.90681" y1="505.95149" x2="604.42283" y2="505.95149" gradientTransform="translate(0 1081.58265) scale(1 -1)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#101827"/><stop offset="1" stop-color="#0ec668"/></linearGradient>
+        <linearGradient id="lg2" x1="712.59445" y1="474.81047" x2="460.26471" y2="699.39719" gradientTransform="translate(0 1081.58265) scale(1 -1)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#0ec668"/><stop offset="1" stop-color="#12ace6"/></linearGradient>
+      </defs>
+      <polygon fill="#ffffff" points="1067.75549 401.49997 1023.07159 544.20905 982.00995 404.26547 947.97415 404.26547 906.91302 544.20905 862.2291 401.49997 825.9744 401.49997 889.94604 595.09726 923.0683 595.09726 964.99228 462.89842 1006.63654 595.09726 1040.03796 595.09726 1104.0097 401.49997 1067.75549 401.49997"/>
+      <path fill="#ffffff" d="M1149.14148,401.49997v193.59729h-32.08148v-193.59729h32.08148Z"/>
+      <path fill="#ffffff" d="M1233.70984,401.49997c59.46155,0,102.33014,43.14445,102.33014,96.79817s-42.86859,96.79912-102.33014,96.79912h-66.37671v-193.59729h66.37671ZM1199.41461,562.73893h34.29523c38.99573,0,66.37579-27.38007,66.37579-64.44079s-27.38007-64.43983-66.37579-64.43983h-34.29523v128.88062Z"/>
+      <path fill="#ffffff" d="M1461.63257,401.49997v32.35833h-78.31946v40.93167h45.29926v32.35833h-45.29926v55.59062h78.31946v32.35834h-110.40094v-193.59729h110.40094Z"/>
+      <path fill="#ffffff" d="M1006.4671,663.3115c0,9.59277-7.51465,15.18848-21.9043,15.18848h-27.81934v-55.95898h26.2207c13.42969,0,20.625,5.67578,20.625,14.5498,0,5.75586-2.87793,9.99219-7.19531,12.31055,5.99609,1.91895,10.07324,6.63574,10.07324,13.91016ZM967.13608,630.69529v15.42871h14.70895c7.19434,0,11.27148-2.55859,11.27148-7.6748,0-5.19531-4.07715-7.75391-11.27148-7.75391h-14.70898ZM995.99445,662.27244c0-5.59668-4.2373-8.07422-12.07129-8.07422h-16.78711v16.14746h16.78711c7.83398,0,12.07129-2.47754,12.07129-8.07324Z"/>
+      <path fill="#ffffff" d="M1075.78156,678.49997l-11.43164-16.3877c-.71875.08008-1.43848.08008-2.1582.08008h-12.62988v16.30762h-10.39258v-55.95898h23.02246c14.70898,0,23.82227,7.51465,23.82227,19.90527,0,8.47461-4.31641,14.70996-11.91113,17.66699l12.87109,18.38672h-11.19238ZM1061.71228,631.33494h-12.15039v22.30371h12.15039c9.11328,0,13.83008-4.15723,13.83008-11.19238,0-7.03418-4.7168-11.11133-13.83008-11.11133Z"/>
+      <path fill="#ffffff" d="M1155.48859,665.54978h-27.97949l-5.51562,12.9502h-10.71191l25.18066-55.95898h10.23242l25.26172,55.95898h-10.87207l-5.5957-12.9502ZM1152.05109,657.39548l-10.55176-24.46191-10.47266,24.46191h21.02441Z"/>
+      <path fill="#ffffff" d="M1244.14978,669.70603v8.79395h-47.72461v-6.95508l32.93555-40.20996h-32.37598v-8.79395h46.12598v6.95508l-32.93555,40.20996h33.97461Z"/>
+      <path fill="#ffffff" d="M1275.25323,622.54099h10.39258v55.95898h-10.39258v-55.95898Z"/>
+      <path fill="#ffffff" d="M1322.34113,622.54099h10.39258v47.16504h29.25781v8.79395h-39.65039v-55.95898Z"/>
+      <rect fill="url(#lg)" x="591.52898" y="609.08361" width="93.76549" height="69.41637"/>
+      <rect fill="url(#lg1)" x="502.42616" y="540.92298" width="93.76549" height="69.41637"/>
+      <path fill="url(#lg2)" d="M773.49542,470.72999l43.49487,69.26999-87.9592,138.5h-88.79871l133.26303-207.76999ZM684.48682,401.49997l-158.30856,246.82742,18.93906,30.17258h46.68304l157.73888-245.92795-19.50873-31.07205h-45.5437ZM548.11559,401.49997l-89.74816,138.8298,43.95461,70.00955,133.95263-208.83936h-88.15908Z"/>
+    </svg>
+    <div class="cover-badge"><div class="cover-badge-text">Commercial Proposal</div></div>
+  </div>
+
+  <div class="cover-content">
+    <div class="cover-eyebrow">Workforce Solutions · Argentina</div>
+    <div class="cover-divider"></div>
+    <div class="cover-title"><span>Employer of Record</span>Hiring in Argentina — Cost &amp; Compliance Overview</div>
+    <div class="cover-subtitle">A general overview of statutory employer costs, mandatory benefits, and Wide LATAM's fee structure for hiring an employee in Argentina at a gross monthly salary of USD 5,000.</div>
+    <div class="cover-tags">
+      <span class="cover-tag">EOR — Argentina</span>
+      <span class="cover-tag">Illustrative Simulation</span>
+      <span class="cover-tag outline">Confidential</span>
+    </div>
+  </div>
+
+  <div class="cover-meta">
+    <div class="meta-item">
+      <div class="cover-meta-label">Prepared for</div>
+      <div class="cover-meta-value">Black Mountain</div>
+    </div>
+    <div class="meta-item">
+      <div class="cover-meta-label">Contact</div>
+      <div class="cover-meta-value">Simon</div>
+    </div>
+    <div class="meta-item">
+      <div class="cover-meta-label">Prepared by</div>
+      <div class="cover-meta-value">Wide LATAM · Victor Dias</div>
+    </div>
+    <div class="meta-item">
+      <div class="cover-meta-label">Date</div>
+      <div class="cover-meta-value">July 2026</div>
+    </div>
+  </div>
+
+  <div class="cover-footer">
+    <span class="cover-footer-url">widelatam.com</span>
+    <span class="cover-footer-edition">Confidential · Prepared for Black Mountain · v1.0</span>
+  </div>
+</div>
+
+<!-- ============ PAGE 2 — CONTEXT & EMPLOYER CHARGES ============ -->
+<div class="page inner-page">
+  <div class="page-header">
+    <div class="page-header-left">Wide LATAM <span>| Commercial Proposal</span></div>
+    <div class="page-header-right">EOR Argentina — Black Mountain</div>
+  </div>
+  <div class="page-body">
+    <div class="section-header-block">
+      <div class="section-num">Section 01</div>
+      <div class="section-title">Hiring in Argentina — What It Costs</div>
+      <div class="section-subtitle">Project details are still to be confirmed. This overview uses an illustrative gross salary of USD 5,000/month to walk through the statutory charges and benefits that apply to any employee hired in Argentina.</div>
+    </div>
+
+    <p class="body-text">Wide LATAM employs the professional through its own operational Argentine entity, acting as the registered employer of record. This removes the need for Black Mountain to set up a local entity while keeping the employment relationship fully compliant with Argentine labor law. Below is a breakdown of the mandatory employer contributions that apply on top of gross salary, and the statutory benefits the employee is entitled to.</p>
+
+    <div class="scope-area">Mandatory Employer Contributions (on gross salary)</div>
+    <div class="charge-grid">
+      <div class="charge-card">
+        <div class="charge-card-top"><span class="charge-name">Jubilación (Pension)</span><span class="charge-rate">10.77%</span></div>
+        <div class="charge-desc">Employer contribution to the national pension system, calculated on gross salary less a small fixed statutory deduction (Ley 27.541).</div>
+      </div>
+      <div class="charge-card">
+        <div class="charge-card-top"><span class="charge-name">INSSJP (PAMI)</span><span class="charge-rate">1.59%</span></div>
+        <div class="charge-desc">Funds the national retirees' healthcare institute (PAMI). Mandatory on every registered employment relationship.</div>
+      </div>
+      <div class="charge-card">
+        <div class="charge-card-top"><span class="charge-name">Fondo Nacional de Empleo</span><span class="charge-rate">0.94%</span></div>
+        <div class="charge-desc">National Employment Fund, financing unemployment insurance and job-training programs.</div>
+      </div>
+      <div class="charge-card">
+        <div class="charge-card-top"><span class="charge-name">Asignaciones Familiares</span><span class="charge-rate">4.70%</span></div>
+        <div class="charge-desc">Family allowances fund — finances child, marriage and other family-related statutory benefits paid via ANSES.</div>
+      </div>
+      <div class="charge-card">
+        <div class="charge-card-top"><span class="charge-name">Obra Social (Health Plan)</span><span class="charge-rate">6.00%</span></div>
+        <div class="charge-desc">Mandatory contribution to the employee's health insurance plan (Obra Social), calculated on full gross salary.</div>
+      </div>
+      <div class="charge-card">
+        <div class="charge-card-top"><span class="charge-name">ART (Work Accident Insurance)</span><span class="charge-rate">2.89%</span></div>
+        <div class="charge-desc">Workplace accident insurance premium — variable rate depending on role risk classification; 2.89% is the standard office-role rate.</div>
+      </div>
+    </div>
+    <p class="body-text" style="font-size:8pt;color:var(--gray);">Plus two small fixed monthly amounts: Fondo Fiduciario (ART fixed component) and mandatory life insurance (Seguro de Vida Obligatorio) — together under ARS 2,200/month, immaterial at this salary level.</p>
+  </div>
+  <div class="page-footer">
+    <div class="pf-brand">Wide LATAM <span>| EOR Proposal</span></div>
+    <div class="pf-disclaimer">Confidential — prepared solely for Black Mountain.</div>
+    <div class="pf-page">Page 2</div>
+  </div>
+</div>
+
+<!-- ============ PAGE 3 — BENEFITS ============ -->
+<div class="page inner-page">
+  <div class="page-header">
+    <div class="page-header-left">Wide LATAM <span>| Commercial Proposal</span></div>
+    <div class="page-header-right">EOR Argentina — Black Mountain</div>
+  </div>
+  <div class="page-body">
+    <div class="section-header-block">
+      <div class="section-num">Section 02</div>
+      <div class="section-title">Employee Benefits &amp; Deductions</div>
+      <div class="section-subtitle">What the employee receives, and what is withheld from gross salary to arrive at net pay.</div>
+    </div>
+
+    <div class="scope-area">Mandatory Benefits</div>
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <div class="benefit-card-top"><div class="benefit-name">Aguinaldo (13th Salary)</div><span class="benefit-tag mandatory">Mandatory</span></div>
+        <div class="benefit-body">Paid in two installments (June and December), each equal to 50% of the highest monthly salary in the semester. Shown as a monthly provision in the Section 03 simulation.</div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-card-top"><div class="benefit-name">Vacaciones (Paid Leave)</div><span class="benefit-tag mandatory">Mandatory</span></div>
+        <div class="benefit-body">14 to 35 calendar days per year depending on tenure, paid at full salary. Shown as a monthly provision in the Section 03 simulation (14 days/year assumed for &lt;5 years' tenure).</div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-card-top"><div class="benefit-name">Obra Social (Health Plan)</div><span class="benefit-tag mandatory">Mandatory</span></div>
+        <div class="benefit-body">Access to the national health insurance system, funded jointly by employer (6%) and employee (3%) contributions.</div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-card-top"><div class="benefit-name">ART Coverage</div><span class="benefit-tag mandatory">Mandatory</span></div>
+        <div class="benefit-body">Full workplace accident insurance, fully employer-funded, covering medical treatment and disability compensation.</div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-card-top"><div class="benefit-name">Private Health Upgrade</div><span class="benefit-tag optional">Optional</span></div>
+        <div class="benefit-body">Many employers top up the mandatory Obra Social with a private prepaid medicine plan (e.g. OSDE, Swiss Medical) — typically USD 80–150/month, quoted separately if desired.</div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-card-top"><div class="benefit-name">Meal / Remote Work Allowance</div><span class="benefit-tag optional">Optional</span></div>
+        <div class="benefit-body">Not a statutory requirement in Argentina, but a common market practice for competitive packages — can be structured as a non-remunerative allowance if desired.</div>
+      </div>
+    </div>
+
+    <div class="scope-area">Employee-Side Deductions (from gross to net)</div>
+    <div class="charge-grid">
+      <div class="charge-card">
+        <div class="charge-card-top"><span class="charge-name">Aporte Jubilación</span><span class="charge-rate">11%</span></div>
+        <div class="charge-desc">Employee's own pension contribution, withheld from gross salary.</div>
+      </div>
+      <div class="charge-card">
+        <div class="charge-card-top"><span class="charge-name">Aporte INSSJP + Obra Social</span><span class="charge-rate">3% + 3%</span></div>
+        <div class="charge-desc">Employee's contribution to PAMI and to their own health plan.</div>
+      </div>
+    </div>
+    <div class="callout">All three employee-side deductions are calculated on gross salary <strong>up to a statutory cap</strong> (ARS 4,414,652.38/month as of this proposal). Above the cap, the deduction amount stays flat even as gross salary increases.</div>
+  </div>
+  <div class="page-footer">
+    <div class="pf-brand">Wide LATAM <span>| EOR Proposal</span></div>
+    <div class="pf-disclaimer">Confidential — prepared solely for Black Mountain.</div>
+    <div class="pf-page">Page 3</div>
+  </div>
+</div>
+
+<!-- ============ PAGE 4 — SIMULATION ============ -->
+<div class="page inner-page">
+  <div class="page-header">
+    <div class="page-header-left">Wide LATAM <span>| Commercial Proposal</span></div>
+    <div class="page-header-right">EOR Argentina — Black Mountain</div>
+  </div>
+  <div class="page-body">
+    <div class="section-header-block">
+      <div class="section-num">Section 03</div>
+      <div class="section-title">Payroll Simulation — USD 5,000 Gross</div>
+      <div class="section-subtitle">Illustrative monthly employer cost and employee net pay, calculated with Wide LATAM's Argentine payroll partner rates. Exchange rate: ARS 1,490 / USD.</div>
+    </div>
+
+    <div class="sim-block">
+      <div class="sim-block-header dark-bg">1. Total Employer Cost</div>
+      <div class="sim-row-dual header"><span class="sim-label" style="flex:1"></span><span class="sim-col-head" style="width:110px;text-align:right">ARS</span><span class="sim-col-head" style="width:110px;text-align:right">USD</span></div>
+      <div class="sim-row-dual"><span class="sim-label" style="flex:1">Gross Salary</span><span class="sim-value">7,450,000</span><span class="sim-value">5,000.00</span></div>
+      <div class="sim-row-dual"><span class="sim-label indent" style="flex:1">Jubilación — 10.77%</span><span class="sim-value">801,611</span><span class="sim-value">538.00</span></div>
+      <div class="sim-row-dual"><span class="sim-label indent" style="flex:1">INSSJP — 1.59%</span><span class="sim-value">118,344</span><span class="sim-value">79.42</span></div>
+      <div class="sim-row-dual"><span class="sim-label indent" style="flex:1">Fondo Nacional de Empleo — 0.94%</span><span class="sim-value">69,964</span><span class="sim-value">46.96</span></div>
+      <div class="sim-row-dual"><span class="sim-label indent" style="flex:1">Asignaciones Familiares — 4.70%</span><span class="sim-value">349,821</span><span class="sim-value">234.78</span></div>
+      <div class="sim-row-dual"><span class="sim-label indent" style="flex:1">Obra Social — 6.00%</span><span class="sim-value">447,000</span><span class="sim-value">300.00</span></div>
+      <div class="sim-row-dual"><span class="sim-label indent" style="flex:1">ART variable — 2.89%</span><span class="sim-value">215,305</span><span class="sim-value">144.50</span></div>
+      <div class="sim-row-dual"><span class="sim-label indent" style="flex:1">Fondo Fiduciario + Seguro Vida</span><span class="sim-value">2,190</span><span class="sim-value">1.47</span></div>
+      <div class="sim-row-dual" style="background:rgba(14,198,104,0.06)"><span class="sim-label" style="flex:1;font-weight:600;color:#1A2535">Aguinaldo Provision (SAC — 1/12 of gross)</span><span class="sim-value">620,833</span><span class="sim-value">416.67</span></div>
+      <div class="sim-row-dual" style="background:rgba(14,198,104,0.06)"><span class="sim-label" style="flex:1;font-weight:600;color:#1A2535">Vacation Provision (14 days/year)</span><span class="sim-value">347,667</span><span class="sim-value">233.33</span></div>
+      <div class="sim-total-row-dual"><span class="sim-total-label" style="flex:1">Total Monthly Employer Cost</span><span class="sim-total-value">10,422,734</span><span class="sim-total-value">6,995.12</span></div>
+      <div class="sim-note">Statutory costs and annual provisions are pass-through. No markup applied by Wide LATAM. Aguinaldo (SAC) is paid in two installments (June/December); vacation is calculated per Art. 155 LCT (monthly salary ÷ 25 × accrued days), using 14 days/year for an employee with under 5 years' tenure.</div>
+    </div>
+
+    <div class="sim-block">
+      <div class="sim-block-header grad-bg">2. Employee Net Salary</div>
+      <div class="sim-row-dual header"><span class="sim-label" style="flex:1"></span><span class="sim-col-head" style="width:110px;text-align:right">ARS</span><span class="sim-col-head" style="width:110px;text-align:right">USD</span></div>
+      <div class="sim-row-dual"><span class="sim-label" style="flex:1">Gross Salary</span><span class="sim-value">7,450,000</span><span class="sim-value">5,000.00</span></div>
+      <div class="sim-row-dual"><span class="sim-label indent" style="flex:1">Aporte Jubilación (11%, capped)</span><span class="sim-value">(485,612)</span><span class="sim-value">(325.91)</span></div>
+      <div class="sim-row-dual"><span class="sim-label indent" style="flex:1">Aporte INSSJP (3%, capped)</span><span class="sim-value">(132,440)</span><span class="sim-value">(88.89)</span></div>
+      <div class="sim-row-dual"><span class="sim-label indent" style="flex:1">Aporte Obra Social (3%, capped)</span><span class="sim-value">(132,440)</span><span class="sim-value">(88.89)</span></div>
+      <div class="sim-total-row-dual"><span class="sim-total-label" style="flex:1">Net Monthly Salary</span><span class="sim-total-value">6,699,510</span><span class="sim-total-value">4,496.32</span></div>
+      <div class="sim-note">Net deposited to the employee's Argentine bank account. Income tax (Ganancias) not withheld at this level for most standard deduction profiles — to be confirmed per individual case.</div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <div class="pf-brand">Wide LATAM <span>| EOR Proposal</span></div>
+    <div class="pf-disclaimer">Confidential — prepared solely for Black Mountain.</div>
+    <div class="pf-page">Page 4</div>
+  </div>
+</div>
+
+<!-- ============ PAGE 5 — WIDE LATAM FEE ============ -->
+<div class="page inner-page">
+  <div class="page-header">
+    <div class="page-header-left">Wide LATAM <span>| Commercial Proposal</span></div>
+    <div class="page-header-right">EOR Argentina — Black Mountain</div>
+  </div>
+  <div class="page-body">
+    <div class="section-header-block">
+      <div class="section-num">Section 04</div>
+      <div class="section-title">Wide LATAM Fee — Monthly Invoice</div>
+      <div class="section-subtitle">Fixed retainer of USD 249 + GST/Overhead of 8.5% on total employer payroll cost. No setup fee.</div>
+    </div>
+
+    <table class="pricing-table">
+      <thead>
+        <tr><th>Item</th><th>Description</th><th class="r">Amount (USD)</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="pt-item">Total Employer Payroll Cost</span></td>
+          <td class="pt-desc">Gross salary + statutory social charges + Aguinaldo &amp; vacation provisions. Pass-through — no markup.</td>
+          <td class="r pt-value">$6,995.12</td>
+        </tr>
+        <tr>
+          <td><span class="pt-item">Wide LATAM Fixed Retainer</span></td>
+          <td class="pt-desc">Monthly, per employee — EOR administration, HR and legal support.</td>
+          <td class="r pt-value">$249.00</td>
+        </tr>
+        <tr>
+          <td><span class="pt-item">GST / Overhead — 8.5%</span></td>
+          <td class="pt-desc">National/provincial taxes, insurance &amp; liability coverage — applied on total employer payroll cost.</td>
+          <td class="r pt-value">$594.59</td>
+        </tr>
+        <tr class="total">
+          <td colspan="2"><span class="pt-item">Total Monthly Invoice</span></td>
+          <td class="r pt-value">$7,838.71</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="invoice-summary">
+      <div class="invoice-summary-row"><span class="inv-label">Total Employer Payroll Cost (pass-through)</span><span class="inv-value">$6,995.12</span></div>
+      <div class="invoice-summary-row"><span class="inv-label">Fixed Retainer</span><span class="inv-value">$249.00</span></div>
+      <div class="invoice-summary-row"><span class="inv-label">GST / Overhead (8.5%)</span><span class="inv-value">$594.59</span></div>
+      <div class="invoice-summary-row total"><span class="inv-label">Total Monthly Invoice</span><span class="inv-value">$7,838.71</span></div>
+    </div>
+
+    <div class="callout">This simulation is illustrative, using USD 5,000/month gross as the working figure. Once role, seniority and headcount are confirmed, Wide LATAM will refine the salary benchmark and re-run the simulation accordingly.</div>
+  </div>
+  <div class="page-footer">
+    <div class="pf-brand">Wide LATAM <span>| EOR Proposal</span></div>
+    <div class="pf-disclaimer">Confidential — prepared solely for Black Mountain.</div>
+    <div class="pf-page">Page 5</div>
+  </div>
+</div>
+
+<!-- ============ PAGE 6 — NEXT STEPS ============ -->
+<div class="page inner-page">
+  <div class="page-header">
+    <div class="page-header-left">Wide LATAM <span>| Commercial Proposal</span></div>
+    <div class="page-header-right">EOR Argentina — Black Mountain</div>
+  </div>
+  <div class="page-body">
+    <div class="section-header-block">
+      <div class="section-num">Section 05</div>
+      <div class="section-title">Next Steps</div>
+      <div class="section-subtitle">How we move from this overview to a signed employee on Argentine payroll.</div>
+    </div>
+
+    <div class="step-row">
+      <div class="step-num">1</div>
+      <div><div class="step-title">Share role &amp; headcount details</div><div class="step-desc">Simon shares job title(s), seniority, headcount and target start dates so Wide LATAM can refine the salary benchmark and simulation.</div></div>
+    </div>
+    <div class="step-row">
+      <div class="step-num">2</div>
+      <div><div class="step-title">Confirm target salary</div><div class="step-desc">Wide LATAM re-runs the payroll simulation with the confirmed gross salary for the specific role(s).</div></div>
+    </div>
+    <div class="step-row">
+      <div class="step-num">3</div>
+      <div><div class="step-title">Employment contract &amp; onboarding</div><div class="step-desc">Wide LATAM drafts the Spanish/English employment contract and manages onboarding, payroll setup and benefits enrollment.</div></div>
+    </div>
+    <div class="step-row">
+      <div class="step-num">4</div>
+      <div><div class="step-title">Go live</div><div class="step-desc">Employee starts on Wide LATAM's Argentine payroll, with a single consolidated monthly invoice to Black Mountain.</div></div>
+    </div>
+
+    <div class="callout"><strong>Key assumptions:</strong> figures use ARS 1,490/USD, Wide LATAM's Argentine payroll partner rate. Rates and caps (statutory deduction cap of ARS 4,414,652.38) are current as of this proposal's date and are reviewed periodically by Argentine authorities.</div>
+
+    <div class="contact-box">
+      <div class="contact-box-left">
+        <h3>Wide LATAM</h3>
+        <p>Employment, payroll and compliance across Brazil, Argentina, Uruguay and Chile.</p>
+      </div>
+      <div class="contact-box-right">
+        <div class="contact-detail"><span>Contact</span>Victor Dias</div>
+        <div class="contact-detail"><span>Email</span>victor.dias@widebrazil.com</div>
+        <div class="contact-detail"><span>Phone</span>+351 965 043 393</div>
+        <div class="contact-detail"><span>Web</span>widelatam.com</div>
+      </div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <div class="pf-brand">Wide LATAM <span>| EOR Proposal</span></div>
+    <div class="pf-disclaimer">Confidential — prepared solely for Black Mountain.</div>
+    <div class="pf-page">Page 6</div>
+  </div>
+</div>
+
+</body>
+</html>
