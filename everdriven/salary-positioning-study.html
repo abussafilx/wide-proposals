@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EverDriven Salary Positioning — Senior DevOps | Wide Brazil</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Source+Serif+4:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+/* ── RESET & BASE ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --navy:    #0D1B2E;
+  --navy2:   #12253D;
+  --teal:    #00C8C8;
+  --teal2:   #00A8A8;
+  --green:   #3DD68C;
+  --white:   #FFFFFF;
+  --offwhite:#F7F9FC;
+  --gray:    #6B7A8D;
+  --lgray:   #E8EDF3;
+  --text:    #1A2535;
+  --accent:  #00C8C8;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10pt;
+  color: var(--text);
+  background: #fff;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+@media print {
+  .page { page-break-after: always; page-break-inside: avoid; }
+  .page:last-child { page-break-after: auto; }
+  @page { margin: 0; size: A4 portrait; }
+}
+
+.page {
+  width: 210mm;
+  min-height: 297mm;
+  max-height: 297mm;
+  margin: 0 auto 20px;
+  position: relative;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.12);
+}
+
+/* ═══════════════ COVER ═══════════════ */
+.cover { background: var(--navy); min-height: 297mm; max-height: 297mm; display: flex; flex-direction: column; position: relative; overflow: hidden; }
+.hex-group { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; }
+.hex { position: absolute; background: transparent; clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); }
+.cover-top { padding: 36px 40px 0; z-index: 10; position: relative; }
+.cover-logo { display: flex; align-items: center; }
+.cover-content { padding: 48px 40px 0; z-index: 10; position: relative; flex: 1; }
+.cover-eyebrow { font-size: 7.5pt; font-weight: 700; color: var(--teal); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 18px; }
+.cover-divider { width: 50px; height: 3px; background: var(--teal); margin-bottom: 20px; }
+.cover-title { font-size: 32pt; font-weight: 900; color: var(--white); line-height: 1.08; margin-bottom: 8px; letter-spacing: -0.5px; }
+.cover-title span { color: var(--teal); }
+.cover-subtitle { font-size: 10.5pt; font-weight: 400; color: rgba(255,255,255,0.75); margin-top: 16px; line-height: 1.5; max-width: 370px; }
+.cover-tags { display: flex; gap: 8px; margin-top: 24px; flex-wrap: wrap; }
+.cover-tag { font-size: 7pt; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--navy); background: var(--teal); padding: 4px 12px; border-radius: 2px; }
+.cover-tag.outline { background: transparent; border: 1px solid rgba(0,200,200,0.5); color: var(--teal); }
+.cover-image-area { position: relative; margin-top: 40px; height: 220px; overflow: hidden; }
+.cover-hex-overlay { position: absolute; top: -30px; left: -30px; width: 200px; height: 200px; clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); background: rgba(13,27,46,0.85); z-index: 2; }
+.cover-hex-overlay2 { position: absolute; top: 20px; left: 100px; width: 140px; height: 140px; clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); background: rgba(0,200,200,0.2); z-index: 3; }
+.brazil-photo { width: 100%; height: 100%; background: linear-gradient(180deg, rgba(13,27,46,0.3) 0%, rgba(13,27,46,0.0) 30%, rgba(13,27,46,0.6) 100%), linear-gradient(135deg, #1a4a6b 0%, #0d6e8f 20%, #1e9baf 35%, #2ab5c9 45%, #1da8bc 55%, #0d7a8f 65%, #166080 75%, #0d3a55 85%, #0a2a3e 100%); position: relative; }
+.skyline { position: absolute; bottom: 0; left: 0; right: 0; height: 80px; background: var(--navy); clip-path: polygon(0% 100%, 0% 70%, 2% 70%, 2% 50%, 4% 50%, 4% 35%, 5% 35%, 5% 50%, 6% 50%, 6% 40%, 7% 40%, 7% 55%, 8% 55%, 8% 30%, 9% 30%, 9% 55%, 10% 55%, 10% 45%, 11% 45%, 11% 60%, 12% 60%, 12% 35%, 14% 35%, 14% 25%, 15% 25%, 15% 35%, 16% 35%, 16% 50%, 17% 50%, 17% 38%, 18% 38%, 18% 50%, 20% 50%, 20% 42%, 21% 42%, 21% 28%, 22% 28%, 22% 42%, 23% 42%, 23% 55%, 25% 55%, 25% 40%, 27% 40%, 27% 30%, 28% 30%, 28% 40%, 30% 40%, 30% 55%, 32% 55%, 32% 38%, 33% 38%, 33% 22%, 34% 22%, 34% 38%, 35% 38%, 35% 50%, 36% 50%, 36% 42%, 38% 42%, 38% 32%, 40% 32%, 40% 45%, 42% 45%, 42% 55%, 44% 55%, 44% 35%, 45% 35%, 45% 20%, 46% 20%, 46% 35%, 47% 35%, 47% 50%, 49% 50%, 49% 40%, 51% 40%, 51% 30%, 53% 30%, 53% 45%, 55% 45%, 55% 55%, 57% 55%, 57% 38%, 58% 38%, 58% 25%, 59% 25%, 59% 38%, 60% 38%, 60% 48%, 62% 48%, 62% 35%, 63% 35%, 63% 50%, 65% 50%, 65% 40%, 67% 40%, 67% 28%, 68% 28%, 68% 40%, 70% 40%, 70% 52%, 72% 52%, 72% 42%, 74% 42%, 74% 35%, 75% 35%, 75% 42%, 77% 42%, 77% 55%, 79% 55%, 79% 40%, 81% 40%, 81% 30%, 82% 30%, 82% 40%, 84% 40%, 84% 52%, 86% 52%, 86% 44%, 88% 44%, 88% 58%, 90% 58%, 90% 45%, 92% 45%, 92% 35%, 94% 35%, 94% 45%, 96% 45%, 96% 58%, 98% 58%, 98% 50%, 100% 50%, 100% 100%); }
+.cover-footer { padding: 16px 40px; background: rgba(0,0,0,0.3); display: flex; justify-content: space-between; align-items: center; z-index: 10; position: relative; }
+.cover-footer-url { font-size: 8pt; font-weight: 600; color: var(--teal); letter-spacing: 1px; }
+.cover-footer-edition { font-size: 7pt; color: rgba(255,255,255,0.5); letter-spacing: 0.5px; }
+
+/* ═══════════════ INNER PAGES ═══════════════ */
+.inner-page { min-height: 297mm; max-height: 297mm; display: flex; flex-direction: column; background: #fff; position: relative; }
+.page-header { padding: 18px 40px 14px; border-bottom: 1px solid var(--lgray); display: flex; justify-content: space-between; align-items: center; flex-shrink: 0; }
+.page-header-left { font-size: 7pt; font-weight: 700; color: var(--navy); letter-spacing: 1px; text-transform: uppercase; }
+.page-header-left span { color: var(--teal2); }
+.page-header-right { font-size: 7pt; color: var(--gray); }
+.page-body { padding: 32px 40px; flex: 1; overflow: hidden; }
+.page-footer { padding: 12px 40px; border-top: 2px solid var(--teal); display: flex; justify-content: space-between; align-items: center; background: #fff; flex-shrink: 0; }
+.pf-brand { font-size: 7pt; font-weight: 700; color: var(--navy); letter-spacing: 0.5px; font-family: 'Montserrat', sans-serif; }
+.pf-brand span { color: var(--teal2); font-weight: 400; }
+.pf-page { font-size: 7pt; color: var(--gray); font-family: 'Montserrat', sans-serif; }
+.pf-disclaimer { font-size: 6.5pt; color: var(--gray); font-style: italic; max-width: 280px; text-align: center; font-family: 'Source Serif 4', serif; }
+
+/* ═══════════════ SECTION HEADERS ═══════════════ */
+.section-header-block { background: var(--teal); margin: -32px -40px 24px; padding: 26px 40px 22px; position: relative; overflow: hidden; }
+.section-header-block::after { content: ''; position: absolute; right: -40px; top: -40px; width: 180px; height: 180px; clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); background: rgba(255,255,255,0.12); }
+.section-header-block::before { content: ''; position: absolute; right: 40px; top: -20px; width: 120px; height: 120px; clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); background: rgba(255,255,255,0.08); }
+.navy-section-header { background: var(--navy); margin: -32px -40px 24px; padding: 26px 40px 22px; position: relative; overflow: hidden; }
+.navy-section-header .section-num { color: rgba(0,200,200,0.7); }
+.navy-section-header .section-title { color: var(--white); }
+.navy-section-header .section-subtitle { color: rgba(255,255,255,0.65); }
+.navy-section-header::after { content: ''; position: absolute; right: -40px; top: -40px; width: 180px; height: 180px; clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); background: rgba(0,200,200,0.1); }
+.section-num { font-size: 8pt; font-weight: 700; letter-spacing: 3px; color: rgba(13,27,46,0.6); text-transform: uppercase; margin-bottom: 6px; }
+.section-title { font-size: 21pt; font-weight: 900; color: var(--navy); line-height: 1.1; }
+.section-subtitle { font-size: 9pt; color: var(--navy2); margin-top: 8px; font-weight: 400; opacity: 0.85; }
+.continuation-label { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 8pt; color: var(--teal2); letter-spacing: 1px; text-transform: uppercase; border-bottom: 1.5px solid var(--lgray); padding-bottom: 8px; margin-bottom: 18px; }
+
+/* ═══════════════ TYPOGRAPHY ═══════════════ */
+h2 { font-size: 12.5pt; font-weight: 800; color: var(--navy); margin: 20px 0 8px; display: flex; align-items: center; gap: 10px; }
+h2::before { content: ''; display: inline-block; width: 4px; height: 18px; background: var(--teal); border-radius: 2px; flex-shrink: 0; }
+h3 { font-size: 10pt; font-weight: 700; color: var(--navy); margin: 14px 0 6px; }
+p { font-size: 9pt; line-height: 1.6; color: #2a3548; margin-bottom: 9px; font-family: 'Source Serif 4', serif; font-weight: 300; }
+p strong { font-family: 'Montserrat', sans-serif; font-weight: 700; color: var(--navy); }
+ul { margin: 8px 0 12px 0; padding-left: 0; list-style: none; }
+ul li { font-size: 9pt; font-family: 'Source Serif 4', serif; font-weight: 300; color: #2a3548; line-height: 1.5; padding: 3px 0 3px 22px; position: relative; }
+ul li::before { content: ''; position: absolute; left: 0; top: 8px; width: 8px; height: 8px; clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); background: var(--teal); }
+ul li strong { font-family: 'Montserrat', sans-serif; font-weight: 700; color: var(--navy); }
+ol { margin: 8px 0 12px 0; padding-left: 0; counter-reset: step; list-style: none; }
+ol li { font-size: 9pt; font-family: 'Source Serif 4', serif; font-weight: 300; color: #2a3548; line-height: 1.5; padding: 5px 0 5px 32px; position: relative; counter-increment: step; }
+ol li strong { font-family: 'Montserrat', sans-serif; font-weight: 700; color: var(--navy); }
+ol li::before { content: counter(step); position: absolute; left: 0; top: 4px; width: 22px; height: 22px; background: var(--navy); color: var(--teal); font-family: 'Montserrat', sans-serif; font-size: 7pt; font-weight: 900; display: flex; align-items: center; justify-content: center; border-radius: 2px; }
+
+/* ── CALLOUTS ── */
+.callout { border-left: 4px solid var(--teal); background: rgba(0,200,200,0.06); padding: 13px 16px; margin: 13px 0; border-radius: 0 4px 4px 0; }
+.callout-label { font-size: 7pt; font-weight: 800; letter-spacing: 2px; color: var(--teal2); text-transform: uppercase; margin-bottom: 5px; }
+.callout p { margin: 0; font-size: 8.5pt; color: var(--navy); line-height: 1.55; }
+.callout-navy { border-left-color: var(--navy); background: rgba(13,27,46,0.04); }
+.callout-navy .callout-label { color: var(--navy); }
+.callout-warning { border-left-color: #e05c00; background: rgba(224,92,0,0.05); }
+.callout-warning .callout-label { color: #c05000; }
+
+/* ── TABLES ── */
+table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 8.5pt; }
+thead tr { background: var(--navy); color: var(--white); }
+thead th { padding: 9px 12px; text-align: left; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 7.5pt; letter-spacing: 0.5px; }
+thead th:first-child { border-radius: 3px 0 0 0; }
+thead th:last-child { border-radius: 0 3px 0 0; }
+tbody tr:nth-child(even) { background: var(--offwhite); }
+tbody tr:nth-child(odd) { background: #fff; }
+tbody td { padding: 7px 12px; border-bottom: 1px solid var(--lgray); vertical-align: top; line-height: 1.4; font-family: 'Source Serif 4', serif; font-weight: 300; color: #2a3548; }
+tbody td:first-child { font-family: 'Montserrat', sans-serif; font-weight: 700; color: var(--navy); font-size: 8pt; }
+.teal-cell { background: rgba(0,200,200,0.12) !important; color: var(--navy) !important; font-weight: 700 !important; font-family: 'Montserrat', sans-serif !important; }
+.pos-good { color: #1e8f5a !important; font-weight: 700 !important; font-family: 'Montserrat', sans-serif !important; }
+.pos-top { color: #0d7a8f !important; font-weight: 700 !important; font-family: 'Montserrat', sans-serif !important; }
+.pos-watch { color: #c05000 !important; font-weight: 700 !important; font-family: 'Montserrat', sans-serif !important; }
+.num { font-family: 'Montserrat', sans-serif !important; font-weight: 600 !important; color: var(--navy) !important; }
+.plus { color: #c05000 !important; font-weight: 800 !important; font-family: 'Montserrat', sans-serif !important; }
+
+/* ── METRIC STRIP ── */
+.metric-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 14px 0; }
+.metric { background: var(--offwhite); border: 1.5px solid var(--lgray); border-radius: 4px; padding: 12px 14px; position: relative; overflow: hidden; }
+.metric::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--teal); }
+.metric-label { font-size: 6.5pt; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--gray); margin-bottom: 6px; }
+.metric-value { font-family: 'Montserrat', sans-serif; font-size: 15pt; font-weight: 900; color: var(--navy); line-height: 1; }
+.metric-sub { font-size: 7pt; color: var(--gray); margin-top: 5px; font-family: 'Source Serif 4', serif; }
+
+.note-box { background: var(--offwhite); border: 1px solid var(--lgray); border-radius: 4px; padding: 12px 16px; margin-top: 14px; }
+.note-box .note-title { font-family: 'Montserrat', sans-serif; font-size: 7.5pt; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; color: var(--navy); margin-bottom: 6px; }
+.note-box p { font-size: 7.5pt; margin: 0; color: #4a5568; line-height: 1.5; }
+
+@media screen { body { background: #dde4ed; padding: 30px 0; } }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ PAGE 1 — COVER ═══════════════ -->
+<div class="page cover">
+  <div class="hex-group">
+    <div class="hex" style="width:300px;height:300px;background:rgba(0,200,200,0.04);top:-80px;right:-60px;"></div>
+    <div class="hex" style="width:180px;height:180px;background:rgba(0,200,200,0.06);top:60px;right:80px;"></div>
+    <div class="hex" style="width:100px;height:100px;background:rgba(0,200,200,0.1);top:180px;right:200px;"></div>
+    <div class="hex" style="width:80px;height:80px;background:rgba(0,200,200,0.08);top:20px;right:240px;"></div>
+  </div>
+
+  <div class="cover-top">
+    <div class="cover-logo">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="440 390 1060 320" style="height:50px;width:auto;display:block;">
+        <defs>
+          <linearGradient id="lg" x1="528.00962" y1="437.79086" x2="693.52564" y2="437.79086" gradientTransform="translate(0 1081.58265) scale(1 -1)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#101827"/><stop offset="1" stop-color="#0ec668"/></linearGradient>
+          <linearGradient id="lg1" x1="438.90681" y1="505.95149" x2="604.42283" y2="505.95149" gradientTransform="translate(0 1081.58265) scale(1 -1)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#101827"/><stop offset="1" stop-color="#0ec668"/></linearGradient>
+          <linearGradient id="lg2" x1="712.59445" y1="474.81047" x2="460.26471" y2="699.39719" gradientTransform="translate(0 1081.58265) scale(1 -1)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#0ec668"/><stop offset="1" stop-color="#12ace6"/></linearGradient>
+        </defs>
+        <polygon fill="#ffffff" points="1067.75549 401.49997 1023.07159 544.20905 982.00995 404.26547 947.97415 404.26547 906.91302 544.20905 862.2291 401.49997 825.9744 401.49997 889.94604 595.09726 923.0683 595.09726 964.99228 462.89842 1006.63654 595.09726 1040.03796 595.09726 1104.0097 401.49997 1067.75549 401.49997"/>
+        <path fill="#ffffff" d="M1149.14148,401.49997v193.59729h-32.08148v-193.59729h32.08148Z"/>
+        <path fill="#ffffff" d="M1233.70984,401.49997c59.46155,0,102.33014,43.14445,102.33014,96.79817s-42.86859,96.79912-102.33014,96.79912h-66.37671v-193.59729h66.37671ZM1199.41461,562.73893h34.29523c38.99573,0,66.37579-27.38007,66.37579-64.44079s-27.38007-64.43983-66.37579-64.43983h-34.29523v128.88062Z"/>
+        <path fill="#ffffff" d="M1461.63257,401.49997v32.35833h-78.31946v40.93167h45.29926v32.35833h-45.29926v55.59062h78.31946v32.35834h-110.40094v-193.59729h110.40094Z"/>
+        <path fill="#ffffff" d="M1006.4671,663.3115c0,9.59277-7.51465,15.18848-21.9043,15.18848h-27.81934v-55.95898h26.2207c13.42969,0,20.625,5.67578,20.625,14.5498,0,5.75586-2.87793,9.99219-7.19531,12.31055,5.99609,1.91895,10.07324,6.63574,10.07324,13.91016ZM967.13608,630.69529v15.42871h14.70895c7.19434,0,11.27148-2.55859,11.27148-7.6748,0-5.19531-4.07715-7.75391-11.27148-7.75391h-14.70898ZM995.99445,662.27244c0-5.59668-4.2373-8.07422-12.07129-8.07422h-16.78711v16.14746h16.78711c7.83398,0,12.07129-2.47754,12.07129-8.07324Z"/>
+        <path fill="#ffffff" d="M1075.78156,678.49997l-11.43164-16.3877c-.71875.08008-1.43848.08008-2.1582.08008h-12.62988v16.30762h-10.39258v-55.95898h23.02246c14.70898,0,23.82227,7.51465,23.82227,19.90527,0,8.47461-4.31641,14.70996-11.91113,17.66699l12.87109,18.38672h-11.19238ZM1061.71228,631.33494h-12.15039v22.30371h12.15039c9.11328,0,13.83008-4.15723,13.83008-11.19238,0-7.03418-4.7168-11.11133-13.83008-11.11133Z"/>
+        <path fill="#ffffff" d="M1155.48859,665.54978h-27.97949l-5.51562,12.9502h-10.71191l25.18066-55.95898h10.23242l25.26172,55.95898h-10.87207l-5.5957-12.9502ZM1152.05109,657.39548l-10.55176-24.46191-10.47266,24.46191h21.02441Z"/>
+        <path fill="#ffffff" d="M1244.14978,669.70603v8.79395h-47.72461v-6.95508l32.93555-40.20996h-32.37598v-8.79395h46.12598v6.95508l-32.93555,40.20996h33.97461Z"/>
+        <path fill="#ffffff" d="M1275.25323,622.54099h10.39258v55.95898h-10.39258v-55.95898Z"/>
+        <path fill="#ffffff" d="M1322.34113,622.54099h10.39258v47.16504h29.25781v8.79395h-39.65039v-55.95898Z"/>
+        <rect fill="url(#lg)" x="591.52898" y="609.08361" width="93.76549" height="69.41637"/>
+        <rect fill="url(#lg1)" x="502.42616" y="540.92298" width="93.76549" height="69.41637"/>
+        <path fill="url(#lg2)" d="M773.49542,470.72999l43.49487,69.26999-87.9592,138.5h-88.79871l133.26303-207.76999ZM684.48682,401.49997l-158.30856,246.82742,18.93906,30.17258h46.68304l157.73888-245.92795-19.50873-31.07205h-45.5437ZM548.11559,401.49997l-89.74816,138.8298,43.95461,70.00955,133.95263-208.83936h-88.15908Z"/>
+      </svg>
+    </div>
+  </div>
+
+  <div class="cover-content">
+    <div class="cover-eyebrow">Internal Study · Commercial Team</div>
+    <div class="cover-divider"></div>
+    <div class="cover-title">Salary<br>Positioning <span>EverDriven</span></div>
+    <div class="cover-subtitle">Where we stand against the market — and why Senior DevOps is the hardest role to close: the real weight of CLT vs. PJ vs. USD contractor.</div>
+    <div class="cover-tags">
+      <span class="cover-tag">Tech Benchmark</span>
+      <span class="cover-tag">CLT × PJ × USD</span>
+      <span class="cover-tag outline">Jul 2026</span>
+    </div>
+  </div>
+
+  <div class="cover-image-area">
+    <div class="brazil-photo">
+      <div class="cover-hex-overlay"></div>
+      <div class="cover-hex-overlay2"></div>
+      <div class="skyline"></div>
+    </div>
+  </div>
+
+  <div class="cover-footer">
+    <span class="cover-footer-url">widebrazil.com</span>
+    <span class="cover-footer-edition">Confidential · Internal Use — Commercial Team · v1.0</span>
+  </div>
+</div>
+
+<!-- ═══════════════ PAGE 2 — SECTION 01 ═══════════════ -->
+<div class="page inner-page">
+  <div class="page-header">
+    <div class="page-header-left">Wide Brazil <span>| Internal Study</span></div>
+    <div class="page-header-right">Salary Positioning · EverDriven</div>
+  </div>
+
+  <div class="page-body">
+    <div class="section-header-block">
+      <div class="section-num">Section 01</div>
+      <div class="section-title">Market Positioning</div>
+      <div class="section-subtitle">CLT gross salary against the Brazilian tech market</div>
+    </div>
+
+    <div class="callout">
+      <div class="callout-label">Bottom line</div>
+      <p><strong>The hypothesis holds.</strong> In gross CLT terms, EverDriven sits within — and often near the top of — the market on most roles. The exception is Tech Lead, now at the lower end of a higher market. Either way, the difficulty filling Senior DevOps is not the amount paid; it is the <strong>contracting model</strong>. Candidates compare take-home pay, and in that cut PJ and USD contractors put more in hand.</p>
+    </div>
+
+    <h2>EverDriven gross salary vs. Brazilian market (CLT)</h2>
+    <p>References for senior, bilingual profiles in São Paulo with a foreign-facing bias (top of the ranges). Market figures include a +15% adjustment over published survey medians. Sources: Código Fonte TV 2025 (12,510 respondents), Robert Half Salary Guide 2026, Glassdoor Brazil.</p>
+
+    <table>
+      <thead>
+        <tr><th>Position</th><th>EverDriven (gross)</th><th>Market BR CLT</th><th>Read</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Tech Lead</td><td class="num">R$ 29,000</td><td>R$ 28,750 – 36,800</td><td class="pos-watch">At lower end</td></tr>
+        <tr><td>Senior SWE Frontend</td><td class="num">R$ 25,000</td><td>R$ 18,400 – 26,450</td><td class="pos-top">Upper range</td></tr>
+        <tr><td>Senior DevOps</td><td class="num">R$ 27,500</td><td>R$ 20,700 – 29,900</td><td class="pos-top">Upper third</td></tr>
+        <tr><td>Mid-Level SWE</td><td class="num">R$ 13,000</td><td>R$ 9,200 – 13,800</td><td class="pos-top">Upper range</td></tr>
+        <tr><td>Mid-Level DevOps</td><td class="num">R$ 16,000</td><td>R$ 10,350 – 14,950</td><td class="pos-good">Above range</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout callout-navy">
+      <div class="callout-label">What this means</div>
+      <p>There is no gross-pricing problem on the individual-contributor tech roles — most sit in the upper range, and Mid-Level DevOps is above it. Tech Lead is the one to revisit, now at the market floor. The bottleneck is specific to <strong>Senior DevOps</strong> and stems from comparing take-home against alternative models — analysed in Section 02.</p>
+    </div>
+
+    <div class="note-box">
+      <div class="note-title">Study assumptions</div>
+      <p>Working USD/BRL rate ≈ R$ 5.10 (closed ~R$ 5.07 on Jul 14, 2026). INSS 2026: ceiling R$ 8,475.55, maximum employee contribution R$ 988.09 (Portaria MPS/MF nº 13/2026). IRRF above R$ 7,350: standard progressive table — top rate 27.5%, deductible portion R$ 896.00. Calculations assume no dependents. Market CLT ranges carry a +15% adjustment over published survey medians to reflect the São Paulo bilingual, foreign-facing premium. Market data is directional.</p>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <div class="pf-brand">Wide Brazil <span>| EverDriven Positioning</span></div>
+    <div class="pf-disclaimer">Internal document · directional market data · not legal or tax advice</div>
+    <div class="pf-page">Page 2</div>
+  </div>
+</div>
+
+<!-- ═══════════════ PAGE 3 — SECTION 02 ═══════════════ -->
+<div class="page inner-page">
+  <div class="page-header">
+    <div class="page-header-left">Wide Brazil <span>| Internal Study</span></div>
+    <div class="page-header-right">Salary Positioning · EverDriven</div>
+  </div>
+
+  <div class="page-body">
+    <div class="navy-section-header">
+      <div class="section-num">Section 02</div>
+      <div class="section-title">The Weight of the Model</div>
+      <div class="section-subtitle">Senior DevOps — R$ 27,500 gross: CLT × PJ × USD contractor (take-home)</div>
+    </div>
+
+    <p>The candidate decides by looking at <strong>what lands in the bank</strong>. CLT carries a tax wedge of ~27% of gross (INSS + IRRF); PJ, ~8–16%. Below, the CLT take-home already <strong>includes the prorated 13th salary</strong> (the 13th is taxed like a regular month, so a net of R$ 20,117 ÷ 12 = R$ 1,676/month). FGTS and vacation +1/3 sit <strong>on top</strong>, outside the headline.</p>
+
+    <h2>CLT take-home breakdown — R$ 27,500 gross</h2>
+    <table>
+      <thead>
+        <tr><th>Component</th><th>Value</th><th>Note</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Gross salary</td><td class="num">R$ 27,500.00</td><td>monthly base</td></tr>
+        <tr><td>(–) INSS</td><td class="num">− R$ 988.09</td><td>capped at ceiling</td></tr>
+        <tr><td>(–) IRRF</td><td class="num">− R$ 6,394.78</td><td>27.5% − R$ 896.00</td></tr>
+        <tr><td>Net monthly</td><td class="teal-cell">R$ 20,117.13</td><td>in the bank</td></tr>
+        <tr><td>(+) Prorated 13th</td><td class="num">+ R$ 1,676.43</td><td>net ÷ 12</td></tr>
+        <tr><td>Net incl. 13th</td><td class="teal-cell">R$ 21,793.56</td><td>comparison base</td></tr>
+        <tr><td>On top</td><td class="num">+ R$ 2,200/mo FGTS</td><td>+ vacation +1/3 + protections</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Take-home — same professional, three models</h2>
+    <table>
+      <thead>
+        <tr><th>Model</th><th>Gross / nominal</th><th>Net / month</th><th>vs. CLT</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>USD contractor (US$ 6,000)</td><td class="num">R$ 30,600</td><td class="num">~ R$ 27,500</td><td class="plus">+26%</td></tr>
+        <tr><td>PJ Brazil (same nominal)</td><td class="num">R$ 27,500</td><td class="num">~ R$ 24,400</td><td class="plus">+12%</td></tr>
+        <tr><td>EverDriven CLT (incl. 13th)</td><td class="num">R$ 27,500</td><td class="teal-cell">R$ 21,794</td><td>base</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:7.5pt;color:#6B7A8D;margin-top:-2px;">USD contractor market range for Senior DevOps: US$ 5,000–7,000/mo (US$ 57k–86k/yr — Jobicy, Revelo). PJ Brazil: Simples Nacional, effective tax 8–16% depending on fator R, no 13th/vacation unless self-provisioned.</p>
+
+    <h2>What it would take to match take-home</h2>
+    <div class="metric-row">
+      <div class="metric">
+        <div class="metric-label">Match PJ (~R$ 24.4k)</div>
+        <div class="metric-value">R$ 30.8k</div>
+        <div class="metric-sub">gross CLT needed</div>
+      </div>
+      <div class="metric">
+        <div class="metric-label">Match USD (~R$ 27.5k)</div>
+        <div class="metric-value">R$ 34.8k</div>
+        <div class="metric-sub">gross CLT needed</div>
+      </div>
+      <div class="metric">
+        <div class="metric-label">CLT vs. PJ wedge</div>
+        <div class="metric-value">~R$ 7.4k</div>
+        <div class="metric-sub">INSS + IRRF per month</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <div class="pf-brand">Wide Brazil <span>| EverDriven Positioning</span></div>
+    <div class="pf-disclaimer">Internal document · directional market data · not legal or tax advice</div>
+    <div class="pf-page">Page 3</div>
+  </div>
+</div>
+
+<!-- ═══════════════ PAGE 4 — SECTION 03 ═══════════════ -->
+<div class="page inner-page">
+  <div class="page-header">
+    <div class="page-header-left">Wide Brazil <span>| Internal Study</span></div>
+    <div class="page-header-right">Salary Positioning · EverDriven</div>
+  </div>
+
+  <div class="page-body">
+    <div class="section-header-block">
+      <div class="section-num">Section 03</div>
+      <div class="section-title">Read &amp; Recommendation</div>
+      <div class="section-subtitle">How to use this in the next round of offers</div>
+    </div>
+
+    <div class="callout callout-warning">
+      <div class="callout-label">The central tension</div>
+      <p>What makes the candidate happy (PJ / USD take-home) is exactly what creates <strong>misclassification exposure</strong> in a full-time, subordinated, exclusive role — which is what a DevOps integrated into the team is. The wedge that CLT "costs" the candidate is, in practice, <strong>the price of compliance and protections</strong> (NDA, non-compete, IP) that the EOR delivers. It is not waste; it is the product.</p>
+    </div>
+
+    <h2>Why DevOps is the worst case</h2>
+    <p>It is the most internationally liquid profile. EverDriven, being a foreign company itself, recruits from the same pool that receives USD contractor offers. In other words: we compete in the hardest segment with the structure that shows the <strong>lowest apparent take-home</strong>. Frontend and mid-level roles do not feel the same pull, because they are less contested by dollar-denominated contracts.</p>
+
+    <div class="callout callout-navy">
+      <div class="callout-label">Recommendation</div>
+      <p>Keep the CLT/EOR structure and close the gap through the <strong>total-value narrative</strong> first — present the ~R$ 33,000/month equivalent of the full package (gross + FGTS + 13th + vacation +1/3 + benefits + stability + enforceable protections), not the isolated take-home, which candidates routinely undervalue. Reserve a <strong>targeted gross-up as a one-off exception for Senior DevOps only</strong> (to ~R$ 31–35k) if the role keeps stalling — decided case by case, never as policy, and not extended to the other roles, which already sit at or above market. Route through COR/USD only where the role genuinely qualifies as independent; for a DevOps embedded in the team, it does not, and EOR/CLT remains the correct, defensible path.</p>
+    </div>
+
+    <div class="note-box">
+      <div class="note-title">Sources &amp; basis of calculation</div>
+      <p>Market CLT: Código Fonte TV 2025, Robert Half Salary Guide 2026, Glassdoor Brazil (+15% adjustment applied). USD contractor: Jobicy, Revelo, Arc.dev (2025–2026). FX: Investing.com / Central Bank of Brazil (Jul 2026). Payroll charges: Portaria Interministerial MPS/MF nº 13/2026 (INSS) and current IRRF table. PJ net figures depend on the tax regime (Simples Anexo III/V, fator R) and are shown as a reference range.</p>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <div class="pf-brand">Wide Brazil <span>| EverDriven Positioning</span></div>
+    <div class="pf-disclaimer">Internal document · directional market data · not legal or tax advice</div>
+    <div class="pf-page">Page 4</div>
+  </div>
+</div>
+
+</body>
+</html>
