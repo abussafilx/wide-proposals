@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Wide Brazil — Commercial Proposal — Afina DMP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Source+Serif+4:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0D1B2E; --teal:#00C8C8; --teal2:#00A8A8; --green:#3DD68C;
+    --white:#FFFFFF; --offwhite:#F7F9FC; --lgray:#E8EDF3; --text:#1A2535; --gray:#8A94A3;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{font-family:'Source Serif 4',serif; color:var(--text); background:#dfe4ea;}
+  .page{position:relative; width:210mm; min-height:297mm; background:#fff; margin:0 auto 16px; overflow:hidden; box-shadow:0 0 14px rgba(0,0,0,.12);}
+  @media print{ body{background:#fff;} .page{margin:0; box-shadow:none; page-break-after:always;} }
+
+  /* ===== COVER ===== */
+  .cover{background:var(--navy); color:#fff; display:flex; flex-direction:column;}
+  .hex-group{position:absolute; inset:0; overflow:hidden; pointer-events:none;}
+  .hex{position:absolute; border-radius:22px; transform:rotate(18deg);}
+  .cover-top{display:flex; justify-content:space-between; align-items:flex-start; padding:36px 40px 0;}
+  .cover-logo svg{display:block;}
+  .cover-badge{border:1px solid rgba(255,255,255,.35); border-radius:20px; padding:6px 16px;}
+  .cover-badge-text{font-family:'Montserrat',sans-serif; font-size:8pt; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:var(--teal);}
+  .cover-content{padding:60px 44px 0; position:relative; z-index:2;}
+  .cover-eyebrow{font-family:'Montserrat',sans-serif; font-size:9pt; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--teal);}
+  .cover-divider{width:46px; height:3px; background:var(--teal); margin:14px 0 22px;}
+  .cover-title{font-family:'Montserrat',sans-serif; font-weight:800; font-size:29pt; line-height:1.18; color:#fff;}
+  .cover-title span{color:var(--teal);}
+  .cover-subtitle{font-family:'Source Serif 4',serif; font-weight:300; font-size:12.5pt; line-height:1.55; color:rgba(255,255,255,.82); max-width:460px; margin-top:18px;}
+  .cover-tags{display:flex; gap:10px; margin-top:26px; flex-wrap:wrap;}
+  .cover-tag{font-family:'Montserrat',sans-serif; font-size:8pt; font-weight:700; letter-spacing:.5px; text-transform:uppercase; background:rgba(0,200,200,.14); color:var(--teal); border:1px solid rgba(0,200,200,.4); border-radius:20px; padding:6px 14px;}
+  .cover-tag.outline{background:transparent; color:rgba(255,255,255,.6); border-color:rgba(255,255,255,.3);}
+  .cover-meta{display:flex; width:60%; gap:0; margin:40px 44px 0; position:relative; z-index:2;}
+  .cover-meta-item{flex:1; padding:14px 18px 14px 0; border-left:1px solid rgba(255,255,255,.18); padding-left:18px;}
+  .cover-meta-item:first-child{border-left:none; padding-left:0;}
+  .cover-meta-label{font-family:'Montserrat',sans-serif; font-size:7pt; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:rgba(255,255,255,.5);}
+  .cover-meta-value{font-family:'Montserrat',sans-serif; font-size:10pt; font-weight:700; color:#fff; margin-top:5px;}
+  .cover-image-area{flex:1; position:relative; margin-top:30px;}
+  .brazil-photo{position:absolute; inset:0; background:linear-gradient(180deg, rgba(13,27,46,0) 0%, rgba(13,27,46,.55) 70%, var(--navy) 100%), linear-gradient(120deg, #123049 0%, #0D1B2E 60%);}
+  .cover-hex-overlay, .cover-hex-overlay2{position:absolute; border-radius:26px;}
+  .cover-hex-overlay{width:220px; height:220px; background:rgba(61,214,140,.06); bottom:60px; left:-40px; transform:rotate(20deg);}
+  .cover-hex-overlay2{width:140px; height:140px; background:rgba(0,200,200,.08); bottom:130px; left:120px; transform:rotate(20deg);}
+  .skyline{position:absolute; bottom:0; left:0; right:0; height:90px; background:
+      linear-gradient(to top, rgba(0,0,0,.35), transparent),
+      repeating-linear-gradient(90deg, rgba(255,255,255,.05) 0 18px, transparent 18px 34px);}
+  .cover-footer{display:flex; justify-content:space-between; align-items:center; padding:18px 44px; border-top:1px solid rgba(255,255,255,.15); position:relative; z-index:2;}
+  .cover-footer-url{font-family:'Montserrat',sans-serif; font-size:8pt; font-weight:700; color:var(--teal); letter-spacing:.5px;}
+  .cover-footer-edition{font-family:'Montserrat',sans-serif; font-size:7.5pt; color:rgba(255,255,255,.5);}
+
+  /* ===== INNER PAGES ===== */
+  .inner-page{display:flex; flex-direction:column;}
+  .page-header{display:flex; justify-content:space-between; align-items:center; padding:20px 40px; border-bottom:1px solid var(--lgray);}
+  .page-header-left{font-family:'Montserrat',sans-serif; font-size:8pt; font-weight:800; color:var(--navy);}
+  .page-header-left span{font-weight:500; color:var(--gray);}
+  .page-header-right{font-family:'Montserrat',sans-serif; font-size:7.5pt; font-weight:600; color:var(--gray); text-transform:uppercase; letter-spacing:.5px;}
+  .page-body{flex:1; padding:26px 40px 10px;}
+  .page-footer{display:flex; justify-content:space-between; align-items:center; padding:14px 40px; border-top:1px solid var(--lgray); margin-top:auto;}
+  .pf-brand{font-family:'Montserrat',sans-serif; font-size:7.5pt; font-weight:800; color:var(--navy);}
+  .pf-brand span{font-weight:500; color:var(--gray);}
+  .pf-disclaimer{font-family:'Source Serif 4',serif; font-style:italic; font-size:7.5pt; color:var(--gray);}
+  .pf-page{font-family:'Montserrat',sans-serif; font-size:7.5pt; font-weight:700; color:var(--gray);}
+
+  .section-header-block, .navy-section-header{padding:16px 20px; margin-bottom:20px; border-radius:4px;}
+  .section-header-block{background:rgba(0,200,200,.08); border-left:4px solid var(--teal);}
+  .navy-section-header{background:var(--navy); border-left:4px solid var(--teal);}
+  .navy-section-header .section-num, .navy-section-header .section-title{color:#fff;}
+  .navy-section-header .section-subtitle{color:rgba(255,255,255,.7);}
+  .section-num{font-family:'Montserrat',sans-serif; font-size:7.5pt; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--teal2);}
+  .section-title{font-family:'Montserrat',sans-serif; font-size:16pt; font-weight:800; color:var(--navy); margin-top:4px;}
+  .section-subtitle{font-family:'Source Serif 4',serif; font-size:9.5pt; font-style:italic; color:var(--gray); margin-top:4px;}
+  .continuation-label{font-family:'Montserrat',sans-serif; font-weight:700; font-size:8pt; color:var(--teal2); letter-spacing:1px; text-transform:uppercase; border-bottom:1.5px solid var(--lgray); padding-bottom:8px; margin-bottom:18px;}
+
+  p.body-text{font-size:10pt; line-height:1.7; margin-bottom:12px; color:var(--text);}
+  .lead{font-size:11pt; font-weight:600; color:var(--navy); line-height:1.6; margin-bottom:14px;}
+
+  .callout{background:var(--offwhite); border-left:3px solid var(--teal); border-radius:4px; padding:14px 18px; margin:14px 0; font-size:9.3pt; line-height:1.6;}
+  .callout strong{color:var(--navy);}
+  .callout.warn{border-left-color:#C0455B; background:#FBEFF1;}
+
+  .rationale-grid{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:16px 0;}
+  .rationale-card{border:1px solid var(--lgray); border-radius:6px; padding:16px;}
+  .rationale-card h4{font-family:'Montserrat',sans-serif; font-size:9.5pt; font-weight:800; color:var(--navy); margin-bottom:8px;}
+  .rationale-card p{font-size:9pt; line-height:1.6; color:var(--text);}
+
+  .phase-row{display:flex; gap:14px; margin:16px 0;}
+  .phase-card{flex:1; border:1px solid var(--lgray); border-radius:6px; overflow:hidden;}
+  .phase-head{background:var(--navy); color:#fff; font-family:'Montserrat',sans-serif; font-size:8pt; font-weight:800; padding:9px 12px; letter-spacing:.5px; text-transform:uppercase;}
+  .phase-head.teal{background:var(--teal2);}
+  .phase-body{padding:12px; font-size:8.6pt; line-height:1.55;}
+
+  table.salary-table{width:100%; border-collapse:collapse; margin:14px 0; font-size:9pt;}
+  table.salary-table th{background:var(--navy); color:#fff; font-family:'Montserrat',sans-serif; font-size:8pt; font-weight:700; text-align:left; padding:9px 12px;}
+  table.salary-table td{padding:9px 12px; border-bottom:1px solid var(--lgray);}
+  table.salary-table tr:nth-child(even) td{background:var(--offwhite);}
+  table.salary-table td.hl{font-weight:800; color:var(--navy); background:rgba(0,200,200,.1) !important;}
+  .source-note{font-size:7.5pt; color:var(--gray); font-style:italic; margin-top:6px;}
+
+  .scope-block{margin-bottom:16px;}
+  .scope-area{font-family:'Montserrat',sans-serif; font-size:9.5pt; font-weight:800; color:var(--teal2); text-transform:uppercase; letter-spacing:.5px; margin-bottom:8px; padding-bottom:6px; border-bottom:1px solid var(--lgray);}
+  .scope-item{display:flex; gap:10px; padding:5px 0; align-items:flex-start;}
+  .scope-item-check{color:var(--teal2); font-weight:800; font-size:9.5pt; margin-top:1px;}
+  .scope-item-text{font-size:9pt; line-height:1.55;}
+
+  .benefits-grid{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:14px 0;}
+  .benefit-card{border:1px solid var(--lgray); border-radius:6px; padding:13px;}
+  .benefit-card-top{display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;}
+  .benefit-name{font-family:'Montserrat',sans-serif; font-size:9pt; font-weight:800; color:var(--navy);}
+  .benefit-tag{font-family:'Montserrat',sans-serif; font-size:6.5pt; font-weight:700; text-transform:uppercase; padding:3px 8px; border-radius:10px;}
+  .benefit-tag.mandatory{background:rgba(0,200,200,.15); color:var(--teal2);}
+  .benefit-tag.optional{background:var(--offwhite); color:var(--gray); border:1px solid var(--lgray);}
+  .benefit-tag.recommended{background:rgba(61,214,140,.15); color:#1f9e63; border:1px solid rgba(61,214,140,.4);}
+  .benefit-body{font-size:8.5pt; line-height:1.55; color:var(--text);}
+
+  .sim-wrap{margin-top:12px;}
+  .sim-block{border:1px solid var(--lgray); border-radius:6px; overflow:hidden;}
+  .sim-block-header{font-family:'Montserrat',sans-serif; font-size:9.5pt; font-weight:800; color:#fff; padding:10px 16px;}
+  .navy-bg{background:var(--navy);}
+  .teal-bg{background:var(--teal2);}
+  .sim-row-dual{display:flex; padding:7px 16px; border-bottom:1px solid var(--lgray); align-items:baseline;}
+  .sim-row-header{background:var(--offwhite);}
+  .sim-label{font-family:'Montserrat',sans-serif; font-size:8.3pt; color:var(--text);}
+  .sim-label.indent{padding-left:14px; color:var(--gray);}
+  .sim-col-head{width:110px; text-align:right; font-family:'Montserrat',sans-serif; font-size:7pt; font-weight:700; text-transform:uppercase; color:var(--gray);}
+  .sim-value{width:110px; text-align:right; font-family:'Montserrat',sans-serif; font-size:8.3pt; font-weight:600;}
+  .sim-value.negative{color:#C0455B;}
+  .sim-value.teal{color:var(--teal2); font-weight:800;}
+  .sim-total-row-dual{display:flex; padding:11px 16px; background:var(--navy); align-items:baseline;}
+  .sim-total-label{font-family:'Montserrat',sans-serif; font-size:8.8pt; font-weight:700; color:#fff; flex:1;}
+  .sim-total-value{width:110px; text-align:right; font-family:'Montserrat',sans-serif; font-size:9.5pt; font-weight:900; color:var(--teal);}
+  .sim-note{font-size:7.6pt; font-style:italic; color:var(--gray); padding:8px 16px 10px; background:var(--offwhite);}
+
+  table.pricing-table{width:100%; border-collapse:collapse; margin:14px 0; font-size:8.8pt;}
+  table.pricing-table th{background:var(--navy); color:#fff; font-family:'Montserrat',sans-serif; font-size:7.8pt; font-weight:700; text-align:left; padding:9px 12px; text-transform:uppercase; letter-spacing:.3px;}
+  table.pricing-table td{padding:10px 12px; border-bottom:1px solid var(--lgray); vertical-align:top;}
+  .pt-item{font-family:'Montserrat',sans-serif; font-weight:700; color:var(--navy); font-size:8.8pt;}
+  .pt-note{font-size:7.6pt; color:var(--gray); font-style:italic;}
+  .pt-desc{font-size:8pt; color:var(--text);}
+  .pt-value{text-align:right; font-family:'Montserrat',sans-serif; font-weight:800; color:var(--navy); white-space:nowrap;}
+  .pt-total td{background:var(--navy);}
+  .pt-total .pt-item, .pt-total .pt-value{color:#fff;}
+  .pt-total .pt-value{color:var(--teal);}
+
+  .invoice-summary{border:1.5px solid var(--lgray); border-radius:4px; overflow:hidden; margin:14px 0;}
+  .invoice-summary-row{display:flex; justify-content:space-between; align-items:baseline; padding:9px 16px; border-bottom:1px solid var(--lgray);}
+  .invoice-summary-row:last-of-type{border-bottom:none;}
+  .invoice-summary-row.total{background:var(--navy);}
+  .invoice-summary-row.total .inv-label{color:rgba(255,255,255,.85); font-weight:700;}
+  .invoice-summary-row.total .inv-value{color:var(--teal); font-size:12pt; font-weight:900;}
+  .inv-label{font-family:'Montserrat',sans-serif; font-weight:600; font-size:8.5pt; color:var(--text);}
+  .inv-value{font-family:'Montserrat',sans-serif; font-weight:800; font-size:9.5pt; color:var(--navy);}
+  .inv-asterisk{font-family:'Source Serif 4',serif; font-size:7pt; color:var(--gray); font-style:italic; padding:6px 16px 8px; background:var(--offwhite);}
+
+  .step-row{display:flex; gap:14px; padding:12px 0; border-bottom:1px solid var(--lgray);}
+  .step-row:last-child{border-bottom:none;}
+  .step-num{width:26px; height:26px; border-radius:50%; background:var(--navy); color:var(--teal); display:flex; align-items:center; justify-content:center; font-family:'Montserrat',sans-serif; font-weight:800; font-size:9.5pt; flex-shrink:0;}
+  .step-title{font-family:'Montserrat',sans-serif; font-size:9.3pt; font-weight:800; color:var(--navy);}
+  .step-desc{font-size:8.7pt; color:var(--text); line-height:1.5; margin-top:2px;}
+
+  .contact-box{display:flex; justify-content:space-between; background:var(--navy); border-radius:6px; padding:22px 26px; margin-top:20px; color:#fff;}
+  .contact-box-left h3{font-family:'Montserrat',sans-serif; font-size:13pt; font-weight:800; color:#fff;}
+  .contact-box-left p{font-size:9pt; color:rgba(255,255,255,.75); margin-top:6px; max-width:260px;}
+  .contact-box-right{text-align:right;}
+  .contact-detail{font-family:'Montserrat',sans-serif; font-size:9pt; margin-bottom:6px;}
+  .contact-detail span{display:block; font-size:6.8pt; font-weight:700; text-transform:uppercase; letter-spacing:.5px; color:var(--teal); margin-bottom:2px;}
+</style>
+</head>
+<body>
+
+<!-- ============ PAGE 1 — COVER ============ -->
+<div class="page cover">
+  <div class="hex-group">
+    <div class="hex" style="width:280px;height:280px;background:rgba(0,200,200,0.04);top:-60px;right:-50px;"></div>
+    <div class="hex" style="width:170px;height:170px;background:rgba(0,200,200,0.06);top:70px;right:90px;"></div>
+    <div class="hex" style="width:95px;height:95px;background:rgba(0,200,200,0.1);top:185px;right:205px;"></div>
+    <div class="hex" style="width:70px;height:70px;background:rgba(61,214,140,0.08);top:25px;right:245px;"></div>
+  </div>
+
+  <div class="cover-top">
+    <div class="cover-logo">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+           viewBox="440 390 1060 320" style="height:42px;width:auto;display:block;">
+        <defs>
+          <linearGradient id="lg" x1="528.00962" y1="437.79086" x2="693.52564" y2="437.79086"
+            gradientTransform="translate(0 1081.58265) scale(1 -1)" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#101827"/><stop offset="1" stop-color="#0ec668"/>
+          </linearGradient>
+          <linearGradient id="lg1" x1="438.90681" y1="505.95149" x2="604.42283" y2="505.95149"
+            gradientTransform="translate(0 1081.58265) scale(1 -1)" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#101827"/><stop offset="1" stop-color="#0ec668"/>
+          </linearGradient>
+          <linearGradient id="lg2" x1="712.59445" y1="474.81047" x2="460.26471" y2="699.39719"
+            gradientTransform="translate(0 1081.58265) scale(1 -1)" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#0ec668"/><stop offset="1" stop-color="#12ace6"/>
+          </linearGradient>
+        </defs>
+        <polygon fill="#ffffff" points="1067.75549 401.49997 1023.07159 544.20905 982.00995 404.26547 947.97415 404.26547 906.91302 544.20905 862.2291 401.49997 825.9744 401.49997 889.94604 595.09726 923.0683 595.09726 964.99228 462.89842 1006.63654 595.09726 1040.03796 595.09726 1104.0097 401.49997 1067.75549 401.49997"/>
+        <path fill="#ffffff" d="M1149.14148,401.49997v193.59729h-32.08148v-193.59729h32.08148Z"/>
+        <path fill="#ffffff" d="M1233.70984,401.49997c59.46155,0,102.33014,43.14445,102.33014,96.79817s-42.86859,96.79912-102.33014,96.79912h-66.37671v-193.59729h66.37671ZM1199.41461,562.73893h34.29523c38.99573,0,66.37579-27.38007,66.37579-64.44079s-27.38007-64.43983-66.37579-64.43983h-34.29523v128.88062Z"/>
+        <path fill="#ffffff" d="M1461.63257,401.49997v32.35833h-78.31946v40.93167h45.29926v32.35833h-45.29926v55.59062h78.31946v32.35834h-110.40094v-193.59729h110.40094Z"/>
+        <path fill="#ffffff" d="M1006.4671,663.3115c0,9.59277-7.51465,15.18848-21.9043,15.18848h-27.81934v-55.95898h26.2207c13.42969,0,20.625,5.67578,20.625,14.5498,0,5.75586-2.87793,9.99219-7.19531,12.31055,5.99609,1.91895,10.07324,6.63574,10.07324,13.91016ZM967.13608,630.69529v15.42871h14.70895c7.19434,0,11.27148-2.55859,11.27148-7.6748,0-5.19531-4.07715-7.75391-11.27148-7.75391h-14.70898ZM995.99445,662.27244c0-5.59668-4.2373-8.07422-12.07129-8.07422h-16.78711v16.14746h16.78711c7.83398,0,12.07129-2.47754,12.07129-8.07324Z"/>
+        <path fill="#ffffff" d="M1075.78156,678.49997l-11.43164-16.3877c-.71875.08008-1.43848.08008-2.1582.08008h-12.62988v16.30762h-10.39258v-55.95898h23.02246c14.70898,0,23.82227,7.51465,23.82227,19.90527,0,8.47461-4.31641,14.70996-11.91113,17.66699l12.87109,18.38672h-11.19238ZM1061.71228,631.33494h-12.15039v22.30371h12.15039c9.11328,0,13.83008-4.15723,13.83008-11.19238,0-7.03418-4.7168-11.11133-13.83008-11.11133Z"/>
+        <path fill="#ffffff" d="M1155.48859,665.54978h-27.97949l-5.51562,12.9502h-10.71191l25.18066-55.95898h10.23242l25.26172,55.95898h-10.87207l-5.5957-12.9502ZM1152.05109,657.39548l-10.55176-24.46191-10.47266,24.46191h21.02441Z"/>
+        <path fill="#ffffff" d="M1244.14978,669.70603v8.79395h-47.72461v-6.95508l32.93555-40.20996h-32.37598v-8.79395h46.12598v6.95508l-32.93555,40.20996h33.97461Z"/>
+        <path fill="#ffffff" d="M1275.25323,622.54099h10.39258v55.95898h-10.39258v-55.95898Z"/>
+        <path fill="#ffffff" d="M1322.34113,622.54099h10.39258v47.16504h29.25781v8.79395h-39.65039v-55.95898Z"/>
+        <rect fill="url(#lg)" x="591.52898" y="609.08361" width="93.76549" height="69.41637"/>
+        <rect fill="url(#lg1)" x="502.42616" y="540.92298" width="93.76549" height="69.41637"/>
+        <path fill="url(#lg2)" d="M773.49542,470.72999l43.49487,69.26999-87.9592,138.5h-88.79871l133.26303-207.76999ZM684.48682,401.49997l-158.30856,246.82742,18.93906,30.17258h46.68304l157.73888-245.92795-19.50873-31.07205h-45.5437ZM548.11559,401.49997l-89.74816,138.8298,43.95461,70.00955,133.95263-208.83936h-88.15908Z"/>
+      </svg>
+    </div>
+    <div class="cover-badge"><div class="cover-badge-text">Commercial Proposal</div></div>
+  </div>
+
+  <div class="cover-content">
+    <div class="cover-eyebrow">Workforce Solutions · Brazil</div>
+    <div class="cover-divider"></div>
+    <div class="cover-title"><span>Recruitment &amp; Employer of Record</span><br>Strategic Partnerships Manager — Telecom, Brazil</div>
+    <div class="cover-subtitle">A phased hiring model to launch Afina DMP's commercial presence with Brazil's leading telecom operators — starting with one senior hire, fully compliant from day one, with no local entity required.</div>
+    <div class="cover-tags">
+      <span class="cover-tag">Recruitment</span>
+      <span class="cover-tag">Employer of Record</span>
+      <span class="cover-tag outline">Confidential</span>
+    </div>
+  </div>
+
+  <div class="cover-meta">
+    <div class="cover-meta-item">
+      <div class="cover-meta-label">Prepared for</div>
+      <div class="cover-meta-value">Afina DMP</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="cover-meta-label">Contact</div>
+      <div class="cover-meta-value">Elena · HR</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="cover-meta-label">Date</div>
+      <div class="cover-meta-value">July 2026</div>
+    </div>
+  </div>
+
+  <div class="cover-image-area">
+    <div class="brazil-photo">
+      <div class="cover-hex-overlay"></div>
+      <div class="cover-hex-overlay2"></div>
+      <div class="skyline"></div>
+    </div>
+  </div>
+
+  <div class="cover-footer">
+    <span class="cover-footer-url">widebrazil.com</span>
+    <span class="cover-footer-edition">Confidential · Prepared for Afina DMP · v1.1</span>
+  </div>
+</div>
+
+<!-- ============ PAGE 2 — CONTEXT + RECOMMENDED STRUCTURE ============ -->
+<div class="page inner-page">
+  <div class="page-header">
+    <div class="page-header-left">Wide Brazil <span>| Commercial Proposal</span></div>
+    <div class="page-header-right">Strategic Partnerships Manager — Afina DMP</div>
+  </div>
+  <div class="page-body">
+    <div class="section-header-block">
+      <div class="section-num">Section 01</div>
+      <div class="section-title">Client Context &amp; Recommended Structure</div>
+      <div class="section-subtitle">Why a phased model fits Afina DMP's entry into Brazil</div>
+    </div>
+
+    <p class="lead">Afina DMP is entering Brazil to build commercial relationships with the country's leading telecom operators — not to open a local entity at this stage.</p>
+    <p class="body-text">Brazil is one of the largest telecom markets in the world, with mobile penetration exceeding one line per person and a small group of dominant operators — Vivo, Claro, and TIM — controlling most enterprise and B2B decision-making. Reaching this market effectively depends less on infrastructure and more on having the right person: someone who already understands how these organizations evaluate new commercial solutions, and who can open doors with senior stakeholders from day one.</p>
+    <p class="body-text">Your near-term goal is to hire one experienced Strategic Partnerships Manager to lead pilot conversations with two to three operators, validate commercial traction, and lay the foundation for a broader Brazil strategy. Additional hires and, eventually, a local entity, would only follow once this first phase proves out.</p>
+
+    <div class="callout"><strong>Recommended structure — Recruit, then Employ (BOT model):</strong> Wide Brazil first runs a focused search to identify and shortlist candidates with direct commercial experience inside Vivo, Claro, or TIM. Once you select a candidate, Wide Brazil employs them locally through our Employer of Record (EOR) service — so the person is hired compliantly under Brazilian law, without Afina DMP needing to register a local entity. You direct their work 100%; Wide Brazil handles payroll, statutory contributions, and compliance.</div>
+
+    <div class="phase-row">
+      <div class="phase-card">
+        <div class="phase-head">Phase 1 · Now</div>
+        <div class="phase-body">Recruit and hire the first Strategic Partnerships Manager through Wide Brazil's EOR. No entity required. Person starts within weeks, fully compliant under CLT.</div>
+      </div>
+      <div class="phase-card">
+        <div class="phase-head teal">Phase 2 · On traction</div>
+        <div class="phase-body">As pilot projects convert into commercial agreements, scale the team — additional recruitment and EOR hires, same partner, same process.</div>
+      </div>
+      <div class="phase-card">
+        <div class="phase-head">Phase 3 · On scale</div>
+        <div class="phase-body">When headcount and revenue justify it, Wide Brazil supports entity formation and transfers employees from EOR to your own Brazilian company — or you can remain on EOR indefinitely.</div>
+      </div>
+    </div>
+
+    <div class="rationale-grid">
+      <div class="rationale-card">
+        <h4>Why not open an entity now</h4>
+        <p>Entity formation in Brazil takes time and carries fixed obligations regardless of whether the commercial thesis proves out. EOR lets you test the market with full legal compliance and no structural commitment.</p>
+      </div>
+      <div class="rationale-card">
+        <h4>Why this person matters more than the structure</h4>
+        <p>Enterprise telecom sales in Brazil runs on relationships built over years inside Vivo, Claro, or TIM. The right hire compresses the time it would otherwise take an outsider to build credibility with these operators.</p>
+      </div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <div class="pf-brand">Wide Brazil <span>| Commercial Proposal</span></div>
+    <div class="pf-disclaimer">Confidential — prepared solely for Afina DMP.</div>
+    <div class="pf-page">Page 2</div>
+  </div>
+</div>
+
+<!-- ============ PAGE 3 — SALARY BENCHMARK ============ -->
+<div class="page inner-page">
+  <div class="page-header">
+    <div class="page-header-left">Wide Brazil <span>| Commercial Proposal</span></div>
+    <div class="page-header-right">Strategic Partnerships Manager — Afina DMP</div>
+  </div>
+  <div class="page-body">
+    <div class="navy-section-header">
+      <div class="section-num">Section 02</div>
+      <div class="section-title">Market Salary Benchmark</div>
+      <div class="section-subtitle">Strategic Partnerships Manager — Telecom Operators, Brazil</div>
+    </div>
+
+    <p class="body-text">This role sits above a standard Business Development Manager and below a full Country/Sales Director. It requires direct professional experience inside Vivo, Claro, or TIM, fluency in Portuguese and English, and the ability to independently manage enterprise sales cycles with executive stakeholders — a scarce combination in the Brazilian telecom market that commands a premium relative to generalist sales or account management roles.</p>
+
+    <table class="salary-table">
+      <tr><th>Band</th><th>Monthly Gross (BRL)</th><th>Monthly Gross (USD)</th><th>Profile</th></tr>
+      <tr><td>Entry of range</td><td>R$ 18,000</td><td>≈ $ 3,550</td><td>Recently moved on from operator, strong network, first partnerships-lead role</td></tr>
+      <tr class="hl"><td class="hl">Recommended target</td><td class="hl">R$ 23,000</td><td class="hl">≈ $ 4,536</td><td class="hl">5+ years at operator or adjacent enterprise sales, proven pilot-to-contract track record</td></tr>
+      <tr><td>Top of range</td><td>R$ 28,000</td><td>≈ $ 5,523</td><td>Senior profile, existing executive relationships at operator level, immediately deployable</td></tr>
+    </table>
+
+    <p class="source-note">Based on market-reference data for Business Development Manager, Senior Business Development Manager, and Director of Business Development profiles in São Paulo (Glassdoor, ERI SalaryExpert, Payscale, 2026), adjusted upward for the operator-specific experience and bilingual requirement in this role. This is a market-reference study — the final range is validated against actual candidates identified during recruitment.</p>
+
+    <div class="callout"><strong>Used as the baseline for this proposal:</strong> the recommended target of <strong>R$ 23,000/month gross</strong> is the figure used throughout the Payroll Simulation, Pricing, and Recruitment Fee sections that follow. It will be recalculated once the actual salary of the selected candidate is confirmed.</div>
+  </div>
+  <div class="page-footer">
+    <div class="pf-brand">Wide Brazil <span>| Commercial Proposal</span></div>
+    <div class="pf-disclaimer">Confidential — prepared solely for Afina DMP.</div>
+    <div class="pf-page">Page 3</div>
+  </div>
+</div>
+
+<!-- ============ PAGE 4 — SCOPE OF SERVICES ============ -->
+<div class="page inner-page">
+  <div class="page-header">
+    <div class="page-header-left">Wide Brazil <span>| Commercial Proposal</span></div>
+    <div class="page-header-right">Strategic Partnerships Manager — Afina DMP</div>
+  </div>
+  <div class="page-body">
+    <div class="section-header-block">
+      <div class="section-num">Section 03</div>
+      <div class="section-title">Scope of Services</div>
+      <div class="section-subtitle">Recruitment + Employer of Record</div>
+    </div>
+
+    <div class="scope-block">
+      <div class="scope-area">Recruitment</div>
+      <div class="scope-item"><div class="scope-item-check">✓</div><div class="scope-item-text"><strong>Kickoff &amp; scoping call</strong> — Wide Brazil's recruitment team meets with Afina DMP to align on role requirements, target profile, and evaluation criteria</div></div>
+      <div class="scope-item"><div class="scope-item-check">✓</div><div class="scope-item-text"><strong>Targeted sourcing</strong> — direct outreach within Wide Brazil's network of telecom and enterprise sales professionals, including candidates with backgrounds at Vivo, Claro, and TIM</div></div>
+      <div class="scope-item"><div class="scope-item-check">✓</div><div class="scope-item-text"><strong>Screening &amp; shortlist</strong> — 3 to 5 vetted candidates, English-tested, delivered within 3 to 4 weeks</div></div>
+      <div class="scope-item"><div class="scope-item-check">✓</div><div class="scope-item-text"><strong>Interview support</strong> — scheduling and coordination through the full interview process</div></div>
+      <div class="scope-item"><div class="scope-item-check">✓</div><div class="scope-item-text"><strong>Offer structuring support</strong> — guidance on compensation and benefits appropriate to the Brazilian market</div></div>
+      <div class="scope-item"><div class="scope-item-check">✓</div><div class="scope-item-text"><strong>Replacement warranty</strong> — free replacement if the hire does not work out within the standard warranty period</div></div>
+    </div>
+
+    <div class="scope-block">
+      <div class="scope-area">Employer of Record (EOR)</div>
+      <div class="scope-item"><div class="scope-item-check">✓</div><div class="scope-item-text"><strong>CLT employment contract</strong> — drafted in Portuguese and English, fully compliant with Brazilian labor law</div></div>
+      <div class="scope-item"><div class="scope-item-check">✓</div><div class="scope-item-text"><strong>Fast onboarding</strong> — candidate starts within 3 to 5 business days of offer acceptance</div></div>
+      <div class="scope-item"><div class="scope-item-check">✓</div><div class="scope-item-text"><strong>Monthly payroll processing</strong> — gross-to-net calculation, statutory withholdings, and disbursement</div></div>
+      <div class="scope-item"><div class="scope-item-check">✓</div><div class="scope-item-text"><strong>Statutory contributions &amp; filings</strong> — FGTS, INSS, and all mandatory employer obligations</div></div>
+      <div class="scope-item"><div class="scope-item-check">✓</div><div class="scope-item-text"><strong>Benefits administration</strong> — meal allowance, life insurance, and other mandatory or agreed benefits</div></div>
+      <div class="scope-item"><div class="scope-item-check">✓</div><div class="scope-item-text"><strong>Dedicated key account management</strong> — close support during the first three to six months, transitioning to Wide Brazil's operational team once the relationship is established</div></div>
+      <div class="scope-item"><div class="scope-item-check">✓</div><div class="scope-item-text"><strong>Ongoing compliance</strong> — Wide Brazil keeps the employment relationship current with changes in Brazilian labor legislation</div></div>
+    </div>
+
+    <div class="callout warn"><strong>Why not simply engage this person as an independent contractor (PJ)?</strong> Under Brazilian law, a working relationship is legally considered employment — regardless of the contract's label — when it shows personal service (the person can't delegate the work), regularity/continuity, payment for services, and subordination (the company directs how, when, and where the work is done). A Strategic Partnerships Manager working exclusively for Afina DMP, using company tools, following company direction, and reporting into the org structure meets most of these criteria in practice. That combination creates real exposure to reclassification: if a Brazilian court later finds an employment relationship existed, Afina DMP would be liable for the full retroactive package of employee rights (13th salary, vacation, FGTS, social charges) plus potential penalties — this is an active area of Brazilian labor litigation, and a matter still under review by Brazil's Supreme Court (STF, Tema 1389), with no final ruling as of July 2026. <strong>Hiring through Wide Brazil's EOR removes this exposure</strong>: the person is a CLT employee from day one, with all statutory obligations met and carried by Wide Brazil, while Afina DMP retains full operational control over their day-to-day work.</div>
+  </div>
+  <div class="page-footer">
+    <div class="pf-brand">Wide Brazil <span>| Commercial Proposal</span></div>
+    <div class="pf-disclaimer">Confidential — prepared solely for Afina DMP.</div>
+    <div class="pf-page">Page 4</div>
+  </div>
+</div>
+
+<!-- ============ PAGE 5 — BENEFITS ============ -->
+<div class="page inner-page">
+  <div class="page-header">
+    <div class="page-header-left">Wide Brazil <span>| Commercial Proposal</span></div>
+    <div class="page-header-right">Strategic Partnerships Manager — Afina DMP</div>
+  </div>
+  <div class="page-body">
+    <div class="navy-section-header">
+      <div class="section-num">Section 04</div>
+      <div class="section-title">Employee Benefits</div>
+      <div class="section-subtitle">Mandatory benefits under Brazilian labor law, plus recommended additions for this role</div>
+    </div>
+
+    <p class="body-text">Brazilian employment law (CLT) requires a defined set of benefits and provisions for every employee, regardless of role or seniority. These are included in the payroll simulation on the following page as pass-through costs — Wide Brazil applies no markup on statutory items.</p>
+
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <div class="benefit-card-top"><div class="benefit-name">13th Salary</div><span class="benefit-tag mandatory">Mandatory</span></div>
+        <div class="benefit-body">An additional month's salary paid annually, typically split between November and December. Provisioned monthly as part of employer cost.</div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-card-top"><div class="benefit-name">Paid Vacation + 1/3 Bonus</div><span class="benefit-tag mandatory">Mandatory</span></div>
+        <div class="benefit-body">30 days of paid annual leave, plus a constitutional bonus of one-third of the monthly salary. Base salary is already covered by monthly invoicing; only the bonus is provisioned separately.</div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-card-top"><div class="benefit-name">FGTS</div><span class="benefit-tag mandatory">Mandatory</span></div>
+        <div class="benefit-body">A severance guarantee fund equal to 8% of gross salary, deposited monthly into an account in the employee's name.</div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-card-top"><div class="benefit-name">INSS (Social Security)</div><span class="benefit-tag mandatory">Mandatory</span></div>
+        <div class="benefit-body">Employer contribution covering pension, work-injury insurance, and the "Sistema S" social training system.</div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-card-top"><div class="benefit-name">Meal / Food Allowance (VR/VA)</div><span class="benefit-tag mandatory">Mandatory</span></div>
+        <div class="benefit-body">A daily allowance for meals, standard across the Brazilian market and expected by candidates at this seniority level.</div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-card-top"><div class="benefit-name">Life Insurance</div><span class="benefit-tag optional">Market Standard</span></div>
+        <div class="benefit-body">Not legally mandatory, but standard practice for professional-level hires in Brazil and included in this simulation.</div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-card-top"><div class="benefit-name">Health Plan (Plano de Saúde)</div><span class="benefit-tag recommended">Recommended</span></div>
+        <div class="benefit-body">Not legally required, but one of the most valued benefits in the Brazilian market and close to a baseline expectation for a role at this seniority. Recommended to strengthen the offer for a scarce, senior profile and reduce the risk of losing the preferred candidate to a competing offer. Typical corporate plans for an individual employee run roughly R$ 400–900/month depending on network and coverage level; can be quoted and added to the payroll simulation once a provider tier is chosen.</div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-card-top"><div class="benefit-name">Variable / Performance Bonus</div><span class="benefit-tag recommended">Recommended</span></div>
+        <div class="benefit-body">Given the commercial nature of this role, a variable component tied to pilot conversion and contract value is recommended to align incentives with the outcomes Afina DMP needs. This is structured directly between Afina DMP and the employee as part of the offer, sits outside the fixed payroll base used for statutory calculations, and does not change the EOR fee — Wide Brazil can support the disbursement of variable payments through payroll once the structure is defined.</div>
+      </div>
+    </div>
+
+    <div class="callout"><strong>On total cost:</strong> The combination of the 36.8% employer social charges, mandatory benefits, and annual provisions typically adds 55–65% on top of gross salary to arrive at total employer cost in Brazil — this is standard across the market and not specific to Wide Brazil's pricing. Health plan and variable bonus, if adopted, would be added on top of the figures shown in the Payroll Simulation.</div>
+  </div>
+  <div class="page-footer">
+    <div class="pf-brand">Wide Brazil <span>| Commercial Proposal</span></div>
+    <div class="pf-disclaimer">Confidential — prepared solely for Afina DMP.</div>
+    <div class="pf-page">Page 5</div>
+  </div>
+</div>
+
+<!-- ============ PAGE 6 — PAYROLL SIMULATION ============ -->
+<div class="page inner-page">
+  <div class="page-header">
+    <div class="page-header-left">Wide Brazil <span>| Commercial Proposal</span></div>
+    <div class="page-header-right">Strategic Partnerships Manager — Afina DMP</div>
+  </div>
+  <div class="page-body">
+    <div class="section-header-block">
+      <div class="section-num">Section 05</div>
+      <div class="section-title">Payroll Simulation</div>
+      <div class="section-subtitle">Based on recommended target salary of R$ 23,000/month gross (Section 02) · FX reference R$ 5.07 / USD (22 Jul 2026)</div>
+    </div>
+
+    <div class="sim-wrap">
+      <div class="sim-block">
+        <div class="sim-block-header navy-bg">1. Total Employer Cost</div>
+        <div class="sim-row-dual sim-row-header">
+          <span class="sim-label" style="flex:1"></span>
+          <span class="sim-col-head">BRL</span>
+          <span class="sim-col-head">USD</span>
+        </div>
+        <div class="sim-row-dual">
+          <span class="sim-label" style="flex:1">Gross Salary</span>
+          <span class="sim-value">R$ 23,000.00</span><span class="sim-value">$ 4,536.49</span>
+        </div>
+        <div class="sim-row-dual">
+          <span class="sim-label indent" style="flex:1">FGTS — 8%</span>
+          <span class="sim-value">R$ 1,840.00</span><span class="sim-value">$ 362.92</span>
+        </div>
+        <div class="sim-row-dual">
+          <span class="sim-label indent" style="flex:1">Employer INSS — 20%</span>
+          <span class="sim-value">R$ 4,600.00</span><span class="sim-value">$ 907.30</span>
+        </div>
+        <div class="sim-row-dual">
+          <span class="sim-label indent" style="flex:1">RAT (Work Accident) — 3%</span>
+          <span class="sim-value">R$ 690.00</span><span class="sim-value">$ 136.09</span>
+        </div>
+        <div class="sim-row-dual">
+          <span class="sim-label indent" style="flex:1">Sistema S — 5.8%</span>
+          <span class="sim-value">R$ 1,334.00</span><span class="sim-value">$ 263.12</span>
+        </div>
+        <div class="sim-row-dual" style="background:rgba(0,200,200,0.06)">
+          <span class="sim-label" style="flex:1;font-weight:600;color:#1A2535">Total Social Charges (36.8%)</span>
+          <span class="sim-value teal">R$ 8,464.00</span><span class="sim-value teal">$ 1,669.43</span>
+        </div>
+        <div class="sim-row-dual">
+          <span class="sim-label" style="flex:1">Benefits (Meal Allowance + Life Insurance)</span>
+          <span class="sim-value">R$ 815.60</span><span class="sim-value">$ 160.87</span>
+        </div>
+        <div class="sim-row-dual">
+          <span class="sim-label indent" style="flex:1">13th Salary Provision — Gross/12 + charges on that amount</span>
+          <span class="sim-value">R$ 2,622.00</span><span class="sim-value">$ 517.16</span>
+        </div>
+        <div class="sim-row-dual">
+          <span class="sim-label indent" style="flex:1">Vacation 1/3 Bonus Provision — Gross/36 + charges on that amount</span>
+          <span class="sim-value">R$ 874.00</span><span class="sim-value">$ 172.39</span>
+        </div>
+        <div class="sim-row-dual" style="background:rgba(0,200,200,0.06)">
+          <span class="sim-label" style="flex:1;font-weight:600;color:#1A2535">Total Annual Provisions (monthly set-aside)</span>
+          <span class="sim-value teal">R$ 3,496.00</span><span class="sim-value teal">$ 689.55</span>
+        </div>
+        <div class="sim-total-row-dual">
+          <span class="sim-total-label" style="flex:1">Total Monthly Employer Cost</span>
+          <span class="sim-total-value">R$ 35,775.60</span>
+          <span class="sim-total-value">$ 7,056.33</span>
+        </div>
+        <div class="sim-note">Statutory costs and benefits are pass-through. No markup applied. The 13th salary and vacation bonus are paid out once a year but accrued and invoiced every month — each is grossed up with the 36.8% social charges before being divided across the 12 monthly invoices.</div>
+      </div>
+
+      <div style="margin-top:16px;">
+        <div class="sim-block">
+          <div class="sim-block-header teal-bg">2. Employee Net Salary</div>
+          <div class="sim-row-dual sim-row-header">
+            <span class="sim-label" style="flex:1"></span>
+            <span class="sim-col-head">BRL</span>
+            <span class="sim-col-head">USD</span>
+          </div>
+          <div class="sim-row-dual">
+            <span class="sim-label" style="flex:1">Gross Salary</span>
+            <span class="sim-value">R$ 23,000.00</span><span class="sim-value">$ 4,536.49</span>
+          </div>
+          <div class="sim-row-dual">
+            <span class="sim-label indent" style="flex:1">Employee INSS (capped)</span>
+            <span class="sim-value negative">(R$ 987.00)</span><span class="sim-value negative">($ 194.67)</span>
+          </div>
+          <div class="sim-row-dual">
+            <span class="sim-label indent" style="flex:1">IRRF Income Tax</span>
+            <span class="sim-value negative">(R$ 5,157.58)</span><span class="sim-value negative">($ 1,017.28)</span>
+          </div>
+          <div class="sim-total-row-dual">
+            <span class="sim-total-label" style="flex:1">Net Monthly Salary</span>
+            <span class="sim-total-value">R$ 16,855.42</span><span class="sim-total-value">$ 3,324.54</span>
+          </div>
+          <div class="sim-note">Net deposited to employee's Brazilian account. IRRF and INSS based on 2026 progressive tables. Excludes any health plan or variable bonus, which would be structured separately.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <div class="pf-brand">Wide Brazil <span>| Commercial Proposal</span></div>
+    <div class="pf-disclaimer">Confidential — prepared solely for Afina DMP.</div>
+    <div class="pf-page">Page 6</div>
+  </div>
+</div>
+
+<!-- ============ PAGE 7 — PRICING ============ -->
+<div class="page inner-page">
+  <div class="page-header">
+    <div class="page-header-left">Wide Brazil <span>| Commercial Proposal</span></div>
+    <div class="page-header-right">Strategic Partnerships Manager — Afina DMP</div>
+  </div>
+  <div class="page-body">
+    <div class="navy-section-header">
+      <div class="section-num">Section 06</div>
+      <div class="section-title">Pricing &amp; Fees</div>
+      <div class="section-subtitle">Recruitment (one-time) + Employer of Record (monthly)</div>
+    </div>
+
+    <p class="body-text"><strong>Rate card.</strong> Wide Brazil's standard rates for each service, and the combined-service rate applied to this engagement:</p>
+
+    <table class="salary-table">
+      <tr><th>Service</th><th>Rate</th><th>Applied here</th></tr>
+      <tr><td>Recruitment only</td><td>200% of monthly gross salary</td><td>—</td></tr>
+      <tr class="hl"><td class="hl">Recruitment + EOR (combined)</td><td class="hl">100% of monthly gross salary</td><td class="hl">$ 4,536.49 one-time</td></tr>
+      <tr class="hl"><td class="hl">Employer of Record (ongoing)</td><td class="hl">$ 199/month per employee + 9% GST/Overhead on total payroll cost</td><td class="hl">$ 7,890.40 /month</td></tr>
+    </table>
+    <p class="source-note">Because Afina DMP is engaging Wide Brazil for both recruitment and ongoing EOR employment, the recruitment fee is reduced from the standard 200% rate to 100% of one month's gross salary — this reflects the value of a single, long-term partner managing the full hiring lifecycle.</p>
+
+    <table class="pricing-table" style="margin-top:20px;">
+      <thead><tr><th>Item</th><th>Description</th><th style="text-align:right">Amount (USD)</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><span class="pt-item">Recruitment Fee</span><br><span class="pt-note">One month's gross salary (combined-service rate) — one-time</span></td>
+          <td class="pt-desc">50% retainer on kickoff, 50% on successful placement</td>
+          <td class="pt-value">$ 4,536.49</td>
+        </tr>
+        <tr>
+          <td><span class="pt-item">&nbsp;&nbsp;↳ Retainer (50%)</span></td>
+          <td class="pt-desc">Due at project kickoff</td>
+          <td class="pt-value">$ 2,268.24</td>
+        </tr>
+        <tr>
+          <td><span class="pt-item">&nbsp;&nbsp;↳ Success Fee (50%)</span></td>
+          <td class="pt-desc">Due on candidate acceptance of offer</td>
+          <td class="pt-value">$ 2,268.24</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table class="pricing-table" style="margin-top:20px;">
+      <thead><tr><th>Item</th><th>Description</th><th style="text-align:right">Amount (USD)</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><span class="pt-item">Total Employer Payroll Cost</span><br><span class="pt-note">Gross salary + social charges + benefits + annual provisions</span></td>
+          <td class="pt-desc">Pass-through — no markup</td>
+          <td class="pt-value">$ 7,056.33</td>
+        </tr>
+        <tr>
+          <td><span class="pt-item">Wide Brazil Fixed Retainer</span><br><span class="pt-note">Monthly fixed fee, per employee</span></td>
+          <td class="pt-desc">EOR administration, legal compliance, HR support</td>
+          <td class="pt-value">$ 199.00</td>
+        </tr>
+        <tr>
+          <td><span class="pt-item">GST / Overhead — 9%</span><br><span class="pt-note">Applied on total employer payroll cost</span></td>
+          <td class="pt-desc">Local taxes and fees, plus compliance insurance costs</td>
+          <td class="pt-value">$ 635.07</td>
+        </tr>
+        <tr class="pt-total">
+          <td><span class="pt-item">Total Monthly EOR Invoice</span></td>
+          <td></td>
+          <td class="pt-value">$ 7,890.40</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="inv-asterisk">Recalculated monthly against the actual FX rate and confirmed gross salary of the hired candidate. Excludes health plan and variable bonus, if adopted. No setup fee applies.</div>
+  </div>
+  <div class="page-footer">
+    <div class="pf-brand">Wide Brazil <span>| Commercial Proposal</span></div>
+    <div class="pf-disclaimer">Confidential — prepared solely for Afina DMP.</div>
+    <div class="pf-page">Page 7</div>
+  </div>
+</div>
+
+<!-- ============ PAGE 8 — NEXT STEPS + CONTACT ============ -->
+<div class="page inner-page">
+  <div class="page-header">
+    <div class="page-header-left">Wide Brazil <span>| Commercial Proposal</span></div>
+    <div class="page-header-right">Strategic Partnerships Manager — Afina DMP</div>
+  </div>
+  <div class="page-body">
+    <div class="section-header-block">
+      <div class="section-num">Section 07</div>
+      <div class="section-title">Next Steps</div>
+      <div class="section-subtitle">From job description to onboarded hire</div>
+    </div>
+
+    <div class="step-row">
+      <div class="step-num"><span>1</span></div>
+      <div><div class="step-title">Confirm job description &amp; scoping call</div><div class="step-desc">Share the final job description; Wide Brazil's recruitment team holds a kickoff call to align on target profile and evaluation criteria.</div></div>
+    </div>
+    <div class="step-row">
+      <div class="step-num"><span>2</span></div>
+      <div><div class="step-title">Sourcing &amp; shortlist</div><div class="step-desc">Wide Brazil delivers a shortlist of 3 to 5 vetted, English-tested candidates within 3 to 4 weeks.</div></div>
+    </div>
+    <div class="step-row">
+      <div class="step-num"><span>3</span></div>
+      <div><div class="step-title">Interviews &amp; selection</div><div class="step-desc">Afina DMP interviews shortlisted candidates with Wide Brazil's support on scheduling and process.</div></div>
+    </div>
+    <div class="step-row">
+      <div class="step-num"><span>4</span></div>
+      <div><div class="step-title">Offer &amp; agreement</div><div class="step-desc">Wide Brazil supports offer structuring — including health plan and variable bonus if adopted; commercial agreement between Afina DMP and Wide Brazil is signed.</div></div>
+    </div>
+    <div class="step-row">
+      <div class="step-num"><span>5</span></div>
+      <div><div class="step-title">Onboarding via EOR</div><div class="step-desc">Selected candidate is onboarded onto Wide Brazil's payroll within 3 to 5 business days and starts work.</div></div>
+    </div>
+    <div class="step-row">
+      <div class="step-num"><span>6</span></div>
+      <div><div class="step-title">Ongoing management</div><div class="step-desc">Monthly payroll, compliance, and benefits administration, with close key account support from Wide Brazil during the first three to six months.</div></div>
+    </div>
+
+    <div class="callout" style="margin-top:20px;">
+      <strong>Assumptions &amp; exclusions:</strong> Pricing is based on an estimated monthly gross salary of R$ 23,000, to be confirmed once a candidate is selected — recruitment fee and EOR invoice will be recalculated accordingly. Health plan and variable/performance bonus are recommended but not included in the figures above; both can be quoted once the candidate and provider tier are defined. Scope covers one (1) hire; additional headcount is quoted separately under the same terms. Entity formation and payroll transfer services are available as a future phase and are not included in this proposal. All figures use the USD/BRL rate of R$ 5.07 as of 22 July 2026 and will be updated at invoicing.
+    </div>
+
+    <div class="contact-box">
+      <div class="contact-box-left">
+        <h3>Wide Brazil</h3>
+        <p>Your partner for recruitment, EOR, payroll, and workforce structuring across Brazil and Latin America.</p>
+      </div>
+      <div class="contact-box-right">
+        <div class="contact-detail"><span>Contact</span>Victor Dias</div>
+        <div class="contact-detail"><span>Email</span>victor.dias@widebrazil.com</div>
+        <div class="contact-detail"><span>Phone</span>+351 965 043 393</div>
+        <div class="contact-detail"><span>Web</span>widebrazil.com</div>
+      </div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <div class="pf-brand">Wide Brazil <span>| Commercial Proposal</span></div>
+    <div class="pf-disclaimer">Confidential — prepared solely for Afina DMP.</div>
+    <div class="pf-page">Page 8</div>
+  </div>
+</div>
+
+</body>
+</html>
