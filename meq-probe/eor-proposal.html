@@ -114,13 +114,13 @@ p.body-text{font-size:10pt; line-height:1.7; margin-bottom:12px; max-width:640px
 .pt-total .pt-value{color:var(--teal2); font-size:10pt;}
 
 .invoice-summary{border:1.5px solid var(--lgray); border-radius:4px; overflow:hidden; margin:14px 0;}
-.invoice-summary-row{display:flex; justify-content:space-between; align-items:baseline; padding:9px 16px; border-bottom:1px solid var(--lgray);}
+.invoice-summary-row{display:flex; justify-content:space-between; align-items:baseline; padding:9px 16px; border-bottom:1px solid var(--lgray); gap:16px;}
 .invoice-summary-row:last-of-type{border-bottom:none;}
 .invoice-summary-row.total{background:var(--navy);}
 .invoice-summary-row.total .inv-label{color:rgba(255,255,255,.85); font-weight:700;}
 .invoice-summary-row.total .inv-value{color:var(--teal); font-size:12pt; font-weight:900;}
-.inv-label{font-family:'Montserrat',sans-serif; font-weight:600; font-size:8.5pt; color:var(--text);}
-.inv-value{font-family:'Montserrat',sans-serif; font-weight:800; font-size:9.5pt; color:var(--navy);}
+.inv-label{font-family:'Montserrat',sans-serif; font-weight:600; font-size:8.5pt; color:var(--text); flex:1 1 auto;}
+.inv-value{font-family:'Montserrat',sans-serif; font-weight:800; font-size:9.5pt; color:var(--navy); white-space:nowrap; flex-shrink:0;}
 .inv-asterisk{font-family:'Source Serif 4',serif; font-size:7pt; color:var(--gray); font-style:italic; padding:6px 16px 8px; background:var(--offwhite);}
 
 /* Offer callout */
@@ -406,10 +406,10 @@ p.body-text{font-size:10pt; line-height:1.7; margin-bottom:12px; max-width:640px
     </table>
 
     <div class="invoice-summary">
-      <div class="invoice-summary-row"><span class="inv-label">Total Employer Payroll Cost (pass-through)</span><span class="inv-value">R$ 24,962.27 · $ 4,913.44</span></div>
-      <div class="invoice-summary-row"><span class="inv-label">Fixed Retainer</span><span class="inv-value">$ 199.00</span></div>
-      <div class="invoice-summary-row"><span class="inv-label">GST / Overhead (14.38% on payroll cost — Brazilian taxes, fees &amp; compliance infrastructure)</span><span class="inv-value">R$ 3,589.57 · $ 706.55</span></div>
-      <div class="invoice-summary-row total"><span class="inv-label">Total Monthly Invoice</span><span class="inv-value">R$ 29,562.76 · $ 5,818.99</span></div>
+      <div class="invoice-summary-row"><span class="inv-label">Total Employer Payroll Cost (pass-through)</span><span class="inv-value">R$&nbsp;24,962.27&nbsp;·&nbsp;$&nbsp;4,913.44</span></div>
+      <div class="invoice-summary-row"><span class="inv-label">Fixed Retainer</span><span class="inv-value">$&nbsp;199.00</span></div>
+      <div class="invoice-summary-row"><span class="inv-label">GST / Overhead (14.38% on payroll cost — Brazilian taxes, fees &amp; compliance infrastructure)</span><span class="inv-value">R$&nbsp;3,589.57&nbsp;·&nbsp;$&nbsp;706.55</span></div>
+      <div class="invoice-summary-row total"><span class="inv-label">Total Monthly Invoice</span><span class="inv-value">R$&nbsp;29,562.76&nbsp;·&nbsp;$&nbsp;5,818.99</span></div>
     </div>
     <div class="inv-asterisk">*Reference exchange rate US$ 1.00 = R$ 5.08. Final invoice is issued in BRL and USD-equivalent shown for reference only.</div>
 
