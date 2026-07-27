@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Wide Brazil — EOR Proposal — MEQ Probe</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0D1B2E; --teal:#00C8C8; --teal2:#00A8A8; --green:#3DD68C;
+  --white:#FFFFFF; --offwhite:#F7F9FC; --lgray:#E8EDF3; --text:#1A2535; --gray:#7C8AA0;
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+body{font-family:'Source Serif 4',serif; color:var(--text); background:#dfe4ec;}
+.page{ width:210mm; min-height:297mm; background:#fff; margin:0 auto 24px; position:relative; overflow:hidden; box-shadow:0 4px 24px rgba(0,0,0,.12);}
+
+/* ===== COVER ===== */
+.cover{ background:var(--navy); color:#fff; display:flex; flex-direction:column; }
+.hex-group{position:absolute; inset:0; overflow:hidden; pointer-events:none;}
+.hex{position:absolute; border-radius:24px; transform:rotate(18deg);}
+.cover-top{display:flex; justify-content:space-between; align-items:center; padding:40px 48px 0;}
+.cover-badge{border:1px solid rgba(255,255,255,.35); border-radius:20px; padding:6px 16px;}
+.cover-badge-text{font-family:'Montserrat',sans-serif; font-size:9pt; font-weight:600; letter-spacing:.5px;}
+.cover-content{padding:70px 48px 0; position:relative; z-index:2;}
+.cover-eyebrow{font-family:'Montserrat',sans-serif; font-size:10pt; font-weight:700; letter-spacing:2px; color:var(--teal); text-transform:uppercase;}
+.cover-divider{width:46px; height:3px; background:var(--teal); margin:16px 0 22px;}
+.cover-title{font-family:'Montserrat',sans-serif; font-weight:800; font-size:34pt; line-height:1.18;}
+.cover-title span{color:var(--teal);}
+.cover-subtitle{font-family:'Source Serif 4',serif; font-weight:300; font-size:13pt; color:rgba(255,255,255,.82); margin-top:18px; max-width:480px; line-height:1.5;}
+.cover-tags{display:flex; gap:10px; margin-top:26px;}
+.cover-tag{font-family:'Montserrn',sans-serif; font-size:8.5pt; font-weight:600; padding:6px 14px; border-radius:16px; background:rgba(0,200,200,.15); color:var(--teal);}
+.cover-tag.outline{background:transparent; border:1px solid rgba(255,255,255,.35); color:rgba(255,255,255,.8);}
+.cover-meta{display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:0; margin:46px 48px 0; border-top:1px solid rgba(255,255,255,.15); border-bottom:1px solid rgba(255,255,255,.15); position:relative; z-index:2;}
+.cover-meta-item{padding:16px 14px; border-right:1px solid rgba(255,255,255,.15);}
+.cover-meta-item:last-child{border-right:none;}
+.cover-meta-label{font-family:'Montserrat',sans-serif; font-size:7.5pt; letter-spacing:1px; text-transform:uppercase; color:rgba(255,255,255,.5); margin-bottom:6px;}
+.cover-meta-value{font-family:'Montserrat',sans-serif; font-size:10pt; font-weight:700; color:#fff;}
+.cover-image-area{flex:1; position:relative; margin-top:20px;}
+.brazil-photo{position:absolute; inset:0; background:linear-gradient(180deg, rgba(13,27,46,0) 0%, rgba(13,27,46,.4) 60%, var(--navy) 100%), linear-gradient(120deg,#123049,#0d1b2e 60%);}
+.cover-hex-overlay,.cover-hex-overlay2{position:absolute; border-radius:30px; background:rgba(0,200,200,.08);}
+.cover-hex-overlay{width:220px; height:220px; right:60px; bottom:40px; transform:rotate(20deg);}
+.cover-hex-overlay2{width:120px; height:120px; right:180px; bottom:120px; transform:rotate(20deg); background:rgba(61,214,140,.1);}
+.skyline{position:absolute; bottom:0; left:0; right:0; height:70px; background:repeating-linear-gradient(90deg, rgba(255,255,255,.06) 0 18px, transparent 18px 40px);}
+.cover-footer{display:flex; justify-content:space-between; align-items:center; padding:16px 48px; border-top:1px solid rgba(255,255,255,.15); position:relative; z-index:2;}
+.cover-footer-url,.cover-footer-edition{font-family:'Montserrat',sans-serif; font-size:8pt; color:rgba(255,255,255,.55); letter-spacing:.5px;}
+
+/* ===== INNER PAGES ===== */
+.inner-page{display:flex; flex-direction:column;}
+.page-header{display:flex; justify-content:space-between; padding:22px 48px 14px; border-bottom:1px solid var(--lgray); font-family:'Montserrat',sans-serif; font-size:8pt; color:var(--gray);}
+.page-header-left span{color:var(--gray); font-weight:400;}
+.page-header-left{font-weight:700; color:var(--navy);}
+.page-header-right{font-weight:600;}
+.page-body{flex:1; padding:28px 48px 10px;}
+.page-footer{display:flex; justify-content:space-between; align-items:center; padding:14px 48px 22px; border-top:1px solid var(--lgray); font-family:'Montserrat',sans-serif; font-size:7.5pt; color:var(--gray);}
+.pf-brand span{color:var(--gray);}
+.pf-brand{font-weight:700; color:var(--navy);}
+.pf-disclaimer{font-style:italic;}
+
+.section-header-block{border-left:4px solid var(--teal); padding-left:16px; margin-bottom:22px;}
+.navy-section-header{border-left:4px solid var(--navy); padding-left:16px; margin-bottom:22px;}
+.section-num{font-family:'Montserrat',sans-serif; font-size:8pt; font-weight:700; letter-spacing:1.5px; color:var(--teal2); text-transform:uppercase;}
+.navy-section-header .section-num{color:var(--navy);}
+.section-title{font-family:'Montserrat',sans-serif; font-size:18pt; font-weight:800; color:var(--navy); margin-top:4px;}
+.section-subtitle{font-family:'Source Serif 4',serif; font-size:10pt; color:var(--gray); margin-top:6px; max-width:520px;}
+
+p.body-text{font-size:10pt; line-height:1.7; margin-bottom:12px; max-width:640px;}
+.subhead{font-family:'Montserrat',sans-serif; font-size:11pt; font-weight:700; color:var(--navy); margin:18px 0 8px;}
+
+/* Scope */
+.scope-block{margin-bottom:16px;}
+.scope-area{font-family:'Montserrat',sans-serif; font-size:9.5pt; font-weight:700; color:var(--teal2); text-transform:uppercase; letter-spacing:.5px; margin-bottom:8px;}
+.scope-item{display:flex; gap:10px; padding:7px 0; border-bottom:1px solid var(--lgray); align-items:flex-start;}
+.scope-item-check{width:16px; height:16px; border-radius:50%; background:var(--teal); color:#fff; font-size:9px; display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:2px;}
+.scope-item-text{font-size:9.5pt; line-height:1.5;}
+
+/* Benefits */
+.benefits-grid{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:8px;}
+.benefit-card{border:1px solid var(--lgray); border-radius:6px; padding:14px;}
+.benefit-card-top{display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;}
+.benefit-name{font-family:'Montserrat',sans-serif; font-weight:700; font-size:9.5pt; color:var(--navy);}
+.benefit-tag{font-family:'Montserrat',sans-serif; font-size:7pt; font-weight:700; padding:3px 9px; border-radius:10px; text-transform:uppercase;}
+.benefit-tag.mandatory{background:rgba(0,200,200,.12); color:var(--teal2);}
+.benefit-tag.optional{background:rgba(61,214,140,.12); color:#2AA36B;}
+.benefit-body{font-size:8.8pt; color:var(--text); line-height:1.5;}
+
+/* Simulation */
+.sim-wrap{display:flex; flex-direction:column; gap:14px; margin-top:10px;}
+.sim-block{border:1px solid var(--lgray); border-radius:6px; overflow:hidden;}
+.sim-block-header{font-family:'Montserrat',sans-serif; font-weight:700; font-size:9.5pt; color:#fff; padding:9px 16px;}
+.navy-bg{background:var(--navy);}
+.teal-bg{background:var(--teal2);}
+.sim-row-dual{display:flex; padding:6px 16px; border-bottom:1px solid var(--lgray); align-items:baseline; font-size:8.7pt;}
+.sim-row-header{background:var(--offwhite); font-family:'Montserrat',sans-serif; font-weight:700; font-size:7.5pt; color:var(--gray); text-transform:uppercase;}
+.sim-label{flex:1;}
+.sim-label.indent{padding-left:14px; color:var(--gray);}
+.sim-col-head{width:90px; text-align:right;}
+.sim-value{width:90px; text-align:right; font-family:'Montserrat',sans-serif; font-weight:600;}
+.sim-value.teal{color:var(--teal2); font-weight:800;}
+.sim-value.negative{color:#C0392B;}
+.sim-total-row-dual{display:flex; padding:10px 16px; background:var(--navy); align-items:baseline;}
+.sim-total-label{flex:1; font-family:'Montserrat',sans-serif; font-weight:700; color:#fff; font-size:9pt;}
+.sim-total-value{width:90px; text-align:right; font-family:'Montserrat',sans-serif; font-weight:900; color:var(--teal); font-size:9.5pt;}
+.sim-note{font-size:7.8pt; font-style:italic; color:var(--gray); padding:8px 16px; background:var(--offwhite);}
+
+/* Pricing table */
+.pricing-table{width:100%; border-collapse:collapse; margin-top:10px; font-size:8.8pt;}
+.pricing-table th{background:var(--navy); color:#fff; font-family:'Montserrat',sans-serif; font-weight:700; font-size:8pt; text-align:left; padding:10px 14px;}
+.pricing-table td{padding:11px 14px; border-bottom:1px solid var(--lgray); vertical-align:top;}
+.pt-item{font-family:'Montserrat',sans-serif; font-weight:700; color:var(--navy);}
+.pt-note{font-size:7.6pt; color:var(--gray);}
+.pt-desc{font-size:8.3pt; color:var(--text);}
+.pt-value{text-align:right; font-family:'Montserrat',sans-serif; font-weight:800; color:var(--navy); white-space:nowrap;}
+.pt-total td{border-bottom:none; background:var(--offwhite);}
+.pt-total .pt-value{color:var(--teal2); font-size:10pt;}
+
+.invoice-summary{border:1.5px solid var(--lgray); border-radius:4px; overflow:hidden; margin:14px 0;}
+.invoice-summary-row{display:flex; justify-content:space-between; align-items:baseline; padding:9px 16px; border-bottom:1px solid var(--lgray);}
+.invoice-summary-row:last-of-type{border-bottom:none;}
+.invoice-summary-row.total{background:var(--navy);}
+.invoice-summary-row.total .inv-label{color:rgba(255,255,255,.85); font-weight:700;}
+.invoice-summary-row.total .inv-value{color:var(--teal); font-size:12pt; font-weight:900;}
+.inv-label{font-family:'Montserrat',sans-serif; font-weight:600; font-size:8.5pt; color:var(--text);}
+.inv-value{font-family:'Montserrat',sans-serif; font-weight:800; font-size:9.5pt; color:var(--navy);}
+.inv-asterisk{font-family:'Source Serif 4',serif; font-size:7pt; color:var(--gray); font-style:italic; padding:6px 16px 8px; background:var(--offwhite);}
+
+/* Offer callout */
+.offer-box{margin-top:18px; border:1.5px solid var(--green); border-radius:8px; padding:18px 20px; background:rgba(61,214,140,.06); display:flex; gap:14px; align-items:flex-start;}
+.offer-icon{width:34px; height:34px; border-radius:50%; background:var(--green); color:#fff; font-family:'Montserrat',sans-serif; font-weight:900; font-size:15px; display:flex; align-items:center; justify-content:center; flex-shrink:0;}
+.offer-title{font-family:'Montserrat',sans-serif; font-weight:800; font-size:10.5pt; color:var(--navy); margin-bottom:4px;}
+.offer-body{font-size:9pt; line-height:1.55; color:var(--text);}
+
+/* Next steps */
+.step-row{display:flex; gap:14px; padding:12px 0; border-bottom:1px solid var(--lgray); align-items:flex-start;}
+.step-num{width:26px; height:26px; border-radius:50%; background:var(--navy); color:#fff; display:flex; align-items:center; justify-content:center; flex-shrink:0; font-family:'Montserrat',sans-serif; font-weight:700; font-size:10pt;}
+.step-title{font-family:'Montserrat',sans-serif; font-weight:700; font-size:10pt; color:var(--navy);}
+.step-desc{font-size:9pt; color:var(--text); margin-top:2px; line-height:1.5;}
+
+.contact-box{margin-top:22px; background:var(--navy); border-radius:8px; padding:22px 26px; display:flex; justify-content:space-between; align-items:center; color:#fff;}
+.contact-box-left h3{font-family:'Montserrat',sans-serif; font-size:14pt; font-weight:800; margin-bottom:4px;}
+.contact-box-left p{font-size:9pt; color:rgba(255,255,255,.75);}
+.contact-box-right{display:flex; flex-direction:column; gap:4px;}
+.contact-detail{font-family:'Montserrat',sans-serif; font-size:8.5pt;}
+.contact-detail span{color:var(--teal); font-weight:700; margin-right:6px;}
+
+.assumptions{margin-top:16px; border-left:3px solid var(--teal); background:var(--offwhite); padding:12px 16px; font-size:8.3pt; color:var(--gray); line-height:1.6;}
+
+@media print{ body{background:#fff;} .page{box-shadow:none; margin:0;} }
+</style>
+</head>
+<body>
+
+<!-- PAGE 1 — COVER -->
+<div class="page cover">
+  <div class="hex-group">
+    <div class="hex" style="width:280px;height:280px;background:rgba(0,200,200,0.04);top:-60px;right:-50px;"></div>
+    <div class="hex" style="width:170px;height:170px;background:rgba(0,200,200,0.06);top:70px;right:90px;"></div>
+    <div class="hex" style="width:95px;height:95px;background:rgba(0,200,200,0.1);top:185px;right:205px;"></div>
+    <div class="hex" style="width:70px;height:70px;background:rgba(61,214,140,0.08);top:25px;right:245px;"></div>
+  </div>
+
+  <div class="cover-top">
+    <div class="cover-logo">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+           viewBox="440 390 1060 320" style="height:44px;width:auto;display:block;">
+        <defs>
+          <linearGradient id="lg" x1="528.00962" y1="437.79086" x2="693.52564" y2="437.79086"
+            gradientTransform="translate(0 1081.58265) scale(1 -1)" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#101827"/><stop offset="1" stop-color="#0ec668"/>
+          </linearGradient>
+          <linearGradient id="lg1" x1="438.90681" y1="505.95149" x2="604.42283" y2="505.95149"
+            gradientTransform="translate(0 1081.58265) scale(1 -1)" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#101827"/><stop offset="1" stop-color="#0ec668"/>
+          </linearGradient>
+          <linearGradient id="lg2" x1="712.59445" y1="474.81047" x2="460.26471" y2="699.39719"
+            gradientTransform="translate(0 1081.58265) scale(1 -1)" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#0ec668"/><stop offset="1" stop-color="#12ace6"/>
+          </linearGradient>
+        </defs>
+        <polygon fill="#ffffff" points="1067.75549 401.49997 1023.07159 544.20905 982.00995 404.26547 947.97415 404.26547 906.91302 544.20905 862.2291 401.49997 825.9744 401.49997 889.94604 595.09726 923.0683 595.09726 964.99228 462.89842 1006.63654 595.09726 1040.03796 595.09726 1104.0097 401.49997 1067.75549 401.49997"/>
+        <path fill="#ffffff" d="M1149.14148,401.49997v193.59729h-32.08148v-193.59729h32.08148Z"/>
+        <path fill="#ffffff" d="M1233.70984,401.49997c59.46155,0,102.33014,43.14445,102.33014,96.79817s-42.86859,96.79912-102.33014,96.79912h-66.37671v-193.59729h66.37671ZM1199.41461,562.73893h34.29523c38.99573,0,66.37579-27.38007,66.37579-64.44079s-27.38007-64.43983-66.37579-64.43983h-34.29523v128.88062Z"/>
+        <path fill="#ffffff" d="M1461.63257,401.49997v32.35833h-78.31946v40.93167h45.29926v32.35833h-45.29926v55.59062h78.31946v32.35834h-110.40094v-193.59729h110.40094Z"/>
+        <path fill="#ffffff" d="M1006.4671,663.3115c0,9.59277-7.51465,15.18848-21.9043,15.18848h-27.81934v-55.95898h26.2207c13.42969,0,20.625,5.67578,20.625,14.5498,0,5.75586-2.87793,9.99219-7.19531,12.31055,5.99609,1.91895,10.07324,6.63574,10.07324,13.91016ZM967.13608,630.69529v15.42871h14.70895c7.19434,0,11.27148-2.55859,11.27148-7.6748,0-5.19531-4.07715-7.75391-11.27148-7.75391h-14.70898ZM995.99445,662.27244c0-5.59668-4.2373-8.07422-12.07129-8.07422h-16.78711v16.14746h16.78711c7.83398,0,12.07129-2.47754,12.07129-8.07324Z"/>
+        <path fill="#ffffff" d="M1075.78156,678.49997l-11.43164-16.3877c-.71875.08008-1.43848.08008-2.1582.08008h-12.62988v16.30762h-10.39258v-55.95898h23.02246c14.70898,0,23.82227,7.51465,23.82227,19.90527,0,8.47461-4.31641,14.70996-11.91113,17.66699l12.87109,18.38672h-11.19238ZM1061.71228,631.33494h-12.15039v22.30371h12.15039c9.11328,0,13.83008-4.15723,13.83008-11.19238,0-7.03418-4.7168-11.11133-13.83008-11.11133Z"/>
+        <path fill="#ffffff" d="M1155.48859,665.54978h-27.97949l-5.51562,12.9502h-10.71191l25.18066-55.95898h10.23242l25.26172,55.95898h-10.87207l-5.5957-12.9502ZM1152.05109,657.39548l-10.55176-24.46191-10.47266,24.46191h21.02441Z"/>
+        <path fill="#ffffff" d="M1244.14978,669.70603v8.79395h-47.72461v-6.95508l32.93555-40.20996h-32.37598v-8.79395h46.12598v6.95508l-32.93555,40.20996h33.97461Z"/>
+        <path fill="#ffffff" d="M1275.25323,622.54099h10.39258v55.95898h-10.39258v-55.95898Z"/>
+        <path fill="#ffffff" d="M1322.34113,622.54099h10.39258v47.16504h29.25781v8.79395h-39.65039v-55.95898Z"/>
+        <rect fill="url(#lg)" x="591.52898" y="609.08361" width="93.76549" height="69.41637"/>
+        <rect fill="url(#lg1)" x="502.42616" y="540.92298" width="93.76549" height="69.41637"/>
+        <path fill="url(#lg2)" d="M773.49542,470.72999l43.49487,69.26999-87.9592,138.5h-88.79871l133.26303-207.76999ZM684.48682,401.49997l-158.30856,246.82742,18.93906,30.17258h46.68304l157.73888-245.92795-19.50873-31.07205h-45.5437ZM548.11559,401.49997l-89.74816,138.8298,43.95461,70.00955,133.95263-208.83936h-88.15908Z"/>
+      </svg>
+    </div>
+    <div class="cover-badge"><div class="cover-badge-text">Commercial Proposal</div></div>
+  </div>
+
+  <div class="cover-content">
+    <div class="cover-eyebrow">Workforce Solutions · Brazil</div>
+    <div class="cover-divider"></div>
+    <div class="cover-title"><span>Employer of Record</span><br>Engagement Proposal</div>
+    <div class="cover-subtitle">A straightforward EOR structure to hire and pay your Brazil-based professional compliantly — with recruitment support for your next hire included.</div>
+    <div class="cover-tags">
+      <span class="cover-tag">EOR</span>
+      <span class="cover-tag">Brazil</span>
+      <span class="cover-tag outline">Confidential</span>
+    </div>
+  </div>
+
+  <div class="cover-meta">
+    <div class="cover-meta-item">
+      <div class="cover-meta-label">Prepared for</div>
+      <div class="cover-meta-value">MEQ Probe</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="cover-meta-label">Contact</div>
+      <div class="cover-meta-value">Pablo Flores</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="cover-meta-label">Prepared by</div>
+      <div class="cover-meta-value">Wide Brazil</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="cover-meta-label">Date</div>
+      <div class="cover-meta-value">July 2026</div>
+    </div>
+  </div>
+
+  <div class="cover-image-area">
+    <div class="brazil-photo">
+      <div class="cover-hex-overlay"></div>
+      <div class="cover-hex-overlay2"></div>
+      <div class="skyline"></div>
+    </div>
+  </div>
+
+  <div class="cover-footer">
+    <span class="cover-footer-url">widebrazil.com</span>
+    <span class="cover-footer-edition">Confidential · Prepared for MEQ Probe · v1.0</span>
+  </div>
+</div>
+
+<!-- PAGE 2 — CONTEXT + STRUCTURE + SCOPE -->
+<div class="page inner-page">
+  <div class="page-header">
+    <div class="page-header-left">Wide Brazil <span>| Commercial Proposal</span></div>
+    <div class="page-header-right">EOR Proposal — MEQ Probe</div>
+  </div>
+  <div class="page-body">
+    <div class="section-header-block">
+      <div class="section-num">Section 01</div>
+      <div class="section-title">Context &amp; Recommended Structure</div>
+      <div class="section-subtitle">Why an EOR is the right path for hiring in Brazil, and how Wide Brazil supports it</div>
+    </div>
+
+    <p class="body-text">MEQ Probe is looking to engage a professional based in Brazil without opening a local legal entity. Under Brazilian labor law (CLT), any ongoing, subordinate work relationship must be formalized as an employment contract — informal contractor arrangements carry real reclassification risk. An Employer of Record (EOR) lets MEQ Probe hire compliantly and start immediately, while Wide Brazil holds the local employment relationship, payroll, and statutory obligations.</p>
+
+    <div class="subhead">Recommended Structure</div>
+    <p class="body-text">Wide Brazil becomes the legal employer of record in Brazil. Your team member is hired under a CLT employment contract, paid monthly in BRL, and fully compliant with local tax, labor, and social security requirements — while working exclusively under MEQ Probe's direction day to day.</p>
+
+    <div class="subhead">Why EOR</div>
+    <p class="body-text">No entity setup, no local payroll infrastructure, and no compliance exposure. Wide Brazil absorbs the administrative and legal burden — MEQ Probe manages the working relationship.</p>
+
+    <div class="section-header-block" style="margin-top:26px;">
+      <div class="section-num">Section 02</div>
+      <div class="section-title">Scope of Services</div>
+    </div>
+
+    <div class="scope-block">
+      <div class="scope-area">Employment &amp; Onboarding</div>
+      <div class="scope-item"><div class="scope-item-check">✓</div><div class="scope-item-text"><strong>CLT employment contract</strong> — drafted in Portuguese, reviewed in English</div></div>
+      <div class="scope-item"><div class="scope-item-check">✓</div><div class="scope-item-text"><strong>Onboarding &amp; registration</strong> — eSocial, FGTS account, benefits enrollment</div></div>
+    </div>
+
+    <div class="scope-block">
+      <div class="scope-area">Payroll &amp; Compliance</div>
+      <div class="scope-item"><div class="scope-item-check">✓</div><div class="scope-item-text"><strong>Monthly payroll processing</strong> — gross-to-net calculation, payslips</div></div>
+      <div class="scope-item"><div class="scope-item-check">✓</div><div class="scope-item-text"><strong>Statutory contributions</strong> — INSS, FGTS, 13th salary, vacation provisioning</div></div>
+      <div class="scope-item"><div class="scope-item-check">✓</div><div class="scope-item-text"><strong>Ongoing labor law compliance</strong> monitoring</div></div>
+    </div>
+
+    <div class="scope-block">
+      <div class="scope-area">Benefits Administration</div>
+      <div class="scope-item"><div class="scope-item-check">✓</div><div class="scope-item-text"><strong>Meal allowance, life insurance, and private health plan</strong> — enrollment and monthly management</div></div>
+    </div>
+
+    <div class="scope-block">
+      <div class="scope-area">HR Support</div>
+      <div class="scope-item"><div class="scope-item-check">✓</div><div class="scope-item-text"><strong>Single point of contact</strong> for employee and employer HR matters</div></div>
+      <div class="scope-item"><div class="scope-item-check">✓</div><div class="scope-item-text"><strong>Offboarding management</strong> — should the engagement end, full compliant termination handling</div></div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <div class="pf-brand">Wide Brazil <span>| EOR Proposal</span></div>
+    <div class="pf-disclaimer">Confidential — prepared solely for MEQ Probe.</div>
+    <div class="pf-page">Page 2</div>
+  </div>
+</div>
+
+<!-- PAGE 3 — BENEFITS + SIMULATION -->
+<div class="page inner-page">
+  <div class="page-header">
+    <div class="page-header-left">Wide Brazil <span>| Commercial Proposal</span></div>
+    <div class="page-header-right">EOR Proposal — MEQ Probe</div>
+  </div>
+  <div class="page-body">
+    <div class="navy-section-header">
+      <div class="section-num">Section 03</div>
+      <div class="section-title">Employee Benefits</div>
+    </div>
+
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <div class="benefit-card-top"><div class="benefit-name">Meal Allowance (VR/VA)</div><span class="benefit-tag mandatory">Mandatory</span></div>
+        <div class="benefit-body">R$ 24.80 per working day, credited monthly. Standard across the Brazilian market.</div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-card-top"><div class="benefit-name">Life Insurance</div><span class="benefit-tag mandatory">Mandatory</span></div>
+        <div class="benefit-body">Group life insurance policy, standard coverage for all Wide Brazil employees.</div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-card-top"><div class="benefit-name">Private Health Plan</div><span class="benefit-tag optional">Requested</span></div>
+        <div class="benefit-body">R$ 1,500.00/month — private health plan as requested by MEQ Probe for this role. Premiums are age-banded, so this cost may vary depending on the employee's age.</div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-card-top"><div class="benefit-name">13th Salary &amp; Vacation</div><span class="benefit-tag mandatory">Mandatory</span></div>
+        <div class="benefit-body">Annual 13th salary and paid vacation (+1/3 bonus), provisioned monthly.</div>
+      </div>
+    </div>
+
+    <div class="section-header-block" style="margin-top:28px;">
+      <div class="section-num">Section 04</div>
+      <div class="section-title">Payroll Simulation</div>
+      <div class="section-subtitle">Base gross salary: R$ 15,000.00 · Reference rate: US$ 1.00 = R$ 5.08</div>
+    </div>
+
+    <div class="sim-wrap">
+      <div class="sim-block">
+        <div class="sim-block-header navy-bg">1. Total Employer Cost</div>
+        <div class="sim-row-dual sim-row-header"><span class="sim-label" style="flex:1"></span><span class="sim-col-head">BRL</span><span class="sim-col-head">USD</span></div>
+        <div class="sim-row-dual"><span class="sim-label" style="flex:1">Gross Salary</span><span class="sim-value">15,000.00</span><span class="sim-value">2,952.76</span></div>
+        <div class="sim-row-dual"><span class="sim-label indent" style="flex:1">FGTS — 8%</span><span class="sim-value">1,200.00</span><span class="sim-value">236.22</span></div>
+        <div class="sim-row-dual"><span class="sim-label indent" style="flex:1">Employer INSS — 20%</span><span class="sim-value">3,000.00</span><span class="sim-value">590.55</span></div>
+        <div class="sim-row-dual"><span class="sim-label indent" style="flex:1">RAT (Work Accident) — 3%</span><span class="sim-value">450.00</span><span class="sim-value">88.58</span></div>
+        <div class="sim-row-dual"><span class="sim-label indent" style="flex:1">Sistema S — 5.8%</span><span class="sim-value">870.00</span><span class="sim-value">171.26</span></div>
+        <div class="sim-row-dual" style="background:rgba(0,200,200,0.06)"><span class="sim-label" style="flex:1;font-weight:600;color:#1A2535">Total Social Charges (36.8%)</span><span class="sim-value teal">5,520.00</span><span class="sim-value teal">1,086.61</span></div>
+        <div class="sim-row-dual"><span class="sim-label" style="flex:1">Benefits (Meal + Life Insurance + Health Plan)</span><span class="sim-value">2,315.60</span><span class="sim-value">455.83</span></div>
+        <div class="sim-row-dual"><span class="sim-label" style="flex:1">Annual Provisions (13th + Vacation)</span><span class="sim-value">2,126.67</span><span class="sim-value">418.63</span></div>
+        <div class="sim-total-row-dual"><span class="sim-total-label" style="flex:1">Total Monthly Employer Cost</span><span class="sim-total-value">R$ 24,962.27</span><span class="sim-total-value">$ 4,913.44</span></div>
+        <div class="sim-note">Statutory costs and benefits are pass-through. No markup applied. Annual provisions (13th salary + vacation) are calculated on gross salary plus the 1/3 vacation bonus plus employer social charges — so labor charges are already factored into the provision.</div>
+      </div>
+
+      <div class="sim-block" style="margin-bottom:14px;">
+        <div class="sim-block-header teal-bg">2. Employee Net Salary (estimate)</div>
+        <div class="sim-row-dual"><span class="sim-label" style="flex:1">Gross Salary</span><span class="sim-value">15,000.00</span><span class="sim-value">2,952.76</span></div>
+        <div class="sim-row-dual"><span class="sim-label indent" style="flex:1">Employee INSS (capped)</span><span class="sim-value negative">(908.85)</span><span class="sim-value negative">(178.90)</span></div>
+        <div class="sim-row-dual"><span class="sim-label indent" style="flex:1">IRRF Income Tax</span><span class="sim-value negative">(2,979.07)</span><span class="sim-value negative">(586.43)</span></div>
+        <div class="sim-total-row-dual"><span class="sim-total-label" style="flex:1">Net Monthly Salary</span><span class="sim-total-value">R$ 11,112.08</span><span class="sim-total-value">$ 2,187.42</span></div>
+        <div class="sim-note">Net deposited to employee's Brazilian account. Employee deductions are estimates based on current progressive tables and confirmed at onboarding.</div>
+      </div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <div class="pf-brand">Wide Brazil <span>| EOR Proposal</span></div>
+    <div class="pf-disclaimer">Confidential — prepared solely for MEQ Probe.</div>
+    <div class="pf-page">Page 3</div>
+  </div>
+</div>
+
+<!-- PAGE 4 — PRICING + OFFER + NEXT STEPS -->
+<div class="page inner-page">
+  <div class="page-header">
+    <div class="page-header-left">Wide Brazil <span>| Commercial Proposal</span></div>
+    <div class="page-header-right">EOR Proposal — MEQ Probe</div>
+  </div>
+  <div class="page-body">
+    <div class="section-header-block">
+      <div class="section-num">Section 05</div>
+      <div class="section-title">Pricing</div>
+      <div class="section-subtitle">What MEQ Probe pays Wide Brazil, itemized</div>
+    </div>
+
+    <table class="pricing-table">
+      <thead><tr><th>Item</th><th>Description</th><th style="text-align:right">Amount (USD)</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><span class="pt-item">Total Employer Payroll Cost</span><br><span class="pt-note">Gross salary + social charges + benefits + annual provisions</span></td>
+          <td class="pt-desc">Pass-through — no markup</td>
+          <td class="pt-value">$ 4,913.44</td>
+        </tr>
+        <tr>
+          <td><span class="pt-item">Wide Brazil Fixed Retainer</span><br><span class="pt-note">Monthly fixed retainer</span></td>
+          <td class="pt-desc">EOR administration, legal compliance, HR support</td>
+          <td class="pt-value">$ 199.00</td>
+        </tr>
+        <tr>
+          <td><span class="pt-item">GST / Overhead — 9%</span><br><span class="pt-note">Applied on total employer payroll cost</span></td>
+          <td class="pt-desc">Covers local taxes and compliance infrastructure required to keep the employment relationship compliant in Brazil</td>
+          <td class="pt-value">$ 442.21</td>
+        </tr>
+        <tr class="pt-total">
+          <td><span class="pt-item">Total Monthly Invoice</span></td>
+          <td></td>
+          <td class="pt-value">$ 5,554.65</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="invoice-summary">
+      <div class="invoice-summary-row"><span class="inv-label">Total Employer Payroll Cost (pass-through)</span><span class="inv-value">R$ 24,962.27 · $ 4,913.44</span></div>
+      <div class="invoice-summary-row"><span class="inv-label">Fixed Retainer</span><span class="inv-value">$ 199.00</span></div>
+      <div class="invoice-summary-row"><span class="inv-label">GST / Overhead (9% on payroll cost)</span><span class="inv-value">R$ 2,246.60 · $ 442.21</span></div>
+      <div class="invoice-summary-row total"><span class="inv-label">Total Monthly Invoice</span><span class="inv-value">R$ 28,219.79 · $ 5,554.65</span></div>
+    </div>
+    <div class="inv-asterisk">*Reference exchange rate US$ 1.00 = R$ 5.08. Final invoice is issued in BRL and USD-equivalent shown for reference only.</div>
+
+    <div class="offer-box">
+      <div class="offer-icon">★</div>
+      <div>
+        <div class="offer-title">Included — Complimentary Recruitment for Your Second Hire</div>
+        <div class="offer-body">As part of this engagement, Wide Brazil will run recruitment for MEQ Probe's next open position in Brazil at no cost — sourcing, screening, and shortlist delivery included. This applies to one additional vacancy following the start of this EOR agreement.</div>
+      </div>
+    </div>
+
+    <div class="section-header-block" style="margin-top:30px;">
+      <div class="section-num">Section 06</div>
+      <div class="section-title">Next Steps</div>
+    </div>
+
+    <div class="step-row"><div class="step-num"><span>1</span></div><div><div class="step-title">Proposal Confirmation</div><div class="step-desc">MEQ Probe confirms scope, salary, and benefits as outlined above.</div></div></div>
+    <div class="step-row"><div class="step-num"><span>2</span></div><div><div class="step-title">Contract Signature</div><div class="step-desc">Wide Brazil issues the EOR services agreement and the employee's CLT contract for signature.</div></div></div>
+    <div class="step-row"><div class="step-num"><span>3</span></div><div><div class="step-title">Onboarding</div><div class="step-desc">Registration, benefits enrollment, and payroll setup — typically 3–5 business days.</div></div></div>
+    <div class="step-row"><div class="step-num"><span>4</span></div><div><div class="step-title">Go-Live</div><div class="step-desc">Employee starts, first payroll cycle runs, and recruitment for the second vacancy can begin.</div></div></div>
+
+    <div class="assumptions">Assumptions: figures based on a monthly gross salary of R$ 15,000.00 and a R$ 1,500.00 private health plan, at a reference rate of US$ 1.00 = R$ 5.08. The private health plan premium is age-banded and may vary depending on the employee's age. Employee tax deductions are estimates and will be confirmed at onboarding. Final invoice amounts are calculated in BRL.</div>
+
+    <div class="contact-box">
+      <div class="contact-box-left">
+        <h3>Wide Brazil</h3>
+        <p>Compliant hiring in Brazil, made simple.</p>
+      </div>
+      <div class="contact-box-right">
+        <div class="contact-detail"><span>Email</span>contact@widebrazil.com</div>
+        <div class="contact-detail"><span>Web</span>widebrazil.com</div>
+        <div class="contact-detail"><span>Phone</span>+55 (11) 96450-7000</div>
+        <div class="contact-detail"><span>Location</span>São Paulo, Brazil</div>
+      </div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <div class="pf-brand">Wide Brazil <span>| EOR Proposal</span></div>
+    <div class="pf-disclaimer">Confidential — prepared solely for MEQ Probe.</div>
+    <div class="pf-page">Page 4</div>
+  </div>
+</div>
+
+</body>
+</html>
