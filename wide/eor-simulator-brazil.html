@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Wide Brazil — EOR Cost Simulator · Brazil</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Source+Serif+4:wght@300;400;600&display=swap');
+
+:root{
+  --ink:#101827;
+  --ink-70:#4A5565;
+  --ink-45:#7C8794;
+  --line:#E7ECF2;
+  --line-soft:#F0F3F7;
+  --panel:#F8FAFC;
+  --green:#0EC668;
+  --green-deep:#0AA457;
+  --blue:#12ACE6;
+  --grad:linear-gradient(135deg,#12ACE6 0%,#0EC668 100%);
+  --font:'Montserrat',system-ui,sans-serif;
+  --serif:'Source Serif 4',Georgia,serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-family:var(--font);color:var(--ink);background:#EEF2F6;-webkit-font-smoothing:antialiased}
+body{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:28px 20px}
+
+.card{
+  width:100%;max-width:980px;background:#fff;
+  border:1px solid var(--line);border-radius:14px;overflow:hidden;
+  box-shadow:0 18px 50px rgba(16,24,39,.07);
+}
+
+/* header */
+.top{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 34px;border-bottom:1px solid var(--line)}
+.logo svg{height:30px;width:auto;display:block}
+.top-right{text-align:right}
+.top-right .title{font-size:15px;font-weight:700;letter-spacing:-.01em}
+.top-right .sub{font-family:var(--serif);font-size:13px;color:var(--ink-45);margin-top:1px}
+
+.grid{display:grid;grid-template-columns:330px 1fr}
+
+/* inputs */
+.inputs{padding:28px 30px;background:var(--panel);border-right:1px solid var(--line)}
+.panel-title{font-family:var(--serif);font-size:15px;color:var(--ink-70);margin-bottom:22px}
+
+.ctrl{margin-bottom:24px}
+.ctrl-top{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:9px}
+.ctrl-top .l{font-size:12.5px;font-weight:500;color:var(--ink-70)}
+.ctrl-top .v{font-size:17px;font-weight:700;letter-spacing:-.02em}
+.ctrl-top .v .c{color:var(--ink-45);font-weight:500;font-size:13px;margin-right:2px}
+
+input[type=range]{appearance:none;-webkit-appearance:none;width:100%;height:3px;background:#DCE3EB;border-radius:2px;outline:none;cursor:pointer}
+input[type=range]::-webkit-slider-thumb{appearance:none;-webkit-appearance:none;width:16px;height:16px;background:#fff;border:2px solid var(--green);border-radius:50%;cursor:pointer;box-shadow:0 1px 4px rgba(16,24,39,.18)}
+input[type=range]::-moz-range-thumb{width:14px;height:14px;background:#fff;border:2px solid var(--green);border-radius:50%;cursor:pointer}
+input[type=range]:focus-visible{outline:2px solid var(--blue);outline-offset:4px}
+.range-labels{display:flex;justify-content:space-between;font-size:10.5px;color:var(--ink-45);margin-top:6px}
+
+.fx-field{display:flex;align-items:center;gap:8px}
+.fx-field .pre{font-size:13px;color:var(--ink-45)}
+input[type=number]{
+  font-family:var(--font);font-size:15px;font-weight:600;color:var(--ink);
+  width:100%;padding:9px 11px;background:#fff;border:1px solid #D9E1EA;border-radius:8px;outline:none;
+}
+input[type=number]:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(14,198,104,.12)}
+.hint{font-size:11px;color:var(--ink-45);margin-top:7px;font-family:var(--serif)}
+
+.seg{display:flex;gap:6px}
+.seg button{
+  flex:1;padding:8px 6px;font-family:var(--font);font-size:11.5px;font-weight:600;
+  color:var(--ink-70);background:#fff;border:1px solid #DCE3EB;border-radius:7px;cursor:pointer;transition:all 120ms;
+}
+.seg button:hover{border-color:var(--ink-45)}
+.seg button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.seg button.on.green{background:rgba(14,198,104,.12);color:var(--green-deep);border-color:rgba(14,198,104,.45)}
+.seg button:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+
+.note{margin-top:26px;padding-top:18px;border-top:1px solid var(--line);font-family:var(--serif);font-size:12px;line-height:1.6;color:var(--ink-45)}
+.note b{font-family:var(--font);font-weight:600;color:var(--ink-70);font-size:11.5px}
+
+/* output */
+.output{padding:28px 34px 26px;display:flex;flex-direction:column}
+.head-label{font-size:12.5px;color:var(--ink-70);margin-bottom:6px}
+.headline{font-size:52px;font-weight:800;letter-spacing:-.035em;line-height:1;margin-bottom:2px}
+.head-sub{font-family:var(--serif);font-size:12.5px;color:var(--ink-45);margin-bottom:22px}
+
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden;margin-bottom:24px}
+.stat{background:#fff;padding:12px 14px}
+.stat .sl{font-size:11px;color:var(--ink-45);margin-bottom:4px}
+.stat .sv{font-size:16px;font-weight:700;letter-spacing:-.02em}
+
+.rows{flex:1}
+.row{display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:8px 0;border-bottom:1px solid var(--line-soft);font-size:13px}
+.row .l{color:var(--ink-70);flex:1}
+.row .l.ind{padding-left:14px;color:var(--ink-45);font-size:12.5px}
+.row .pct{color:var(--ink-45);font-size:11.5px;min-width:42px;text-align:right;font-variant-numeric:tabular-nums}
+.row .v{font-weight:600;min-width:92px;text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.row.grp{padding:16px 0 4px;border-bottom:none}
+.row.grp .l{font-size:12px;font-weight:700;color:var(--ink)}
+.row.sub{border-top:1px solid var(--line);margin-top:6px;padding-top:10px}
+.row.sub .l{font-weight:600;color:var(--ink)}
+.row.tot{border-top:2px solid var(--ink);border-bottom:none;margin-top:6px;padding-top:12px}
+.row.tot .l{font-weight:700;color:var(--ink);font-size:13.5px}
+.row.tot .v{font-size:20px;font-weight:800;letter-spacing:-.025em;color:var(--green-deep)}
+
+.foot{margin-top:18px;padding-top:14px;border-top:1px solid var(--line);font-family:var(--serif);font-size:11.5px;line-height:1.6;color:var(--ink-45)}
+
+/* footer bar */
+.bottom{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:14px 34px;border-top:1px solid var(--line);background:var(--panel)}
+.bottom .brand{font-size:12px;font-weight:600;color:var(--ink-70)}
+.bottom .conf{font-family:var(--serif);font-size:11.5px;color:var(--ink-45)}
+.btn{font-family:var(--font);font-size:12px;font-weight:600;padding:9px 18px;background:var(--ink);color:#fff;border:none;border-radius:999px;cursor:pointer;transition:background 120ms}
+.btn:hover{background:#243044}
+.btn:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+
+@media(max-width:780px){
+  body{padding:12px}
+  .grid{grid-template-columns:1fr}
+  .inputs{border-right:none;border-bottom:1px solid var(--line)}
+  .top,.inputs,.output,.bottom{padding-left:20px;padding-right:20px}
+  .headline{font-size:38px}
+  .stats{grid-template-columns:1fr}
+  .bottom{flex-wrap:wrap}
+}
+@media print{
+  html,body{background:#fff}
+  body{padding:0;display:block}
+  .card{border:none;box-shadow:none;max-width:none}
+  .btn{display:none}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="card">
+
+  <div class="top">
+    <div class="logo">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="440 390 1060 320">
+        <defs>
+          <linearGradient id="lg" x1="528" y1="437.79" x2="693.53" y2="437.79" gradientTransform="translate(0 1081.58) scale(1 -1)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#101827"/><stop offset="1" stop-color="#0ec668"/></linearGradient>
+          <linearGradient id="lg1" x1="438.91" y1="505.95" x2="604.42" y2="505.95" gradientTransform="translate(0 1081.58) scale(1 -1)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#101827"/><stop offset="1" stop-color="#0ec668"/></linearGradient>
+          <linearGradient id="lg2" x1="712.59" y1="474.81" x2="460.26" y2="699.4" gradientTransform="translate(0 1081.58) scale(1 -1)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#0ec668"/><stop offset="1" stop-color="#12ace6"/></linearGradient>
+        </defs>
+        <polygon fill="#101827" points="1067.76 401.5 1023.07 544.21 982.01 404.27 947.97 404.27 906.91 544.21 862.23 401.5 825.97 401.5 889.95 595.1 923.07 595.1 964.99 462.9 1006.64 595.1 1040.04 595.1 1104.01 401.5 1067.76 401.5"/>
+        <path fill="#101827" d="M1149.14,401.5v193.6h-32.08V401.5h32.08Z"/>
+        <path fill="#101827" d="M1233.71,401.5c59.46,0,102.33,43.14,102.33,96.8s-42.87,96.8-102.33,96.8h-66.38V401.5h66.38Zm-34.3,161.24h34.3c39,0,66.38-27.38,66.38-64.44s-27.38-64.44-66.38-64.44h-34.3v128.88Z"/>
+        <path fill="#101827" d="M1461.63,401.5v32.36h-78.32v40.93h45.3v32.36h-45.3v55.59h78.32v32.36h-110.4V401.5h110.4Z"/>
+        <rect fill="url(#lg)" x="591.53" y="609.08" width="93.77" height="69.42"/>
+        <rect fill="url(#lg1)" x="502.43" y="540.92" width="93.77" height="69.42"/>
+        <path fill="url(#lg2)" d="M773.5,470.73l43.49,69.27-87.96,138.5h-88.8l133.26-207.77Zm-89.01-69.23l-158.31,246.83,18.94,30.17h46.68l157.74-245.93-19.51-31.07h-45.54Zm-136.37,0l-89.75,138.83,43.95,70.01,133.95-208.84h-88.16Z"/>
+      </svg>
+    </div>
+    <div class="top-right">
+      <div class="title">EOR cost simulator · Brazil</div>
+      <div class="sub">CLT employment · partner pricing</div>
+    </div>
+  </div>
+
+  <div class="grid">
+
+    <!-- INPUTS -->
+    <div class="inputs">
+      <div class="panel-title">Adjust the assumptions</div>
+
+      <div class="ctrl">
+        <div class="ctrl-top">
+          <span class="l">Gross monthly salary</span>
+          <span class="v"><span class="c">R$</span><span data-out="salary">16,000</span></span>
+        </div>
+        <input type="range" min="5000" max="60000" step="500" value="16000" data-in="salary" aria-label="Gross monthly salary in BRL">
+        <div class="range-labels"><span>R$ 5k</span><span>R$ 60k</span></div>
+      </div>
+
+      <div class="ctrl">
+        <div class="ctrl-top">
+          <span class="l">Headcount</span>
+          <span class="v" data-out="hc">1</span>
+        </div>
+        <input type="range" min="1" max="50" step="1" value="1" data-in="hc" aria-label="Headcount">
+        <div class="range-labels"><span>1</span><span>50</span></div>
+      </div>
+
+      <div class="ctrl">
+        <div class="ctrl-top">
+          <span class="l">USD / BRL exchange rate</span>
+        </div>
+        <div class="fx-field">
+          <span class="pre">R$</span>
+          <input type="number" min="3" max="10" step="0.01" value="5.05" data-in="fx" aria-label="USD to BRL exchange rate">
+        </div>
+        <div class="hint">Edit to match the rate on your billing date.</div>
+      </div>
+
+      <div class="ctrl">
+        <div class="ctrl-top">
+          <span class="l">Health insurance</span>
+          <span class="v" data-out="health-label" style="font-size:13px">No</span>
+        </div>
+        <div class="seg" data-seg="health">
+          <button data-val="0" class="on">No</button>
+          <button data-val="1" class="green">Yes · R$ 1,500</button>
+        </div>
+      </div>
+
+      <div class="ctrl">
+        <div class="ctrl-top">
+          <span class="l">Show values in</span>
+        </div>
+        <div class="seg" data-seg="cur">
+          <button data-val="usd" class="on">USD</button>
+          <button data-val="brl">BRL</button>
+          <button data-val="both">Both</button>
+        </div>
+      </div>
+
+      <div class="note">
+        <b>Pricing</b><br>
+        USD 149 retainer per employee, plus 9.5% VAT on the payroll cost. Statutory costs are passed through at cost, with no markup.
+      </div>
+    </div>
+
+    <!-- OUTPUT -->
+    <div class="output">
+      <div class="head-label">Total monthly invoice</div>
+      <div class="headline" data-out="grand">$ 5,576</div>
+      <div class="head-sub">per employee, including VAT</div>
+
+      <div class="stats">
+        <div class="stat"><div class="sl">Payroll cost</div><div class="sv" data-out="payroll">$ 4,956</div></div>
+        <div class="stat"><div class="sl">Annual · <span data-out="hc2">1</span> FTE</div><div class="sv" data-out="annual">$ 66,910</div></div>
+        <div class="stat"><div class="sl">Markup vs gross</div><div class="sv" data-out="markup">76.0%</div></div>
+      </div>
+
+      <div class="rows">
+        <div class="row"><span class="l">Gross monthly salary</span><span class="pct">100%</span><span class="v" data-out="grossV">$ 3,168</span></div>
+
+        <div class="row grp"><span class="l">Statutory charges</span></div>
+        <div class="row"><span class="l ind">FGTS</span><span class="pct">8.0%</span><span class="v" data-out="fgts">—</span></div>
+        <div class="row"><span class="l ind">Employer INSS</span><span class="pct">20.0%</span><span class="v" data-out="inss">—</span></div>
+        <div class="row"><span class="l ind">RAT / SAT</span><span class="pct" data-out="ratPct">3.0%</span><span class="v" data-out="ratV">—</span></div>
+        <div class="row"><span class="l ind">Sistema S</span><span class="pct">5.8%</span><span class="v" data-out="sis">—</span></div>
+
+        <div class="row grp"><span class="l">Annual provisions (÷ 12)</span></div>
+        <div class="row"><span class="l ind">13th salary + charges</span><span class="pct">11.4%</span><span class="v" data-out="thirteenth">—</span></div>
+        <div class="row"><span class="l ind">Vacation bonus ⅓ + charges</span><span class="pct">3.8%</span><span class="v" data-out="vac">—</span></div>
+
+        <div class="row grp"><span class="l">Benefits</span></div>
+        <div class="row"><span class="l ind">Meal allowance + life insurance</span><span class="pct"></span><span class="v" data-out="ben">—</span></div>
+        <div class="row" id="hrow" style="display:none"><span class="l ind">Health insurance</span><span class="pct"></span><span class="v" data-out="healthV">—</span></div>
+
+        <div class="row sub"><span class="l">Payroll cost (pass-through)</span><span class="pct"></span><span class="v" data-out="payrollRow">$ 4,956</span></div>
+        <div class="row"><span class="l">Wide Brazil retainer</span><span class="pct">fixed</span><span class="v">$ 149</span></div>
+        <div class="row"><span class="l">VAT</span><span class="pct">9.5%</span><span class="v" data-out="vat">$ 471</span></div>
+        <div class="row tot"><span class="l">Total monthly invoice</span><span class="v" data-out="grandRow">$ 5,576</span></div>
+      </div>
+
+      <div class="foot">Reference FX: USD/BRL 5.05. Final values depend on the RAT classification of the client's activity and on the exchange rate at the billing date.</div>
+    </div>
+  </div>
+
+  <div class="bottom">
+    <span class="brand">widebrazil.com</span>
+    <span class="conf">Confidential · partner pricing</span>
+    <button class="btn" onclick="window.print()">Export PDF</button>
+  </div>
+
+</div>
+
+<script>
+const RETAINER = 149;   // USD, per employee / month
+const VAT = 0.095;      // on payroll cost
+const HEALTH = 1500;    // BRL / month when enabled
+
+const state = { salary: 16000, hc: 1, fx: 5.05, health: 0, cur: 'usd' };
+
+function fu(n){ return '$ ' + Math.round(n).toLocaleString('en-US'); }
+function fb(n){ return 'R$ ' + Math.round(n).toLocaleString('pt-BR'); }
+
+// format a BRL amount according to the currency toggle
+function fmt(brl){
+  const usd = brl / state.fx;
+  if(state.cur === 'usd') return fu(usd);
+  if(state.cur === 'brl') return fb(brl);
+  return fu(usd) + ' · ' + fb(brl);
+}
+// format a USD amount according to the currency toggle
+function fmtU(usd){
+  if(state.cur === 'brl') return fb(usd * state.fx);
+  if(state.cur === 'both') return fu(usd) + ' · ' + fb(usd * state.fx);
+  return fu(usd);
+}
+
+function calc(){
+  const g = state.salary;
+  const fx = state.fx;
+  const rat = 0.03;
+  const sr = 0.08 + 0.20 + rat + 0.058;
+  const fgts = g * 0.08;
+  const inss = g * 0.20;
+  const ratV = g * rat;
+  const sis = g * 0.058;
+  const thirteenth = (g + g * sr) / 12;
+  const vacBase = g / 3;
+  const vac = (vacBase + vacBase * sr) / 12;
+  const meal = 558;      // BRL / month
+  const life = 150;      // BRL / month
+  const ben = meal + life;
+  const health = state.health * HEALTH;
+  const payrollBRL = g + fgts + inss + ratV + sis + thirteenth + vac + ben + health;
+  const payrollUSD = payrollBRL / fx;
+  const vatUSD = payrollUSD * VAT;
+  const grandUSD = payrollUSD + RETAINER + vatUSD;
+  const markup = ((grandUSD - g / fx) / (g / fx)) * 100;
+  const annual = grandUSD * 12 * state.hc;
+  return { g, rat, fgts, inss, ratV, sis, thirteenth, vac, ben, health,
+           payrollBRL, payrollUSD, vatUSD, grandUSD, markup, annual };
+}
+
+function set(k, v){
+  document.querySelectorAll('[data-out="'+k+'"]').forEach(el => el.textContent = v);
+}
+
+function render(){
+  const r = calc();
+
+  set('grand', fmtU(r.grandUSD));
+  set('grandRow', fmtU(r.grandUSD));
+  set('payroll', fmtU(r.payrollUSD));
+  set('payrollRow', fmtU(r.payrollUSD));
+  set('annual', fmtU(r.annual));
+  set('vat', fmtU(r.vatUSD));
+  set('markup', r.markup.toFixed(1) + '%');
+
+  set('salary', r.g.toLocaleString('en-US'));
+  set('grossV', fmt(r.g));
+  set('fgts', fmt(r.fgts));
+  set('inss', fmt(r.inss));
+  set('ratPct', (r.rat * 100).toFixed(1) + '%');
+  set('ratV', fmt(r.ratV));
+  set('sis', fmt(r.sis));
+  set('thirteenth', fmt(r.thirteenth));
+  set('vac', fmt(r.vac));
+  set('ben', fmt(r.ben));
+  set('healthV', fmt(r.health));
+
+  set('hc', state.hc);
+  set('hc2', state.hc);
+  set('health-label', state.health ? 'Yes' : 'No');
+
+  document.getElementById('hrow').style.display = state.health ? '' : 'none';
+}
+
+document.querySelectorAll('[data-in]').forEach(el => {
+  el.addEventListener('input', () => {
+    const k = el.dataset.in;
+    const v = parseFloat(el.value);
+    if(k === 'fx'){ if(!isFinite(v) || v <= 0) return; state.fx = v; }
+    else state[k] = v;
+    render();
+  });
+});
+
+document.querySelectorAll('[data-seg]').forEach(seg => {
+  seg.querySelectorAll('button').forEach(b => {
+    b.addEventListener('click', () => {
+      seg.querySelectorAll('button').forEach(x => x.classList.remove('on'));
+      b.classList.add('on');
+      const k = seg.dataset.seg;
+      const val = b.dataset.val;
+      state[k] = (val === '0' || val === '1') ? +val : val;
+      render();
+    });
+  });
+});
+
+render();
+</script>
+</body>
+</html>
